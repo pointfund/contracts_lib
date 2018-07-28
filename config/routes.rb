@@ -15,16 +15,16 @@ Rails.application.routes.draw do
   resources :books
 
 
-  get 'guide/index'
-  get 'guide/map'
-  get 'guide/start'
+  # get 'guide/index'
+  # get 'guide/map'
+  # get 'guide/start'
   get 'guide/login'
-  resources :records
-  get 'pdf_pages/index'
-  get "reset" => "page_parts#reset"
+  # resources :records
+  # get 'pdf_pages/index'
+  # get "reset" => "page_parts#reset"
 
-  get "show_edit" => "contracts#show_edit"
-  post "show_edit" => "contracts#show_edit"
+  # get "show_edit" => "contracts#show_edit"
+  # post "show_edit" => "contracts#show_edit"
 
   get 'pdf_pages/show'
   get 'pdf_pages/create'
