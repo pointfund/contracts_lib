@@ -6,8 +6,8 @@ before_action :set_book, only: [:show, :edit, :update, :destroy]
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
-    @layouts = PageLayout.all
+    # @books = Book.all
+    # @layouts = PageLayout.all
     # @contracts = Contract.all
     # if(params[:id] != nil)
     #   @contracts = Contract.where({ book_id: params[:id] })
