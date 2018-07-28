@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Page Parts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contract</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @page_parts.each do |page_part| %>
+      <tr>
+        <td><%= page_part.name %></td>
+        <td><%= page_part.contract_id %></td>
+        <td><%= page_part.content %></td>
+        <td><%= link_to 'Show', page_part %></td>
+        <td><%= link_to 'Edit', edit_page_part_path(page_part) %></td>
+        <td><%= link_to 'Destroy', page_part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Page Part', new_page_part_path %>

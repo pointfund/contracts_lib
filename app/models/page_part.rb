@@ -1,0 +1,2 @@
+class PagePart < ApplicationRecord
+end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @page_part.name %>
+</p>
+
+<p>
+  <strong>Contract:</strong>
+  <%= @page_part.contract_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @page_part.content %>
+</p>
+
+<%= link_to 'Edit', edit_page_part_path(@page_part) %> |
+<%= link_to 'Back', page_parts_path %>

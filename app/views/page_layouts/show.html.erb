@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @page_layout.name %>
+</p>
+
+<p>
+  <strong>Posx:</strong>
+  <%= @page_layout.posx %>
+</p>
+
+<p>
+  <strong>Posy:</strong>
+  <%= @page_layout.posy %>
+</p>
+
+<p>
+  <strong>Page part:</strong>
+  <%= @page_layout.page_part %>
+</p>
+
+<p>
+  <strong>Contract:</strong>
+  <%= @page_layout.contract_id %>
+</p>
+
+<%= link_to 'Edit', edit_page_layout_path(@page_layout) %> |
+<%= link_to 'Back', page_layouts_path %>

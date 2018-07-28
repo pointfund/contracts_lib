@@ -1,0 +1,42 @@
+<%= form_with(model: page_layout, local: true) do |form| %>
+  <% if page_layout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(page_layout.errors.count, "error") %> prohibited this page_layout from being saved:</h2>
+
+      <ul>
+      <% page_layout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :posx %>
+    <%= form.number_field :posx %>
+  </div>
+
+  <div class="field">
+    <%= form.label :posy %>
+    <%= form.number_field :posy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :page_part %>
+    <%= form.number_field :page_part %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contract_id %>
+    <%= form.number_field :contract_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

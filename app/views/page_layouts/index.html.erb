@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Page Layouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Posx</th>
+      <th>Posy</th>
+      <th>Page part</th>
+      <th>Contract</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @page_layouts.each do |page_layout| %>
+      <tr>
+        <td><%= page_layout.name %></td>
+        <td><%= page_layout.posx %></td>
+        <td><%= page_layout.posy %></td>
+        <td><%= page_layout.page_part %></td>
+        <td><%= page_layout.contract_id %></td>
+        <td><%= link_to 'Show', page_layout %></td>
+        <td><%= link_to 'Edit', edit_page_layout_path(page_layout) %></td>
+        <td><%= link_to 'Destroy', page_layout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Page Layout', new_page_layout_path %>

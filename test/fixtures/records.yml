@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loan_name: MyString
+  current_date: 2018-07-28
+  client_first_name: MyString
+
+two:
+  loan_name: MyString
+  current_date: 2018-07-28
+  client_first_name: MyString

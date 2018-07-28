@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Record Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Contract</th>
+      <th>Var list</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @record_lists.each do |record_list| %>
+      <tr>
+        <td><%= record_list.contract_id %></td>
+        <td><%= record_list.var_list %></td>
+        <td><%= link_to 'Show', record_list %></td>
+        <td><%= link_to 'Edit', edit_record_list_path(record_list) %></td>
+        <td><%= link_to 'Destroy', record_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Record List', new_record_list_path %>

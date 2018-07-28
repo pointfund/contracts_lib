@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Loan name:</strong>
+  <%= @record.loan_name %>
+</p>
+
+<p>
+  <strong>Current date:</strong>
+  <%= @record.current_date %>
+</p>
+
+<p>
+  <strong>Client first name:</strong>
+  <%= @record.client_first_name %>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contract:</strong>
+  <%= @record_list.contract_id %>
+</p>
+
+<p>
+  <strong>Var list:</strong>
+  <%= @record_list.var_list %>
+</p>
+
+<%= link_to 'Edit', edit_record_list_path(@record_list) %> |
+<%= link_to 'Back', record_lists_path %>
