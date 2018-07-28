@@ -1,2 +1,44 @@
-<h1>Guide#map</h1>
-<p>Find me in app/views/guide/map.html.erb</p>
+<div class="panel panel-default panel-info"> 
+	<div class="panel-heading"> 
+		<div class="row"> 
+			<div class="col-sm-8">
+				<h4>
+				Contract Editing :</h4>
+			</div>
+		</div> 
+		
+	</div>
+	<div class="">
+		<div class="row">
+			<div class="col-md-2 col-md-offset-5">
+				<div class="panel-body "> 
+		  			<%= link_to "PDF Creator", guide_start_path, class: "btn btn-info" %> 
+		  			<%= link_to "Browse Contracts ", contracts_path, class: "btn btn-success" %>
+		  			<%= # link_to "Edit Contracts", show_edit_path(contract_id: 1), class: "btn btn-info" 
+		  			%>  
+
+
+
+					<div class="btn-group ">
+						<div type="button" class="btn btn-default dropdown-toggle btn-danger " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Edit Contracts <span class="caret"></span>
+						</div>
+			  		<ul class="dropdown-menu ">
+						<% @contracts.length.times do |var|%>
+					<!-- some_controller_name/some_get_request -->
+							<li><%= link_to show_edit_path(contract_id: @contracts[var].id.to_s), {:controller => "contract", :action => "show_edit" }  do  %>
+								<%= @contracts[var].id %>
+								<%= @contracts[var].name %>
+								<% end %>
+							</li>
+							<% end %>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+					</ul>
+					</div>
+		  		</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<%  %>

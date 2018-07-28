@@ -1,13 +1,18 @@
 class GuideController < ApplicationController
-  def index
-  end
+	def index
 
-  def start
-  end
+	end
 
-  def map
-  end
+	def start
+		@records = Record.all
+	end
+	
+	def map
+		@contracts = Contract.all
+	end
+	
+	def login
+		 # :authenticate_user
+	end
 
-  def login
-  end
 end
