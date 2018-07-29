@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 before_action :set_book, only: [:show, :edit, :update, :destroy]
-  include DisplayBookContracts
+  # include DisplayBookContracts
   # include PdfFontsHelper
 
   # GET /books

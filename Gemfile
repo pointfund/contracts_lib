@@ -38,9 +38,11 @@ gem 'prawn-table', '~> 0.1.0'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
+
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'bootstrap-sass'
+
 
 
 
@@ -53,7 +55,7 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  # gem 'web-console', '>= 3.3.0'
   gem 'sqlite3'
   gem 'puma', '~> 3.11'
 end
