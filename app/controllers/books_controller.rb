@@ -1,7 +1,10 @@
 class BooksController < ApplicationController
+  require 'active_support'
+require 'active_support/core_ext'
 before_action :set_book, only: [:show, :edit, :update, :destroy]
-  include DisplayBookContracts
+  # include DisplayBookContracts
   # include PdfFontsHelper
+helpers.this_method
 
   # GET /books
   # GET /books.json
