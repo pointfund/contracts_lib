@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 require 'active_support/core_ext'
 before_action :set_book, only: [:show, :edit, :update, :destroy]
   # include DisplayBookContracts
-  # include PdfFontsHelper
+  # include PdfFontsHelper add helper to file method
 helpers.this_method
 
   # GET /books
