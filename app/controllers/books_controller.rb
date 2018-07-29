@@ -1,14 +1,14 @@
 class BooksController < ApplicationController
 before_action :set_book, only: [:show, :edit, :update, :destroy]
-  include DisplayBookContracts
+  # include DisplayBookContracts
   # include PdfFontsHelper
 
   # GET /books
   # GET /books.json
   def index
     @books = Book.all
-    # @layouts = PageLayout.all
-    # @contracts = Contract.all
+    @layouts = PageLayout.all
+    @contracts = Contract.all
     # if(params[:id] != nil)
     #   @contracts = Contract.where({ book_id: params[:id] })
     # else
