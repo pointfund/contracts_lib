@@ -26,10 +26,14 @@
 			  		<ul class="dropdown-menu ">
 						<% @contracts.length.times do |var|%>
 					<!-- some_controller_name/some_get_request -->
-							<li><%= link_to show_edit_path(contract_id: @contracts[var].id.to_s), {:controller => "contract", :action => "show_edit" }  do  %>
-								<%= @contracts[var].id %>
-								<%= @contracts[var].name %>
-								<% end %>
+							<li><%= #link_to show_edit_path(contract_id: @contracts[var].id.to_s), {:controller => "contract", :action => "show_edit" }  do  
+							%>
+								<%= #@contracts[var].id 
+								%>
+								<%= #@contracts[var].name 
+								%>
+								<% # end 
+								%>
 							</li>
 							<% end %>
 						<li role="separator" class="divider"></li>
