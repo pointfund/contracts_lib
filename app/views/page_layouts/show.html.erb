@@ -1,10 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @page_layout.name %>
-</p>
-
+<div class="panel panel-default"> 
+    <div class="panel-heading"> 
+      <p id="notice"><%= notice %></p>
+      </h2>
+        <strong>Name:</strong>
+        <%= @page_layout.name %>
+      </h2>
+    </div>
+    <div class="panel-body"> 
 <p>
   <strong>Posx:</strong>
   <%= @page_layout.posx %>
@@ -24,6 +26,12 @@
   <strong>Contract:</strong>
   <%= @page_layout.contract_id %>
 </p>
+</div>
+<div class="btn btn-default"><%= link_to 'Edit', edit_page_layout_path(@page_layout) %> </div>
+<div class="btn btn-default"><%= link_to 'Show Layouts', page_layouts_path(id: params[:id]) %></div>
+<div class="btn btn-default"><%= link_to 'Show Layouts of Page', page_layouts_path(contract_id: @page_layout.contract_id) %></div>
+<div class="btn btn-default"><%= link_to 'Show Layouts', page_layouts_path(id: params[:id]) %></div>
+<div class="btn btn-default"><%= link_to 'Show Contract Sections', page_parts_path(contract_id: @page_layout.contract_id) %></div>
+<div class="btn btn-info"><%= link_to 'Back to Add Sections', show_edit_path(contract_id: @page_layout.contract_id)  %></div>
 
-<%= link_to 'Edit', edit_page_layout_path(@page_layout) %> |
-<%= link_to 'Back', page_layouts_path %>
+</div>

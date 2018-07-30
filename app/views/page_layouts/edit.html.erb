@@ -1,6 +1,11 @@
-<h1>Editing Page Layout</h1>
+<div class="panel panel-default"> 
+    <div class="panel-heading"> 
+    	<h1>Editing Section Layout</h1>
+	</div>
 
-<%= render 'form', page_layout: @page_layout %>
+	<%= render 'form', page_layout: @page_layout
+	 %>
 
-<%= link_to 'Show', @page_layout %> |
-<%= link_to 'Back', page_layouts_path %>
+	<div class="btn btn-default"><%= link_to 'Show', @page_layout %> </div>
+	<div class="btn btn-default"><%= link_to 'Back', page_layouts_path %></div>
+</div>

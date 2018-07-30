@@ -1,11 +1,11 @@
 <div class="panel-body"> 
 <%= form_with(model: @page_layout, local: true) do |form| %>
-  <% if page_layout.errors.any? %>
+  <% if @page_layout.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(page_layout.errors.count, "error") %> prohibited this page_layout from being saved:</h2>
 
       <ul>
-      <% page_layout.errors.full_messages.each do |message| %>
+      <% @page_layout.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -17,7 +17,7 @@
 
         <div class="field">
           <%= form.label :name %>
-          <%= form.text_field :name, :value => page_layout.name  %>
+          <%= form.text_field :name, :value => @page_layout.name  %>
         </div>
 
         <div class="field">

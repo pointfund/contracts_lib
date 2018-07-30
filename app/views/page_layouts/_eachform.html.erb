@@ -1,0 +1,24 @@
+
+    <%= form_with(model: page_layout, local: true) do |form| %>
+        <!-- <tr style="min-height:50px;"> -->
+            <td class="field">
+                <%= page_layout.id %>
+            </td>
+            <td class="field">
+                <%= form.text_field :name , {size: 20}%>
+            </td>
+            <td class="field">
+                <%= form.text_field :posx, {size: 5} %>
+            </td>
+            <td class="field">
+                <%= form.text_field :posy, {size: 5} %>
+            </td>
+            <td class="field">
+                <%= form.text_field :contract_id, {size: 5} %>
+            </td>
+       
+            <td class="actions ">
+                <%= form.submit %>
+            </td>
+        <!-- </tr> -->
+    <% end %>

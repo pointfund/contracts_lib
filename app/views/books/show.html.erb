@@ -1,14 +1,60 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default"> 
+	<div class="panel-heading"> 
+		<p id="notice"><%= notice %></p>
+		<h2>Contract id: <%= @contract.id %> <%= @contract.name %></h2>
+		<div class="row">
+			<div class="col-md-6"><%= @layouts.length %> layouts  </div>
+			<div class="col-md-6"><span class="pull-right"><%= @page_parts.length %> sections</span></div>
+		</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @book.name %>
-</p>
+	</div>
+	<div class="panel-body">
+			<div class="row">
+    		<div class="col-md-6">Sections:<%= @contract.sections %>
+	  		</div>
+    		<div class="col-md-6"><span class="pull-right">Book id:  <%= @contract.book_id %> </span></div>
+  		</div>	
+	</div>
+	<!-- </div> -->
+	<!-- </div> -->
 
-<p>
-  <strong>Page count:</strong>
-  <%= @book.page_count %>
-</p>
+	<div class="btn btn-default">
+		<%= link_to 'Edit Contract', edit_contract_path(@contract) %> 			
+	</div>
+	<div class="btn btn-info ">
+		<%= #link_to 'View All', contracts_path
+		 %>			
+	</div>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+	<!-- </div> -->
+
+
+	<div class="row">
+		<div class="col-md-8">
+			<%=  render "sort/parts" 
+%>
+  		</div>
+		<div class="col-md-4 pull-right">
+			<span class="t">
+			<%=  render  "sort/layouts" 
+%>
+			</span>
+		</div>
+	</div>	
+
+	<%= # render 'form', contract: @contract 
+	%>
+		<!-- <div class="panel-body"> -->
+	<%= #  render  "sort/layouts" 
+	%>
+
+	<%= # render "sort/parts" 
+	%>
+
+	<%=   render "sort/mycontracts" 
+	%>
+	<!-- </div> -->
+</div>
+<%=  render "sort/menu" 
+%>
+  <div class="btn btn-info"><%= link_to "Add Section", new_page_part_path(contract_id: (@page_parts.length + 1) ) %></div>

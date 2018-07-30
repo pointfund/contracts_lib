@@ -1,0 +1,44 @@
+<%= #render "show/partsform" 
+%>
+
+<%= #render 'records/form', record: @record 
+%>
+
+<%= 
+
+	# puts @page_p.to_s 
+
+%>
+
+
+
+
+<%= @page_part.length 
+%>
+
+
+<%= #@page_part[1].name 
+%>
+
+<% @page_part.each do |pp| %>
+	<%= pp.id %>
+	<%= pp.name %>
+<% end %>
+
+
+
+	<div class="panel panel-default"> 
+		<div class="panel-heading"> 
+			<h1>Editing Page Section</h1>
+		</div>
+		
+
+
+		<%= #render 'page_parts/form', page_part: @page_part 
+		%>
+		<%= # render 'pagepart/form', page_part: @page_part 
+		%>
+
+	</div>
+
+

@@ -1,0 +1,30 @@
+<div class="panel panel-body col-lg-4">
+  <%= form_with(model:  VariableList.new) do |form| %>
+    <table>
+    <thead>
+        <tr>
+            <th ><%= form.label :name %></th>
+            <th ><%= form.label :contract_id %></th>
+            <th ><%= form.label :content %></th>
+
+            <th ></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= form.text_field :name %></td>
+            <td><%= form.number_field :contract_id, max: 10000, min: 1 %></td>
+            <td><%= form.text_area :content,  cols: "30", rows: "3" %></td>
+        	<td><%= form.submit %></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5">The table footer</td>
+        </tr>
+    </tfoot>
+</table>
+ <% end %>
+
+</div>
+

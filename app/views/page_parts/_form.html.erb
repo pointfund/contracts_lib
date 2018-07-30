@@ -1,32 +1,63 @@
-<%= form_with(model: page_part, local: true) do |form| %>
-  <% if page_part.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(page_part.errors.count, "error") %> prohibited this page_part from being saved:</h2>
 
-      <ul>
-      <% page_part.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<!-- <div class="row"> -->
+    
+<div class="panel panel-body col-lg-6">
+
+  <%= form_with(model: page_part, local: true) do |form| %>
+    <% if page_part.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(page_part.errors.count, "error") %> prohibited this page_part from being saved:</h2>
+        <ul>
+        <% page_part.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_area :content %>
+    </div>
 
-  <div class="field">
-    <%= form.label :contract_id %>
-    <%= form.number_field :contract_id %>
-  </div>
+    <% # if( params[:id] != nil  || params[:contract_id != nil]) 
+    %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <p> Part for existing Contract 
+    <%= #form.label 
+    # params[:contract_id] 
+    %> 
+    <%= #form.hidden_field  :contract_id, value: @page_layout.contract_id
+    %>
+    <%= #form.hidden_field  :contract_id, value: params[:contract_id] 
+    %>
+  
+    </p>
+    <% # elsif(params[:contract_id] != nil) 
+    %>
+    <%= #form.hidden_field  :contract_id, value: params[:contract_id]
+    %>
+     <% #else
+    %>
+    <div class="field">
+      <%= form.label :contract_id %>
+      <%= form.number_field :contract_id %>
+    </div>
+    <% # end
+    %>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+ <% end %>
+</div>
+
+ <!-- </div> -->

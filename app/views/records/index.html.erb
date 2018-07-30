@@ -8,6 +8,36 @@
       <th>Loan name</th>
       <th>Current date</th>
       <th>Client first name</th>
+      <th>Client last name</th>
+
+      <th>nick</th>
+      <th>street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Note</th>
+      <th>Amount</th>
+      <th>finance Fee</th>
+
+      <th>term</th>
+      <th>term</th>
+      <th>start</th>
+      <th>1st</th>
+      <th>Mature</th>
+      <th>Total</th>
+
+      <th>payment_day</th>
+      <th>loan_Act_Fee</th>
+      <th>Rate</th>
+      <th>Penality</th>
+      <th>late fee</th>
+      <th>total default</th>
+
+      <th>final Date</th>
+      <th>Guarantor 1</th>
+      <th>Guarantor 2</th>
+      <th>Guarantor 3</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +48,66 @@
         <td><%= record.loan_name %></td>
         <td><%= record.current_date %></td>
         <td><%= record.client_first_name %></td>
+        <td><%= record.client_last_name %></td>
+
+        <td><%= record.client_nick %></td>
+        <td><%= record.address_street %></td>
+        <td><%= record.address_city %></td>
+        <td><%= record.address_state %></td>
+        <td><%= record.address_zip %></td>
+
+        <td><%= record.note_date %></td>
+        <td><%= record.loan_amount %></td>
+        <td><%= record.fin_fee %></td>    
+
+        <td><%= record.repay_term1 %></td>
+        <td><%= record.repay_term2 %></td>
+
+        <td><%= record.repay_start %></td>
+        <td><%= record.repay_1st %></td>
+        <td><%= record.repay_mature %></td>
+        <td><%= record.total_amount %></td>
+        <td><%= record.payment_mth_day %></td>
+        <td><%= record.loan_act_fee %></td>
+
+        <td><%= record.stated_rate %></td>
+        <td><%= record.repay_penalty %></td>
+        <td><%= record.daily_late_fee %></td>
+        <td><%= record.final_date %></td>
+        <td><%= record.guarantee01 %></td>
+        <td><%= record.guarantee02 %></td>        
+        <td><%= record.guarantee03 %></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <td><%= link_to 'Show', record %></td>
         <td><%= link_to 'Edit', edit_record_path(record) %></td>
         <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>

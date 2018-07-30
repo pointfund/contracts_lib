@@ -1,0 +1,50 @@
+<!-- <div class="">  -->
+    <%= form_with(model: page_part, local: true) do |form| %>
+    <% if page_part.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(page_part.errors.count, "error") %> prohibited this page_part from being saved:</h2>
+            <ul>
+            <% page_part.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <tr style="border:1px dashed #555;">
+        <td class="field1">
+            <%= page_part.id %>
+        </td>
+        <td class="field1">
+            <%= form.text_field :name, {size: 20} %>
+        </td>
+        <td class="field">
+            <%= form.number_field :contract_id, max: 10000, min: 1 %>
+        </td>
+        <td class="field1">
+            <%= form.text_area :content, cols: "30", rows: "3" %>
+        </td>
+        <% # if( params[:id] != nil  ) 
+        %>
+        <%= #form.label 
+         # @page_part.contract_id 
+        %> 
+        <%= #form.hidden_field  :contract_id, value: @page_layout.contract_id
+        %>
+        <%= form.hidden_field  :contract_id, value: params[:contract_id] 
+        %>
+        <% # elsif(params[:contract_id] != nil) 
+        %>
+       <%= #form.hidden_field  :contract_id, value: params[:contract_id]
+        %>
+        <% # else
+        %>
+
+        <% # end
+        %>
+        <td class="actions ">
+            <%= form.submit %>
+        </td>
+    </tr>
+    <% end %>
+<!-- </div> -->
+ 

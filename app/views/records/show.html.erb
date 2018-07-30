@@ -1,19 +1,135 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Loan name:</strong>
+  <strong>1) Loan name:<span class="key"> #{loan_name} : </span></strong>
   <%= @record.loan_name %>
 </p>
 
 <p>
-  <strong>Current date:</strong>
+  <strong>2) Current date:<span class="key"> #{current_date} : </strong>
   <%= @record.current_date %>
 </p>
 
 <p>
-  <strong>Client first name:</strong>
+  <strong>3) Client first name:<span class="key"> #{client_first_name} : </strong>
   <%= @record.client_first_name %>
+
+  <strong>4) Client last name:<span class="key"> #{client_last_name} : </strong>
+  <%= @record.client_last_name %>
+
+  <strong>5) Client nick name :<span class="key"> #{client_nick} : </strong>
+  <%= @record.client_nick %>
 </p>
 
-<%= link_to 'Edit', edit_record_path(@record) %> |
-<%= link_to 'Back', records_path %>
+
+
+<p>
+  <strong>6) Client Address:<span class="key"> #{address} : </strong>
+  <%= @record.address_street %>
+  <%= @record.address_city %>
+  <%= @record.address_state %>
+  <%= @record.address_zip %>
+</p>
+
+
+<p>
+  <strong>7) Date Notes:<span class="key"> #{note_date} :</span> </strong>
+  <%= @record.note_date %>
+</p>
+
+
+<p>
+  <strong>8) Loan Amount :<span class="key">  #{loan_amount} :</span> </strong>
+  <%= @record.loan_amount %>
+</p>
+<p>
+  <strong>9) Finance Fee:<span class="key">  #{fin_fee} :</span> </strong>
+  <%= @record.fin_fee %>
+</p>
+
+<p>
+  <strong>10) repay term 12,24,36 :<span class="key">  #{repay_term1} :</span> </strong>
+  <%= @record.repay_term1 %>
+</p>
+<p>
+  <strong>11) repay term 12,24,36:<span class="key">  #{repay_term2} :</span> </strong>
+  <%= @record.repay_term2 %>
+</p>
+
+<p>
+  <strong>12) repay start :<span class="key"> #{repay_start} :</span> </strong>
+  <%= @record.repay_start %>
+</p>
+
+
+<p>
+  <strong>13) repay 1st :<span class="key"> #{repay_1st} :</span> </strong>
+  <%= @record.repay_1st %>
+</p>
+
+<p>
+  <strong>14) repay mature date :<span class="key"> #{repay_mature} :</span> </strong>
+  <%= @record.repay_mature %>
+</p>
+
+<p>
+  <strong>15) Total Amount :<span class="key"> #{total_amount} :</span> </strong>
+  <%= @record.total_amount %>
+</p>
+
+<p>
+  <strong>16) Payment Monthly Day :<span class="key"> #{payment_mth_day} :</span> </strong>
+  <%= @record.payment_mth_day %>
+</p>
+
+<p>
+  <strong>17) Loan Activation Fee :<span class="key"> #{loan_act_fee} :</span> </strong>
+  <%= @record.loan_act_fee %>
+</p>
+<p>
+  <strong>18) Stated Rate :<span class="key">  #{stated_rate} :</span> </strong>
+  <%= @record.stated_rate %>
+</p>
+
+<p>
+  <strong>19) Penalty Rate :<span class="key"> #{repay_penalty} :</span> </strong>
+  <%= @record.repay_penalty %>
+</p>
+<p>
+  <strong>20) daily late Rate :<span class="key">  #{daily_late_fee} :</span> </strong>
+  <%= @record.daily_late_fee %>
+</p>
+<p>
+  <strong>21) Total :<span class="key">  #{total_default} :</span>  </strong>
+  <%= @record.total_default %>
+</p>
+
+<p>
+  <strong>22) Final Date :<span class="key"> #{final_date} :</span> </strong>
+  <%= @record.final_date %>
+</p>
+<p>
+  <strong>1) Guarantor :<span class="key"> #{guarantee01} :</span> </strong>
+  <%= @record.guarantee01 %>
+</p><p>
+  <strong>1) Guarantor 2 :<span class="key">  #{guarantee02} :</span> </strong>
+  <%= @record.guarantee02 %>
+</p><p>
+  <strong>1) Guarantor 3 :<span class="key">  #{guarantee03} :</span> </strong>
+  <%= @record.guarantee03 %>
+</p>
+
+
+
+
+
+
+
+
+
+
+<div class="btn btn-info">
+	<%= link_to 'Edit', edit_record_path(@record) %> </div>
+<div class="btn btn-primary">
+	<%= link_to 'To PDF', :controller => :pdf_pages, :action => :index, :rec_id => @record.id %>
+</div>

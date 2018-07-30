@@ -1,0 +1,140 @@
+<!-- _form_show.html.erb -->
+
+<div class="row">
+    
+    <div class="panel panel-default col-lg-12">
+  
+  <%= form_with(model: record, local: true) do |form| %>
+      <% if record.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+          <ul>
+          <% record.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="actions  pull-right ">
+        <%= form.submit %>
+      </div>
+    <div class="col-lg-5">
+      <div class="panel-body">
+        <div class="field">
+          <%= form.label :loan_name %>
+          <%= form.text_field :loan_name %>
+      
+          <%= form.label :client_first_name %>
+          <%= form.text_field :client_first_name %>
+      
+          <%= form.label :client_last_name %>
+          <%= form.text_field :client_last_name %>
+
+          <%= form.label :client_nick %>
+          <%= form.text_field :client_nick %>
+        </div>
+        <div class="field">
+          <%= form.label :address_street %>
+          <%= form.text_field :address_street %>
+       
+          <%= form.label :address_city %>
+          <%= form.text_field :address_city %>
+    
+          <%= form.label :address_state %>
+          <%= form.text_field :address_state %>
+        
+          <%= form.label :address_zip %>
+          <%= form.text_field :address_zip %>
+        </div>
+        
+        <div class="field">
+          <%= form.label :guarantee01 %>
+          <%= form.text_field :guarantee01 %>
+
+          <%= form.label :guarantee02 %>
+          <%= form.text_field :guarantee02 %>
+
+          <%= form.label :guarantee03 %>
+          <%= form.text_field :guarantee03 %>
+        </div>
+        <div class="field">
+        <%= form.label :fin_fee %>
+        <%= form.text_field :fin_fee %>
+        <%= form.label :repay_term1 %>
+        <%= form.text_field :repay_term1 %>
+        <%= form.label :repay_term2 %>
+        <%= form.text_field :repay_term2 %>
+
+        <%= form.label :repay_mature %>
+        <%= form.text_field :repay_mature %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="panel-body">
+            <div class="field">
+                <%= form.label :current_date %>
+                <%= form.date_select :current_date %>
+                <%= form.label :note_date %>
+                <%= form.text_field :note_date %>
+            </div>
+            <div class="field">
+                <%= form.label :loan_amount %>
+                <%= form.text_field :loan_amount %>
+          
+            </div>
+            <div class="field">
+              <%= form.label :total_amount %>
+              <%= form.text_field :total_amount %>
+          
+              <%= form.label :payment_mth_day %>
+              <%= form.text_field :payment_mth_day %>
+           
+              <%= form.label :loan_act_fee %>
+              <%= form.text_field :loan_act_fee %>
+              <%= form.label :final_date %>
+              <%= form.text_field :final_date %>
+              <%= form.label :stated_rate %>
+              <%= form.text_field :stated_rate %>
+           
+              <%= form.label :repay_penalty %>
+              <%= form.text_field :repay_penalty %>
+           
+              <%= form.label :daily_late_fee %>
+              <%= form.text_field :daily_late_fee %>
+            
+              <%= form.label :total_default %>
+              <%= form.text_field :total_default %>
+            </div>
+                     <div class="field">
+                    <%= form.label :repay_start %>
+                    <%= #form.date_select :current_date 
+                    %>
+
+                    <%= form.date_select :repay_start %>
+                    <%= form.label :repay_1st %>
+                    <%= form.text_field :repay_1st %>
+                    <%= form.label :repay_start %>
+                    <%= form.text_field :repay_start %>
+                </div>
+        </div>
+    </div>
+ 
+
+    <div class="actions  pull-right ">
+        <%= form.submit %>
+    </div>
+
+
+
+
+
+
+
+
+
+        
+      <% end %>
+    </div>
+</div>
