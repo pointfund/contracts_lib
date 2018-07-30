@@ -1,2 +1,38 @@
-<h1>PdfPage#show</h1>
-<p>Find me in app/views/pdf_page/show.html.erb</p>
+<div class="panel panel-default"> 
+	<div class="panel panel-heading">
+		<h3>Que : </h3>
+		Book list : <% @book_list %>
+		<br />
+		Page set : <%= @record_page_set %>
+		<br />
+		Job IDs : <% @job_ids %>
+	</div>
+	<div class="panel-heading"> 
+		<h1>Page Pdf Selection</h1>
+	</div>
+	<div class="panel-body"> 
+		<h2>Choose pages</h2>
+		<ol>
+			<% @contracts.each do |z| %>
+				<li class="page_items"><%= z.id %> <%= z.name %>  
+					
+					<%= link_to "Add Page to pdf ", pdf_pages_show_path(  page: z.id, "records" =>  @record_page_set), class: "btn btn-info pull-right" %>
+					<%= link_to "Remove ", pdf_pages_show_path(remove: z.id, "records" =>  @record_page_set), class: "btn btn-danger pull-right" %>	
+					</li>
+			<% end %>
+			</ol>
+		<h2>Choose Books </h2>
+		<ol>
+			<% @books.each do |b| %>
+				<li class="page_items"><%= b.id %> <%= b.name %><%= link_to " Add Complete Book ", pdf_pages_show_path(book_c: b.id, :book_call => @book_list, "records" =>  @record_page_set), class: "btn btn-info pull-right"  %></li>
+			<% end %>
+		</ol>
+		<div class="">
+			<p><%= link_to " Clear ", pdf_pages_show_path, class: "btn btn-info"  %></p>
+		</div>
+
+		<p>Create pdf from record</p>
+		<%= link_to "Generate Pdf files", pdf_pages_create_path(format: 'pdf', records: @record_page_set) %>
+	</div>
+	
+</div>

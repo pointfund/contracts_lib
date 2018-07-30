@@ -1,2 +1,59 @@
-<h1>PdfPage#create</h1>
-<p>Find me in app/views/pdf_page/create.html.erb</p>
+<div class="panel panel-default player" > 
+	<div class="panel-heading" id="player"> 
+		<h1>Pages create pdf</h1>
+	</div>
+	<div class="panel-body"> 
+		<p>Create pdf from record</p>
+		<%= link_to "Generate Pdf files", pdf_pages_create_path(format: 'pdf', records: params["records"]) %>
+	</div>
+    <div class="panel-heading"> 
+		<h1>Contracts <%= @contracts.length %> Total <%= @moof %></h1>
+	</div>
+	<div class="panel-body"> 
+		<div>
+			<% @contracts.each do |page| %>
+				<%= page.id %>
+
+			<% end %>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+			    <% @parts.each do |section| %>
+			    <p>	ID
+					<%= section.id
+					%>,
+					<%= section.name
+					%> :
+					<%= section.content[0..50]
+					%>
+			    </p>
+			    <% end %>
+			</div>
+
+
+			<div class="col-md-6 pull-right">
+				
+			    <% @layouts.each do |layout| %>
+			         <p>
+			         <%= layout.id %> ID , 
+			         
+			         <%= layout.posx %> X, 
+			         <%= layout.posy %> Y,  
+			         <%= layout.page_part %> Part ID</p>
+			  
+			    <% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel-body"> 
+		<div class="pdf_preview">
+			 <% @layouts.each do |layout| %>
+			 	<div class="layout_box m5"   style="left:<%= layout.posx %>px; 
+			 			top:<%= layout.posy %>px; ">
+			 		<%=	layout.name %>
+			 	</div>
+			 <% end %>
+		</div>
+	</div>
+</div>
