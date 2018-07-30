@@ -1,4 +1,5 @@
 class PdfPageController < ApplicationController
+		# include PdfPagesHelper, PdfFontsHelper, ChooserPagesPdf
   def index
   	 @next = 0
         
