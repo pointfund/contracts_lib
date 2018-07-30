@@ -1,0 +1,15 @@
+<div class="rows">
+	<div class="col-md-2 col-md-offset-4">
+		<div class="all_menu"> View All of type
+			<div class="btn btn-info"><%= link_to 'Books', books_path %></div>
+			<div class="btn btn-success"><%= link_to 'Contracts', contracts_path %></div>
+
+			<div class="btn btn-default"><%= link_to 'Page Sections', page_parts_path %></div>
+			<div class="btn btn-info"><%= link_to 'Layouts', page_layouts_path %></div>
+		</div>
+		<div class="">
+		    <%=  render "sort/new_menu" 
+		    %>
+		</div>
+	</div>
+</div>

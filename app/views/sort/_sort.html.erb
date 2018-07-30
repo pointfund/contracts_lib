@@ -1,0 +1,8 @@
+_sort.html.erb
+
+ if (params["contract_id"] != nil)
+        @contracts = Contract.where({id: params["contract_id"]})
+        puts @contracts.length
+    else
+        @contracts = Contract.all
+    end

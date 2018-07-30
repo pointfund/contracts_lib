@@ -1,0 +1,9 @@
+      <% if(params["id"] == nil) %>
+          <h1>Records Based on all books </h1>
+      <% else %>
+          <h1>Contract from book : 
+              <%= @book[0].id
+          %>
+            <%= @book[0].name 
+          %></h1>
+      <% end %>

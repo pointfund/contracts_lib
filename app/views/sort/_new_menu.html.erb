@@ -1,0 +1,11 @@
+        <div class="btn btn-info">
+            <%= link_to 'New Contract', new_contract_path %>
+        </div>
+
+        <div class="btn btn-info">
+            <%= link_to 'New Section', new_page_part_path(contract_id: params[:cortract_id]) %>
+        </div>
+
+        <div class="btn btn-info">
+            <%= link_to 'New Layout', new_page_layout_path %>
+        </div>
