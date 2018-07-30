@@ -1,17 +1,17 @@
-<div class="panel panel-default"> 
-    <div class="panel-heading"> 
-		<h1>Editing Contract</h1>
-	</div>
-			
-	<%= render 'form', contract: @contract %>
+<div class="panel panel-default">  
 
-	<div class="panel-footer"> 
-		<div class=" btn btn-default">
-			<%= link_to 'Show Contract', @contract %> 
-		</div>
-		<div class=" btn btn-default">
-			<%= link_to 'Show All Contracts', contracts_path %>
-		</div>
-	</div>
 
-</div>		
+	<div class="panel-heading">
+
+		<h1>Editing Book</h1>
+	</div>
+<!-- <div class="panel-body"> -->
+
+
+	<%= render 'form', book: @book %>
+
+
+<!-- </div> -->
+	<div class="btn btn-default"><%= link_to 'View', @book %> </div>
+	<div class="btn btn-default"><%= link_to 'All Books', books_path %></div>
+</div>

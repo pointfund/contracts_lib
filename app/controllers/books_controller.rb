@@ -8,10 +8,13 @@ helpers.this_method
 
   # GET /books
   # GET /books.json
+ 
+  # GET /books
+  # GET /books.json
   def index
     @books = Book.all
     @layouts = PageLayout.all
-    @contracts = Contract.all
+    # @contracts = Contract.all
     if(params[:id] != nil)
       @contracts = Contract.where({ book_id: params[:id] })
     else
@@ -24,8 +27,8 @@ helpers.this_method
   # GET /books/1
   # GET /books/1.json
   def show
-    this_method
-    ShowBookContracts.new
+    # this_method
+    # ShowBookContracts.new
     @book_all = Book.all
     @books = Book.where({id: params[:id]})
     # @articles = Article.where({book_id: params[:id]})
@@ -100,8 +103,10 @@ helpers.this_method
       @book = Book.find(params[:id])
     end
 
-    #Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:name, :page_count)
     end
+
+    
 end

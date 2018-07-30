@@ -1,12 +1,7 @@
-<div class="panel panel-default"> 
-    <div class="panel-heading"> 
-		<h1>New Contract</h1>
-	</div>
-	<div class="panel-body"> 
-		<div class=" btn btn-default">
-			<%= link_to 'Back', contracts_path(book_id: params["book_id"]) %>
-		</div>
-	</div>
-	<%= render 'form', contract: @contract %>
-</div>	
+<h1>New Book</h1>
 
+<%= render 'form', book: @book %>
+
+<div class=" btn btn-default">
+	<%= link_to 'Back', books_path %>
+</div>

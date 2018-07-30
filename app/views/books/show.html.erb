@@ -1,60 +1,33 @@
 <div class="panel panel-default"> 
-	<div class="panel-heading"> 
-		<p id="notice"><%= notice %></p>
-		<h2>Contract id: <%= @contract.id %> <%= @contract.name %></h2>
-		<div class="row">
-			<div class="col-md-6"><%= @layouts.length %> layouts  </div>
-			<div class="col-md-6"><span class="pull-right"><%= @page_parts.length %> sections</span></div>
-		</div>
+    <div class="panel-heading"> 
+      <p id="notice"><%= notice %></p>  
+       <strong>Book ID</strong>
+          <%= @book.id %>  
+        <strong>Book Name:</strong>
+        <%= @book.name %>  
+        <strong>Contract Pages </strong>
+        <%= @book.page_count %>
+      <br />
+    </div>
 
-	</div>
-	<div class="panel-body">
-			<div class="row">
-    		<div class="col-md-6">Sections:<%= @contract.sections %>
-	  		</div>
-    		<div class="col-md-6"><span class="pull-right">Book id:  <%= @contract.book_id %> </span></div>
-  		</div>	
-	</div>
-	<!-- </div> -->
-	<!-- </div> -->
+      <div class="panel-body">
+        <div>
+      		<div class="btn btn-default"><%= link_to 'Edit Book', edit_book_path(@book) %></div> 
+      		<div class="btn btn-success"><%= link_to 'View All Books', books_path %> </div>
+      		<div class="btn btn-default"><%= link_to "New Contract in Book #{@book.id}", new_contract_path(:book_id => @book.id) %></div>
+      	</div>
+      </div>
+      <%=  %>
+      <%=  render "sort/mycontracts" 
+      %>
 
-	<div class="btn btn-default">
-		<%= link_to 'Edit Contract', edit_contract_path(@contract) %> 			
-	</div>
-	<div class="btn btn-info ">
-		<%= #link_to 'View All', contracts_path
-		 %>			
-	</div>
+      <%= # render "sort/parts" 
+      %>
+      <%= # render "sort/layouts" 
+      %>
+ 
+    <div class="btn btn-success"><%= link_to "New Contract in Book #{@book.id}", new_contract_path(:book_id => @book.id) %></div>
+      
 
-	<!-- </div> -->
-
-
-	<div class="row">
-		<div class="col-md-8">
-			<%=  render "sort/parts" 
-%>
-  		</div>
-		<div class="col-md-4 pull-right">
-			<span class="t">
-			<%=  render  "sort/layouts" 
-%>
-			</span>
-		</div>
-	</div>	
-
-	<%= # render 'form', contract: @contract 
-	%>
-		<!-- <div class="panel-body"> -->
-	<%= #  render  "sort/layouts" 
-	%>
-
-	<%= # render "sort/parts" 
-	%>
-
-	<%=   render "sort/mycontracts" 
-	%>
-	<!-- </div> -->
+ 
 </div>
-<%=  render "sort/menu" 
-%>
-  <div class="btn btn-info"><%= link_to "Add Section", new_page_part_path(contract_id: (@page_parts.length + 1) ) %></div>
