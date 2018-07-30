@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'pdf_page/index'
   get 'pdf_page/show'
   get 'pdf_page/create'

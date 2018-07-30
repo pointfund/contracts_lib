@@ -100,7 +100,7 @@ helpers.this_method
       @book = Book.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    #Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:name, :page_count)
     end
