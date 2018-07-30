@@ -10,8 +10,8 @@
 		<div class="row">
 			<div class="col-md-2 col-md-offset-5">
 				<div class="panel-body"> 
-		  			<%= link_to "Browse Record", pdf_pages_index_path(rec_id: 1), class: "btn btn-info" %> 
-		  			<%= render "pdf_pages/pdf_rec" , records: @records %>
+		  			<%= link_to "Browse Record", pdf_page_index_path(rec_id: 1), class: "btn btn-info" %> 
+		  			<%= render "pdf_page/pdf_rec" , records: @records %>
 		  		</div>	
 		  			<%= link_to "Create New Record", { controller: :records, action: "new" }, class: "btn btn-default" %> 
 		  			<%= link_to "Back", guide_index_path(), class: "btn btn-default" %> 

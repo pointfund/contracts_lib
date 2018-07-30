@@ -1,0 +1,16 @@
+
+<div class="btn-group">
+	<div type="button" class="btn btn-default dropdown-toggle  btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Records <span class="caret"></span>
+	</div>
+	<ul class="dropdown-menu">
+	<% @records.length.times do |var|%>
+	<!-- some_controller_name/some_get_request -->
+		<li><%= link_to pdf_pages_index_path(rec_id: @records[var].id.to_s ) do  %>
+			<%= @records[var].id %>
+			<%= @records[var].loan_name %><% end %>
+		</li>
+	<% end %>
+	<li role="separator" class="divider"></li>
+	<li><a href="#">Separated link</a></li>
+</ul>

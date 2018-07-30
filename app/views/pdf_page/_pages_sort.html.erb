@@ -1,0 +1,44 @@
+	<div class="row">
+
+	<% counter = 1 %>
+			<button class="accordion">
+				Hello 
+			</button>
+			<% @contracts.each do |z| %>
+			<div class="panel_selection panel-default">
+		
+			<div class="col-sm-3 col-md-2">
+				<div class="panel panel-default">
+	 				<div class="panel panel-heading caption min-head">
+						<h6><%= z.id %> <%= z.name[0..30] %></h6>  
+					</div>
+					<div class="panel-body panel-button">
+		    			<div class="thumbnail">
+				
+		    			   <%= image_tag "pf_base_btn_set/#{counter}.jpg" %>  
+		    			   <%  counter = counter + 1 %>
+		    			   <%= counter %> 
+
+		    			</div>
+
+						<p class="page_items">
+							<%= link_to "Add Page to pdf ", pdf_pages_show_path(page: z.id, "records" =>  @record_page_set), class: "btn btn-info pull-right" 
+							%>
+
+							<%= link_to "Remove ", pdf_pages_show_path(remove: z.id, "records" =>  @record_page_set), class: "btn btn-danger pull-right" 
+							%>	
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% end %>
+		   
+
+      
+     
+
+
+
+
+</div>
