@@ -15,3 +15,74 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.book_outline{
+	border: 2px dashed red;
+	padding: 10px;
+}
+btn-default,  a:visited{
+    color: #000000;
+}
+/*btn-default, {
+    color: #666;
+}*/
+btn-success a:visited {
+    color: #d4d7db;
+}
+btn-danger a:visited {
+    color: #d4d7db;
+}
+td{
+	padding: 5px;
+}
+.pdf_preview{
+	min-width: 800px;
+	min-height: 1100px;
+	border:1px dashed red;
+}
+.layout_box{
+	border: 1px dashed blue;
+	min-width: 50px;
+	min-height: 50px;
+	margin:10px;
+	padding: 5px;
+	position:relative;
+	height:100px;
+	width:100px;
+	/*left:350px;*/
+}
+.m5{
+	/*left:100px;*/
+}
+@media (min-width: 1200px){
+.container {
+    width: 1540px;
+}}
+.active{
+	display:none;
+}
+.page_head{
+	height:110px;
+	padding: 10px;
+	background-color: #fff;
+	/*margin:5px;*/
+}
+.head_img{
+	height:64px;
+
+	/*height:95px;*/
+}
+.short-nav{
+	height:70px;
+	padding:2px;
+	background-color: #9cbef4;
+	margin:1px;
+}
+
+.short-nav h2, h2, h3{
+	margin:0px;
+}
+.sub-nav{
+	margin-bottom: 2px;
+}
