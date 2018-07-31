@@ -2,7 +2,7 @@
 	<!-- <div class="jumbotron page_head"> -->
 <div class="row ">
 	<div class="col-lg-8 well well-sm sub-nav">Create pdf from record
-		<%= link_to "Generate Pdf files", pdf_pages_create_path(format: 'pdf', records: @record_page_set, rec_id: @my_record ), class: "btn btn-primary btn-sm pull-right" %>
+		<%= link_to "Generate Pdf files", pdf_page_create_path(format: 'pdf', records: @record_page_set, rec_id: @my_record ), class: "btn btn-primary btn-sm pull-right" %>
 				<div class="btn-group pull-right">
 				<div type="button" class="btn btn-default dropdown-toggle  btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Records <span class="caret"></span>
@@ -25,7 +25,7 @@
      		 Pdf Que : <%= @record_page_set %>
      				
 		<% end %>
-		<%= link_to " Clear ", pdf_pages_index_path(rec_id: @my_record ), class: "btn btn-default btn-sm pull-right"  %>
+		<%= link_to " Clear ", pdf_page_index_path(rec_id: @my_record ), class: "btn btn-default btn-sm pull-right"  %>
 	</div>
 <!-- </div> -->
 	<!-- </div> -->
@@ -51,7 +51,7 @@
 		</div>
 		<div class="col-lg-8 ">
 			<!-- <div class="panel panel-info"> -->
-				<%= render "pdf_pages/samp_accord" %>
+				<%= render "pdf_page/samp_accord" %>
 			<!-- </div> -->
 		</div>
 	</div>
