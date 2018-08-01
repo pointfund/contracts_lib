@@ -12,10 +12,10 @@
 //
 //= require turbolinks
 //= require activestorage
-
+//= require jquery_ujs
 //= require jquery
 
-//= require jquery_ujs
+
 //= require bootstrap-sprockets
 
 
@@ -37,20 +37,20 @@
 
 // });
 
-$(document).ready(function(){
-// alert("what do you want");
-	$(".click-part").click(function(){
-		alert("what do you want");
-	// 	$(this).alert();
-	// 	// $( this ).toggleClass("clicked");
+// $(document).ready(function(){
+// // alert("what do you want");
+// 	$(".click-part").click(function(){
+// 		alert("what do you want");
+// 	// 	$(this).alert();
+// 	// 	// $( this ).toggleClass("clicked");
 
 
-	});
+// 	});
 
-	// $(".accord-btn").click(function(){
-	// 	$(".collapse").toggleClass("active");
-	// });
+// 	// $(".accord-btn").click(function(){
+// 	// 	$(".collapse").toggleClass("active");
+// 	// });
 
 
 
-});
+// });
