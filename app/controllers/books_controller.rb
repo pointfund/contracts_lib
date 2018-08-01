@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  require 'active_support'
+require 'active_support'
 require 'active_support/core_ext'
 before_action :set_book, only: [:show, :edit, :update, :destroy]
   # include DisplayBookContracts
@@ -108,5 +108,5 @@ helpers.this_method
       params.require(:book).permit(:name, :page_count)
     end
 
-    
+
 end
