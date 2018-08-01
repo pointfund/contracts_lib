@@ -20,12 +20,30 @@
 
 //= require_tree .
 
-$(document).ready(function(){
+// $(document).ready(function(){
 // alert("what do you want");
 	// $(".panel-button").click(function(){
 	// 	// alert("what do you want");
 	// 	$( this ).toggleClass("clicked");
 	// });
+
+	// $(".accord-btn").click(function(){
+	// 	$(".collapse").toggleClass("active");
+	// });
+
+
+
+// });
+
+$(document).ready(function(){
+// alert("what do you want");
+	$(".click-part").click(function(){
+		alert("what do you want");
+	// 	$(this).alert();
+	// 	// $( this ).toggleClass("clicked");
+
+
+	});
 
 	// $(".accord-btn").click(function(){
 	// 	$(".collapse").toggleClass("active");
