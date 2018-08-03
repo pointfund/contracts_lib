@@ -11,13 +11,7 @@
 // about supported directives.
 //
 
-//= require turbolinks
-//= require_tree .
 
-
-
-
-$.turbo.use('turbolinks:load', 'turbolinks:request-start');
 
 console.log("before load");
 
