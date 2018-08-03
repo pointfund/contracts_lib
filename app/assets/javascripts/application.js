@@ -12,21 +12,23 @@
 //
 
 //= require rails-ujs
-//= require jquery
+//= require jquery3
+//= require jquery_ujs
 
-//= require_tree .
 
 console.log("before load");
 
-
+document.addEventListener("turbolinks:load", function() {
+ alert("ok!")
+});
 
 $(document).ready(function(){
-// alert("what do you want");
-console.log("after load ");
-	$(".click-part").click(function(){
-		alert("on click");
-		// $( this ).toggleClass("clicked");
-	});
+alert("what do you want");
+// console.log("after load ");
+// 	$(".click-part").click(function(){
+// 		alert("on click");
+// 		// $( this ).toggleClass("clicked");
+// 	});
 
 	// $(".accord-btn").click(function(){
 	// 	$(".collapse").toggleClass("active");
@@ -34,7 +36,7 @@ console.log("after load ");
 
 
 
-// });
+});
 
 // $(document).ready(function(){
 // // alert("what do you want");
@@ -52,4 +54,4 @@ console.log("after load ");
 
 
 
-});
+// });
