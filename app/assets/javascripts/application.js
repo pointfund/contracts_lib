@@ -17,8 +17,14 @@
 
 
 // $.turbo.use('turbolinks:load', 'turbolinks:request-start');
+
 console.log("before load");
 
+$( document ).on('turbolinks:load', function() {
+  console.log("It works on each visit!")
+})
+
+console.log("before after");
 // document.addEventListener("turbolinks:load", function() {
 //  alert("ok!")
 // });
