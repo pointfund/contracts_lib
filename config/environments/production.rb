@@ -82,7 +82,7 @@ Rails.application.configure do
 
 
   
-config.assets.css_compressor = :yui
+
 config.assets.js_compressor = :uglifier
 
   # Use a different logger for distributed setups.
