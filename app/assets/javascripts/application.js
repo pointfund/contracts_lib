@@ -11,7 +11,7 @@
 // about supported directives.
 //
 
-
+//= require jquery
 
 console.log("before load");
 
