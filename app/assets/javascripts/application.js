@@ -11,10 +11,10 @@
 // about supported directives.
 //
 
-//= require activestorage;
-//= require turbolinks;
-//= require rails-ujs;
-//= require jquery3;
+//= require activestorage
+
+//= require rails-ujs
+//= require jquery3
 
 // $.turbo.use('turbolinks:load', 'turbolinks:request-start');
 console.log("before load");
