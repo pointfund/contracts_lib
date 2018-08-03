@@ -16,10 +16,6 @@
 //= require bootstrap-sprockets
 
 
-
-
-
-
 // $(document).ready(function(){
 // alert("what do you want");
 	// $(".panel-button").click(function(){
