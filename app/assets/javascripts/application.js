@@ -15,9 +15,11 @@
 
 console.log("before load");
 
-$( document ).on('turbolinks:load', function() {
-  console.log("It works on each visit!")
-})
+$( document ).ready(function() {
+   $("#hide").click(function(){
+    $("p").hide();
+   });
+});
 
 console.log("before after");
 // document.addEventListener("turbolinks:load", function() {
