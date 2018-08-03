@@ -19,10 +19,10 @@
 
 $(document).ready(function(){
 // alert("what do you want");
-	// $(".panel-button").click(function(){
-	// 	// alert("what do you want");
-	// 	$( this ).toggleClass("clicked");
-	// });
+	$(".panel-button").click(function(){
+		// alert("what do you want");
+		$( this ).toggleClass("clicked");
+	});
 
 	// $(".accord-btn").click(function(){
 	// 	$(".collapse").toggleClass("active");
