@@ -11,7 +11,6 @@
 // about supported directives.
 //
 
-//= require activestorage
 
 
 //= require_tree .
