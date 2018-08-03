@@ -13,15 +13,16 @@
 //= require jquery
 //= require rails-ujs
 
-
+console.log("before load");
 
 
 
 $(document).ready(function(){
 // alert("what do you want");
-	$(".panel-button").click(function(){
-		// alert("what do you want");
-		$( this ).toggleClass("clicked");
+console.log("after load ");
+	$(".click-part").click(function(){
+		alert("on click");
+		// $( this ).toggleClass("clicked");
 	});
 
 	// $(".accord-btn").click(function(){
