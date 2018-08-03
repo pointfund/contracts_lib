@@ -15,30 +15,29 @@
 //= require turbolinks
 //= require rails-ujs
 //= require jquery3
-//= require jquery_ujs
 
 
 console.log("before load");
 
-document.addEventListener("turbolinks:load", function() {
- alert("ok!")
-});
+// document.addEventListener("turbolinks:load", function() {
+//  alert("ok!")
+// });
 
-$(document).ready(function(){
-alert("what do you want");
-// console.log("after load ");
-// 	$(".click-part").click(function(){
-// 		alert("on click");
-// 		// $( this ).toggleClass("clicked");
-// 	});
+// $(document).ready(function(){
+// alert("what do you want");
+// // console.log("after load ");
+// // 	$(".click-part").click(function(){
+// // 		alert("on click");
+// // 		// $( this ).toggleClass("clicked");
+// // 	});
 
-	// $(".accord-btn").click(function(){
-	// 	$(".collapse").toggleClass("active");
-	// });
+// 	// $(".accord-btn").click(function(){
+// 	// 	$(".collapse").toggleClass("active");
+// 	// });
 
 
 
-});
+// });
 
 // $(document).ready(function(){
 // // alert("what do you want");

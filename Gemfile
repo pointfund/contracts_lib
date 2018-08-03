@@ -40,7 +40,7 @@ gem 'prawn-table', '~> 0.1.0'
 # Reduces boot times through caching; required in config/boot.rb
 
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'jquery-rails'
+# gem 'jquery-rails'
 gem 'bootstrap-sass'
 
 
