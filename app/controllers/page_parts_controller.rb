@@ -1,6 +1,6 @@
 class PagePartsController < ApplicationController
   before_action :set_page_part, only: [:show, :edit, :update, :destroy]
-
+hello = "hello me"
   # GET /page_parts
   # GET /page_parts.json
   def index
@@ -13,8 +13,15 @@ class PagePartsController < ApplicationController
   end
 
   # GET /page_parts/new
-  def new
-    @page_part = PagePart.new
+    def new
+        @page_part = PagePart.new
+        @page_area = PageArea.all
+        # puts hello
+
+        if( @page_area.length >= 1 )
+
+        end
+
   end
 
   # GET /page_parts/1/edit

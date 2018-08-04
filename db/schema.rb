@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_044659) do
+ActiveRecord::Schema.define(version: 2018_08_04_201138) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2018_07_30_044659) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "page_areas", force: :cascade do |t|
+    t.integer "contract_id"
+    t.integer "section_id"
+    t.integer "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "page_layouts", force: :cascade do |t|
     t.string "name"
     t.integer "posx"
@@ -35,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_07_30_044659) do
     t.integer "contract_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "page_area"
   end
 
   create_table "page_parts", force: :cascade do |t|
@@ -43,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_07_30_044659) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "page_area"
   end
 
   create_table "record_lists", force: :cascade do |t|

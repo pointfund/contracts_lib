@@ -5,8 +5,7 @@
       <h2><%= @home.length
        %>
        <!--  hardcoded book ID -->
-       Contract records in book <%= #@home[0].book_id 
-       %></h2>
+       Contract records in book </h2>
     </div>
     <div class="panel-body">
       <table>
@@ -35,13 +34,7 @@
               <td><div class="btn btn-danger"><%= link_to 'Remove Contract', contract, method: :delete, data: { confirm: 'Are you sure to remove section?' } %></div></td>
             </tr>
           <% end %> 
-          <%= form_with(model: @page_part, local: true) do |form| %>
-               <%= form.label :name %>
-      <%= form.text_field :name  %>
-          <%= form.text_field :content %>
-            <%= #form.submit 
-            %>
-          <% end %>
+
       </table>
     </div>
 

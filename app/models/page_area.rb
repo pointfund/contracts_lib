@@ -1,0 +1,2 @@
+class PageArea < ApplicationRecord
+end

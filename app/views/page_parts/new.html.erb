@@ -7,11 +7,12 @@
 				<h3>Create New Section</h3>
 			</div>
 			<div class="panel-body">
-				<%= render 'form', page_part: @page_part %>
+				<%=  render 'form', page_part: @page_part 
+				%>
 			</div>
 		</div>
 		<div class="col-md-6"> 
-			<%= # render '/page_layouts/form', page_layout: @page_layout 
+			<%=  render '/page_layouts/form', page_layout: @page_layout 
 				%>
 		</div>
 	</div>
