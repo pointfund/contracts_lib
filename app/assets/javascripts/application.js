@@ -11,7 +11,17 @@
 // about supported directives.
 //
 
+
+
 //= require jquery
+//= require turbolinks
+//= require activestorage
+//= require_tree .
+//= require jquery
+
+//= require jquery_ujs
+//= require bootstrap-sprockets
+
 
 console.log("before load");
 
@@ -24,7 +34,7 @@ console.log("moo during you sick sick being");
    });
 });
 
-$(document).on 'turbolinks:load', ready
+// $(document).on 'turbolinks:load', ready
 
 console.log(" after load");
 // document.addEventListener("turbolinks:load", function() {
