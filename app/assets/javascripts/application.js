@@ -16,12 +16,17 @@
 console.log("before load");
 
 $( document ).ready(function() {
+
+console.log("moo during you sick sick being");
+
    $("#hide").click(function(){
     $("p").hide();
    });
 });
 
-console.log("before after");
+$(document).on 'turbolinks:load', ready
+
+console.log(" after load");
 // document.addEventListener("turbolinks:load", function() {
 //  alert("ok!")
 // });

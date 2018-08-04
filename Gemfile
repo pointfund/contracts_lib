@@ -44,7 +44,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 
 
-gem 'nodejs-rails', '~> 0.0.1'
+# gem 'nodejs-rails', '~> 0.0.1'
 # gem 'webpacker', '~> 3.5'
 
 
