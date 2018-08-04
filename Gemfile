@@ -43,7 +43,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 
-gem 'webpacker', '~> 3.5'
+
+gem 'nodejs-rails', '~> 0.0.1'
+# gem 'webpacker', '~> 3.5'
 
 
 
