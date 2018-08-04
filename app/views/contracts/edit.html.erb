@@ -1,6 +1,17 @@
-<h1>Editing Contract</h1>
+<div class="panel panel-default"> 
+    <div class="panel-heading"> 
+		<h1>Editing Contract</h1>
+	</div>
+			
+	<%= render 'form', contract: @contract %>
 
-<%= render 'form', contract: @contract %>
+	<div class="panel-footer"> 
+		<div class=" btn btn-default">
+			<%= link_to 'Show Contract', @contract %> 
+		</div>
+		<div class=" btn btn-default">
+			<%= link_to 'Show All Contracts', contracts_path %>
+		</div>
+	</div>
 
-<%= link_to 'Show', @contract %> |
-<%= link_to 'Back', contracts_path %>
+</div>		

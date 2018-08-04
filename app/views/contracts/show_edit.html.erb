@@ -1,0 +1,97 @@
+<div class="panel panel-default panel-success"> 
+	<div class="panel panel-heading">
+		Adding Contract Sections. ID <%= @page_parts[0].contract_id %>
+	<p id="notice"><%= notice %></p></div>
+	<div class="panel panel-body">
+		
+		<div class="row">
+			<div class="col-md-6 ">
+				<div class="panel panel-default">
+					<div class="panel panel-success">
+						<table style="">  
+							<tr>
+							    <th>Id</th>
+							    <th>name</th> 
+							    <th>Contract id</th>
+							    <th>Content</th>
+							    <th>Save</th>
+						    </tr>
+						    
+								<%  @page_parts.each do |part| %>
+								
+							  <!-- <tr> -->
+							  	<%= render 'page_parts/eachform', page_part: part, local: {id: part.id} 
+							  	%>
+							  	<!-- </tr> -->
+							<% end %>
+						</table>
+						<%if(!params[:page_part])%>
+							<div class="panel panel-heading">
+								Enter New Section 
+							</div>
+							<div class="panel panel-body">
+								<%= render 'page_parts/form_parts', action: "new"
+									 %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 " style="">
+				<div class="panel panel-default">
+					<div class="panel panel-heading">
+						<%=# render 'page_layouts/form_layouts', action: "new" 
+							 %>
+						Section Layout : 	 
+					</div>
+					<div class="panel panel-body" style="border:1px solid orange; ">
+						<table >  
+							<tr>
+							    <th>Id</th>
+							    <th>Name</th> 
+							    <th>X </th>
+							    <th>Y </th>
+							    <th>Page ID</th>
+							    <th>Save</th>
+						    </tr>
+						    <%  @page_layouts.each do |part| %>
+								<tr style="min-height:50px; margin:12px;">
+									<%=  render 'page_layouts/eachform', page_layout: part, local: {id: part.id} 
+									%>
+								</tr>
+							<% end %>
+				
+						</table>
+					</div>
+					<%if(params[:page_part])%>
+						<div class="panel panel-default panel-success">	
+						<div class="panel panel-heading ">
+							Enter New Layout 
+						</div>
+						<div class="panel panel-body">
+							<%= render 'page_layouts/form_layout', action: "new"
+									 %>
+						</div>
+						</div>
+					<% end %>
+			</div>
+			</div>
+		</div>
+
+
+
+		<div class="">
+			Add record list
+			<%= # render 'rec_list', action: "show_edit" 
+			%>
+		</div>
+
+		<div class="col-md-6">
+			<%= link_to "Another Section in this Contract", {controller: "page_parts", action: "new", contract_id: params[:contract_id]}, class: "btn btn-default" %>
+		</div>
+	</div>
+</div>
+<%= # render "sort/menu" 
+%>
+  

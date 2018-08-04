@@ -1,32 +1,49 @@
-<%= form_with(model: contract, local: true) do |form| %>
-  <% if contract.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(contract.errors.count, "error") %> prohibited this contract from being saved:</h2>
+    <div class="panel-body">
+    
+      <%= form_with(model: contract, local: true) do |form| %>
+        <% if contract.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(contract.errors.count, "error") %> prohibited this contract from being saved:</h2>
 
-      <ul>
-      <% contract.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% contract.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+   
+
+
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :sections %>
+        <%= form.number_field :sections %>
+      </div>
+
+      <% puts contract.book_id %>
+
+      <% if params["book_id"] != nil %>
+        <%= form.hidden_field  :book_id, value: params[:book_id] %>
+      <% else %>
+      <div class="field">
+
+        <%= form.label :book_id %>
+        <%= form.number_field :book_id, value: contract.book_id %>
+
+      </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+      <div class="actions">
+        <%= form.submit %>
+          
+        </div>
+   
 
-  <div class="field">
-    <%= form.label :sections %>
-    <%= form.number_field :sections %>
-  </div>
+      <% end %>  
+       </div>
 
-  <div class="field">
-    <%= form.label :book_id %>
-    <%= form.number_field :book_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
