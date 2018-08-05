@@ -1,4 +1,4 @@
-<div class="panel panel-default">  
+<div class="panel panel-default row">  
     <div class="panel-heading">
       <%= # render "sort/book" 
       %>
@@ -7,7 +7,7 @@
        <!--  hardcoded book ID -->
        Contract records in book </h2>
     </div>
-    <div class="panel-body">
+    <div class="panel-body col-lg-6">
       <table>
       	  <thead>
           <tr>
@@ -31,7 +31,10 @@
             
               <td><div class="btn btn-default"><%= link_to 'View Sections', contract %></div></td>
               <td><div class="btn btn-success"><%= link_to 'Edit Contract', edit_contract_path(contract) %></div></td>
-              <td><div class="btn btn-danger"><%= link_to 'Remove Contract', contract, method: :delete, data: { confirm: 'Are you sure to remove section?' } %></div></td>
+              <td>
+         <!--        <div class="btn btn-danger"><%= # link_to 'Remove Contract', contract, method: :delete, data: { confirm: 'Are you sure to remove section?' } 
+                %></div> -->
+              </td>
             </tr>
           <% end %> 
 

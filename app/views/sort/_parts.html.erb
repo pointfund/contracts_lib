@@ -13,7 +13,6 @@
         <tr>
           <th>ID</th>
           <th>Area</th>
-          
           <th>Section</th>
           <th>Content</th>
           <th>Contract</th>
@@ -39,12 +38,8 @@
               %></div></td> -->
               <td>
             <div class="btn btn-info"><%= link_to "Add Layout #{page_part.id}", new_page_layout_path(contract_id: @contract.id, page_part: page_part.id ) %></div>
-          </td>
-
-
-
-
-          </tr>
+        </td>
+        </tr>
         <% end %>
 
     </table>

@@ -30,7 +30,10 @@
                   <td><div class="btn btn-default"><%= link_to 'Show', contract %></div></td>
                   <td><div class="btn btn-info"><%= link_to 'Edit', edit_contract_path(contract) %></div></td>
                   <td><div class="btn btn-info"><%= link_to 'Create PDF', pdf_pages_create_path(id: contract.id ) %></div></td>
-                  <td><div class="btn btn-danger"><%= link_to 'Destroy', contract, method: :delete, data: { confirm: 'Are you sure?' } %></div></td>
+                  <td>
+                <!--   <div class="btn btn-danger"><%= # link_to 'Destroy', contract, method: :delete, data: { confirm: 'Are you sure?' } 
+                   %></div> -->
+                 </td>
                 </tr>
               <% end %>
             </tbody>
