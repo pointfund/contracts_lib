@@ -69,6 +69,6 @@ class PageLayoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_layout_params
-      params.require(:page_layout).permit(:name, :posx, :posy, :page_part, :contract_id)
+      params.require(:page_layout).permit(:name, :posx, :posy, :page_part, :contract_id, :page_area)
     end
 end

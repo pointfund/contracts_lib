@@ -12,55 +12,68 @@
     </div>
   <% end %>
 
+    <div class="row">
+        <div class="col-lg-6 form_box" style="">
+            
 
-
-
-        <div class="field">
-          <%= form.label :name %>
-          <%= form.text_field :name, :value => page_layout.name  %>
+        <div class="input-group input-group-sm form-part">
+            <span class="input-group-addon" id="sizing-addon1">
+                <%= form.label :name %>
+            </span>
+                <%= form.text_field :name, :value => page_layout.name, class: "form-control"  %>
         </div>
 
-        <div class="field">
-          <%= form.label :posx %>
-          <%= form.number_field :posx %>
+
+            <div class="form-part ">
+                <div class="col-lg-6 pull-left"> 
+                    <div class="input-group input-group-sm ">
+                      <span class="input-group-addon" id="sizing-addon1"><%= form.label :posx %></span>
+                        <%= form.number_field :posx, class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-lg-6 pull-right"> 
+                    <div class="input-group input-group-sm ">
+                      <span class="input-group-addon" id="sizing-addon1"><%= form.label :posy %></span>
+                        <%= form.number_field :posy, class: "form-control" %>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-part ">
+                <div class="col-lg-3 pull-left"> 
+                    <div class="input-group input-group-sm ">
+                      <span class="input-group-addon" id="sizing-addon1"><%= form.label :page_area %></span>
+                        <%= form.number_field :page_area, class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-lg-3 pull-right"> 
+                    <div class="input-group input-group-sm ">
+                      <span class="input-group-addon" id="sizing-addon1"><%= form.label :page_part %></span>
+                        <%= form.number_field :page_part, class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-lg-3 pull-right"> 
+                    <div class="input-group input-group-sm ">
+                      <span class="input-group-addon" id="sizing-addon1"><%= form.label :contract_id %></span>
+                        <%= form.number_field :contract_id, class: "form-control" %>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="field">
-          <%= form.label :posy %>
-          <%= form.number_field :posy %>
-        </div>
-        
 
-        <%if ( params[:contract_id] == nil ) %>
-                <div class="field">
-                  <%= form.label :page_part %>
-                  <%= form.number_field :page_part %>
-                </div>
-                <div class="field">
-                  <%= form.label :contract_id %>
-                  <%= form.number_field :contract_id %>
-                </div>
 
-        <% else %> 
-              <div class="field">
-                  <%= form.label :page_part %>
-                  <%= params[:page_part] %> 
-                  <%= form.hidden_field  :page_part, value: params[:page_part] %>
-                </div>
-                 <div class="field">
-                    <%= form.label :contract_id  %>
-                    <%= params[:contract_id] %>
-                    <%= form.hidden_field  :contract_id, value: params[:contract_id] 
-                    %>
-                  </div>
 
-        <% end %>
+
+
         <div class="actions">
-          <%= form.submit %>
-        </div>
-      
-  <% end  %>
+          <%= form.submit class: "btn btn-success "%>
+        </div>  
+    <% end  %>
+
+
 
 </div>
-
 

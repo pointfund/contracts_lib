@@ -18,7 +18,7 @@
 </p>
 
 <p>
-  <strong>Page part:</strong>
+  <strong>Page Section ID:</strong>
   <%= @page_layout.page_part %>
 </p>
 
@@ -26,12 +26,22 @@
   <strong>Contract:</strong>
   <%= @page_layout.contract_id %>
 </p>
+
+<p>
+  <strong>Page Area:</strong>
+  <%= @page_layout.page_area %>
+</p
+
 </div>
-<div class="btn btn-default"><%= link_to 'Edit', edit_page_layout_path(@page_layout) %> </div>
-<div class="btn btn-default"><%= link_to 'Show Layouts', page_layouts_path(id: params[:id]) %></div>
-<div class="btn btn-default"><%= link_to 'Show Layouts of Page', page_layouts_path(contract_id: @page_layout.contract_id) %></div>
-<div class="btn btn-default"><%= link_to 'Show Layouts', page_layouts_path(id: params[:id]) %></div>
-<div class="btn btn-default"><%= link_to 'Show Contract Sections', page_parts_path(contract_id: @page_layout.contract_id) %></div>
-<div class="btn btn-info"><%= link_to 'Back to Add Sections', show_edit_path(contract_id: @page_layout.contract_id)  %></div>
+
+
+<div class="btn btn-default"> <%= link_to 'Edit', edit_page_layout_path(@page_layout) %> </div>
+<div class="btn btn-default"> <%= link_to 'Show Layouts', page_layouts_path(id: params[:id]) %></div>
+<div class="btn btn-default"> <%= link_to 'Show Layouts of Page', page_layouts_path(contract_id: @page_layout.contract_id) %></div>
+
+<div class="btn btn-default"> <%= link_to 'Show Layouts', page_layouts_path(id: params[:id]) %></div>
+<div class="btn btn-default"> <%= link_to 'Show Contract Sections', page_parts_path(contract_id: @page_layout.contract_id) %></div>
+<div class="btn btn-info">    <%= #link_to 'Back to Add Sections', show_edit_path(contract_id: @page_layout.contract_id)  
+%>     </div>
 
 </div>

@@ -76,6 +76,6 @@ hello = "hello me"
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_part_params
-      params.require(:page_part).permit(:name, :contract_id, :content)
+      params.require(:page_part).permit(:name, :contract_id, :content, :page_area)
     end
 end
