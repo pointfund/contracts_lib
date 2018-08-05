@@ -1,5 +1,5 @@
 
-<div class="panel panel-default">  
+<div class="panel panel-default panel-info">  
     <div class="panel-heading">
 
         <h2>Layouts of each Section</h2>
@@ -19,6 +19,7 @@
 
               <th>Cont:</th>
               <th>Sect:</th>
+              <th>Area:</th>
 
               <th>X:</th>
               <th>Y:</th>
@@ -33,13 +34,14 @@
         
                 <td><%= layout.contract_id %></td>
                 <td><%= layout.page_part %></td>
+                <td><%= layout.page_area %></td>
 
                 <td><%= layout.posx %></td>
                 <td><%= layout.posy %></td>
 
                 <td><div class="btn btn-default">
                   <%= link_to 'Show', layout %></div></td>
-                <td><div class="btn btn-success">
+                <td><div class="btn btn-info">
                   <%= link_to 'Edit', edit_page_layout_path(layout) %></div></td>
                 <td>
 

@@ -19,7 +19,10 @@
           <%= form.label :name %>
           <%= form.text_field :name, :value => @page_layout.name  %>
         </div>
-
+        <div class="field">
+          <%= form.label :page_area %>
+          <%= form.text_field :page_area, :value => @page_layout.page_area  %>
+        </div>
         <div class="field">
           <%= form.label :posx %>
           <%= form.number_field :posx %>
@@ -56,7 +59,7 @@
 
         <% end %>
         <div class="actions">
-          <%= form.submit %>
+          <%= form.submit class: "btn btn-success" %>
         </div>
       
   <% end  %>

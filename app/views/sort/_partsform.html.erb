@@ -1,6 +1,7 @@
 
   <div class="panel-body">
-    <table>
+
+    <table >
     	<thead>
         <tr>
           <th>ID</th>
@@ -23,7 +24,8 @@
             <td><div class="btn btn-info">
               <%= link_to 'Change', edit_page_part_path(page_part) %></div></td>
 <!--             <td><div class="btn btn-danger">
-              <%= link_to 'Remove', page_part, method: :delete, data: { confirm: 'Are you sure?' } %></div></td> -->
+              <%= #link_to 'Remove', page_part, method: :delete, data: { confirm: 'Are you sure?' } 
+              %></div></td> -->
               <td>
             <div class="btn btn-info"><%= link_to "Add Layout #{page_part.id}", new_page_layout_path(contract_id: @contract.id, page_part: page_part.id ) %></div>
           </td>

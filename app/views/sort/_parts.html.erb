@@ -8,10 +8,12 @@
   </div>
  
   <div class="panel-body">
-    <table>
+    <table class="tbl">
     	<thead>
         <tr>
           <th>ID</th>
+          <th>Area</th>
+          
           <th>Section</th>
           <th>Content</th>
           <th>Contract</th>
@@ -22,6 +24,8 @@
     <% @page_parts.each do |page_part| %>
           <tr>
             <td><%= page_part.id %></td>
+            <td><%= page_part.page_area %></td>
+            
             <td><%= page_part.name %></td>
             <td><%= page_part.content %></td>
             <td><%= page_part.contract_id %></td>
@@ -45,8 +49,9 @@
 
     </table>
 
-  </div>
+  
 
+        <div class="btn btn-success pull-right btn-pad"><%= link_to "Add Section", new_page_part_path(contract_id: @contract.id ) %></div>
 
-  <div class="btn btn-info"><%= link_to "Add Section", new_page_part_path(contract_id: @contract.id ) %></div>
+    </div>
 </div>
