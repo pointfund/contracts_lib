@@ -5,6 +5,9 @@ hello = "hello me"
   # GET /page_parts.json
   def index
     @page_parts = PagePart.all
+    if(params[:contract_id] != nil)
+        
+    end
   end
 
   # GET /page_parts/1

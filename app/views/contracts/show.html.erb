@@ -21,10 +21,10 @@
 	<div class="btn btn-default">
 		<%= link_to 'Edit Contract', edit_contract_path(@contract) %> 			
 	</div>
-	<div class="btn btn-info ">
+	<!-- <div class="btn btn-info ">
 		<%= #link_to 'View All', contracts_path
 		 %>			
-	</div>
+	</div> -->
 
 	<!-- </div> -->
 
@@ -54,7 +54,10 @@
 	<%=   render "sort/mycontracts" 
 	%>
 	<!-- </div> -->
+
+	<%=  render "sort/menu" 
+	%>
+ <!--  <div class="btn btn-info"><%= #link_to "Add Section", new_page_part_path(contract_id: (@page_parts.length + 1) ) 
+  %></div> -->
+
 </div>
-<%=  render "sort/menu" 
-%>
-  <div class="btn btn-info"><%= link_to "Add Section", new_page_part_path(contract_id: (@page_parts.length + 1) ) %></div>

@@ -26,10 +26,18 @@
 	
 
 	<div class="btn btn-default"><%= link_to 'View All ', page_parts_path %></div>
-	<div class="btn btn-info"><%= link_to 'View All in this Contract ', page_parts_path(:contract_id => params["contract_id"]) %></div>
+	<div class="btn btn-info">
+		<%= link_to 'View All in this Contract ', contracts_path(:contract_id => params["contract_id"]) %>
+		
+	</div>
+
 		<% if (params[:contract_id]) %>
-			<%= link_to "New Contract Section in this Book", {controller: "page_parts", action: "new", contract_id: params[:contract_id]} %>
+			<div class="btn btn-success">
+				<%= link_to "New Contract Section in this Book", {controller: "page_parts", action: "new", contract_id: params[:contract_id]} %>
+			</div>
 		<% else %>
-			<%= link_to "Another Section in this Contract", {controller: "page_parts", action: "new", contract_id: params[:id]} %>
+			<div class="btn btn-success">
+				<%= link_to "Another Section in this Contract", {controller: "page_parts", action: "new", contract_id: params[:id]} %>
+			</div>
 		<% end %>
 </div>

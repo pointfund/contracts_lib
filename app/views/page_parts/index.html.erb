@@ -8,14 +8,10 @@
 </div>
 <%= # render "sort/mycontracts" 
 %>
-
     <div class="panel-heading">
     <h1>Page Sections B</h1>
-
     </div>
-
     <div class="panel-body"> 
-
       <table class="tbl">
         <thead>
           <tr>
@@ -27,7 +23,6 @@
             <th colspan="3"></th>
           </tr>
         </thead>
-
         <tbody>
           <% @page_parts.each do |page_part| %>
             <tr>
@@ -45,8 +40,6 @@
       </table>
     </div>
 <br>
-
-
     <% if(params[:contract_id] != nil) %>
         <div class="btn btn-info"><%= link_to "New Section in Contract #{@contract.id}", new_page_part_path(contract_id: params[:contract_id]) %></div>
         <div class="btn btn-info"><%= link_to "New Layout in Contract #{@contract.id}", new_page_layout_path(contract_id: params[:contract_id]) %></div>
@@ -63,10 +56,9 @@
         <!-- </div> -->
     <% end %>
 <%= # render "sort/layouts" 
-    %>
+%>
 
 </div>
-
-
 <%=  render "sort/menu" 
 %>
+

@@ -1,5 +1,11 @@
 class PdfPageController < ApplicationController
-		# include PdfPagesHelper, PdfFontsHelper, ChooserPagesPdf
+    
+     include PdfPagesHelper
+     # , helpers.PdfFontsHelper, 
+     include ChooserPagesPdf
+    require 'active_support'
+    require 'active_support/core_ext'
+
   def index
   	 @next = 0
         
@@ -15,7 +21,9 @@ class PdfPageController < ApplicationController
             @record = Record.find(@my_record.to_i)
 
         else
-            @record = Record.find(params[:id])        
+            # @record = Record.find(params[:id])
+            @record = Record.find(1)    
+
         end
         
         @records = Record.all
@@ -50,7 +58,7 @@ class PdfPageController < ApplicationController
         # if()
 
         puts @record_page_set.to_s + "before set "
-        @record_page_set = getParams(params, new_book, @record_page_set)
+        # @record_page_set = getParams(params, new_book, @record_page_set)
        
         # puts @page + " new"
         # @record_page_set = new_book.addSinglePage(@page, @record_page_set)

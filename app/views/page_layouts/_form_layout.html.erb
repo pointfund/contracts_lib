@@ -1,69 +1,59 @@
 <div class="panel-body"> 
-<%= form_with(model: @page_layout, local: true) do |form| %>
-  <% if @page_layout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(page_layout.errors.count, "error") %> prohibited this page_layout from being saved:</h2>
-
-      <ul>
-      <% @page_layout.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-
-
+    <%= form_with(model: @page_layout, local: true) do |form| %>
+        <% if @page_layout.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(page_layout.errors.count, "error") %> prohibited this page_layout from being saved:</h2>
+            <ul>
+                <% @page_layout.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+            </div>
+        <% end %>
         <div class="field">
-          <%= form.label :name %>
-          <%= form.text_field :name, :value => @page_layout.name  %>
+            <%= form.label :name %>
+            <%= form.text_field :name, :value => @page_layout.name  %>
         </div>
         <div class="field">
-          <%= form.label :page_area %>
-          <%= form.text_field :page_area, :value => @page_layout.page_area  %>
+            <%= form.label :page_area %>
+            <%= form.text_field :page_area, :value => @page_layout.page_area  %>
         </div>
         <div class="field">
-          <%= form.label :posx %>
-          <%= form.number_field :posx %>
+            <%= form.label :posx %>
+            <%= form.number_field :posx %>
         </div>
 
         <div class="field">
-          <%= form.label :posy %>
-          <%= form.number_field :posy %>
+            <%= form.label :posy %>
+            <%= form.number_field :posy %>
         </div>
-        
 
-        <%if ( params[:contract_id] == nil ) %>
-                <div class="field">
-                  <%= form.label :page_part %>
-                  <%= form.number_field :page_part %>
-                </div>
-                <div class="field">
-                  <%= form.label :contract_id %>
-                  <%= form.number_field :contract_id %>
-                </div>
-
+        <% if ( params[:contract_id] == nil ) %>
+            <div class="field">
+                <%= form.label :page_part %>
+                <%= form.number_field :page_part %>
+            </div>
+            <div class="field">
+                <%= form.label :contract_id %>
+                <%= form.number_field :contract_id %>
+            </div>
         <% else %> 
-              <div class="field">
-                  <%= form.label :page_part %>
-                  <%= params[:page_part] %> 
-                  <%= form.hidden_field  :page_part, value: params[:page_part] %>
-                </div>
-                 <div class="field">
-                    <%= form.label :contract_id  %>
-                    <%= params[:contract_id] %>
-                    <%= form.hidden_field  :contract_id, value: params[:contract_id] 
-                    %>
-                  </div>
-
+            <div class="field">
+                <%= form.label :page_part %>
+                <%= params[:page_part] %> 
+                <%= form.hidden_field  :page_part, value: params[:page_part] %>
+            </div>
+            <div class="field">
+                <%= form.label :contract_id  %>
+                <%= params[:contract_id] %>
+                <%= form.hidden_field  :contract_id, value: params[:contract_id] 
+                %>
+            </div>
         <% end %>
         <div class="actions">
-          <%= form.submit class: "btn btn-success" %>
+            <%= form.submit class: "btn btn-success" %>
         </div>
-      
-  <% end  %>
-
+    <% end %>
 </div>
 
 
