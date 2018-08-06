@@ -1,10 +1,16 @@
-	<div class="panel panel-default"> 
-		<div class="panel-heading"> 
-			<h1>Editing Page Section</h1>
+<div class="row">
+	<div class="col-lg-6">
+		<div class="panel panel-info"> 
+			<div class="panel panel-heading"> 
+				<h1>Editing Page Section</h1>
+			</div>
+			<div class="panel panel-body ">
+				<%= render 'form', page_part: @page_part %>
+
+			</div>
+			<div class="panel panel-footer">
+				<%= link_to 'Show', @page_part, class: "btn btn-info" %> <%= link_to 'All Sections', page_parts_path(contract_id: @page_part.contract_id ), class: "btn btn-default" %>
+			</div>
 		</div>
-
-		<%= render 'form', page_part: @page_part %>
-
-		<div class="btn btn-default"><%= link_to 'Show', @page_part %> </div>
-		<div class="btn btn-default"><%= link_to 'All Sections', page_parts_path(contract_id: @page_part.contract_id ) %></div>
 	</div>
+</div>

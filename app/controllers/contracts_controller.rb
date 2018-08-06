@@ -14,13 +14,15 @@ def show
     # @books = Book.where({id: params[:id]})
     @books = Book.all
     @book = Book.where({id: @contract.book_id })
-    # @contracts = Contract.where({book_id: params[:id]})
     @contracts = Contract.where({ book_id: @contract.book_id })
+    @this_book = Book.find(@contract.book_id)
+    # @contracts = Contract.where({book_id: params[:id]})
+    
     @book_id =  @contract.book_id
     # @contracts = Contract.where({ book_id: 1 })
     @home = @contracts
     # @books = Book.where({id: @contract.book_id})
-
+    @all_layouts = PageLayout.all.length
     @page_parts = PagePart.where(contract_id: params[:id])
     @page_parts.length
     @layouts = PageLayout.where({contract_id: params[:id]})
@@ -32,6 +34,21 @@ def show
     #   a = a + 1
     # end
     # @layouts = PageLayout.all
+    if(@all_layouts.to_i <  params[:id].to_i )
+        @needed = 1
+        @set_tbl_col = 2 + @needed
+    else
+        @needed = 0
+        @set_tbl_col = 2
+    end
+
+
+
+
+
+
+
+
 end
 
 # GET /contracts/new

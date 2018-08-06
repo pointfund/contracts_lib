@@ -6,7 +6,7 @@ hello = "hello me"
   def index
     @page_parts = PagePart.all
     if(params[:contract_id] != nil)
-        
+        @contract = Contract.find(params["contract_id"])
     end
   end
 

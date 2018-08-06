@@ -1,5 +1,7 @@
+<div class="row">
+	<div class="col-lg-6">
 <div class="panel panel-default"> 
-	    <div class="panel-heading"> 
+	    <div class="panel-heading  "> 
 			<p id="notice"><%= notice %></p>
 			<p>
 			  <strong>Name:</strong>
@@ -14,11 +16,9 @@
 			  
 			  <strong>Content:</strong>
 			  <%= @page_part.content %>
-			
-			  
 			</p>
-
-				<div class=" btn btn-default"><%= link_to 'Edit', edit_page_part_path(@page_part) %></div>
+				<div class=" btn btn-default"><%= link_to 'Edit', edit_page_part_path(@page_part) %>
+				</div>
 				<div class=" btn btn-default"><%= link_to 'Show Parts', page_parts_path(contract_id: @page_part.contract_id ) %> 
 				</div>
 			<%= %>
@@ -33,16 +33,18 @@
 
 
 		<% if (params[:contract_id]) %>
-		  <%= link_to "New Contract Section in Book", {controller: "page_parts", action: "new", contract_id: @page_part.contract_id} %>
+		  <%= link_to "New Contract Section in Book", {controller: "page_parts", action: "new", contract_id: @page_part.contract_id}, class: " btn btn-default" %>
 		<% else %>
 
 
-		<div class=" btn btn-default">
-		<%= link_to "New Section in Contract", {controller: "page_parts", action: "new", contract_id: @page_part.contract_id } %>
+		<div class="">
+		<%= link_to "New Section in Contract", {controller: "page_parts", action: "new", contract_id: @page_part.contract_id }, class: " btn btn-default" %>
 		</div>
 
-			<div class=" btn btn-default">
-		<%= link_to "New Section Layout in Book", {controller: "page_layouts", action: "new", contract_id: @page_part.contract_id, page_part: @page_part.id } %>
+			<div class="">
+		<%= link_to "New Section Layout in Book", {controller: "page_layouts", action: "new", contract_id: @page_part.contract_id, page_part: @page_part.id }, class: " btn btn-success" %>
 		</div>
 	<% end %>
+</div>
+</div>
 </div>
