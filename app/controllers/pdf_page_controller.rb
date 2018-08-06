@@ -1,21 +1,21 @@
 class PdfPageController < ApplicationController
     
-     include PdfPageHelper
-     # , helpers.PdfFontsHelper, 
-     include ChooserPagesPdf
+    include PdfPageHelper
+    include PdfFontsHelper
+    include ChooserPagesPdf
     require 'active_support'
     require 'active_support/core_ext'
 
-  def index
-  	 @next = 0
-        
+    def index
+        @next = 0
+
         if(params[:add])
             @next = params[:add].to_i
             @my_record = params[:rec_id] +  @next
             @record = Record.find(@my_record.to_i)
 
         end
-        
+
         if(params[:rec_id])
             @my_record = params[:rec_id]
             @record = Record.find(@my_record.to_i)
@@ -25,19 +25,16 @@ class PdfPageController < ApplicationController
             @record = Record.find(1)    
 
         end
-        
         @records = Record.all
         total_records =  @records.length
         @last_record = total_records - 1
         record = @record
-        #    @image_tag = Array.new
+        # @image_tag = Array.new
         # @images = Dir.glob("app/assets/images/pf_base_btn_set/*.jpg")
-        #  @form_pages = "<div class='page_samp'>#{@images[0]}</div>"
-        #  @img_lib = @images.length
-
+        # @form_pages = "<div class='page_samp'>#{@images[0]}</div>"
+        # @img_lib = @images.length
         show
-
-  end
+    end
 
     def show
         new_book = Chooser.new
@@ -75,8 +72,84 @@ class PdfPageController < ApplicationController
         puts @record_page_set + "hello"
     end
 
-  def create
-  end
+    def create
+        get_cont = []
+        @contracts = Contract.all
+        # @records = Record.find(params[:rec_id])
+        @records = Record.find(1)
+        
+        # get_pages = params[:records]
+        #get past records 
+        if(params[:records] != nil)
+            @job_ids = params[:records].split(', ')
+            @job_ids.each do |var| 
+                # var
+                puts var
+            end
+            puts "done"  
+        end
+        # get length of found array
+        @job_ids.each do |x|
+            get_cont.push(Contract.where({id: x}))
+            puts get_cont.length
+        end
+
+        # @contracts = Contract.find()
+        # show each pick ID
+        @contracts.each do |pick_id|
+            pick_id.id
+        end
+
+        # check for page id 
+        if(params[:id])
+            @parts = PagePart.where({contract_id: params[:id]})
+        # @parts[0].id
+        else
+            @parts = PagePart.where({contract_id: 1})   
+        end
+
+        @layouts = PageLayout.where({contract_id: 1})
+
+        # @layouts = PageLayout.all
+        # @layouts[0].posx
+        item_array = []
+        @parts.each do |x|
+            item_array.push(x.content) 
+        end
+
+        place_array = [] 
+        @layouts.each do |z|
+            place_array.push([z.posx, z.posy]) 
+        end
+
+        records_array = []
+        # @records.each do |d|
+        # d.each do |e|
+        # puts d
+        # end
+        # records_array.push(d) 
+        # end
+        # puts @record_page_set + "hello2"
+        puts place_array.length
+        # if format is pdf
+        respond_to do |format|
+            format.html
+            format.pdf do 
+                pdf = Prawn::Document.new
+                AddFontsPdf.new(pdf)
+                @record_page_set = params["records"]
+                # @moof = contract.id
+                # file from assets 
+                    if(@records != nil)
+                        get_cont.each do |contract| 
+                         sample = SendLetter.new(pdf, item_array, place_array, @records)
+                        pdf.start_new_page
+                    end
+                end
+                send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"
+            end
+        end
+    end
 
 
 
@@ -93,6 +166,7 @@ class PdfPageController < ApplicationController
                 puts "show record" + record_page_set
             end
 
+            # check if book set add entire book to que list
             if(params[:book_c] != nil)
                 books = params[:book_c]
                 add_books = new_book.getBookPages(books, record_page_set)
@@ -101,6 +175,7 @@ class PdfPageController < ApplicationController
             end
             
             # record_page_set = ""
+            # page passed add page to Que
             if(params["page"])
                 page = params["page"].to_s + ", "
                 # record_page_set = new_book.addSinglePage(1, "")
@@ -108,13 +183,14 @@ class PdfPageController < ApplicationController
                 puts " get page " + page + " no : "
                 # @page = page
             else
+                # @ empty string
                 page = ""
             end
                 # @page = page
                 puts page + " current page"
             # end
             
-            
+            # get record list string
             if(params[:records] != nil)
                 # if(page != nil)
                     record_col = params[:records].to_s
@@ -139,10 +215,9 @@ class PdfPageController < ApplicationController
               puts "send removeable " + record_page_set.to_s
             end
 
-
-
             # uniwue check 
             record_page_set = record_page_set.to_s
+            
             if(params)
                 record_page_set = split(record_page_set)
             end
@@ -221,24 +296,25 @@ class PdfPageController < ApplicationController
                         record_page_set = rem_job_ids
                     end
                     return record_page_set
-                else
+                    # else
 
-               
-                    # rem_job_ids 
-                    return record_page_set
+                   
+                        # rem_job_ids 
+                    # return record_page_set
                 end
             end
         end
     end
-
-
-
-
-
-
-
-
-
-
-  
 end
+
+
+
+
+
+
+
+
+
+
+
+# end

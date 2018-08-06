@@ -48,14 +48,15 @@ end
 def edit
 end
 
+
 def show_edit
     @books = Book.all
-    get_record = 3
+    get_record = 1
     # @book = Book.where({id: @contract.book_id })
     @book = Book.where({id: get_record })
     # @contracts = Contract.where({book_id: params[:id]})
     # @contracts = Contract.where({ book_id: @contract.book_id })
-    @contracts = Contract.where({ book_id: 3 })
+    @contracts = Contract.where({ book_id: 1 })
     # @book_id =  @contract.book_id
     # @contracts = Contract.where({ book_id: 1 })
     @home = @contracts

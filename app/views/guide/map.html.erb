@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-md-2 col-md-offset-5">
 				<div class="panel-body "> 
-		  			<%= link_to "PDF Creator", guide_start_path, class: "btn btn-info" %> 
+		  			<%= link_to "PDF Creator", "pdf_page/index", class: "btn btn-info" %> 
 		  			<%= link_to "Browse Contracts ", contracts_path, class: "btn btn-success" %>
 		  			<%= # link_to "Edit Contracts", show_edit_path(contract_id: 1), class: "btn btn-info" 
 		  			%>  
@@ -26,13 +26,13 @@
 			  		<ul class="dropdown-menu ">
 						<% @contracts.length.times do |var|%>
 					<!-- some_controller_name/some_get_request -->
-							<li><%= #link_to show_edit_path(contract_id: @contracts[var].id.to_s), {:controller => "contract", :action => "show_edit" }  do  
+							<li><%= link_to show_edit_path(contract_id: @contracts[var].id.to_s), {:controller => "contracts", :action => "show_edit" }  do  
 							%>
-								<%= #@contracts[var].id 
+								<%= @contracts[var].id 
 								%>
-								<%= #@contracts[var].name 
+								<%= @contracts[var].name 
 								%>
-								<% # end 
+								<%  end 
 								%>
 							</li>
 							<% end %>
