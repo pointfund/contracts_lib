@@ -71,7 +71,7 @@ def show_edit
     # @page_layouts = Pagelayout.where(contract_id: get_record)
     @page_layout = PageLayout.new
     page_layout = @page_layout
-    @var_list = VariableList.new
+    @var_list = RecordList.new
     var_list = @var_list
 
 end

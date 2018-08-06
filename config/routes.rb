@@ -24,8 +24,8 @@ Rails.application.routes.draw do
   # get 'pdf_pages/index'
   # get "reset" => "page_parts#reset"
 
-  # get "show_edit" => "contracts#show_edit"
-  # post "show_edit" => "contracts#show_edit"
+  get "show_edit" => "contracts#show_edit"
+  post "show_edit" => "contracts#show_edit"
 
   get 'pdf_pages/show'
   get 'pdf_pages/create'

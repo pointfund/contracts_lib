@@ -10,7 +10,7 @@
 			<ul class="dropdown-menu">
 				<% @records.length.times do |var|%>
 			<!-- some_controller_name/some_get_request -->
-					<li><%= link_to ('?rec_id=' + @records[var].id.to_s) do  %>
+					<li><%= link_to ('?rec_id=' + @records[var].id.to_s) do %>
 						<%= @records[var].id %>
 						<%= @records[var].loan_name %><% end %>
 					</li>
@@ -23,7 +23,6 @@
 	<div class="well well-sm col-lg-4 sub-nav">
  		<% if(@record_page_set.length > 2) %>
      		 Pdf Que : <%= @record_page_set %>
-     				
 		<% end %>
 		<%= link_to " Clear ", pdf_page_index_path(rec_id: @my_record ), class: "btn btn-default btn-sm pull-right"  %>
 	</div>
