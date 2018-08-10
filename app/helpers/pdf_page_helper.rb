@@ -74,18 +74,36 @@ module PdfPageHelper
 			para_B = para_B.sub('#{total_loan}', number_to_currency(records_array.total_amount) )
 			st_date = records_array.repay_start.strftime("%B")
 			para_B = para_B.sub('#{start_month}', st_date )	
-
-
-
-
 			sign_to = item_array[9].to_s 
 			sign_to = sign_to.sub('#{full_name}', full_name )
+			
+
+
+			# step = up_one(step) 
+
+
+def get_page_loc(step, place_array, pdf)
+	pdf.text place_array[step][0].to_s
+	pdf.text place_array[step][1].to_s
+
+end
+
+
+
+
+
 
     		# page layout 
+			# pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 200, :height => 300}) do
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 200, :height => 300}) do
 	          # pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
-	          pdf.text item_array[step], {:color => "00ff00"}
+	          # pdf.text item_array[step], {:color => "00ff00"}
 	          pdf.text say_date, {:color => "00ff00"}
+	          # pdf.text place_array[step][0].to_s
+	          # pdf.text place_array[step][1].to_s
+	        get_page_loc(step, place_array, pdf);
+
+
 	        end
 			step = up_one(step)
 
@@ -149,9 +167,9 @@ module PdfPageHelper
 			end
 			step = up_one(step)
 			#sign from 11
-			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 150) do
-				pdf.text item_array[10]
-			end
+			# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 150) do
+			# 	pdf.text item_array[10]
+			# end
 		end
 
 		# page 1 book 01
