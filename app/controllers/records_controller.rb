@@ -69,6 +69,48 @@ class RecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def record_params
-      params.require(:record).permit(:loan_name, :current_date, :client_first_name)
+      params.require(:record).permit( :loan_name, 
+                                      :current_date, 
+                                      :client_first_name, 
+                                      :client_last_name,
+                                      :client_nick,
+                                      :address_street,
+                                      :address_city,
+                                      :address_state,
+                                      :address_zip,
+
+                                      :note_date,
+                                      :loan_amount,
+                                      :fin_fee,
+                                      :repay_term1,
+                                      :repay_term2,
+                                      :repay_start,
+                                      :repay_1st,
+                                      :repay_mature,
+
+
+                                      :total_amount,
+                                      :payment_mth_day,
+                                      :loan_act_fee,
+                                      :stated_rate,
+                                      :repay_penalty,
+                                      :daily_late_fee,
+                                      :total_default,
+                                      :final_date,
+
+                                      :guarantee01,
+                                      :guarantee02,
+                                      :guarantee03,
+                                      
+                                      :commencement_m,
+                                      :commencement_y,
+                                      :total_ded,
+                                      :r3001_date,
+                                      :agent_num,
+                                      :agent_email,
+                                      :agent_phone,
+                                      :term_assignment_mths,
+                                      :position
+                                     )
     end
 end

@@ -22,12 +22,12 @@
 	</div>
 	<div class="well well-sm col-lg-4 sub-nav">
  		<% if(@record_page_set.length > 2) %>
-     		 Pdf Que : <%= @record_page_set %>
+     		 Pdf Que : <span id="mark"><%= @record_page_set %></span>
 		<% end %>
 		<%= link_to " Clear ", pdf_page_index_path(rec_id: @my_record ), class: "btn btn-default btn-sm pull-right"  %>
 	</div>
 <!-- </div> -->
-	<!-- </div> -->
+<!-- </div> -->
 <!-- </div> -->
 	<div class="row">
 		<div class="col-lg-4 ">
@@ -55,6 +55,8 @@
 		</div>
 	</div>
 </div>
+
+
 	<div>
 	<%= # render "pdf_pages/samp_accord"
 	 %>

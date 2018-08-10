@@ -133,6 +133,7 @@ class PdfPageController < ApplicationController
         puts place_array.length
         # if format is pdf
         respond_to do |format|
+            format.js
             format.html
             format.pdf do 
                 pdf = Prawn::Document.new
@@ -142,7 +143,7 @@ class PdfPageController < ApplicationController
                 # file from assets 
                     if(@records != nil)
                         get_cont.each do |contract| 
-                         sample = SendLetter.new(pdf, item_array, place_array, @records)
+                            sample = SendLetter.new(pdf, item_array, place_array, @records)
                         pdf.start_new_page
                     end
                 end
