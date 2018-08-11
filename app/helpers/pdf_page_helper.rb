@@ -37,7 +37,7 @@ module PdfPageHelper
 				# pdf.fill_rectangle [240, 510],0, 0
 	        end
 
-	        step = 0
+	        
 	        def up_one(step)
 	        	step = step + 1
 	        	return step	
@@ -81,6 +81,8 @@ module PdfPageHelper
 			tag_height = 14
 			# step = up_one(step) 
 
+
+			step = 0
 
 			def get_page_loc(step, place_array, pdf, var_x, var_y)
 				# move_l = place_array[step][0].to_f
