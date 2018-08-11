@@ -47,6 +47,12 @@ module PdfPageHelper
 			  "$#{num.to_s.gsub(/\d(?=(...)+$)/, '\0,')}"
 			end
 
+
+			PagePart.order('part_area ASC').reorder('id ASC')
+			PageLayout.order('part_area ASC').reorder('id ASC')
+
+
+
 			current_date = records_array.client_first_name.to_s
 			my_string = item_array[0].to_s
 			groupName = Time.new
@@ -87,18 +93,13 @@ module PdfPageHelper
 			def get_page_loc(step, place_array, pdf, var_x, var_y)
 				# move_l = place_array[step][0].to_f
 				# move_r = 750.00
-
 				var_x = place_array[step][0]
 				var_y = place_array[step][1]
 				# adjust_x = var_x + -50
 				# adjust_y = var_y + 300
-
 				# var_x = 20.0
 				# var_y = 10.0
-
-
 				# var_y = var_y
-
 				# pdf.bounding_box([ adjust_x, adjust_y],{ :width => 300, :height => 20}) do
 					
 				pdf.indent 320, 0 do
@@ -111,19 +112,20 @@ module PdfPageHelper
 				end
 					# pdf.rectangle [var_x, var_y], 100, 200
 				# end
-
 			end
-
 			# play = 1
-
 			# play = place_array[step][0].to_i + 10
 			# play = play.to_s
+
+			# @parts.page_area 
+
+
 
     		# page layout 
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => tag_height}) do
 				# var_x = place_array[step][0]
 				# var_y = place_array[step][1]	
-			# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
+				# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
 				# pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
 				# pdf.text item_array[step], {:color => "00ff00"}
 				pdf.text say_date, {:color => "00ff00"}
@@ -131,7 +133,6 @@ module PdfPageHelper
 				# pdf.text place_array[step][1].to_s
 
 				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-
 	        end
 			
 			# client info

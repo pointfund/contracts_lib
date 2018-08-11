@@ -120,8 +120,10 @@ class PdfPageController < ApplicationController
         end
 
         place_array = [] 
+        @layouts = @layouts.order('id ASC')
         @layouts.each do |z|
-            place_array.push([z.posx, z.posy]) 
+            place_array.push([z.posx, z.posy])
+
         end
 
         records_array = []
