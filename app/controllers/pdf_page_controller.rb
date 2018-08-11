@@ -103,13 +103,15 @@ class PdfPageController < ApplicationController
         # check for page id 
         if(params[:id])
             @parts = PagePart.where({contract_id: params[:id]})
+            @parts.order('id ASC')
         # @parts[0].id
         else
-            @parts = PagePart.where({contract_id: 1})   
+            @parts = PagePart.where({contract_id: 1})
+            @parts.order('id ASC')   
         end
 
         @layouts = PageLayout.where({contract_id: 1})
-
+        @layouts.order('id ASC')
         # @layouts = PageLayout.all
         # @layouts[0].posx
         item_array = []
