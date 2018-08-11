@@ -102,7 +102,8 @@ module PdfPageHelper
 				pdf.indent 320, 0 do
 					pdf.stroke_color 'FFFF00'
 					pdf.stroke_bounds
-					pdf.text_box place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
+					pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
+					# pdf.text 
 					# pdf.text place_array[step][1].to_s
 					pdf.line_to [var_x, var_y]
 				end
@@ -126,6 +127,7 @@ module PdfPageHelper
 				pdf.text say_date, {:color => "00ff00"}
 				# pdf.text place_array[step][0].to_s
 				# pdf.text place_array[step][1].to_s
+
 				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 
 	        end
