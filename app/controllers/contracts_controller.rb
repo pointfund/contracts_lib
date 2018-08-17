@@ -90,10 +90,10 @@ def show_edit
         @contracts = Contract.where({ book_id: 1 })
         @page_parts = PagePart.where(contract_id: get_record)
         @page_layouts = PageLayout.where({contract_id: get_record})
-            
+        
     end
-    @book = Book.where({id: get_record })
 
+    @book = Book.where({id: get_record })
 
     # @contracts = Contract.where({ book_id: 1 })
     # @book_id =  @contract.book_id
