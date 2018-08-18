@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'bookbuilder/show'
+  get 'bookbuilder/play'
+  get 'bookbuilder/build_parts'
+  get 'bookbuilder/build_layouts'
+  get 'bookbuilder/build_books'
+  get 'bookbuilder/build_contracts'
   devise_for :users
   get 'pdf_page/index'
   get 'pdf_page/show'
