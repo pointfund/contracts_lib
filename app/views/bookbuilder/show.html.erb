@@ -1,3 +1,18 @@
 <h1>Bookbuilder#show</h1>
 <p>Find me in app/views/bookbuilder/show.html.erb</p>
+
+<% if(@books != nil) %>
+	<table>
+		<% @books.each do |book| %>
+			<tr>
+				<td><%= book.name %></td>
+				<td><%= book.page_count %></td>
+			</tr>
+		<% end %>
+	</table>
+	<% else %>
+
 <%= link_to "Build Books", bookbuilder_build_books_path, class: "btn btn-info btn-lg" %> 
+
+	
+<% end %>

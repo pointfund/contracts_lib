@@ -1,3 +1,17 @@
 <h1>Bookbuilder#build_contracts</h1>
 <p>Find me in app/views/bookbuilder/build_contracts.html.erb</p>
 <%= link_to "Build Sections", bookbuilder_build_parts_path, class: "btn btn-info btn-lg" %> 
+
+<% if(@page_parts != nil) %>
+	<table>
+		<% @page_parts.each do |page_part| %>
+	        <tr>
+	            <td><%= page_part.id %></td>
+	            <td><%= page_part.name %></td>
+	            <td><%= page_part.content[0, 50] %></td>
+	            <td><%= page_part.contract_id %></td>
+	            <td><%= page_part.page_area %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
