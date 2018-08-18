@@ -12,7 +12,15 @@
 	</table>
 	<% else %>
 
-	<%= link_to "Build Books", bookbuilder_build_books_path, class: "btn btn-info btn-lg" %> 
+	<%= link_to "Build Books -->", bookbuilder_build_books_path, class: "btn btn-info btn-lg" %> 
+
+
 
 
 <% end %>
+
+
+	<% if(@contracts.length == 0) %>
+			<%= link_to "Build Contracts -->", bookbuilder_build_contracts_path, class: "btn btn-info btn-lg" %> 
+	<% end %>
+

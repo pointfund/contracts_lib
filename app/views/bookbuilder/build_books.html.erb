@@ -3,5 +3,20 @@
 <%= #link_to "Build Contracts", bookbuilder_build_contracts_path, class: "btn btn-info btn-lg"
  %> 
 
- <%= link_to "Build show", bookbuilder_show_path, class: "btn btn-info btn-lg"
- %> 
+
+
+
+ <% if(@contracts.length == 0) %>
+		<%= link_to "Build Contracts -->", bookbuilder_build_contracts_path, class: "btn btn-info btn-lg" %> 
+
+
+
+<% else %>
+
+
+	<%= link_to "Back to show", bookbuilder_show_path, class: "btn btn-info btn-lg"
+	 %> 
+
+
+<% end %> 
+
