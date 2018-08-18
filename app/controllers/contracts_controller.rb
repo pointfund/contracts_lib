@@ -74,6 +74,7 @@ def show_edit
     # @contracts = Contract.where({book_id: params[:id]})
     # @contracts = Contract.where({ book_id: @contract.book_id })
 <<<<<<< HEAD
+<<<<<<< HEAD
     # params[:contract_id] Contract.where()
 
 
@@ -97,6 +98,9 @@ def show_edit
     @book = Book.where({id: get_record })
 
     # @contracts = Contract.where({ book_id: 1 })
+=======
+    @contracts = Contract.where({ book_id: 1 })
+>>>>>>> parent of cb23b86... fix multi pdf page error
 =======
     @contracts = Contract.where({ book_id: 1 })
 >>>>>>> parent of cb23b86... fix multi pdf page error

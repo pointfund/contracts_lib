@@ -2,6 +2,7 @@ module PdfPageHelper
 	require 'date'
 	class SendLetter < Prawn::Document 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		def initialize(pdf,item_array, place_array,records_array, page_list, pick)
 			
 		# if(params["create_pages"] != nil)
@@ -60,6 +61,10 @@ module PdfPageHelper
 
 
 
+=======
+		def initialize(pdf,item_array, place_array,records_array)
+			page_letter(pdf,item_array,place_array,records_array)
+>>>>>>> parent of cb23b86... fix multi pdf page error
 =======
 		def initialize(pdf,item_array, place_array,records_array)
 			page_letter(pdf,item_array,place_array,records_array)
@@ -280,6 +285,7 @@ module PdfPageHelper
 			end
 		end
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -710,6 +716,8 @@ module PdfPageHelper
 			comp_address =  records_array.address_street;
 			comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
 =======
+=======
+>>>>>>> parent of cb23b86... fix multi pdf page error
 		# page 1 book 01
 		# def page_letterB(pdf,item_array,place_array,records_array)
 		# 	pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
