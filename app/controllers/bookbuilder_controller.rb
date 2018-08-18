@@ -13,7 +13,7 @@ require 'csv'
         imp_page_b = "app/assets/builddb/books.csv"
         CSV.foreach(imp_page_b, :headers => true) do |row|
             # puts row
-            # Book.create!(row.to_hash)
+            Book.create!(row.to_hash)
         end
         
     end
