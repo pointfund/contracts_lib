@@ -1,6 +1,7 @@
 module PdfPageHelper
 	require 'date'
 	class SendLetter < Prawn::Document 
+<<<<<<< HEAD
 		def initialize(pdf,item_array, place_array,records_array, page_list, pick)
 			
 		# if(params["create_pages"] != nil)
@@ -59,12 +60,17 @@ module PdfPageHelper
 
 
 
+=======
+		def initialize(pdf,item_array, place_array,records_array)
+			page_letter(pdf,item_array,place_array,records_array)
+>>>>>>> parent of cb23b86... fix multi pdf page error
+
+		end
 
 
-
-		def page_letter_1(pdf,item_array,place_array,records_array)
+		def page_letter(pdf,item_array,place_array,records_array)
 			# stroke_color "f0ffc1"
-			# side logo displaied as backdrop
+			# side logo 
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 	            # pdf.rectangle [120, 100], 4, 700
 	            # pdf.rectangle [120, 100],120,100
@@ -111,7 +117,7 @@ module PdfPageHelper
 			current_date = records_array.client_first_name.to_s
 			my_string = item_array[0].to_s
 			groupName = Time.new
-			groupName = groupName.localtime.strftime('%b %d, %Y')
+			groupName = groupName.localtime.strftime('  %b %d, %Y')
 			say_date = my_string.gsub('#{current_date}', groupName )
 
 			full_name = records_array.client_first_name + " " + records_array.client_last_name
@@ -123,7 +129,7 @@ module PdfPageHelper
 			comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
 
 			intro = item_array[4]
-			intro = intro.gsub('#{full_name}', full_name )
+			intro = intro.gsub('#{nick_name}', full_name )
 
 			para_A = item_array[5].to_s 
 			para_A = para_A.sub('#{full_name}', full_name )
@@ -177,7 +183,7 @@ module PdfPageHelper
 
 
     		# page layout 
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => tag_height}) do
 				# var_x = place_array[step][0]
 				# var_y = place_array[step][1]	
 				# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
@@ -190,18 +196,17 @@ module PdfPageHelper
 				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
 			
-			# skip client info
+			# client info
 			# step = up_one(step)  
 			# pdf.bounding_box( [ place_array[step][0], place_array[step][1] ] ),{ :width => 200, :height => 30}) do
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+			# pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => tag_height}) do
 				# get_page_loc(step, place_array, pdf);
-				# pdf.text records_array.loan_name	
 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-			end
+			# end
 			step = up_one(step)
 
 			# Client info 2
-			pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
+			pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 400, :height => tag_height) do
 				pdf.text records_array.loan_name , {:color => "000000"}
 				# get_page_loc(step, place_array, pdf, var_x, var_y);
 				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
@@ -210,7 +215,7 @@ module PdfPageHelper
 			step = up_one(step)  
 
 			# info 3
-			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 400, :height => 30) do
 			# 	pdf.text full_name_show , {:color => "000000"}
 				pdf.text records_array.client_first_name , {:color => "000000"}
 				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
@@ -218,7 +223,7 @@ module PdfPageHelper
 
 			step = up_one(step)			
 			# #Address 4
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				pdf.font "OpenSans", size: 10 
 				pdf.text comp_address + " \n" + comp_address_state
 				get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
@@ -226,7 +231,7 @@ module PdfPageHelper
 
 			step = up_one(step)
 			# #intro 5
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 16) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
 				pdf.text intro
 				get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
@@ -275,6 +280,7 @@ module PdfPageHelper
 			end
 		end
 
+<<<<<<< HEAD
 
 
 
@@ -703,6 +709,32 @@ module PdfPageHelper
 
 			comp_address =  records_array.address_street;
 			comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
+=======
+		# page 1 book 01
+		# def page_letterB(pdf,item_array,place_array,records_array)
+		# 	pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
+	 #            pdf.fill_color "ff0000"
+		# 		pdf.transparent(1.0, 0.2) do 
+		# 			pdf.image open("app/assets/images/logo_page.png"), :fit => [600, 1000], :at => [0, 160]
+		# 		end
+	 #           pdf.fill_color "000000"
+	 #        end
+	 #        # page sign lines
+	 #        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+		# 		pdf.rectangle [110, 190], 180, 2
+		# 		pdf.fill_rectangle [10, 100],0, 0
+		# 		# pdf.fill_color "ff0000"
+		# 		pdf.rectangle [310, 190], 180, 2
+		# 		pdf.fill_rectangle [10, 100],0, 0
+		# 		# pdf.fill_rectangle [240, 510],0, 0
+	 #        end
+
+	 #        step = 0
+	 #        def up_one(step)
+	 #        	step = step + 1
+	 #        	return step	
+	 #        end
+>>>>>>> parent of cb23b86... fix multi pdf page error
 
 
 			law_header = item_array[1].to_s

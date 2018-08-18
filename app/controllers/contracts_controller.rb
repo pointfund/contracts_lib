@@ -70,9 +70,10 @@ def show_edit
     @books = Book.all
     get_record = 1
     # @book = Book.where({id: @contract.book_id })
-    
+    @book = Book.where({id: get_record })
     # @contracts = Contract.where({book_id: params[:id]})
     # @contracts = Contract.where({ book_id: @contract.book_id })
+<<<<<<< HEAD
     # params[:contract_id] Contract.where()
 
 
@@ -96,13 +97,18 @@ def show_edit
     @book = Book.where({id: get_record })
 
     # @contracts = Contract.where({ book_id: 1 })
+=======
+    @contracts = Contract.where({ book_id: 1 })
+>>>>>>> parent of cb23b86... fix multi pdf page error
     # @book_id =  @contract.book_id
     # @contracts = Contract.where({ book_id: 1 })
     @home = @contracts
     # @books = Book.where({id: @contract.book_id})
 
+    @page_parts = PagePart.where(contract_id: get_record)
     # @page_parts = PagePart.where(contract_id: params[:id])
     @page_len = @page_parts.length
+    @page_layouts = PageLayout.where({contract_id: get_record})
     # @layouts = PageLayout.where({contract_id: params[:id]})
     @page_part = PagePart.new
     # @page_layouts = Pagelayout.where(contract_id: get_record)
