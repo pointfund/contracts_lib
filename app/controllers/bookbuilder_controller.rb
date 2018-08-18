@@ -1,21 +1,26 @@
 class BookbuilderController < ApplicationController
 require 'csv'  
-  def show
-          imp_page_p = "app/assets/builddb/page_parts.csv"
-  end
+    def show
+        imp_page_p = "app/assets/builddb/page_parts.csv"
 
-  def play
-  end
+        CSV.foreach(imp_page_b, :headers => true) do |row|
+        # puts row
+        Book.create!(row.to_hash)
+        end
+    end
 
-  def build_parts
-  end
+    def play
+    end
 
-  def build_layouts
-  end
+    def build_parts
+    end
 
-  def build_books
-  end
+    def build_layouts
+    end
 
-  def build_contracts
-  end
+    def build_books
+    end
+
+    def build_contracts
+    end
 end
