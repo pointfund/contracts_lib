@@ -1,11 +1,11 @@
 class BookbuilderController < ApplicationController
 require 'csv'  
     def show
-        imp_page_p = "app/assets/builddb/page_parts.csv"
+        imp_page_b = "app/assets/builddb/books.csv"
 
         CSV.foreach(imp_page_b, :headers => true) do |row|
         # puts row
-        Book.create!(row.to_hash)
+        # Book.create!(row.to_hash)
         end
     end
 
