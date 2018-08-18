@@ -1,5 +1,7 @@
 class BookbuilderController < ApplicationController
+require 'csv'  
   def show
+          imp_page_p = "app/assets/builddb/page_parts.csv"
   end
 
   def play
