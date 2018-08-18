@@ -52,12 +52,6 @@ require 'csv'
         
 
 
-        CSV.foreach(imp_page_d, :headers => true) do |row|
-            # puts row
-            PageLayout.create!(row.to_hash)
-        end
-
-
 
 
 
