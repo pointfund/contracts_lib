@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'book_builder/show'
-  get 'book_builder/edit'
   devise_for :users
   get 'pdf_page/index'
   get 'pdf_page/show'
