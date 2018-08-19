@@ -1,26 +1,81 @@
-<h2>Log in</h2>
+<!-- <h2>Log in</h2> -->
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+ 
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div full-page>
+<div class="container mars">
+  <div class="box"></div>
+  <div class="container-forms">
+    <div class="container-info">
+      <div class="info-item">
+        <div class="table">
+          <div class="table-cell">
+            <p>
+              Have an account?
+            </p>
+            <div class="btn">
+              Log in
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="table">
+          <div class="table-cell">
+            <p>
+              <% link_to %>
+              Don't have an account? 
+            </p>
+            <div class="btna btn-primaryi">
+              
+            <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end -%>
+    <div class="container-form">
+      <div class="form-item log-in">
+        <div class="table">
+          <div class="table-cell">
+             
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "-- Username --" %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+            <%= f.password_field :password, autocomplete: "off", placeholder: "-- Password --" %>
+                 
+            <div class="actions">
+            <%= f.submit "Log in", class: "btn" %>
+            </div>
+
+          
+
+          </div>
+        </div>
+      </div>
+      <div class="form-item sign-up">
+        <div class="table">
+          <div class="table-cell">
+            <input name="email" placeholder="Email" type="text" /><input name="fullName" placeholder="Full Name" type="text" /><input name="Username" placeholder="Username" type="text" /><input name="Password" placeholder="Password" type="Password" />
+            <div class="btnA">
+                <% if devise_mapping.rememberable? -%>
+                <div class="field">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+              <% end -%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+
+
+
+</div>
+
+  <% end %>

@@ -225,6 +225,9 @@
 
 <div class="btn btn-info">
 	<%= link_to 'Edit', edit_record_path(@record) %> </div>
+
+<div class="btn btn-info">
+    <%= link_to 'Back to Pdf Creator', controller: :pdf_page, :rec_id => params[:id] %> </div>
 <!-- <div class="btn btn-primary">
 	<%= # link_to 'To PDF', :controller => :pdf_pages, :action => :index, :rec_id => @record.id 
   %>
