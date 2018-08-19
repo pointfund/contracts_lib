@@ -153,12 +153,21 @@ td{
 }
 
 .panel-agent{
+	/*border:1px solid red;*/
+	/*box-shadow: 5px 5px 3px 6px #667; */
+	width:250px;
 	display:none;
 }
 .panel-client{
+	/*border:1px solid red;*/
+	/*box-shadow: 5px 5px 3px 6px #667; */
+	width:250px;
 	display:none;
 }
 .panel-name{
+	/*border:1px solid red;*/
+	/*box-shadow: 5px 5px 3px 6px #667; */
+	width:200px;
 	display:none;
 }
 .panel-show{
@@ -201,14 +210,37 @@ td{
 	text-align: right;
 }
 .outline{
-	border: 1px dashed pink;
+	/*border: 1px dashed pink;*/
 }
 
 .cap-form{
 	content: "";
 	display: table;
 	clear: both;
-	max-height: 30px;
+	max-height: 40px;
 	width:100%; 
-	border:1px solid blue;
+	/*border:1px solid blue;*/
+}
+
+.whole-page{
+		border-radius: 20px;
+		border:1px inset #c0c1c1;
+		box-shadow: 3px 3px 4px #333;
+
+}
+.panel-agent{
+	/*border:1px solid red; */
+	/*width:250px;*/
+}
+
+.form_imput input[type="checkbox"]{
+	float:right;
+	clear: both;
+
+}
+.check_box_form{
+	/*border:1px dashed blue;*/
+	float:right;
+	clear: both;
+
 }
