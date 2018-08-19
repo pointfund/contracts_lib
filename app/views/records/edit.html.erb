@@ -1,7 +1,7 @@
 
 <!-- <div class="row"> -->
-<div class="panel panel-info">
-	<div class="panel panel-alert col-lg-12">
+<div class="panel panel-alert">
+	<div class="panel col-lg-12">
 		<div class="panel panel-info panel-heading">
 			<h2>Editing Record <%= @record.loan_name %></h2>
 		</div>
@@ -10,7 +10,7 @@
 			<%= render 'form', record: @record %>
 		<!-- </div> -->
 		
-		<div>
+		<div class="panel-footer">
 			<%= link_to 'Show', @record,  class: 'btn btn-info' %> 
 			<%= link_to 'Back', records_path,  class: 'btn btn-info' %>
 		</div>

@@ -132,9 +132,6 @@ td{
 	border:1px dashed blue;
 }
 
-.outline{
-	/*border: 1px dashed red;*/
-}
 
 .panel-button-agent{
 	/*background-color: #00ff00;*/
@@ -178,8 +175,40 @@ td{
 }
 .panel_selection-page{
 	border:5px groove yellow;
- }
- .selected{
- 	/*border :4px solid yellow;*/
- 	box-shadow: 3px 3px 4px yellow;
- }
+}
+.selected{
+	/*border :4px solid yellow;*/
+	box-shadow: 3px 3px 4px yellow;
+}
+
+.form_imput form{
+	border:1px solid green;
+	clear: both;
+}
+.form_imput input, option, optgroup{
+	float:right;
+	clear: both;
+}
+.form_imput select{
+	float:right;
+	/*clear: both;*/
+}
+.form_imput label{
+	float:left;
+	clear: both;
+}
+.form_imput input[type="text"]{
+	text-align: right;
+}
+.outline{
+	border: 1px dashed pink;
+}
+
+.cap-form{
+	content: "";
+	display: table;
+	clear: both;
+	max-height: 30px;
+	width:100%; 
+	border:1px solid blue;
+}
