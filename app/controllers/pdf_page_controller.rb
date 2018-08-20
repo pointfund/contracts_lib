@@ -32,9 +32,7 @@ class PdfPageController < ApplicationController
         # @img_lib = @images.length
 
 
-        @contracts_bk_01 = Contract.where({book_id: "1"})
-        # @contracts_bk_02 = Contract.where({book_id:  2})
-        # @contracts_bk_03 = Contract.where({book_id: 3})
+
 
 
         show
@@ -62,6 +60,8 @@ class PdfPageController < ApplicationController
             # puts @page + " new"
             # @record_page_set = new_book.addSinglePage(@page, @record_page_set)
             puts "      Record : " + @record_page_set.to_s + "after book set"
+
+
         end
         count = 0
         # size of pdf lib 
@@ -70,6 +70,13 @@ class PdfPageController < ApplicationController
         # puts holdpage_add.to_s + " last items added to current page var list"
         # Contract.where({"book_id" => 1})
         puts "      Record : " + @record_page_set.to_s + " : show complete list"
+
+        @contracts_bk_01 = Contract.where({book_id: "1"})
+        # @contracts_bk_02 = Contract.where({book_id:  2})
+        # @contracts_bk_03 = Contract.where({book_id: 3})
+
+
+        
     end
 
     def create
