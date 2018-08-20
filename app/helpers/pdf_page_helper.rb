@@ -1162,8 +1162,8 @@ module PdfPageHelper
 			current_date = records_array.client_first_name.to_s
 			my_string = item_array[0].to_s
 			groupName = Time.new
-			groupName = groupName.localtime.strftime('%b %d, %Y')
-			say_date = my_string.gsub('#{current_date}', groupName )
+			groupDate = groupName.localtime.strftime('%b %d, %Y')
+			say_date = my_string.gsub('#{current_date}', groupDate )
 			full_name = records_array.client_first_name + " " + records_array.client_last_name
 			head_name = full_name
 			full_name_show = head_name.gsub('#{full_name}', head_name )
@@ -1173,18 +1173,27 @@ module PdfPageHelper
 			intro = item_array[4]
 			intro = intro.gsub('#{full_name}', full_name )
 
-			para_A = item_array[5].to_s 
-			para_A = para_A.sub('#{full_name}', full_name )
+			para_A = item_array[6].to_s 
+			para_A = para_A.sub('#{start_date}', records_array.repay_start.to_s  )
+			para_A = para_A.sub('#{final_date}', records_array.repay_mature.to_s  )
+			para_A = para_A.sub('#{start_date}', records_array.repay_start.to_s  )
+			para_A = para_A.sub('#{current_date}', say_date  )
 
-			# wash para B
-			para_B = item_array[6].to_s
-			# find vars and replace 
-			para_B = para_B.sub('#{loan_rate}', records_array.stated_rate.to_s )
-			para_B = para_B.sub('#{total_loan}', number_to_currency(records_array.total_amount) )
+
+
+			# para_A = para_A.sub('#{current_date}',say_date )
+			# # para_A = para_A.sub('#{current_date}', groupDate )
+			# para_A = para_A.sub('#{total_amount}', number_to_currency(records_array.total_amount) )
+			# # wash para B
+			# para_B = item_array[6].to_s
+			# # find vars and replace 
+			# para_B = para_B.sub('#{loan_rate}', records_array.stated_rate.to_s )
+			# para_B = para_B.sub('#{total_loan}', number_to_currency(records_array.total_amount) )
 			st_date = records_array.repay_start.strftime("%B")
-			para_B = para_B.sub('#{start_month}', st_date )	
-			sign_to = item_array[9].to_s 
+			# para_B = para_B.sub('#{start_month}', st_date )	
+			sign_to = item_array[8].to_s 
 			sign_to = sign_to.sub('#{full_name}', full_name )
+			sign_to = sign_to.sub('#{agent_code}', records_array.agent_num )
 
 			tag_height = 14
 			# step = up_one(step) 
@@ -1211,6 +1220,7 @@ module PdfPageHelper
 				# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
 				# pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
 				# pdf.text item_array[step], {:color => "00ff00"}
+				pdf.font "OpenSans", size: 10 
 				pdf.text say_date, {:color => "00ff00"}
 				# pdf.text place_array[step][0].to_s
 				# pdf.text place_array[step][1].to_s
@@ -1247,60 +1257,61 @@ module PdfPageHelper
 			step = up_one(step)			
 			# #Address 4
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-				pdf.font "OpenSans", size: 10 
+				
 				pdf.text comp_address + " \n" + comp_address_state
 				get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 
-			# step = up_one(step)
+			step = up_one(step)
 			# # #intro 5
-			# pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 16) do
-			# 	pdf.text intro
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 16) do
+				# pdf.text intro
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-			# end
-			# step = up_one(step)
+			end
+			step = up_one(step)
 			# #para 01 6
-			# pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-			# 	# pdf.text item_array[step]
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+				pdf.text item_array[step]
 			# 	# pdf.text item_array[5]
 			# 	pdf.text para_A 
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-			# end
+			end
 			# # text item_array[step]
 			# # end
-			# step = up_one(step)
+			step = up_one(step)
 			# #para 02 7
-			# pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 40) do
-				
-			# 	pdf.text para_B
+			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 40) do
+				# pdf.text item_array[step]
+				pdf.text para_A
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			
-			# end
-			# step = up_one(step) 
+			end
+			step = up_one(step) 
 			# #para 03 8
-			# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-			# 	pdf.text item_array[step]
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+				pdf.text item_array[step]
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-			# end
-			# step = up_one(step)
+			end
+			step = up_one(step)
 			# # #ender 9
-			# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-			# 	pdf.text item_array[step]
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+				# pdf.text item_array[step]
+				pdf.text sign_to
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-			# end
-			# step = up_one(step)
+			end
+			step = up_one(step)
 			# # #sign to 10
-			# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-			# # 	# pdf.text item_array[step]
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+				pdf.text item_array[step]
 			# 	pdf.text sign_to
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-			# end
-			# step = up_one(step)
+			end
+			step = up_one(step)
 			# #sign from 11
-			# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-			# 	pdf.text item_array[step]
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+				pdf.text item_array[step]
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-			# end
+			end
 		end
 
 
