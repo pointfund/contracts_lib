@@ -79,7 +79,7 @@ td{
 .short-nav{
 	height:70px;
 	padding:2px;
-	background-color: #9cbef4;
+	background-color: #828fbb;
 	margin:1px;
 }
 
@@ -256,42 +256,52 @@ td{
 .full-page {
   position: absolute;
   left: 0;
-  top: 0;
-  width: 1900%;
-  height: 1200%;
+  top: 50;
+  width: 100%;
+  height: 80%;
   font-family: "Roboto", sans-serif;
   background-color: #F36438;
+  background-color: #828fbb;
   overflow: hidden;
 }
-
-.table {
+.start_page{
+  width: 86%;
+  background-color: #da5738;
+  background-color: #eda290;
+  overflow: hidden;	
+}
+full-page.table {
   display: table;
   width: 100%;
   height: 100%;
 }
 
-.table-cell {
-  display: table-cell;
-  vertical-align: middle;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+.full-page.table-cell {
+	display: table-cell;
+	/*vertical-align: middle;*/
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	margin:20%;
 }
 
 .mars {
-  position: absolute;
-  width: 800px;
-  margin: 30px auto 0;
-  margin-left: 20%;
-  height: 320px;
-  background-color: #F58363;
-  top: 0%;
-  margin-top: 110px;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+	position: absolute;
+	width: 800px;
+	margin: 30px auto 0;
+	margin-left: 20%;
+	height: 320px;
+	background-color: #F58363;
+	top: 0%;
+	margin-top: 110px;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	-webkit-box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
+	-moz-box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
+	box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
 }
 /*.mars .box {
   position: relative;
@@ -314,8 +324,12 @@ td{
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  	margin:20%;
 }
 .mars .box:after {
+-webkit-border-radius: 9px;
+-moz-border-radius: 9px;
+border-radius: 9px;
   background-color: #E85C0B;
   top: -10px;
   left: 80px;
@@ -370,6 +384,7 @@ td{
   -o-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+
 }
 .mars .container-forms .container-info .info-item p {
   font-size: 20px;
@@ -429,6 +444,7 @@ td{
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  	margin:20%;
 }
 .container .form-item.sign-up {
   position: absolute;
@@ -502,3 +518,39 @@ td{
   fill: #fff;
 }
 
+
+
+
+
+.set-logo-login{
+	margin-top:10%;
+	margin-left:100px;
+	margin-right:320px;
+	/*margin-bottom:200px;*/
+	/*right:200px;*/
+}
+.btn-expand{
+	margin-bottom:30px;
+	border:1px solid #fff;
+}
+.btn-expand-login{
+	border:1px solid #000;
+}
+.image_offset{
+	margin-top:20px;
+	margin-bottom: 20px;
+	margin-left:40%;
+	border:4px solid #F36438;
+	-webkit-box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
+	-moz-box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
+	box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
+}
+.page-body{
+	background-color: #768796;
+	min-height: 250px;
+	padding:20px;
+	-webkit-box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
+	-moz-box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
+	box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
+
+}

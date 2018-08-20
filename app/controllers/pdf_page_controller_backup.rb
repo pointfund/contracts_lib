@@ -22,11 +22,17 @@ class PdfPageController < ApplicationController
             # @record = Record.find(params[:id])
             @record = Record.find(1)    
         end
-
+        @books = Book.all
         @records = Record.all
         total_records =  @records.length
         @last_record = total_records - 1
         record = @record
+
+
+
+        # @contracts_bk_01 = Contract.where({:book_id = 1})
+        # @contracts_bk_02 = Contract.where({:book_id = 2})
+        # @contracts_bk_03 = Contract.where({:book_id =  3})
         # @image_tag = Array.new
         # @images = Dir.glob("app/assets/images/pf_base_btn_set/*.jpg")
         # @form_pages = "<div class='page_samp'>#{@images[0]}</div>"

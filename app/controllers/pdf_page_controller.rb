@@ -30,6 +30,13 @@ class PdfPageController < ApplicationController
         # @images = Dir.glob("app/assets/images/pf_base_btn_set/*.jpg")
         # @form_pages = "<div class='page_samp'>#{@images[0]}</div>"
         # @img_lib = @images.length
+
+
+        @contracts_bk_01 = Contract.where({book_id:  1})
+        @contracts_bk_02 = Contract.where({book_id:  2})
+        @contracts_bk_03 = Contract.where({book_id: 3})
+
+
         show
     end
 

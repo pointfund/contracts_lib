@@ -10,17 +10,22 @@
 	</div>
 	<div class="">
 		<div class="row">
-			<div class="col-md-2 col-md-offset-5">
+			<div class="col-md-12 col-md-offset-0  full-page start_page">
+				<div class="panel-header">
+					  <%=  image_tag "pF_logo_ani.gif", width: 200, height: 200, alt: ('PF Contract form : ' ), class: "image_offset" %>
+				</div>
+
+
 				<div class="panel-body "> 
-		  			<%= link_to "PDF Creator", "pdf_page/index", class: "btn btn-info" %> 
-		  			<%= link_to "Browse Contracts ", contracts_path, class: "btn btn-success" %>
+		  			<%= link_to "PDF Creator",  {:controller => "pdf_page", :action => "index" }, class: "btn btn-info  btn-block btn-expand" %> 
+		  			<%= link_to "Browse Contracts ", contracts_path, class: "btn btn-success  btn-block btn-expand" %>
 		  			<%= # link_to "Edit Contracts", show_edit_path(contract_id: 1), class: "btn btn-info" 
 		  			%>  
 
 
 
-					<div class="btn-group ">
-						<div type="button" class="btn btn-default dropdown-toggle btn-danger " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<div class="btn-group btn-block btn-expand pull-right">
+						<div type="button" class="btn btn-default dropdown-toggle btn-danger btn-block   " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Edit Contracts <span class="caret"></span>
 						</div>
 			  		<ul class="dropdown-menu ">
@@ -43,6 +48,6 @@
 		  		</div>
 			</div>
 		</div>
-		</div>
 	</div>
+</div>
 	<%  %>

@@ -8,11 +8,14 @@
 	</div>
 	<div class="">
 		<div class="row">
-			<div class="col-md-1 col-md-offset-5">
-				<div class="panel-body"> 
-		  			<%= link_to "Pdf Record", guide_start_path, class: "btn btn-info btn-lg" %> 
-		  			<%= link_to "Contract Files", guide_map_path, class: "btn btn-success" %> 
-		  			<%= link_to "Sign In", guide_login_path, class: "btn btn-default" %> 
+			<div class="panel col-md-3 col-md-offset-1 full-page start_page">
+				<div class="panel-header">
+					  <%=  image_tag "pF_logo_ani.gif", width: 300, height: 300, alt: ('PF Contract form : ' ), class: "image_offset" %>
+				</div>
+				<div class="panel-body page-body" > 
+		  			<%= link_to "Create Pdf Record", guide_start_path, class: "btn btn-primary btn-lg btn-block btn-expand" %> 
+		  			<%= link_to "Review Contracts", guide_map_path, class: "btn btn-success btn-block  btn-expand" %> 
+		  			<%= link_to "Sign In", guide_login_path, class: "btn btn-default btn-block  btn-expand" %> 
 		  		</div>
 			</div>
 		</div>
