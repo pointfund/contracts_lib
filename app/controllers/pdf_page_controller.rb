@@ -32,9 +32,9 @@ class PdfPageController < ApplicationController
         # @img_lib = @images.length
 
 
-        @contracts_bk_01 = Contract.where({book_id:  1})
-        @contracts_bk_02 = Contract.where({book_id:  2})
-        @contracts_bk_03 = Contract.where({book_id: 3})
+        # @contracts_bk_01 = Contract.where({book_id:  1})
+        # @contracts_bk_02 = Contract.where({book_id:  2})
+        # @contracts_bk_03 = Contract.where({book_id: 3})
 
 
         show

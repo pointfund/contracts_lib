@@ -10,7 +10,7 @@
 
 	    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">	<% counter = 1 %>
 	    	<div class="panel-body panel-wide">
-	 			<% @contracts_bk_01.each do |z| %>
+	 			<% @contracts.each do |z| %>
 					<div class="panel_selection panel-default ">
 						<div class="col-sm-3 col-md-2  page-selection">
 							<div class="panel panel-default panel-page">
@@ -52,7 +52,7 @@
 	    </div>
 	    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo"><% counter = 1 %>
 	    	<div class="panel-body">
-				<% @contracts_bk_02.each do |z| %>
+				<% @contracts.each do |z| %>
 					<div class="panel_selection panel-default panel-page">
 						<div class="col-sm-3 col-md-2  page-selection">
 							<div class="panel panel-default panel-page">
@@ -97,7 +97,7 @@
 	</div>
 	<div id="collapsethree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingthree"><% counter = 1 %>
 		<div class="panel-body">
-		<%  @contracts_bk_03.each do |z| %>
+		<%  @contracts.each do |z| %>
 			<div class="panel_selection panel-default panel-page">
 				<div class="col-sm-3 col-md-2  page-selection">
 					<div class="panel panel-default panel-page">

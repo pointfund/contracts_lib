@@ -30,6 +30,7 @@ $( document ).ready(function() {
 	$(".info-item .btn").click(function() {
 	  $(".container").toggleClass("log-in");
 	});
+	
 	$(".container-form .btn").click(function() {
 	  $(".container").addClass("active");
 	});
@@ -42,7 +43,7 @@ $( document ).ready(function() {
 
 
 
-	
+
 	console.log("moo during you sick sick being");
 	// $("#hide").click(function(){
 	// 	$("p").hide();
