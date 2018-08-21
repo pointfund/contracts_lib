@@ -71,7 +71,7 @@ class PdfPageController < ApplicationController
         # Contract.where({"book_id" => 1})
         puts "      Record : " + @record_page_set.to_s + " : show complete list"
 
-        @contractA = Contract.where({book_id: "1"})
+        # @contractA = Contract.where({book_id: "1"})
         # @contracts_bk_02 = Contract.where({book_id:  2})
         # @contracts_bk_03 = Contract.where({book_id: 3})
 
