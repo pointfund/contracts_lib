@@ -15,8 +15,7 @@
 						<%= @records[var].loan_name %><% end %>
 					</li>
 				<% end %>
-				<li role="separator" class="divider"></li>
-				<li><a href="#">Separated link</a></li>
+				
 			</ul>
 		</div>
 	</div>
@@ -35,11 +34,27 @@
 				<div class="panel panel-heading">
 					<div class="record_slide_lft well well-sm">
 						<div class="btn-group " role="group" aria-label="...">
-						  <button type="button" class="btn btn-default btn-sm"><%= link_to "Review Books", books_path %></button>
-						  <button type="button" class="btn btn-default  btn-sm"><%= link_to "Review Contracts", contracts_path %></button>
-						  <button type="button" class="btn btn-default  btn-sm"><%= link_to "New Records", new_record_path %></button>
-						  <button type="button" class="btn btn-default  btn-sm"><%= link_to ">>", "?rec_id=#{ (params[:rec_id].to_i + 1)}" %></button>
-
+							<button type="button" class="btn btn-default btn-sm"><%= link_to "Review Books", books_path %></button>
+							<button type="button" class="btn btn-default  btn-sm"><%= link_to "Review Contracts", contracts_path %></button>
+							<button type="button" class="btn btn-default  btn-sm"><%= link_to "New Records", new_record_path %></button>
+							<!-- <button type="button" class="btn btn-default  btn-sm"><%= #link_to ">>", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
+							%></button>
+ -->
+						  	<button type="button" class="btn btn-default dropdown-toggle  btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Records <span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li></li>
+							<% @records.length.times do |var| %>
+							<!-- some_controller_name/some_get_request -->
+								<li><%= link_to ('?rec_id=' + @records[var].id.to_s) do %>
+								<%= @records[var].id %>
+								<%= @records[var].loan_name %><% end %>
+								</li>
+								<% end %>
+								<li role="separator" class="divider"></li>
+								<li type="button" class="  btn-sm"><%= link_to " Next >>", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
+							%></li>
+							</ul>
 						</div>
 						<%= render 'records/form_show', record: @record %>
 						<%= #render "pdf_pages/record_display" 
@@ -57,8 +72,8 @@
 </div>
 
 
-	<div>
-	<%= # render "pdf_pages/samp_accord"
-	 %>
-	</div>
-	<!-- <div class="clickable"> -->
+<div>
+<%= # render "pdf_pages/samp_accord"
+ %>
+</div>
+<!-- <div class="clickable">
