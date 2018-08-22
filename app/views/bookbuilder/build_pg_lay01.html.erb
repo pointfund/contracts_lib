@@ -1,0 +1,23 @@
+<h1>Contract builder add layout</h1>
+<p>Find me in app/views/bookbuilder/show.html.erb</p>
+
+<% if(@layouts.length >= 1) %>
+	<table>
+		<% @layouts.each do |part| %>
+			<tr>
+				<td><%= part.name %></td>
+				<td><%= # part.page_count 
+				%></td>
+			</tr>
+		<% end %>
+	</table>
+	<% else %>
+	<%= link_to "Build Contract 01 -->", bookbuilder_build_pg_01_path, class: "btn btn-info btn-lg" %> 
+<% end %>
+
+<% # if(@page_parts.length == 0) 
+%>
+		<%= link_to " Layout --> ", bookbuilder_build_pg_lay01_path, class: "btn btn-info btn-lg" %> 
+<% # end 
+%>
+

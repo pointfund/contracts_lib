@@ -1,5 +1,5 @@
 <h1>Bookbuilder#show</h1>
-<p>Find me in app/views/bookbuilder/show.html.erb</p>
+<p>Add contract </p>
 
 <% if(@books.length >= 1) %>
 	<table>
@@ -11,16 +11,11 @@
 		<% end %>
 	</table>
 	<% else %>
-
 	<%= link_to "Build Books -->", bookbuilder_build_books_path, class: "btn btn-info btn-lg" %> 
-
-
-
-
 <% end %>
 
+<% if(@contracts.length == 0) %>
+		<%= link_to "Build Contracts -->", bookbuilder_build_contracts_path, class: "btn btn-info btn-lg" %> 
+<% end %>
 
-	<% if(@contracts.length == 0) %>
-			<%= link_to "Build Contracts -->", bookbuilder_build_contracts_path, class: "btn btn-info btn-lg" %> 
-	<% end %>
-
+<%= link_to "Build Contracts -->", bookbuilder_buiid_pg_01_path, class: "btn btn-info btn-lg" %> 

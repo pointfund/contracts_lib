@@ -1,0 +1,29 @@
+<h1>Contract builder#show</h1>
+<p>Add contract part</p>
+
+<% if(@page_parts.length >= 1 || @page_parts.length == nil) %>
+	<table>
+		<% @page_parts.each do |part| %>
+			<tr>
+				<td><%=# part.name \
+				%></td>
+				<td><%= part.id 
+				%></td>
+				<td><%=# part.content 
+				%></td>
+				<td><%= #part.page_count 
+				%></td>
+			</tr>
+		<% end %>
+	</table>
+<% else %>
+	<%= link_to "Build Contract 01 -->", bookbuilder_build_pg_01_path, class: "btn btn-info btn-lg" %> 
+<% end %>
+
+	<% #if(@page_parts.length == 0)
+	 %>
+		<%= # link_to "Add Layouts to Contract -->", bookbuilder_build_pg_lay01_path, class: "btn btn-info btn-lg" 
+		%> 
+	<%# end 
+	%>
+

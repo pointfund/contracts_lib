@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'bookbuilder/build_layouts'
   get 'bookbuilder/build_books'
   get 'bookbuilder/build_contracts'
+
+  get 'bookbuilder/build_pg_01'
+    get 'bookbuilder/build_pg_lay01'
   devise_for :users
   get 'pdf_page/index'
   get 'pdf_page/show'
@@ -36,6 +39,7 @@ Rails.application.routes.draw do
   get 'pdf_pages/show'
   get 'pdf_pages/create'
 
+  # get 'pdf_pages/create'
 
   
  root 'guide#index'
