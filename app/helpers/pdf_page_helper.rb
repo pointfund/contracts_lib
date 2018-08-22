@@ -619,7 +619,7 @@ module PdfPageHelper
 			percent = records_array.stated_rate.to_i * 0.01 
 			percent_of = records_array.loan_amount.to_i * percent 
 
-			sect_03 = sect_03.sub('#{total_default}', number_to_currency(percent_of.to_s  ))
+			sect_03 = sect_03.sub('#{total_default}', number_to_currency(percent_of.to_s))
 
 			# monthly_pay = (percent_of + records_array.total_default.to_i) / records_array.repay_term1.to_i
 
@@ -928,7 +928,7 @@ module PdfPageHelper
 			end
 			# page layout area  : Area 1
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-				pdf.text say_date, {:color => "00ff00"}
+				pdf.text say_date, {:color => "000000"}
 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
 			step = up_one(step)
