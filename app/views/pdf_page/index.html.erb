@@ -1,7 +1,7 @@
 <!-- <div class="navbar">  -->
 	<!-- <div class="jumbotron page_head"> -->
 <div class="row ">
-	<div class="col-lg-8 well well-sm sub-nav">Create pdf from record
+	<div class="col-lg-8 well well-sm sub-nav">Create pdf from record - You must choose a record before selecting pdf pages
 		<%= link_to "Generate Pdf files", pdf_page_create_path(format: 'pdf', create_pages: @record_page_set, rec_id: @my_record ), class: "btn btn-primary btn-sm pull-right" %>
 				<div class="btn-group pull-right">
 				<div type="button" class="btn btn-default dropdown-toggle  btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,7 +23,7 @@
  		<% if(@record_page_set.length > 2) %>
      		 Pdf Que : <span id="mark"><%= @record_page_set %></span>
 		<% end %>
-		<%= link_to " Clear ", pdf_page_index_path(rec_id: @my_record ), class: "btn btn-default btn-sm pull-right"  %>
+		<%= link_to " Clear ", pdf_page_index_path(rec_id: @my_record,  ), class: "btn btn-default btn-sm pull-right"  %>
 	</div>
 <!-- </div> -->
 <!-- </div> -->
@@ -52,7 +52,8 @@
 								</li>
 								<% end %>
 								<li role="separator" class="divider"></li>
-								<li type="button" class="  btn-sm"><%= link_to " Next >>", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
+								<li type="button" class="  btn-sm">
+									<%= link_to " Next >>", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
 							%></li>
 							</ul>
 						</div>
