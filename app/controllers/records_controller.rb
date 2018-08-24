@@ -5,7 +5,36 @@ class RecordsController < ApplicationController
   # GET /records.json
   def index
     @records = Record.all
+    @contracts = Contract.all
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   end
+
+
+    def get_total(record)
+    # record.fin_fee * record.repay_term1
+        # record.total_amount = record.fin_fee * record.repay_term1
+        # return record.total_amount
+    end
 
   # GET /records/1
   # GET /records/1.json

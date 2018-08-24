@@ -72,13 +72,13 @@
                     <%= form.label :repay_term1 %>
                     <%= # form.select( :repay_term1, [seven, eight, ten]) 
                     %>
-                    <%= form.select :repay_term1, ['seven', 'eight', 'ten'], class: "custom-select"%>
+                    <%= form.select :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select"%>
                     <%=  %>
                     <%= #form.text_field :repay_term1 
                     %>
                     
                     <%= form.label :repay_term2 %>
-                    <%= form.select :repay_term2, ['seventh', 'eighth', 'tenth'], class: "custom-select" %>
+                    <%= form.select :repay_term2, ['seventh', 'eighth', 'tenth', 'twelfth', 'eighteenth', 'twentyfourth'], class: "custom-select" %>
 
                     <%= form.label :stated_rate.to_s + " %"%>
                     <%= form.text_field :stated_rate, size: 4 , class: "form-control" %>
@@ -99,22 +99,29 @@
                     <%= form.label :daily_late_fee.to_s + " $" %>
                     <%= form.text_field :daily_late_fee , class: "form-control" %>
 
-                    <%= form.label :total_amount.to_s + " $" %>
+
+
+                    <%= #form.label get_total{record} 
+                    %>
+                    <%=  form.label "Total Payment Fees" + " $"
+                     %>
                     <%= form.text_field :total_amount , class: "form-control" %>
 
-                    <%= form.label "Monthly payments" %>
+
+
+
+                    <%= # form.label "Monthly payments" + ( record.loan_amount / record.repay_term1 ) 
+                    %>
                     <%= form.text_field :total_default , class: "form-control" %>
+
+
+
 
                     <%= form.label :fin_fee.to_s + " $" %>
                     <%= form.text_field :fin_fee , class: "form-control" %>
 
-                    <%= form.label :repay_mature.to_s + " : date?" %>
-                    <%= #form.text_field :repay_mature 
-                    %>
-                    <div class="cap-form">
-                        <%= form.date_select :repay_mature, class: "custom-select"  
-                        %>
-                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -143,17 +150,14 @@
                         <%= form.date_select :final_date, class: "custom-select"  %>
                     </div>
 
-                    <%= form.label "Backer" 
-                    %> 
-                    <%= form.text_field :guarantee01, class: "form-control"  %>
-                    
-                    <%= form.label "Backer 2"
-                    %> 
-                    <%= form.text_field :guarantee02, class: "form-control"  %>
-                    
-                    <%= form.label "Backer 3" 
-                    %> 
-                    <%= form.text_field :guarantee03, class: "form-control"  %>
+                    <%= form.label :repay_mature.to_s + " : date?" %>
+                    <%= #form.text_field :repay_mature 
+                    %>
+                    <div class="cap-form">
+                        <%= form.date_select :repay_mature, class: "custom-select"  
+                        %>
+                    </div>
+   
                 </div>
             </div>
         </div>
@@ -184,10 +188,33 @@
             </div>
         </div>
 
-        <div class="actions pull-right col-lg-2">
-            <%= form.submit class: "btn btn-success" %>
-        </div>
 
+
+        <div class="col-lg-2  outline">
+            <div class="panel">
+                <div class="field  form_imput outline">
+
+                    <%= form.label "Backer" 
+                    %> 
+                    <%= form.text_field :guarantee01, class: "form-control"  %>
+                    
+                    <%= form.label "Backer 2"
+                    %> 
+                    <%= form.text_field :guarantee02, class: "form-control"  %>
+                    
+                    <%= form.label "Backer 3" 
+                    %> 
+                    <%= form.text_field :guarantee03, class: "form-control"  %>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="field  form_imput outline " > 
+            <div class="actions pull-right col-lg-2 style="margin-top: 20px;"">
+                <%= form.submit class: "btn btn-success" %>
+            </div>  
+        </div>
         <% end %>
         <!-- </div> -->
     </div>

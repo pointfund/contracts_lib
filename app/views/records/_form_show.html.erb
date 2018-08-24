@@ -81,10 +81,10 @@
                     <%= form.label :fin_fee %>
                     <%= form.text_field :fin_fee, class: "form-control"  %>
                     <%= form.label :repay_term1 %>
-                    <%= form.select :repay_term1, ['seven', 'eight', 'ten'], class: "custom-select"%>
+                    <%= form.select :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select"%>
                     <% if(@record.repay_term2.to_s != "0") %>
                         <%= form.label :repay_term2 %>
-                        <%= form.select :repay_term2, ['seventh', 'eighth', 'tenth'], class: "custom-select"%>
+                        <%= form.select :repay_term2, ['seventh', 'eighth', 'tenth', 'twelfth', 'eighteenth', 'twentyfourth'], class: "custom-select"%>
                     <% end %>
                     <%= form.label :repay_mature %>
                      <div class="cap-form" style="width:190px;">    

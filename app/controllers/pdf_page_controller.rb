@@ -58,15 +58,13 @@ class PdfPageController < ApplicationController
         # @record_page_set = ""
         holdpage_add = params["page"].to_i
         # @record_page_set = new_book.addSinglePage(params["page"].to_i, @record_page_set)
-        if(@record_page_set == nil)
+            if(@record_page_set == nil)
             puts "      Record : " + @record_page_set.to_s + "before set "
             # get all params set
             @record_page_set = getParams(params, new_book, @record_page_set)
             # puts @page + " new"
             # @record_page_set = new_book.addSinglePage(@page, @record_page_set)
             puts "      Record : " + @record_page_set.to_s + "after book set"
-
-
         end
         count = 0
         # size of pdf lib 
@@ -75,13 +73,9 @@ class PdfPageController < ApplicationController
         # puts holdpage_add.to_s + " last items added to current page var list"
         # Contract.where({"book_id" => 1})
         puts "      Record : " + @record_page_set.to_s + " : show complete list"
-
         # @contractA = Contract.where({book_id: "1"})
         # @contracts_bk_02 = Contract.where({book_id:  2})
         # @contracts_bk_03 = Contract.where({book_id: 3})
-
-
-
     end
 
     def create
@@ -137,7 +131,6 @@ class PdfPageController < ApplicationController
             return place_array, item_array
         end
 
-
         if(params[:create_pages] != nil)
             @job_ids = params[:create_pages].split(', ')
             # is_list(@job_ids, item_array, place_array)
@@ -153,8 +146,6 @@ class PdfPageController < ApplicationController
             end
             puts "found created pages "  
         end
-
-
 
         # get length of found array
         # @job_ids.each do |x|
@@ -203,7 +194,6 @@ class PdfPageController < ApplicationController
         end
 
         # end
-   
 
         # @records.each do |d|
         # d.each do |e|
@@ -213,7 +203,6 @@ class PdfPageController < ApplicationController
         # end
         # puts @record_page_set + "hello2"
         # puts place_array.length
-
 
         # if format is pdf create pdf 
         respond_to do |format|
@@ -228,10 +217,10 @@ class PdfPageController < ApplicationController
                     i = @job_ids.length
                     @job_ids.each do |contract| 
                         puts "items array " + item_array.length.to_s
-                            # puts is_list(contract, item_array, place_array)
-                            items = is_list(contract, item_array, place_array)
-                            item_things = items[0]
-                            place_things = items[1]
+                        # puts is_list(contract, item_array, place_array)
+                        items = is_list(contract, item_array, place_array)
+                        item_things = items[0]
+                        place_things = items[1]
                         puts "things array " + place_things.length.to_s
                         # reset_contract(contract)
                         # player
@@ -240,7 +229,10 @@ class PdfPageController < ApplicationController
                         sample = SendLetter.new(pdf, items[1], items[0], @records, @job_ids, contract)
                         puts "Finish page : " + i.to_s
                         i--
+                        # pdf.start_new_page
+                        # if(i <= @job_ids.length -1 )
                         pdf.start_new_page
+                        # end
                     end
                 end
             send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"
@@ -255,6 +247,7 @@ class PdfPageController < ApplicationController
 
 
     private 
+
         def getParams(params, new_book, record_page_set)
             if(params != nil)
                 puts "passed in some vars in url <check list page book and remove>"

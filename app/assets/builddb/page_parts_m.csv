@@ -1,0 +1,107 @@
+contract_id,page_area,name,content
+1,0,date,#{current_date}
+1,1,client name,#{full_name}
+1,2,name,#{full_name}
+1,3,address,#{address}
+1,4,intro,"Dear #{nick_name},"
+1,5,para 01,We are refinancing #{full_name} (A1234) Assignment of Commission.
+1,6,para 02,"We previously had #{loan_rate}% of their commissions assigned to Point Funding LLC. We are changing the assignment of commission to deduct the dollar amount of $ #{total_loan} , to begin in #{start_month}."
+1,7,para 03,Please see the attached documents. Thank you.
+1,8,footer,"Sincerely,"
+1,9,sign_to,#{full_name}
+1,10,sign_from,Court Carrere
+2,0,date,#{current_date}
+2,1,Company info,Aflac Insurance Company
+2,2,full name,#{full_name}
+2,3,address,#{address}
+2,4,intro,#{first_name}
+2,5,para 01,We are refinancing #{full_name} #{agent_code} Assignment of Commission.
+2,6,para 02,We previously had #{percent_of} of their commissions assigned to Point Funding LLC. We are changing the assignment of commission to deduct the dollar amount of #{total_amount} to begin in #{start_month} .
+2,7,para 03,Please see the attached documents. Thank you.
+2,8,footer,"Sincerely,"
+2,9,sign from,#{full_name}
+2,10,sign to,Court Carrere
+4,0,Date,#{current_date}
+4,1,Law Header,"Corporate Law Department – N72
+Progressive Life Insurance Company
+6300 Wilson Mills Road
+Mayfield Village, OH 44143
+Attn: Danita Ward"
+4,2,Confirmation,RE: Loan Confirmation
+4,3,Full Name,#{full_name}
+4,4,Agency,Agency Code: #{agent_code}
+4,5,Intro,To Whom It May Concern:
+4,6,Para 01,Please accept this letter as notification that #{full_name} has received a loan from Point Funding LLC. As collateral we have filed a UCC-1 showing both #{first_name} and #{company} . as debtors. Please see the attached copy of the filed UCC and the Point Funding Agent Summary for your reference.
+4,7,Para 01,Please let us know if there is anything else needed. Thank you.
+4,8,Footer,"Sincerely,"
+4,9,Sign From,Court Carrere
+5,0,title,Agent Summary
+5,1,form A line 1,Agency Name :        #{full_name}                        Agent #: #{agent_code}
+5,2,form A line 2,Agent Name    :        #{full_name}
+5,3,form A line 3,Agency Address    :        #{address_street}
+5,4,form A line 4,"City, St, Zip    :        #{address_city}, #{address_state} #{address_zip}"
+5,5,form A line 5,Phone: #{agent_phone}      Email    : #{agent_email}
+5,6,form A line 6,Lender Name    : Point Funding LLC
+5,7,form A line 7,Lender Contact    : William Carrere
+5,8,form A line 8,"Address    : 701 Poydras Street, Suite 4740"
+5,9,form A line 9,"City, St, Zip    : New Orleans, LA 70139"
+5,10,form A line 10,Phone    : 504-208-4406                     Email    : courtcarrere@pointfunding.com
+5,11,para 01,"<b>Acknowledgment by Agent    :</b>
+I acknowledge that the information provided above is correct.  I further acknowledge I am pledging my Progressive Life Insurance Commissions as collateral for the Point Funding loan dated."
+5,12,form B line 1,Print Agent Name    : #{agent_name}
+5,13,form B line 2,Agent Signature    :
+5,14,form B line 3,Date    : #{current_date}
+5,15,Para 02,"<b>Acknowledgment by Lender    :</b>
+I acknowledge that the information provided above is correct."
+5,16,form C line 1,Print Lender Authorized Representative Name    : William Carrere
+5,17,form C line 2,Lender Authorized Representative Signature    :
+5,18,form C line 3,Date    : #{current_date}
+6,0,Date,#{current_date}
+6,1,Full Name,#{full_name}
+6,2,Address,#{address}
+6,3,Reply,RE: Assignment of Commission Replacement
+6,4,agent,Allstate Agent Number – #{agent_code} #{full_name}
+6,5,Intro,Dear Lending Connection:
+6,6,Para 01,We are asking that the current Allstate Assignment of Commission with the Commencement Month of #{start_date} and date stamped by Allstate Lending Connection on #{current_date} in the amount of #{total_amount} be released on #{final_date}.
+6,7,Para 02,Please let us know if there is anything else needed. Thank you.
+6,8,Sign from,#{agent_code} #{full_name} 
+6,9,Footer,Sincerely;
+6,10,Sign_to,Court Carrere
+7,0,date,#{current_date}
+7,1,name,#{full_name}
+7,2,address,#{address}
+7,3,Re: Condition,RE: Condition of Loan
+7,4,intro,"Dear #{first_name},"
+7,5,para 01,Please acknowledge the following:
+7,6,para 02,Progressive’s acknowledgement of the filed UCC and your Progressive Monthly Commissions Payments paid directly to Point Funding are conditions of this loan.
+7,7,para 03,"In the event Progressive does not acknowledge the filed UCC or you do not direct your monthly commissions related to agency code # #{agent_code} directly to Point Funding, this loan will be voided."
+7,8,sign from,#{full_name}
+7,9,sign to,William Carrere
+7,10,statement,Direct Commissions to the following Point Funding Account:
+7,11,bank address,"Fidelity Bank
+321 St. Charles Avenue Account
+New Orleans, LA 70130
+504-569-3418"
+7,12,account,"ABA: 265070532
+Account #:8009957583"
+3,0,date,#{address}
+3,1,point address,"Point Funding LLC
+701 Poydras Street Suite 4740
+New Orleans, Louisiana 70139"
+3,2,name,#{full_name}
+3,3,address,#{full_address}
+3,4,intro,Dear #{first_name}:
+3,5,Para 01,Attached is the Point Funding Promissory Note. Any omission will delay funding. It is important that the items listed below are completed in their entirety:
+3,6,Para 01 list,"o The bottom right of each page indicates if initials are required.
+o Sign where indicated.
+o Return a Voided Check
+o Complete the Electronic Funds Authorization form in its entirety."
+3,7,para 02,"The completed document must be mailed or overnighted to our office prior to funding.
+Please mail or overnight to:"
+3,8,close address,"Point Funding LLC
+701 Poydras Street Suite 4740
+New Orleans, Louisiana 70139"
+3,9,closing,"#{first_name} , if you have any questions please do not hesitate to contact us. Our telephone number is 504-208-4406. We are looking forward to a long-term relationship."
+3,10,Footer,Sincerely;
+3,11,sign to,The Point Funding Team
+3,12,-,-
