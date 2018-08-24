@@ -2259,7 +2259,7 @@ module PdfPageHelper
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 				pdf.font "OpenSans", size: 10 
 				pdf.text say_date, {:color => "000000"}
-				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
 			
 			# skip client info
@@ -2285,7 +2285,7 @@ module PdfPageHelper
 			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
 			# 	pdf.text full_name_show , {:color => "000000"}
 				pdf.text full_name , {:color => "000000"}
-				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 			end
 
 			step = up_one(step)			
@@ -2293,7 +2293,7 @@ module PdfPageHelper
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
 				
 				pdf.text comp_address + " \n" + comp_address_state
-				get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 
 			step = up_one(step)

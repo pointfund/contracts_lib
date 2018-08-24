@@ -20,7 +20,7 @@
 								</div>
 								<div class="panel-body panel-button clicked" id="btn-clicked">
 			    					<div class="thumbnail">
-									<%= link_to pdf_page_index_path(page: z.id, "create_pages" =>  @record_page_set) do %>
+									<%= link_to pdf_page_index_path(page: z.id, "create_pages" =>  @record_page_set, rec_id: @my_record,) do %>
 										<%=  image_tag "pf_base_btn_set/#{counter}.jpg", width: 136, height: 67, alt: ('PF Contract form : ' + z.name) %>
 									<% end %> 
 			    			    	<% counter = counter + 1 %>

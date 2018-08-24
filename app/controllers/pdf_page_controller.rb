@@ -131,6 +131,7 @@ class PdfPageController < ApplicationController
             return place_array, item_array
         end
 
+
         if(params[:create_pages] != nil)
             @job_ids = params[:create_pages].split(', ')
             # is_list(@job_ids, item_array, place_array)
@@ -146,6 +147,8 @@ class PdfPageController < ApplicationController
             end
             puts "found created pages "  
         end
+
+
 
         # get length of found array
         # @job_ids.each do |x|
@@ -247,7 +250,6 @@ class PdfPageController < ApplicationController
 
 
     private 
-
         def getParams(params, new_book, record_page_set)
             if(params != nil)
                 puts "passed in some vars in url <check list page book and remove>"
