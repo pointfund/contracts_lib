@@ -26,25 +26,15 @@
 console.log("before load");
 
 $( document ).ready(function() {
-
 	$(".info-item .btn").click(function() {
 	  $(".container").toggleClass("log-in");
 	});
-	
 	$(".container-form .btn").click(function() {
 	  $(".container").addClass("active");
 	});
-
-
 // $(".thumbnail img").hover(function() {
 // 	$(this).css("border", "10px solid blue");
 // });
-
-
-
-
-
-
 
 	// console.log("moo during you sick sick being");
 	// $("#hide").click(function(){
@@ -103,8 +93,8 @@ $( document ).ready(function() {
 				} 
 			}
 		}
-		var my_page = "#page_" + found;
-		$(my_page + ' .thumbnail').css('border', '5px solid red');
+		// var my_page = "#page_" + found;
+		// $(my_page + ' .thumbnail').css('border', '5px solid red');
 
 		// $('#page_1 .thumbnail').css('border', '5px solid #111');
 
