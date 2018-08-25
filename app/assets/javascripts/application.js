@@ -36,6 +36,9 @@ $( document ).ready(function() {
 	});
 
 
+// $(".thumbnail img").hover(function() {
+// 	$(this).css("border", "10px solid blue");
+// });
 
 
 
@@ -43,8 +46,7 @@ $( document ).ready(function() {
 
 
 
-
-	console.log("moo during you sick sick being");
+	// console.log("moo during you sick sick being");
 	// $("#hide").click(function(){
 	// 	$("p").hide();
 	// });
@@ -96,11 +98,15 @@ $( document ).ready(function() {
 			console.log(newque[i] + " picked ");
 			for (var v = 0;  v <= found.length - 1; v++) {
 				if(v == newque[i]){
-					$(".clicked:nth-child(1)").css("border", "3px solid red");
+					var my_page = "#page_" + v;
+					$(my_page + ' .thumbnail').css('border', '5px solid red');
 				} 
 			}
 		}
+		var my_page = "#page_" + found;
+		$(my_page + ' .thumbnail').css('border', '5px solid red');
 
+		// $('#page_1 .thumbnail').css('border', '5px solid #111');
 
 
 		// for (var i = 0;  i <= newque.length - 1; i++) {

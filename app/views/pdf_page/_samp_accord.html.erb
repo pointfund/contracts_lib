@@ -11,7 +11,7 @@
 	    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">	<% counter = 1 %>
 	    	<div class="panel-body panel-wide">
 	 			<% @contracts.each do |z| %>
-					<div class="panel_selection panel-default ">
+					<div class="panel_selection panel-default " id="page_<%= z.id %>">
 						<div class="col-sm-3 col-md-2  page-selection">
 							<div class="panel panel-default panel-page">
 								<%  %>

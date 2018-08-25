@@ -10,7 +10,7 @@
 			<ul class="dropdown-menu">
 				<% @records.length.times do |var|%>
 			<!-- some_controller_name/some_get_request -->
-					<li><%= link_to ('?rec_id=' + @records[var].id.to_s )  do %>
+					<li><%= link_to ('?rec_id=' + @records[var].id.to_s)  do %>
 						<%= @records[var].id %>
 						<%= @records[var].loan_name %><% end %>
 					</li>
