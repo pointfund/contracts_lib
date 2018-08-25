@@ -89,7 +89,8 @@ $( document ).ready(function() {
 			for (var v = 0;  v <= found.length - 1; v++) {
 				if(v == newque[i]){
 					var my_page = "#page_" + v;
-					$(my_page + ' .thumbnail').css('border', '5px solid red');
+					$(my_page + ' .panel-button').css('background-color', '#88f');
+					$(my_page).css('opacity', '0.7');
 				} 
 			}
 		}
