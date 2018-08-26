@@ -9,7 +9,7 @@ class RecordsController < ApplicationController
 
 
 
-
+    @total_pay = :loan_amount.to_i / :repay_term1.to_i 
 
 
 
