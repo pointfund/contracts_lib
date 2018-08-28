@@ -94,13 +94,17 @@
                     <%= @record.repay_1st %>
                     </p>
                     <p>
-                    <strong> Repay mature date :<span class="key"> #{repay_mature} :</span> </strong>
+                    <strong> Mature date :<span class="key"> #{repay_mature} :</span> </strong>
                     <%= @record.repay_mature %>
                     </p>
 
                 </div>
 
                 <div class="col-lg-4 ">
+                    <p>
+                    <strong> Daily late Rate :<span class="key">  #{daily_late_fee} :</span> </strong>
+                    <%=  number_to_currency( @record.daily_late_fee )%>
+                    </p>
                     <p>
                     <strong> Payment Day :<span class="key"> #{payment_mth_day} :</span> </strong>
                     <%= @record.payment_mth_day %>
@@ -112,12 +116,12 @@
                     </p>
                     <p>
                     <strong> Stated Rate :<span class="key">  #{stated_rate} :</span> </strong>
-                    <%= @record.stated_rate %>
+                    <%= @record.stated_rate %> %
                     </p>
 
                     <p>
-                    <strong> Penalty Rate :<span class="key"> #{repay_penalty} :</span> </strong>
-                    <%= @record.repay_penalty %>
+                    <strong> Monthly Penalty  :<span class="key"> #{repay_penalty} :</span> </strong>
+                    <%= number_to_currency(@record.repay_penalty) %>
                     </p>
                 </div>
             </div>
@@ -131,13 +135,10 @@
             </div>
             <div class="panel-body">
                 <div class="col-lg-4 ">
-                    <p>
-                    <strong> Daily late Rate :<span class="key">  #{daily_late_fee} :</span> </strong>
-                    <%= @record.daily_late_fee %>
-                    </p>
+ 
                     <p>
                     <strong> Total :<span class="key">  #{total_default} :</span>  </strong>
-                    <%= @record.total_default %>
+                    <%= number_to_currency( @record.total_default ) %>
                     </p>
 
                     <p>
@@ -178,8 +179,8 @@
                     <%= @record.commencement_y %>
                     </p>
                     <p>
-                    <strong> Total Ded :<span class="key">,  #{total_ded} :</span> </strong>
-                    <%= @record.total_ded %>
+                    <strong> Total Deductions :<span class="key">,  #{total_ded} :</span> </strong>
+                    <%= number_to_currency(@record.total_ded )%>
                     </p>
                     <p>
                     <strong> 3001 Date :<span class="key">,  #{r3001_date} :</span> </strong>
@@ -228,6 +229,11 @@
 
 <div class="btn btn-info">
     <%= link_to 'Back to Pdf Creator', controller: :pdf_page, :rec_id => params[:id] %> </div>
+
+    <div class="btn btn-info">
+    <%=  link_to "Generate Pdf of record", pdf_page_create_path(format: 'pdf', create_pages: 10, rec_id: @my_record,  ), class: "btn btn-primary btn-sm pull-right" %> </div>
+
+
 <!-- <div class="btn btn-primary">
 	<%= # link_to 'To PDF', :controller => :pdf_pages, :action => :index, :rec_id => @record.id 
   %>

@@ -27,6 +27,17 @@ module PdfFontsHelper
     			:italic => Rails.root.join("app/assets/fonts/Tinos-Italic.ttf")
   				})
   			pdf.font "Tinos"
+  			
+			pdf.font_families.update("times" => {
+    			:normal => Rails.root.join("app/assets/fonts/times.ttf"),
+    			:bold => Rails.root.join("app/assets/fonts/times_bd.ttf"),
+    			:italic => Rails.root.join("app/assets/fonts/times_i.ttf")
+    			})
+  			pdf.font "times"
+
+
+
+
 		end
 
 	

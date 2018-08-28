@@ -13,7 +13,14 @@
 		<div class="panel-footer">
 			<%= link_to 'Show', @record,  class: 'btn btn-info' %> 
 			<%= link_to 'Back', records_path,  class: 'btn btn-info' %>
+					<div class="btn btn-info">
+    <%= link_to 'Back to Pdf Creator', controller: :pdf_page, :rec_id => params[:id] %> </div>
+  <div class="btn btn-info">
+    <%= link_to "Generate Pdf of record", pdf_page_create_path(format: 'pdf', create_pages: 10, rec_id: params[:id],  ), class: "btn btn-primary btn-sm pull-right" %> </div>
+
 		</div>
+  
+    	
 	</div>
 </div>
 

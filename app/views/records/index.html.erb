@@ -119,3 +119,22 @@
 <br>
 
 <%= link_to 'New Record', new_record_path %>
+
+
+<script type="text/javascript">
+    function loadRecords(){
+        $.getJSON("/records.json", function(data){
+        var html = "";
+        $.each(data, function(index){
+            html += "<b><i>" + data[index].content + "</b></i>";
+            });
+            $("#records").html(html);
+        });
+    }
+
+
+</script>
+
+<div id="records">
+    <a href="javascript:loadRecords();">This is where the record go </a>
+</div>

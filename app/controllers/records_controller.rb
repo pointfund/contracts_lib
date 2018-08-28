@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
   # GET /records
   # GET /records.json
@@ -9,31 +10,17 @@ class RecordsController < ApplicationController
 
 
 
-    @total_pay = :loan_amount.to_i / :repay_term1.to_i 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    # @total_pay = :loan_amount.to_i / :repay_term1.to_i 
+    @total_pay = :loan_amount
 
 
   end
 
 
     def get_total(record)
-    # record.fin_fee * record.repay_term1
-        # record.total_amount = record.fin_fee * record.repay_term1
-        # return record.total_amount
+    record.fin_fee * record.repay_term1
+        record.total_amount = record.fin_fee * record.repay_term1
+        return record.total_amount
     end
 
   # GET /records/1
@@ -42,22 +29,95 @@ class RecordsController < ApplicationController
   end
 
   # GET /records/new
-  def new
-    @record = Record.new
-  end
+    def new
+        @record = Record.new
+   
+           @daily_late_fee = 0.0 
+           @total_pay = 0.0
+           @total_fin_fee = 0.0
+    end
 
   # GET /records/1/edit
   def edit
+        @record = Record.find(2)
+        # record.fin_fee * record.repay_term1
+        # record.total_amount = record.fin_fee * record.repay_term1
+        # @new =  record.loan_amount
+
+
+
+
+        if(@record.loan_amount != nil && @record.repay_penalty != nil)
+            @total_pay = @record.loan_amount.to_f / @record.repay_term1.to_i + @record.repay_penalty.to_f 
+            @total_pay.round(2)
+
+           
+            # @total_pay = @record.repay_term1
+            # @total_pay = :loan_amount
+            @record.loan_amount.to_f
+            @total_fin_fee = @record.repay_term1.to_f * @record.repay_penalty.to_f 
+            # @total_fin_fee.round(2)
+            @daily_late_fee =  @record.repay_penalty.to_f / 30
+            @daily_late_fee.round(2)
+        else 
+           @daily_late_fee = 0.0 
+        end
+
+        # respond_to do |format|
+
+        # end
+
+        # @total_pay = @record.loan_amount.to_f / @record.repay_term1.to_f + @record.repay_penalty.to_f 
+        # @total_pay.round(2)
+
+        # # @total_pay = @record.repay_term1
+        # # @total_pay = :loan_amount
+
+        # @record.loan_amount.to_f
+        # @total_fin_fee = @record.repay_term1.to_f * @record.repay_penalty.to_f 
+
+        # # @total_fin_fee.round(2)
+        # @daily_late_fee = @record.repay_penalty.to_f / 30
+        # @daily_late_fee.round(2)
+
+
+        # puts @total_fin_fee.round(2)
+
+        respond_to do |format|
+            format.html
+            format.json
+        end
   end
 
   # POST /records
   # POST /records.json
   def create
     @record = Record.new(record_params)
+        if(@record.loan_amount != nil && @record.repay_penalty != nil)
+            @total_pay = @record.loan_amount.to_f / @record.repay_term1.to_i + @record.repay_penalty.to_f 
+            @total_pay.round(2)
+
+            
+            # @total_pay = @record.repay_term1
+            # @total_pay = :loan_amount
+            @record.loan_amount.to_f
+            @total_fin_fee = @record.repay_term1.to_f * @record.repay_penalty.to_f 
+            # @total_fin_fee.round(2)
+            @daily_late_fee =  @record.repay_penalty.to_f / 30
+            @daily_late_fee.round(2)
+        else 
+           @daily_late_fee = 0.0 
+           @total_pay = 0.0
+           @total_fin_fee = 0.0
+        end
+
+
+
+
 
     respond_to do |format|
       if @record.save
-        format.html { redirect_to @record, notice: 'Record was successfully created.' }
+        format.html { redirect_to records_edit_path(params[:id]), notice: 'Record was successfully created.' }
         format.json { render :show, status: :created, location: @record }
       else
         format.html { render :new }
@@ -71,7 +131,9 @@ class RecordsController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(record_params)
-        format.html { redirect_to @record, notice: 'Record was successfully updated.' }
+        format.html { redirect_to edit_record_path(params[:id]), notice: 'Record was successfully updated.' }
+        
+        # format.html { redirect_to @record, notice: 'Record was successfully updated.' }
         format.json { render :show, status: :ok, location: @record }
       else
         format.html { render :edit }
