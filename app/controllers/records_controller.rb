@@ -117,7 +117,7 @@ class RecordsController < ApplicationController
 
     respond_to do |format|
       if @record.save
-        format.html { redirect_to records_edit_path(params[:id]), notice: 'Record was successfully created.' }
+        format.html { redirect_to edit_record_path(@record), notice: 'Record was successfully created.' }
         format.json { render :show, status: :created, location: @record }
       else
         format.html { render :new }
@@ -131,7 +131,7 @@ class RecordsController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(record_params)
-        format.html { redirect_to edit_record_path(params[:id]), notice: 'Record was successfully updated.' }
+        format.html { redirect_to edit_record_path(@record), notice: 'Record was successfully updated.' }
         
         # format.html { redirect_to @record, notice: 'Record was successfully updated.' }
         format.json { render :show, status: :ok, location: @record }
