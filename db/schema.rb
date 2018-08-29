@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_27_100909) do
+ActiveRecord::Schema.define(version: 2018_08_29_170219) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2018_08_27_100909) do
     t.integer "total_amount"
     t.string "payment_mth_day"
     t.integer "loan_act_fee"
-    t.integer "stated_rate"
+    t.decimal "stated_rate"
     t.integer "repay_penalty"
     t.decimal "daily_late_fee"
     t.integer "total_default"

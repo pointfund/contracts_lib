@@ -26,7 +26,7 @@ module PdfPageHelper
 
 				total_addr = comp_address + " \n" + comp_address_state
 			rec_set.push(total_addr)															#	5
-				note_date = records_array.note_date.to_s
+				note_date = records_array.note_date
 			rec_set.push(note_date)																#	6
 				loan_amount = records_array.loan_amount.to_s
 			rec_set.push(loan_amount)															#	7
@@ -36,11 +36,11 @@ module PdfPageHelper
 			rec_set.push(term_num)																#	9
 				tern_th = records_array.repay_term2.to_s
 			rec_set.push(tern_th)																#	10
-				start = records_array.repay_start.to_s
+				start = records_array.repay_start
 			rec_set.push(start)																	#	11
-				firsts_pay = records_array.repay_1st.to_s
+				firsts_pay = records_array.repay_1st
 			rec_set.push(firsts_pay)															#	12
-				last_pay = records_array.repay_mature.to_s
+				last_pay = records_array.repay_mature
 			rec_set.push(last_pay)																#	13
 				total_monthly = records_array.total_amount.to_s
 			rec_set.push(total_monthly)															#	14
@@ -54,7 +54,7 @@ module PdfPageHelper
 			rec_set.push(late_month)															#	18
 				late_day = records_array.daily_late_fee.to_s
 			rec_set.push(late_day)																#	19
-				final_date = records_array.final_date.to_s
+				final_date = records_array.final_date
 			rec_set.push(final_date)															#	20
 				backerA = records_array.guarantee01.to_s
 			rec_set.push(backerA)																#	21
@@ -68,7 +68,7 @@ module PdfPageHelper
 			rec_set.push(agt_com_yr)															#	25
 				agt_total_ded = records_array.total_ded.to_s
 			rec_set.push(agt_total_ded)															#	26
-				agt_r3001 = records_array.r3001_date.to_s
+				agt_r3001 = records_array.r3001_date
 			rec_set.push(agt_r3001)																#	27
 				agt_code = records_array.agent_num.to_s
 			rec_set.push(agt_code)																#	28
@@ -3060,7 +3060,7 @@ module PdfPageHelper
 			 				["#{ rec_set[30] }" , "30", "Phone", "agent_phone"],
 			 				["#{ rec_set[31] }" , "31", "Term assignment", "assign_term"],
 			 				["#{ rec_set[32] }" , "32", "Position ", "agent_position"],
-			 			], :cell_style => { :size => 10, :background_color => "828fbb" }
+			 			],  :cell_style => { :size => 10, :background_color => "828fbb" }
 
 			 			) 
 
@@ -3083,7 +3083,7 @@ module PdfPageHelper
 			pdf.text "\n"
 			pdf.text "\n"
 
-			pdf.text rec_set[6] + " ------ ------ ------ ------ 6  ------" + " note date", 								{:color => "000000"}
+			pdf.text rec_set[6].to_s + " ------ ------ ------ ------ 6  ------" + " note date", 								{:color => "000000"}
 			pdf.text rec_set[7] + " ------ ------ ------ ------ ------ 7  ------" + " total loan amount", 		{:color => "ff0000"}
 			pdf.text rec_set[8] + "  ------ ------ ------ ------ ------ 8  ------" + " finance fee", 				{:color => "00ff00"}
 			pdf.text rec_set[9] + " ------ ------ ------ ------ ------    9  ------" + " repay term months", 		{:color => "0000ff"}
@@ -3092,9 +3092,9 @@ module PdfPageHelper
 			pdf.text "\n"
 			pdf.text "\n"
 
-			pdf.text rec_set[11] + " ------ ------ ------ ------ 11  ------" + " repay start", 							{:color => "ff0000"}
-			pdf.text rec_set[12] + " ------ ------ ------ ------ 12  ------" + " repay 1st payment day", 				{:color => "00ff00"}
-			pdf.text rec_set[13] + " ------ ------ ------ ------ 13  ------" + " repay mature date", 					{:color => "0000ff"}
+			pdf.text rec_set[11].to_s + " ------ ------ ------ ------ 11  ------" + " repay start", 							{:color => "ff0000"}
+			pdf.text rec_set[12].to_s + " ------ ------ ------ ------ 12  ------" + " repay 1st payment day", 				{:color => "00ff00"}
+			pdf.text rec_set[13].to_s + " ------ ------ ------ ------ 13  ------" + " repay mature date", 					{:color => "0000ff"}
 			
 			pdf.text "\n"
 			pdf.text "\n"
@@ -3110,7 +3110,7 @@ module PdfPageHelper
 			pdf.text "\n"
 			pdf.text "\n"
 
-			pdf.text rec_set[20] + " ------ ------ ------ --- 20  ------" + " final date of loan", 					{:color => "ff0000"}
+			pdf.text rec_set[20].to_s + " ------ ------ ------ --- 20  ------" + " final date of loan", 					{:color => "ff0000"}
 			pdf.text rec_set[21] + " ------ ------ ------ - 21  ------" + " Backer 01", 							{:color => "00ff00"}
 			pdf.text rec_set[22] + " ------ ------ ------ ------ ------  22  ------" + " Backer 02", 				{:color => "0000ff"}
 			pdf.text rec_set[23] + " ------ ------ ------ ------ ------  23  ------" + " Backer 03", 				{:color => "ff0000"}
@@ -3122,7 +3122,7 @@ module PdfPageHelper
 			pdf.text rec_set[24] + " ------ ------ ------ ------ ------ --- 24 ------ ------ " + " commencement month  ", 			{:color => "ff0000"}
 			pdf.text rec_set[25] + " ------ ------ ------ ------ ------ ------ 25 ------ ------ " + " commencement year ", 	{:color => "00ff00"}
 			pdf.text rec_set[26] + " ------ ------ ------ ------ ------ ------ 26 ------ ------ " + " total deduction ", 			{:color => "0000ff"}
-			pdf.text rec_set[27] + " ------ ------ ------ ------ ---- 27 ------ ------ " + " R300 date ", 			{:color => "ff0000"}
+			pdf.text rec_set[27].to_s + " ------ ------ ------ ------ ---- 27 ------ ------ " + " R300 date ", 			{:color => "ff0000"}
 			pdf.text rec_set[28] + " ------ ------ ------ ------ ------ --- 28 ------ ------ " + " Agent Number", 			{:color => "00ff00"}
 			pdf.text rec_set[29] + " ------ ------ ------ ---- 29 ------ ------ " + " email", 			{:color => "0000ff"}
 			pdf.text rec_set[30] + " ------ ------ ------ ---- 30 ------ ------ " + " phone ", 			{:color => "ff0000"}

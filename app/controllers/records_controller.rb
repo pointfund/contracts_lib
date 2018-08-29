@@ -39,7 +39,7 @@ class RecordsController < ApplicationController
 
   # GET /records/1/edit
   def edit
-        @record = Record.find(2)
+        @record = Record.find(params[:id])
         # record.fin_fee * record.repay_term1
         # record.total_amount = record.fin_fee * record.repay_term1
         # @new =  record.loan_amount
