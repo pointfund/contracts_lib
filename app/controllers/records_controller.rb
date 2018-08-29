@@ -47,15 +47,13 @@ class RecordsController < ApplicationController
 
 
 
-        if(@record.loan_amount != nil && @record.repay_penalty != nil)
+        if(@record.loan_amount != nil && @record.repay_penalty != nil && @record.repay_term1 != nil )
             @total_pay = @record.loan_amount.to_f / @record.repay_term1.to_i + @record.repay_penalty.to_f 
             @total_pay.round(2)
-
-           
             # @total_pay = @record.repay_term1
             # @total_pay = :loan_amount
-            @record.loan_amount.to_f
-            @total_fin_fee = @record.repay_term1.to_f * @record.repay_penalty.to_f 
+            # @record.loan_amount.to_f
+            @total_fin_fee = @record.repay_term1.to_i * @record.repay_penalty.to_i 
             # @total_fin_fee.round(2)
             @daily_late_fee =  @record.repay_penalty.to_f / 30
             @daily_late_fee.round(2)
@@ -83,10 +81,10 @@ class RecordsController < ApplicationController
 
         # puts @total_fin_fee.round(2)
 
-        respond_to do |format|
-            format.html
-            format.json
-        end
+        # respond_to do |format|
+        #     format.html
+        #     format.json
+        # end
   end
 
   # POST /records
