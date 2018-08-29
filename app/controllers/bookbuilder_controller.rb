@@ -69,7 +69,7 @@ class BookbuilderController < ApplicationController
         @page_parts = PagePart.all
         @layouts = PageLayout.all
 
-        imp_page_d = "app/assets/builddb/page_layouts_m.csv"
+        # imp_page_d = "app/assets/builddb/page_layouts_m.csv"
         imp_page_lay = "app/assets/builddb/parts_layout_update.csv"
 
         # CSV.foreach(imp_page_d, :headers => true) do |row|

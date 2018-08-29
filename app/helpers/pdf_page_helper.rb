@@ -3,6 +3,11 @@ module PdfPageHelper
 	class SendLetter < Prawn::Document 
 		def initialize(pdf,item_array, place_array,records_array, page_list, pick)
 			
+
+
+			PagePart.order('part_area ASC').reorder('id ASC')
+			PageLayout.order('part_area ASC').reorder('id ASC')
+			
 			rec_set = []	
 
 				loan_name = records_array.loan_name.to_s										#	0
@@ -83,8 +88,6 @@ module PdfPageHelper
 
 
 			zvar = pick.to_i
-
-
 				case zvar
 					when 1
 						# puts "print pdf page " + zvar.to_s + " : parts : " + item_array.length.to_s
@@ -557,8 +560,8 @@ module PdfPageHelper
 							  "$#{num.to_s.gsub(/\d(?=(...)+$)/, '\0,')}"
 							end
 
-							PagePart.order('part_area ASC').reorder('id ASC')
-							PageLayout.order('part_area ASC').reorder('id ASC')
+							# PagePart.order('part_area ASC').reorder('id ASC')
+							# PageLayout.order('part_area ASC').reorder('id ASC')
 
 							current_date = records_array.client_first_name.to_s
 							my_string = item_array[0].to_s
