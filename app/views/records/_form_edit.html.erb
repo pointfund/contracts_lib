@@ -118,7 +118,7 @@
 
                         <%= form.label "Total Payment Fees" + " $" 
                         %>
-                        <%= form.text_field :total_amount ,                         class: "form-control" 
+                        <%= form.text_field :total_amount ,value: @total_pay.to_f.round(2),                         class: "form-control" 
                         %>
 
                         <%=  form.label "Penalty $" + :pay_pen.to_s  #+ ( record.loan_amount / record.repay_term1 ) 
@@ -126,13 +126,13 @@
                         <%= form.text_field :pay_pen,                                     class: "form-control"
                         %>
                         <%= form.label "Total Finance fees" + " $" + "(MFF * term)" %>
-                        <%= form.text_field :fin_fee,                                    class: "form-control" %>
+                        <%= form.text_field :fin_fee, value: @total_fin_fee.to_i,                                   class: "form-control" %>
 
 
                         <%= form.label "Daily late fee" + " $" %>
                         <% #if(:daily_late_fee != nil)  
                             %>
-                            <%= form.text_field :daily_late_fee,                        class: "form-control" 
+                            <%= form.text_field :daily_late_fee,    value:  @daily_late_fee.round(2),                        class: "form-control" 
                             %>
 
 
@@ -162,7 +162,7 @@
                     <%= form.date_select :note_date,                                class: "custom-select"  %>
                     </div><br />
 
-                    <%= form.label " Payment start date"  %>
+                    <%= form.label " Payment start date" + @blink.to_s %>
                     <br />
                     <div class="cap-form">
                         <%= form.date_select :repay_start,                          class: "custom-select"  %><br />
@@ -175,7 +175,7 @@
 
                   
 
-                    <%= form.label :repay_mature.to_s  %>
+                    <%= form.label :repay_mature.to_s + " " + @blink.to_date.to_s %>
                     <%= #form.text_field :repay_mature 
                     %>
                     <div class="cap-form">

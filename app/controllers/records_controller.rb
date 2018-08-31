@@ -31,7 +31,8 @@ class RecordsController < ApplicationController
   # GET /records/new
     def new
         @record = Record.new
-   
+
+           @full_name = "Full Name " 
            @daily_late_fee = 0.0 
            @total_pay = 0.0
            @total_fin_fee = 0.0
@@ -49,6 +50,7 @@ class RecordsController < ApplicationController
         @blink_up = @blink.strftime('  %b %d, %Y')
 
         if(@record.loan_amount != nil && @record.repay_penalty != nil && @record.repay_term1 != nil )
+             @full_name = @record.client_first_name + " " + @record.client_last_name
             @total_pay = @record.loan_amount.to_f / @record.repay_term1.to_i + @record.repay_penalty.to_f 
             @total_pay.round(2)
             # @total_pay = @record.repay_term1

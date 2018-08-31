@@ -10,86 +10,85 @@ module PdfPageHelper
 
 			rec_set = []	
 
-				loan_name = records_array.loan_name.to_s										#	0
-				current_date = records_array.current_date								#	1
-			rec_set.push(loan_name)
-			rec_set.push(current_date)
+					loan_name = records_array.loan_name.to_s										#	0
+					current_date = records_array.current_date								#	1
+				rec_set.push(loan_name)
+				rec_set.push(current_date)
 
-				first_name = records_array.client_first_name.to_s									
-				last_name = records_array.client_last_name.to_s									
-				nick_name = records_array.client_nick.to_s											
+					first_name = records_array.client_first_name.to_s									
+					last_name = records_array.client_last_name.to_s									
+					nick_name = records_array.client_nick.to_s											
 
-			rec_set.push(first_name)															#	2
-			rec_set.push(last_name)																#	3
-			rec_set.push(nick_name)																#	4
+				rec_set.push(first_name)															#	2
+				rec_set.push(last_name)																#	3
+				rec_set.push(nick_name)																#	4
 
-				comp_address = records_array.address_street.to_s
-				city = records_array.address_city.to_s
-				state = records_array.address_state.to_s
-				zip = records_array.address_zip.to_s
-				comp_address_state = city + ", " + state + " " + zip;
+					comp_address = records_array.address_street.to_s
+					city = records_array.address_city.to_s
+					state = records_array.address_state.to_s
+					zip = records_array.address_zip.to_s
+					comp_address_state = city + ", " + state + " " + zip;
 
-				total_addr = comp_address + " \n" + comp_address_state
-			rec_set.push(total_addr)															#	5
-				note_date = records_array.note_date
-			rec_set.push(note_date)																#	6
-				loan_amount = records_array.loan_amount.to_s
-			rec_set.push(loan_amount)															#	7
-				finance_fee = records_array.fin_fee.to_s
-			rec_set.push(finance_fee)															#	8
-				term_num = records_array.repay_term1.to_s
-			rec_set.push(term_num)																#	9
-				tern_th = records_array.repay_term2.to_s
-			rec_set.push(tern_th)																#	10
-				start = records_array.repay_start
-			rec_set.push(start)																	#	11
-				firsts_pay = records_array.repay_1st
-			rec_set.push(firsts_pay)															#	12
-				last_pay = records_array.repay_mature
-			rec_set.push(last_pay)																#	13
-				total_monthly = records_array.total_amount.to_s
-			rec_set.push(total_monthly)															#	14
-				pay_on = records_array.payment_mth_day.to_s
-			rec_set.push(pay_on)																#	15
-				loan_act_fee = records_array.loan_act_fee.to_s
-			rec_set.push(loan_act_fee)															#	16
-				rate = records_array.stated_rate.to_s
-			rec_set.push(rate)																	#	17
-				late_month = records_array.repay_penalty.to_s
-			rec_set.push(late_month)															#	18
-				late_day = records_array.daily_late_fee.to_s
-			rec_set.push(late_day)																#	19
-				final_date = records_array.final_date
-			rec_set.push(final_date)															#	20
-				backerA = records_array.guarantee01.to_s
-			rec_set.push(backerA)																#	21
-				backerB = records_array.guarantee02.to_s
-			rec_set.push(backerB)																#	22
-				backerC = records_array.guarantee03.to_s
-			rec_set.push(backerC)																#	23
-				agt_com_mth = records_array.commencement_m.to_s
-			rec_set.push(agt_com_mth)															#	24
-				agt_com_yr = records_array.commencement_y.to_s
-			rec_set.push(agt_com_yr)															#	25
-				agt_total_ded = records_array.total_ded.to_s
-			rec_set.push(agt_total_ded)															#	26
-				agt_r3001 = records_array.r3001_date
-			rec_set.push(agt_r3001)																#	27
-				agt_code = records_array.agent_num.to_s
-			rec_set.push(agt_code)																#	28
-				agt_email = records_array.agent_email.to_s
-			rec_set.push(agt_email)																#	29
-				agt_phone = records_array.agent_phone.to_s
-			rec_set.push(agt_phone)																#	30
-				agt_term = records_array.term_assignment_mths.to_s
-			rec_set.push(agt_term)																#	31
-				agt_pos = records_array.position.to_s
-			rec_set.push(agt_pos)																#	32
-				pay_pen = records_array.pay_pen.to_s
-			rec_set.push(pay_pen)																#	33
-
-				prepay_pen = records_array.prepay_pen.to_s
-			rec_set.push(prepay_pen)																#	33
+					total_addr = comp_address + " \n" + comp_address_state
+				rec_set.push(total_addr)															#	5
+					note_date = records_array.note_date
+				rec_set.push(note_date)																#	6
+					loan_amount = records_array.loan_amount.to_s
+				rec_set.push(loan_amount)															#	7
+					finance_fee = records_array.fin_fee.to_s
+				rec_set.push(finance_fee)															#	8
+					term_num = records_array.repay_term1.to_s
+				rec_set.push(term_num)																#	9
+					tern_th = records_array.repay_term2.to_s
+				rec_set.push(tern_th)																#	10
+					start = records_array.repay_start
+				rec_set.push(start)																	#	11
+					firsts_pay = records_array.repay_1st
+				rec_set.push(firsts_pay)															#	12
+					last_pay = records_array.repay_mature
+				rec_set.push(last_pay)																#	13
+					total_monthly = records_array.total_amount.to_s
+				rec_set.push(total_monthly)															#	14
+					pay_on = records_array.payment_mth_day.to_s
+				rec_set.push(pay_on)																#	15
+					loan_act_fee = records_array.loan_act_fee.to_s
+				rec_set.push(loan_act_fee)															#	16
+					rate = records_array.stated_rate.to_s
+				rec_set.push(rate)																	#	17
+					late_month = records_array.repay_penalty.to_s
+				rec_set.push(late_month)															#	18
+					late_day = records_array.daily_late_fee.to_s
+				rec_set.push(late_day)																#	19
+					final_date = records_array.final_date
+				rec_set.push(final_date)															#	20
+					backerA = records_array.guarantee01.to_s
+				rec_set.push(backerA)																#	21
+					backerB = records_array.guarantee02.to_s
+				rec_set.push(backerB)																#	22
+					backerC = records_array.guarantee03.to_s
+				rec_set.push(backerC)																#	23
+					agt_com_mth = records_array.commencement_m.to_s
+				rec_set.push(agt_com_mth)															#	24
+					agt_com_yr = records_array.commencement_y.to_s
+				rec_set.push(agt_com_yr)															#	25
+					agt_total_ded = records_array.total_ded.to_s
+				rec_set.push(agt_total_ded)															#	26
+					agt_r3001 = records_array.r3001_date
+				rec_set.push(agt_r3001)																#	27
+					agt_code = records_array.agent_num.to_s
+				rec_set.push(agt_code)																#	28
+					agt_email = records_array.agent_email.to_s
+				rec_set.push(agt_email)																#	29
+					agt_phone = records_array.agent_phone.to_s
+				rec_set.push(agt_phone)																#	30
+					agt_term = records_array.term_assignment_mths.to_s
+				rec_set.push(agt_term)																#	31
+					agt_pos = records_array.position.to_s
+				rec_set.push(agt_pos)																#	32
+					pay_pen = records_array.pay_pen.to_s
+				rec_set.push(pay_pen)																#	33
+					prepay_pen = records_array.prepay_pen.to_s
+				rec_set.push(prepay_pen)															#	33
 
 			zvar = pick.to_i
 				case zvar
@@ -123,6 +122,8 @@ module PdfPageHelper
 						# puts place_array[0][1].to_s + " : " 
 					  	# page_letter_3(pdf, item_array, place_array, records_array)
 					when 12
+					when 33
+						page_letter_33(pdf, item_array, place_array, records_array, rec_set)
 					else
 						puts "Error: no pdf print page or record"
 				end
@@ -690,13 +691,7 @@ module PdfPageHelper
 							fill_name = item_array[63]
 							fill_name = fill_name.sub('#{full_name}', rec_set[2].to_s + " " + rec_set[3].to_s   )
 
-
-
-
-
-
-
-					
+				
 							guar_A = item_array[66]
 							guar_A = guar_A.sub('#{full_name}', rec_set[2].to_s + " " + rec_set[3].to_s  )
 							guar_A = guar_A.sub('#{start_date}', rec_set[11].strftime('%A %B %d, %Y').to_s  )
@@ -719,7 +714,6 @@ module PdfPageHelper
 							sign_02 = sign_02.sub('#{guarantee02}', rec_set[22].to_s    )
 
 
-
 							guar_C = item_array[100]
 							guar_C = guar_C.sub('#{full_name}', rec_set[2].to_s + " " + rec_set[3].to_s  )
 							guar_C = guar_C.sub('#{start_date}', rec_set[1].strftime('%A %B %d, %Y').to_s  )
@@ -731,24 +725,7 @@ module PdfPageHelper
 							sign_03 = sign_03.sub('#{guarantee03}', rec_set[23].to_s    )
 
 
-
-
-
-
-
-
-
-
-
-
-							# percent_of = records_array.total_amount.to_i * percent #multiply 
 							percent_of = records_array.total_amount.to_i * percent #multiply 
-
-							# sect_03 = sect_03.sub('#{total_default}', number_to_currency( fin_fee * records_array.repay_term1.to_i )).to_s
-
-							# monthly_pay = (percent_of + records_array.total_default.to_i) / records_array.repay_term1.to_i
-
-							# sect_03 = sect_03.sub('#{total_default}', number_to_currency( monthly_pay ) )
 
 							def get_page_loc(step, place_array, pdf, var_x, var_y)
 								# move_l = place_array[step][0].to_f
@@ -2976,7 +2953,7 @@ module PdfPageHelper
 		end
 
 		# Assignment of %
-		def page_letter_10(pdf,item_array,place_array,records_array, rec_set)
+		def page_letter_33(pdf,item_array,place_array,records_array, rec_set)
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "ff0000"
 				pdf.transparent(1.0, 0.2) do 
