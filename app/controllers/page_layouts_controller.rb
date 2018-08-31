@@ -1,11 +1,20 @@
 class PageLayoutsController < ApplicationController
   before_action :set_page_layout, only: [:show, :edit, :update, :destroy]
-
+require 'csv' 
   # GET /page_layouts
   # GET /page_layouts.json
-  def index
-    @page_layouts = PageLayout.all
-  end
+    def index
+        @page_layouts = PageLayout.all
+
+
+
+
+        respond_to do |format|
+          format.html
+          format.csv {send_data @page_layouts.to_csv}
+        end
+
+    end
 
   # GET /page_layouts/1
   # GET /page_layouts/1.json

@@ -18,10 +18,12 @@ class BookbuilderController < ApplicationController
         @page_parts = PagePart.all
         @layouts = PageLayout.all
         imp_page_b = "app/assets/builddb/books.csv"
-        # CSV.foreach(imp_page_b, :headers => true) do |row|
-        #     puts row
-        #     # Book.create!(row.to_hash)
-        # end
+    if(@books.length <= 0)
+        CSV.foreach(imp_page_b, :headers => true) do |row|
+            puts row
+            Book.create!(row.to_hash)
+        end
+    end
         # @books = Book.all
         # @contracts = Contract.all  
     end
@@ -32,10 +34,12 @@ class BookbuilderController < ApplicationController
         @page_parts = PagePart.all
         @layouts = PageLayout.all
         imp_page_c = "app/assets/builddb/contracts.csv"
-        # CSV.foreach(imp_page_c, :headers => true) do |row|
-        #     puts row
-        #     # Contract.create!(row.to_hash)
-        # end
+    if(@contracts.length <= 0)
+        CSV.foreach(imp_page_c, :headers => true) do |row|
+            puts row
+            Contract.create!(row.to_hash)
+        end
+    end
     #     # @books = Book.all
     #     @contracts = Contract.all  
     #     @page_parts = PagePart.all
@@ -48,17 +52,18 @@ class BookbuilderController < ApplicationController
         @page_parts = PagePart.all
         @layouts = PageLayout.all
         # PagePart.all
-        # imp_page_b = "app/assets/builddb/page_parts_m.csv"
-        imp_page_p = "app/assets/builddb/parts_update.csv"
-
-        # CSV.foreach(imp_page_b, :headers => true) do |row|
-        #    puts row
-        #    # PagePart.create!(row.to_hash)
-        # end
+        imp_page_b = "app/assets/builddb/page_parts_main.csv"
+        imp_page_p = "app/assets/builddb/page_parts_3.csv"
+    if(@page_parts.length <= 0)
+        CSV.foreach(imp_page_b, :headers => true) do |row|
+           puts row
+           PagePart.create!(row.to_hash)
+        end
         CSV.foreach(imp_page_p, :headers => true) do |row|
            puts row
            PagePart.create!(row.to_hash)
         end
+    end
         # @page_parts = PagePart.all
         # @layouts = PageLayout.all
     end
@@ -69,17 +74,18 @@ class BookbuilderController < ApplicationController
         @page_parts = PagePart.all
         @layouts = PageLayout.all
 
-        # imp_page_d = "app/assets/builddb/page_layouts_m.csv"
-        imp_page_lay = "app/assets/builddb/parts_layout_update.csv"
-
-        # CSV.foreach(imp_page_d, :headers => true) do |row|
-        #     puts row
-        #     # PageLayout.create!(row.to_hash)
-        # end
+        imp_page_d = "app/assets/builddb/page_layouts_main.csv"
+        imp_page_lay = "app/assets/builddb/page_layouts_3.csv"
+    if(@layouts.length <= 0)
+        CSV.foreach(imp_page_d, :headers => true) do |row|
+            puts row
+            PageLayout.create!(row.to_hash)
+        end
         CSV.foreach(imp_page_lay, :headers => true) do |row|
             puts row
             PageLayout.create!(row.to_hash)
         end
+    end
     #     @layouts = PageLayout.all
     #     @page_parts = PagePart.all
     end

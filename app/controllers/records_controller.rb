@@ -44,8 +44,9 @@ class RecordsController < ApplicationController
         # record.total_amount = record.fin_fee * record.repay_term1
         # @new =  record.loan_amount
 
-
-
+        @blink = @record.repay_start + 1.year
+        @pay_pen = @record.pay_pen 
+        @blink_up = @blink.strftime('  %b %d, %Y')
 
         if(@record.loan_amount != nil && @record.repay_penalty != nil && @record.repay_term1 != nil )
             @total_pay = @record.loan_amount.to_f / @record.repay_term1.to_i + @record.repay_penalty.to_f 
@@ -199,7 +200,9 @@ class RecordsController < ApplicationController
                                       :agent_email,
                                       :agent_phone,
                                       :term_assignment_mths,
-                                      :position
+                                      :position,
+                                      :pay_pen,
+                                      :prepay_pen
                                      )
     end
 end

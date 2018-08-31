@@ -140,6 +140,13 @@
                     <strong> Total :<span class="key">  #{total_default} :</span>  </strong>
                     <%= number_to_currency( @record.total_default ) %>
                     </p>
+                    
+                    <p>
+                    <strong> Penality :<span class="key">  #{pay_pen} :</span>  </strong>
+                        <%=  @record.pay_pen.to_i  %>
+                    <%= # number_to_currency( @record.pay_pen.to_i ) 
+                    %>
+                    </p>
 
                     <p>
                     <strong> Final Date :<span class="key"> #{final_date} :</span> </strong>

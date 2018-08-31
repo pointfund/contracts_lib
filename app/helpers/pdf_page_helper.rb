@@ -7,11 +7,11 @@ module PdfPageHelper
 
 			PagePart.order('part_area ASC').reorder('id ASC')
 			PageLayout.order('part_area ASC').reorder('id ASC')
-			
+
 			rec_set = []	
 
 				loan_name = records_array.loan_name.to_s										#	0
-				current_date = records_array.current_date.to_s									#	1
+				current_date = records_array.current_date								#	1
 			rec_set.push(loan_name)
 			rec_set.push(current_date)
 
@@ -85,7 +85,11 @@ module PdfPageHelper
 			rec_set.push(agt_term)																#	31
 				agt_pos = records_array.position.to_s
 			rec_set.push(agt_pos)																#	32
+				pay_pen = records_array.pay_pen.to_s
+			rec_set.push(pay_pen)																#	33
 
+				prepay_pen = records_array.prepay_pen.to_s
+			rec_set.push(prepay_pen)																#	33
 
 			zvar = pick.to_i
 				case zvar
@@ -593,7 +597,7 @@ module PdfPageHelper
 							closing = item_array[9].to_s
 							closing = closing.sub('#{first_name}', records_array.client_first_name )
 
-							para_A = item_array[6].to_s 
+							para_A = item_array[6].chomp.to_s 
 							para_A = para_A.sub('#{start_date}', records_array.repay_start.strftime('%B, %Y').to_s )
 							para_A = para_A.sub('#{current_date}', records_array.current_date.strftime('%B %d, %Y').to_s )
 							para_A = para_A.sub('#{total_amount}', number_to_currency(records_array.total_amount ) )
@@ -604,19 +608,6 @@ module PdfPageHelper
 							para_Book = para_Book.sub('#{first_name}', records_array.client_first_name )
 							fin = number_to_currency(records_array.fin_fee)
 
-							# .to_f, precision: 2
-							
-							# para_B = para_B.sub('#{commencement_m}', records_array.commencement_m.to_s )
-							# para_B = para_B.sub('#{commencement_y}', records_array.commencement_y.to_s )
-							# para_B = para_B.sub('#{fin_fee}', fin.to_s )
-							# para_B = para_B.sub('#{repay_term1}', records_array.repay_term1.to_s )
-							
-							# find vars and replace 
-							# para_B = para_B.sub('#{loan_rate}', records_array.stated_rate.to_s )
-							# para_B = para_B.sub('#{total_loan}', number_to_currency(records_array.total_amount) )
-							# st_date = records_array.repay_start.strftime("%B")
-							# para_B = para_B.sub('#{start_month}', st_date )	
-							# sign_to = item_array[9].to_s 
 							agent_num = rec_set[28]
 
 							sign_from = item_array[10].to_s
@@ -627,47 +618,127 @@ module PdfPageHelper
 							step = 0
 
 							start_date = item_array[14].to_s
-							start_date = start_date.sub('#{start_date}', rec_set[11].strftime('%b %d, %Y').to_s )
+							start_date = start_date.sub('#{start_date}', rec_set[1].to_date.strftime('%b %d, %Y').to_s )
 
 							# start_date = item_array[14].to_s 
 							# start_date = start_date.sub('#{start_date}', records_array.repay_start.strftime('%B, %Y').to_s )
 
-							total_amount = number_to_currency(records_array.total_amount ) 
+							total_amount = number_to_currency(rec_set[7]) 
 							promise = item_array[17].to_s
 							promise = promise.sub('#{full_name}', full_name )
 							promise = promise.sub('#{total_loan}', total_amount )
 
-							sect_02 = item_array[19] 
-							sect_02 = sect_02.sub('#{repay_monthly}', number_to_currency(records_array.total_default.to_s ))
-							
+							sect_02 = item_array[19].to_s 
+							sect_02 = sect_02.sub('#{repay_monthly}', number_to_currency(rec_set[18].to_s ))
 							# sect_02 = sect_02.sub('#{repay_term1}', records_array.repay_term1 )
-
 							sect_02 = sect_02.sub('#{start_date}', rec_set[6].strftime('%b %d, %Y').to_s )
-							sect_02 = sect_02.sub('#{repay_penalty}', number_to_currency(rec_set[18] ) )
-							sect_02 = sect_02.sub('#{repay_start}',	rec_set[11].strftime('%b %d, %Y').to_s  )
-							sect_02 = sect_02.sub('#{stated_rate}', records_array.stated_rate.to_s  )
-							sect_02 = sect_02.sub('#{loan_act_fee}', records_array.loan_act_fee.to_s )
-							sect_02 = sect_02.sub('#{repay_term1}', records_array.repay_term1.to_s )
+							sect_02 = sect_02.sub('#{repay_penalty}', number_to_currency(rec_set[33] ) )
+							sect_02 = sect_02.sub('#{repay_start}',	rec_set[12].strftime('%b %d, %Y').to_s  )
+							sect_02 = sect_02.sub('#{stated_rate}', rec_set[17].to_s  )
+							sect_02 = sect_02.sub('#{loan_act_fee}', rec_set[16].to_s )
+							sect_02 = sect_02.sub('#{repay_term1}', rec_set[9].to_s )
 
-							sect_03 = item_array[21] 
 
-							sect_03 = sect_03.sub('#{repay_monthly}', number_to_currency(records_array.total_default.to_s ) + ".00")
-							
-							sect_03 = sect_03.sub('#{repay_term1}', records_array.repay_term1 )
-							sect_03 = sect_03.sub('#{repay_term2}', records_array.repay_term2 )
-
+							sect_03 = item_array[21]
+							sect_03 = sect_03.sub('#{total_default}', number_to_currency(rec_set[14].to_s ) + ".00") 
+							# sect_03 = sect_03.sub('#{repay_monthly}', number_to_currency(rec_set[14].to_s ) + ".00")
+							sect_03 = sect_03.sub('#{repay_term1}', rec_set[9] )
+							sect_03 = sect_03.sub('#{repay_term2}', rec_set[10] )
 							# sect_03 = sect_03.sub('#{repay_start}', records_array.repay_start.strftime('%b %d, %Y').to_s )
-							sect_03 = sect_03.sub('#{payment_mth_day}', records_array.payment_mth_day.to_s  )
-							sect_03 = sect_03.sub('#{repay_mature}', records_array.repay_mature.to_s  )
-							sect_03 = sect_03.sub('#{loan_act_fee}', number_to_currency(records_array.loan_act_fee ) )
-							sect_03 = sect_03.sub('#{repay_start}',	records_array.repay_start.strftime('%b %d, %Y').to_s  )
-
-
+							sect_03 = sect_03.sub('#{payment_mth_day}', rec_set[15].to_s  )
+							sect_03 = sect_03.sub('#{repay_mature}', rec_set[13].to_s  )
+							sect_03 = sect_03.sub('#{loan_act_fee}', number_to_currency(rec_set[16] ) )
+							sect_03 = sect_03.sub('#{repay_start}',	rec_set[11].strftime('%b %d, %Y').to_s  )
 							# sect_03 = sect_03.sub('#{repay_penalty}', number_to_currency(records_array.repay_penalty ) )
+							sect_03 = sect_03.sub('#{loan_act_fee}',  number_to_currency(rec_set[16].to_s ))
 
-							sect_03 = sect_03.sub('#{loan_act_fee}',  number_to_currency(records_array.loan_act_fee.to_s ))
 
+							sect_04 = item_array[25]
+							sect_04 = sect_04.sub('#{payment_mth_day}', rec_set[15]  )
+
+
+							sect_05 = item_array[26]
+							sect_05 = sect_05.sub('#{repay_penalty}', rec_set[33] + ".00"  )
+							sect_05 = sect_05.sub('#{repay_penalty}', rec_set[33] + ".00"  )
+
+							sect_06 = item_array[27]
+							sect_06 = sect_06.sub('#{repay_penalty}', rec_set[33] + ".00"  )
+							sect_06 = sect_06.sub('#{daily_late_fee}', rec_set[19]   )
+
+							sect_07 = item_array[28]
+							# sect_07 = sect_07.sub('#{repay_penalty}', rec_set[33] + ".00"  )
+							sect_07 = sect_07.sub('#{daily_late_fee}', rec_set[34]   )
+
+							sect_08 = item_array[29]
+							# sect_07 = sect_07.sub('#{repay_penalty}', rec_set[33] + ".00"  )
+							sect_08 = sect_08.sub('#{total_default}', "<b>" +  number_to_currency(rec_set[7]) + "</b>"  )
+
+							sign_from_B = item_array[41]
+							sign_from_B = sign_from_B.sub('#{full_name}', rec_set[2].to_s + " " + rec_set[3].to_s   )
 							percent = records_array.stated_rate.to_i * 0.01 # percent rate
+
+							fill_form = item_array[49].chomp.to_s.html_safe
+							fill_form = fill_form.sub('#{full_name}', rec_set[2].to_s + " " + rec_set[3].to_s   )
+							fill_form = fill_form.sub('#{address_street}', records_array.address_street.to_s   )
+							fill_form = fill_form.sub('#{address_city}', records_array.address_city.to_s )
+							fill_form = fill_form.sub('#{address_state}', records_array.address_state.to_s )
+							fill_form = fill_form.sub('#{address_zip}', records_array.address_zip.to_s )
+
+							set_date = item_array[56]
+							set_date = set_date.sub('#{date}', rec_set[1].to_s )
+
+							fill_name = item_array[63]
+							fill_name = fill_name.sub('#{full_name}', rec_set[2].to_s + " " + rec_set[3].to_s   )
+
+
+
+
+
+
+
+					
+							guar_A = item_array[66]
+							guar_A = guar_A.sub('#{full_name}', rec_set[2].to_s + " " + rec_set[3].to_s  )
+							guar_A = guar_A.sub('#{start_date}', rec_set[11].strftime('%A %B %d, %Y').to_s  )
+
+							guar_A_date = item_array[78]
+							guar_A_date = guar_A_date .sub('#{current_date}', rec_set[11].strftime('%A %B %d, %Y').to_s   )
+							
+							sign_01 = item_array[80]
+							sign_01 = sign_01.sub('#{guarantee01}', rec_set[2].to_s + " " + rec_set[3].to_s   )
+
+					
+							guar_B = item_array[82]
+							guar_B = guar_B.sub('#{full_name}', rec_set[2].to_s + " " + rec_set[3].to_s  )
+							guar_B = guar_B.sub('#{start_date}', rec_set[1].strftime('%A %B %d, %Y').to_s  )
+
+							guar_B_date = item_array[95]
+							guar_B_date = guar_B_date .sub('#{current_date}', rec_set[11].strftime('%A %B %d, %Y').to_s   )
+							
+							sign_02 = item_array[98]
+							sign_02 = sign_02.sub('#{guarantee02}', rec_set[22].to_s    )
+
+
+
+							guar_C = item_array[100]
+							guar_C = guar_C.sub('#{full_name}', rec_set[2].to_s + " " + rec_set[3].to_s  )
+							guar_C = guar_C.sub('#{start_date}', rec_set[1].strftime('%A %B %d, %Y').to_s  )
+
+							guar_C_date = item_array[113]
+							guar_C_date = guar_B_date .sub('#{current_date}', rec_set[11].strftime('%A %B %d, %Y').to_s   )
+							
+							sign_03 = item_array[116]
+							sign_03 = sign_03.sub('#{guarantee03}', rec_set[23].to_s    )
+
+
+
+
+
+
+
+
+
+
 
 
 							# percent_of = records_array.total_amount.to_i * percent #multiply 
@@ -701,12 +772,14 @@ module PdfPageHelper
 							pdf.bounding_box([30, 650],{ :width => 530, :height => 60}) do
 								pdf.text say_date 
 							end	
+							#########################################################################################
+
 							# page layout area  : Area 1
 							pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 530, :height => 100}) do
 								pdf.font "times", size: 12
 								# pdf.text say_date 
 								# pdf.text address
-								pdf.text rec_set[0], {:color => "00ff00"}
+								pdf.text rec_set[0] #, {:color => "00ff00"}
 								pdf.text item_array[step]
 								#, {:color => "00ff00"}
 								# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
@@ -747,13 +820,13 @@ module PdfPageHelper
 							step = up_one(step)
 							# # agent : para 01
 							pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
-								pdf.text item_array[step]
+								pdf.text item_array[step].chomp
 							# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 							# # # para LIST
 							pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
-								pdf.text item_array[step]
+								pdf.text item_array[step].chomp
 							# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
@@ -762,14 +835,14 @@ module PdfPageHelper
 							
 							# # #para 2
 							pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 530, :height => 80) do
-								pdf.text item_array[step]
+								pdf.text item_array[step].chomp
 							# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step) 
 							# # #para CLOSE ADDRESS
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 80) do
 							# 	pdf.text item_array[step]
-								pdf.text para_Book
+								pdf.text para_Book.chomp
 							# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
@@ -782,17 +855,17 @@ module PdfPageHelper
 							step = up_one(step)
 							# # # footer
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
-								pdf.text item_array[step] #, :size => 10
+								pdf.text item_array[step].chomp #, :size => 10
 							# # 	pdf.text item_array[step].to_s
 							# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
-							# step = up_one(step)
+							step = up_one(step)
 							# #sign to
 							# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
 							# 	pdf.text item_array[step].to_s
 							# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							# end
-							step = up_one(step)
+							# step = up_one(step)
 							# #spacer 
 							# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
 							# 	pdf.text item_array[step].to_s
@@ -801,260 +874,256 @@ module PdfPageHelper
 
 							pdf.bounding_box([10, 10], :width => 490, :height => 40) do
 								# pdf.font "OpenSans"
-								pdf.text footer.to_s, :inline_format => true, :size => 10, :align => :center
+								pdf.text footer.chomp.to_s, :inline_format => true, :size => 10, :align => :center
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 						
-
+						#page 2 prom note
 						pdf.start_new_page
 						##########################################################################################
 								step = up_one(step)
-								#  title
+									#  title
 
-								# pdf.bounding_box([ 210, 710],{ :width => 530, :height => 40}) do
-								pdf.text " PROMISSORY NOTE ", style: :bold, :align => :center
-								 	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-								# end
+									# pdf.bounding_box([ 210, 710],{ :width => 530, :height => 40}) do
+									pdf.text " PROMISSORY NOTE ", style: :bold, :align => :center
+									 	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+									# end
 
-								pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 530, :height => 40}) do
-									pdf.text total_amount
-								#  	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-								end
-								step = up_one(step)
-								
-								# #sign to
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
-									pdf.text start_date
-								# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 530, :height => 40}) do
+										pdf.text total_amount
+									#  	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+									end
+									step = up_one(step)
+									
+									# #sign to
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
+										pdf.text start_date
+									# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-								# #location 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
-									pdf.text item_array[step].to_s
-								# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									# #location 
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
+										pdf.text item_array[step].to_s.chomp
+									# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-								# #section 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
-									pdf.text item_array[step].to_s
-								# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									# #section 
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
+										pdf.text item_array[step].to_s.chomp
+									# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 110) do
-									pdf.text promise, :inline_format => true
-								# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 110) do
+										pdf.text promise.chomp, :inline_format => true
+									# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-							    pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 110) do
-									pdf.text item_array[step].to_s, :inline_format => true
-								# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+								    pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 110) do
+										pdf.text item_array[step].chomp.to_s, :inline_format => true
+									# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-							    pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 460, :height => 140) do
-									# pdf.font "OpenSans" 
-									pdf.text sect_02, :inline_format => true #, size: 10
-								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
-									# pdf.font "OpenSans", size: 11
-									pdf.text item_array[step].to_s
-								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+								    pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 460, :height => 140) do
+										# pdf.font "OpenSans" 
+										pdf.text sect_02, :inline_format => true #, size: 10
+									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
+										# pdf.font "OpenSans", size: 11
+										pdf.text item_array[step].to_s
+									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 200) do
-									pdf.text sect_03, :inline_format => true #, size: 12
-								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end 
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 200) do
+										pdf.text sect_03, :inline_format => true #, size: 12
+									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end 
+									step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 100) do
-									pdf.text item_array[step].to_s, :inline_format => true
-								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 100) do
+										pdf.text item_array[step].to_s, :inline_format => true
+									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 100) do
-									pdf.text item_array[step].to_s, :inline_format => true
-								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 100) do
+										pdf.text item_array[step].to_s, :inline_format => true
+									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 100) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step], :inline_format => true, :size => 10, :align => :center
-								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 100) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step], :inline_format => true, :size => 10, :align => :center
+									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-								# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 100) do
-								# 	pdf.text item_array[step].to_s, :inline_format => true
-								# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								# end
-								# step = up_one(step)
+									# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 100) do
+									# 	pdf.text item_array[step].to_s, :inline_format => true
+									# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									# end
+									# step = up_one(step)
 
 						# page 03
 						##########################################################################################
 						pdf.start_new_page
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 100) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step], size: 12
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 100) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 130) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 150) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 100) do
+										# pdf.font "OpenSans"
+										pdf.text sect_04, size: 12
+										# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 100) do
+										# pdf.font "OpenSans"
+										pdf.text sect_05.to_s, :inline_format => true
+										# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 130) do
+										# pdf.font "OpenSans"
+										pdf.text sect_06.to_s, :inline_format => true
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 150) do
+										# pdf.font "OpenSans"
+										pdf.text sect_07.to_s, :inline_format => true
+										# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 300) do
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 300) do
+									# pdf.font "OpenSans"
+									pdf.text sect_08.to_s, :inline_format => true
+										# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
+									# pdf.font "OpenSans"
+										next_line = pdf.text item_array[step].to_s, :inline_format => true
+									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 30) do
+									# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
+									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+
+
+						# page 04
+						##########################################################################################
+						pdf.start_new_page
+
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 300) do
+								# pdf.font "OpenSans"
+								next_line = pdf.text item_array[step].to_s, :inline_format => true
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
 								# pdf.font "OpenSans"
 								pdf.text item_array[step].to_s, :inline_format => true
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 150) do
 								# pdf.font "OpenSans"
-									next_line = pdf.text item_array[step].to_s, :inline_format => true
+								pdf.text item_array[step].to_s, :inline_format => true
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+								# pdf.font "OpenSans"
+								pdf.text item_array[step].to_s, :inline_format => true
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+
+
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+								# pdf.font "OpenSans"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+
+
+						# page 05
+						##########################################################################################
+						pdf.start_new_page
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true
 								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 								end
 								step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 30) do
-								# pdf.font "OpenSans"
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true
+								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
+
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+									# pdf.font "OpenSans"
 									pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
 								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 								end
 								step = up_one(step)
 
+						# page 06
+						##########################################################################################
+						pdf.start_new_page
 
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+								# pdf.font "OpenSans"
+								pdf.text item_array[step].to_s, :inline_format => true
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
+								# pdf.font "OpenSans"
+								pdf.text sign_from_B.to_s, :inline_format => true
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+								# pdf.font "OpenSans"
+								pdf.text item_array[step].to_s, :inline_format => true
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 200) do
+								# pdf.font "OpenSans"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
-							# page 04
-							##########################################################################################
-							pdf.start_new_page
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 300) do
-										# pdf.font "OpenSans"
-										next_line = pdf.text item_array[step].to_s, :inline_format => true
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 150) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-
-							# page 05
-							##########################################################################################
-							pdf.start_new_page
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-							# page 06
-							##########################################################################################
-							pdf.start_new_page
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 200) do
-										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-							# page 07
-							##########################################################################################
-							pdf.start_new_page
+						# page 07
+						##########################################################################################
+						pdf.start_new_page
 
 									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 40) do
 										# pdf.font "OpenSans"
@@ -1077,9 +1146,9 @@ module PdfPageHelper
 									end
 									step = up_one(step)
 
-							# page 08
-							##########################################################################################
-							pdf.start_new_page
+						# page 08
+						##########################################################################################
+						pdf.start_new_page
 
 									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
 										# pdf.font "OpenSans"
@@ -1089,7 +1158,7 @@ module PdfPageHelper
 									step = up_one(step)
 
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
 										# pdf.font "OpenSans"
 										pdf.text item_array[step].to_s, :inline_format => true
 										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
@@ -1099,7 +1168,7 @@ module PdfPageHelper
 
 									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 200) do
 										# pdf.font "OpenSans"
-										pdf.text item_array[step].to_s, :inline_format => true
+										pdf.text fill_form.to_s, :inline_format => true
 										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 									end
 									step = up_one(step)
@@ -1119,56 +1188,56 @@ module PdfPageHelper
 									step = up_one(step)
 
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 300) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 300) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 10
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 10
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 10
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 10
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 10
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-							# page 09
-							##########################################################################################
-							pdf.start_new_page
+						# page 09
+						##########################################################################################
+						pdf.start_new_page
 
 
 								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
@@ -1210,7 +1279,7 @@ module PdfPageHelper
 
 								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 490, :height => 40) do
 									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11
+									pdf.text fill_name .to_s, :inline_format => true, :size => 11
 									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 								end
 								step = up_one(step)
@@ -1224,85 +1293,85 @@ module PdfPageHelper
 								end
 								step = up_one(step)
 
-							# page 10
-							##########################################################################################
-							pdf.start_new_page
+						# page 10
+						##########################################################################################
+						pdf.start_new_page
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 490, :height => 40) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :size => 11, :align => :center
-									# , :inline_format => true, :size => 12, style: :bold
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 490, :height => 100) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 490, :height => 40) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :size => 11, :align => :center
+										# , :inline_format => true, :size => 12, style: :bold
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 490, :height => 100) do
+										# pdf.font "OpenSans"
+										pdf.text guar_A.to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+														# , :inline_format => true, :size => 12, style: :bold, :align => :center
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+														# , :inline_format => true, :size => 12, style: :bold, :align => :center
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-								
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 140) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								
-								
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 140) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+									
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 140) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+														# , :inline_format => true, :size => 12, style: :bold, :align => :center
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									
+									
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 140) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+														# , :inline_format => true, :size => 12, style: :bold, :align => :center
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 140) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
-									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
-								
-								# pdf.bounding_box([10, 10], :width => 490, :height => 40) do
-								# 	# pdf.font "OpenSans"
-								# 	pdf.text footer.to_s, :inline_format => true, :size => 10
-								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								# end
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 140) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+														# , :inline_format => true, :size => 12, style: :bold, :align => :center
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+														# , :inline_format => true, :size => 12, style: :bold, :align => :center
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
+										# pdf.font "OpenSans"
+										pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
+														# , :inline_format => true, :size => 12, style: :bold, :align => :center
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									end
+									step = up_one(step)
+									
+									# pdf.bounding_box([10, 10], :width => 490, :height => 40) do
+									# 	# pdf.font "OpenSans"
+									# 	pdf.text footer.to_s, :inline_format => true, :size => 10
+									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+									# end
 
 
-							# page 11
-							##########################################################################################
-							pdf.start_new_page
+						# page 11
+						##########################################################################################
+						pdf.start_new_page
 							
 								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
 									# pdf.font "OpenSans"
@@ -1346,7 +1415,7 @@ module PdfPageHelper
 
 								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
 									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+									pdf.text guar_A_date.to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
 													# , :inline_format => true, :size => 12, style: :bold, :align => :center
 									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 								end
@@ -1362,7 +1431,7 @@ module PdfPageHelper
 
 								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 40) do
 									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+									pdf.text sign_01.to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
 													# , :inline_format => true, :size => 12, style: :bold, :align => :center
 									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 								end
@@ -1378,7 +1447,7 @@ module PdfPageHelper
 
 								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
 									# pdf.font "OpenSans"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+									pdf.text guar_B.to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
 													# , :inline_format => true, :size => 12, style: :bold, :align => :center
 									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 								end
@@ -1396,169 +1465,169 @@ module PdfPageHelper
 						##########################################################################################
 						pdf.start_new_page
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 60) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 60) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 160) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 160) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 160) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 160) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 200) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 200) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 200) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 200) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
 						# page 13
 						##########################################################################################
 						pdf.start_new_page
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11 
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11 
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text guar_B_date.to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text sign_02.to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :size => 11, :align => :center
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :size => 11, :align => :center
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							end
-							step = up_one(step)
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+									# pdf.font "OpenSans"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
+													# , :inline_format => true, :size => 12, style: :bold, :align => :center
+									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
 
-							# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-							# 		# pdf.font "OpenSans"
-							# 		pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
-							# 						# , :inline_format => true, :size => 12, style: :bold, :align => :center
-							# 		# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-							# 	end
-							# 	step = up_one(step)
+								# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+								# 		# pdf.font "OpenSans"
+								# 		pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+								# 						# , :inline_format => true, :size => 12, style: :bold, :align => :center
+								# 		# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								# 	end
+								# 	step = up_one(step)
 
 						# page 14
 						##########################################################################################
@@ -1652,7 +1721,7 @@ module PdfPageHelper
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 250) do
 								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+								pdf.text guar_C_date.to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
 												# , :inline_format => true, :size => 12, style: :bold, :align => :center
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
@@ -1679,7 +1748,7 @@ module PdfPageHelper
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 250) do
 								# pdf.font "OpenSans"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
+								pdf.text sign_03.to_s, :inline_format => true, :size => 11, :indent_paragraphs => 60
 												# , :inline_format => true, :size => 12, style: :bold, :align => :center
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
@@ -3019,7 +3088,7 @@ module PdfPageHelper
 
 
 			# ##########################################################################################
-			pdf.bounding_box([ 110, 720],{ :width => 530, :height => 720}) do
+			pdf.bounding_box([ 110, 750],{ :width => 530, :height => 750}) do
 			# pdf.font "OpenSans", size: 11
 			# pdf.text say_date 
 			# pdf.text address
@@ -3063,7 +3132,9 @@ module PdfPageHelper
 			 				["#{ rec_set[30] }" , "30", "Phone", "agent_phone"],
 			 				["#{ rec_set[31] }" , "31", "Term assignment", "assign_term"],
 			 				["#{ rec_set[32] }" , "32", "Position ", "agent_position"],
-			 			],  :cell_style => { :size => 10, :background_color => "828fbb" }
+			 				["#{ rec_set[33] }" , "33", "Monthly Penality ", "pay_pen"],
+			 				["#{ rec_set[34] }" , "34", "Pre pay Penality ", "prepay_pen"],
+			 			],  :cell_style => { :size => 9, :background_color => "828fbb" }
 
 			 			) 
 
@@ -3131,7 +3202,9 @@ module PdfPageHelper
 			pdf.text rec_set[30] + " ------ ------ ------ ---- 30 ------ ------ " + " phone ", 			{:color => "ff0000"}
 			pdf.text rec_set[31] + " ------ ------ ------ ------ ------ --- 31 ------ ------ " + " term assignment", 			{:color => "00ff00"}
 			pdf.text rec_set[32] + " ------ ------ ------ ------ ------ - 32 ------ ------ " + " position", 			{:color => "0000ff"}
-						
+			pdf.text records_array.pay_pen.to_s + " ------ ------ ------ ------ ------ - 33 ------ ------ " + " penality", 			{:color => "000000"}
+			pdf.text rec_set[34] + " ------ ------ ------ ------ ------ - 34 ------ ------ " + " prepay penality", 			{:color => "0000ff"}
+					
 
 			# pdf.text item_array[step]
 			#, {:color => "00ff00"}

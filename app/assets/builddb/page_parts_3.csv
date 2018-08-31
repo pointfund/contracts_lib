@@ -1,0 +1,252 @@
+contract_id,page_area,name,content
+3,0,Date,#{date}
+3,1,point address,"Point Funding LLC
+701 Poydras Street Suite 4740
+New Orleans, Louisiana 70139"
+3,2,name,#{full_name}
+3,3,address,#{full_address}
+3,4,intro,Dear #{first_name}:
+3,5,Para 01,Attached is the Point Funding Promissory Note. Any omission will delay funding. It is important that the items listed below are completed in their entirety:
+3,6,Para 01 list,"o The bottom right of each page indicates if initials are required.
+o Sign where indicated.
+o Return a Voided Check
+o Complete the Electronic Funds Authorization form in its entirety."
+3,7,para 02,"The completed document must be mailed or overnighted to our office prior to funding.
+Please mail or overnight to:"
+3,8,close address,"Point Funding LLC
+701 Poydras Street Suite 4740
+New Orleans, Louisiana 70139"
+3,9,closing,"#{first_name} , if you have any questions please do not hesitate to contact us. Our telephone number is 504-208-4406. We are looking forward to a long-term relationship."
+3,10,Footer,Sincerely;
+3,11,sign to,The Point Funding Team
+3,12,-,-
+3,13,Loan Amount,$ #{total_loan}
+3,14,start date,#{start_date}
+3,15,location,"New Orleans, Louisiana"
+3,16,section 1,Section 1
+3,17,Para 01,"<u>Promise to Pay .</u> FOR VALUE RECEIVED, #{full_name} (“ Maker ”) hereby promises to pay
+to the order of Point Funding, LLC, a Louisiana limited liability company (“ Holder ”) the
+principal sum of $ #{total_loan} (the “ Principal Amount ”) in lawful money of the United States of
+America which shall be legal tender for the payment of debts from time to time, together with
+Monthly Financing Fees (as defined below) which become due, any applicable Prepayment
+Penalty (as defined below) and any interest becoming due at the Stated Rate (defined below)
+payable as stipulated herein."
+3,18,Section 2,Section 2
+3,19,Para 02,"Defined Terms . As used herein, the following terms shall have the meanings given to such terms in this Section 2:
+
+        “Monthly Financing Fees” shall equal $ #{repay_monthly} per month.
+“ Maturity Date ” means the date #{repay_term1} months after the Start Date, or #{start_date}.
+        “Prepayment Penalty” shall equal $ #{repay_penalty}.
+        “Start Date” means date of funding, or #{repay_start}.
+“ Stated Rate ” means a fixed interest rate of #{stated_rate} % per annum.
+“Loan Activation Fee” shall equal $ #{loan_act_fee}."
+3,20,Section 3,Section 3
+3,21,Para 03,"<u>Payment Terms.</u> $ #{total_default} representing the sum of the Monthly Financing Fee for the previous
+month of the loan and one- #{repay_term1} of the Principal Amount, shall be due and payable on the #{payment_mth_day}
+day of each calendar month (the “ Monthly Payment Date ”) beginning #{repay_start} and ending
+on the Maturity Date #{repay_mature}. Should the repayment date occur on either a weekend or
+bank holiday, the funds will be debited on the preceding business day. All payments hereunder
+shall be made by Maker to Holder by electronic funds transfer in accordance with the
+instructions set forth on Exhibit A hereto. Interest shall accrue on any past due amount
+hereunder at the Stated Rate. The loan activation fee of $ #{loan_act_fee} shall be due concurrently with the
+first loan repayment."
+3,22,Para 04,"<u>Computation of Interest .</u> Interest shall be computed for the actual number of days elapsed and
+on the basis of a year consisting of 365 days."
+3,23,Para 05,"<u>Monthly Financing Fees.</u> For and in consideration for Holder loaning Maker the Principal
+Amount set forth in Section 1, Maker agrees to pay to Holder Monthly Financing Fees during the"
+3,24,Footer,{N3195955.1}                ___________                 Maker Initials
+3,25,Para 06,"term of the loan in accordance with Section 2 and the Payment Terms above. The Monthly
+Financing Fee for the first month of the Promissory Note shall be due on the initial Monthly
+Payment Date with subsequent Monthly Financing Fees due on the  #{payment_mth_day} day of each successive"
+3,26,Para 07,"Monthly Payment Date until all balances due under this note have been repaid. If at any time during the life of the loan Maker wishes to change the Monthly Payment Date and Holder’s consent to such change is granted, a fee of $ #{repay_penalty} shall be assessed. Any failure on the part of Maker to timely pay a Monthly Financing Fee in full on or before the applicable Monthly Payment Date shall result in an additional fee of $ #{repay_penalty} assessed against Maker. Any additional applicable Financing Fees will be assessed on a prorated basis and shall be due on the revised monthly payment date."
+3,27,Para 08,<u>Rejected Payment Fee .</u> Should a payment be returned or rejected for any reason a fee of #{repay_penalty} shall apply in addition to a $ #{daily_late_fee} daily late payment surcharge. The fee shall be imposed and collected immediately.
+3,28,Para 09,"<u>Prepayment </u>. This Promissory Note may be prepaid in whole only. Any such prepayment shall
+be applied first to pay accrued interest (if any), and the balance shall be applied to the
+outstanding Principal Amount, any unpaid Monthly Financing Fees which have become due on
+this Promissory Note and the Prepayment Penalty of $ #{daily_late_fee} . In the event of such prepayment, the Monthly Financing Fee for the then-current month shall be due in full, regardless of the day in such month when prepayment is made. Any partial prepayment shall not be permitted under the terms of this Note."
+3,29,Para 10,"<u>Default .</u> In the event of (i) Maker’s failure to timely pay any amount due hereunder within thirty
+(30) days of becoming due or (ii) any insolvency, act of bankruptcy, or any bankruptcy
+proceedings by or against, or application for a respite or receiver by or against, Maker (each an
+“ Event of Default ”), this Promissory Note shall be immediately due and payable, at the option of
+Holder, without notice or demand, any agreement of extension notwithstanding. In an Event of
+Default, the amount of Monthly Financing Fees which shall become due and payable and subject
+to the Stated Rate shall be calculated according to the following formula: $ #{total_default} , less the
+aggregate amount of Monthly Financing Fees paid by Maker, up to and including the date of
+such Event of Default. In such event, Holder may seek collection of all amounts owed by Maker
+under this Promissory Note, whether by wire transfer in accordance with the procedures set forth
+on Exhibit A or otherwise. If this Promissory Note is placed in the hands of an attorney at law to
+institute legal proceedings to recover any portion of the Principal Amount, Monthly Financing
+Fees, Prepayment Penalty, interest or other fees, or to protect the interests of Holder, or in the
+case that this Promissory Note is placed in the hands of an attorney for collection, compromise or
+other action, or if this Promissory Note is collected or sought to be collected through any
+bankruptcy, probate or other judicial or quasi-judicial proceeding, Maker hereby agrees to pay
+the reasonable fees of the attorney who may be employed for that purpose, plus court costs and
+all other costs of collection incurred by Holder. In the event of a default by Maker of any of its
+obligations under this Promissory Note, Maker expressly agrees and acknowledges that Holder
+may report such default to any governmental or regulatory authority to which Maker or Maker’s
+business is subject."
+3,30,Para 11,"<u>Security .</u> As security for the full, prompt and  complete performance by Maker of its obligations under this Promissory Note and the repayment of any indebtedness"
+3,31,footer B,{N3195955.1}                ___________                 Maker Initials
+3,32,Para 12,"hereunder, Maker does hereby pledge, assign, and grant a continuing security interest in favor of Holder in all of Maker’s right, title, and interest in and to any accounts, inventory,  equipment, investment property, chattel paper, contract rights, goods and general intangibles (as each of the foregoing terms is refined and/or used in Chapter 9 of Title 10 of the Louisiana revised statutes), whether now or hereafter acquired, and all proceeds, substitutions or replacements thereof, thereto, and therefor, including, without limitation, all accounts, accounts receivables and rights to commissions or proceeds under the contracts listed in Exhibit B hereto (collectively, the “ Collateral ”).  Maker authorizes Holder to file one or more financing or continuation statements (including statements of assignment,  continuation and renewals thereof) or other instruments or amendments thereto relating to Holder’s security interest in the Collateral, without the signature of, and in the name of Maker."
+3,33,Para 13,"<u>Maker’s Waivers </u>. Maker hereby waives presentment for payment, protest, notice of protest and
+notice of nonpayment, and all pleas of division and discussion. Maker agrees that Holder’s
+acceptance of payment other than in accordance with the terms of this Note or Holder’s
+subsequent agreement to extend or modify such repayment terms, or Holder’s failure or delay in
+exercising any rights or remedies granted to Holder, shall not have the effect of releasing Maker
+from Maker’s obligations to Holder. In addition, any failure or delay on the part of Holder to
+exercise any of the rights and remedies granted to Holder shall not have the effect of waiving any
+of Holder’s rights and remedies. Any partial exercise of any rights and/or remedies granted to
+Holder shall furthermore not be construed as a waiver of any other rights and remedies; it being
+Maker’s intent and agreement that Holder’s rights and remedies shall be cumulative in nature.
+Maker further agrees that, should any default occur or exist under this Note, any waiver or
+forbearance on the part of Holder to pursue the rights and remedies available to Holder shall be
+binding upon Holder only to the extent that Holder specifically agrees to any such waiver or
+forbearance in writing. A waiver or forbearance on the part of Holder as to one default shall not
+be construed as a waiver or forbearance as to any other default."
+3,34,Para 14,"<u>Representations and Warranties .</u> Maker represents and warrants to Holder that the Principal Amount loaned to Maker by Holder shall be used exclusively for commercial purposes in furtherance of Maker’s business as an insurance agent. Maker represents and warrants to Holder that the insurance contracts set forth on Exhibit B hereto (the “ Contracts ”) are valid and effective as of the date hereof and that for as long as each Contract remains effective, Maker is entitled to receive a monthly commission relating to such Contract as set forth on Exhibit B hereto (the “ <u>Commissions </u>”). Maker represents and warrants to Holder that all Commissions are payable by wire transfer to the account of Maker set forth on Exhibit A hereto. Maker further agrees to immediately notify Holder to the extent any Contract is terminated for any reason whatsoever."
+3,35,Para 15,"<u>Indemnity .</u> Maker agrees to indemnify Holder against and to hold Holder harmless from any and all losses, liabilities, expenses, claims, or damages of whatever kind or nature, including Holder’s reasonable attorneys’ fees and costs (to be reimbursed as and when incurred) resulting from Holder’s loan to Maker or the exercise of its remedies under this Note, even if such losses, liabilities, expenses, claims, or damages resulted, in whole or in part, from the Holder’s negligence."
+3,36,footer C,{N3195955.1}                ___________                 Maker Initials
+3,37,Para 16,"<u>Amendment; Assignment .</u> None of the terms or provisions of this Promissory Note may be excluded, modified or amended except by a written instrument duly executed on behalf of the Holder expressly referring to this Promissory Note and setting forth the provision so excluded, modified or amended. Maker may not assign its obligations hereunder without the Holder’s prior written consent."
+3,38,Para 17,"<u>Governing Law . </u> This Promissory Note shall be governed by and construed in accordance with the laws of the State of Louisiana. Maker hereby irrevocably submits and consents to the exclusive personal jurisdiction and venue of any state or federal court in Orleans Parish, Louisiana, and agrees that all actions or proceedings arising directly, indirectly or otherwise in connection with, out of, related to or from this Promissory Note shall be litigated only in one of the foregoing described courts."
+3,39,footer D,{N3195955.1}                ___________                 Maker Initials
+3,40,Header,"IN WITNESS WHEREOF, this Promissory Note is executed by the Maker as of the date
+first above written."
+3,41,Sign_from,"By: _______________________________________
+        #{full_name}"
+3,42,Intro B,"AGREED AND ACKNOWLEDGED:
+
+POINT FUNDING, LLC
+
+_______________________________________
+William Carrere"
+3,43,footer E,{N3195955.1}                ___________                 Maker Initials
+3,44,Intro C,"EXHIBIT A
+ELECTRONIC FUNDS TRANSFER AUTHORIZATION"
+3,45,addendum,See attached EFT Authorization and Voided Check
+3,46,footer F,{N3195955.1}                ___________                 Maker Initials
+3,47,Intro D,ELECTRONIC FUNDS TRANSFER (EFT) AUTHORIZATION
+3,48,Header B,<u>ACCOUNT INFORMATION</u>
+3,49,Account form A,"#{full_name}
+_______________________________________
+<b>Account owner name </b>
+
+#{address_street}
+_______________________________________
+<b>Account owner street address </b>
+
+#{address_city}, #{address_state} #{address_zip}
+_______________________________________
+<b>Account owner City, State, ZIP </b>
+
+"
+3,50,Account form B,"_______________________________________
+<b>Financial institution name </b>
+ 
+
+_______________________________________
+<b>Bank routing number </b>
+
+
+_______________________________________
+<b> Checking account number </b>
+"
+3,51,Author,<u>AUTHORIZATION</u>
+3,52,sign info,"By signing below,
+I (the bank account owner)
+understand and
+accept these terms
+and conditions:"
+3,53,sign notes,"● Point Funding, LLC is authorized to withdraw
+funds periodically from your account to pay
+your obligations under that certain Promissory
+Note dated #{repay_start}.
+
+● If your financial institution does not honor a
+withdrawal request, you will be in default under
+the terms of the Promissory Note and agree to
+immediately remit the required payment to
+Point Funding, LLC by check or in accordance
+with wire instructions provided in writing by
+Point Funding, LLC
+
+● Point Funding, LLC has the right to end
+withdrawals at any time and bill you directly
+for outstanding amounts due.
+
+● Point Funding, LLC will no longer withdraw
+funds following satisfaction in full of all of
+your obligations under the Promissory Note
+"
+3,54,sign form,<u>SIGNATURES</u>
+3,55,bank owner,"Signature of bank account owner                                                                                Date
+
+X"
+3,56,maker,"Signature of Maker (if different from bank account owner)                                          Date
+
+X"
+3,57,footer G,{N3195955.1}                ___________                 Maker Initials
+3,58,Intro E,"EXHIBIT B
+LIST OF CONTRACTS AND COMMISSIONS"
+3,59,Headers,Policy/Contract No.                                Parties and Date of Contract                                Monthly Commission due to Maker
+3,60,statement,Commission statements on file at the Point Funding Office
+3,61,sign form A,"Maker:                                                                      Point Funding, LLC:"
+3,62,sign form A,By:                                                                            By:
+3,63,sign form A,#{full_name}                                                                William Carrere
+3,64,footer H,{N3195955.1}                ___________                 Maker Initials
+3,65,head payment,GUARANTEE OF PAYMENT OBLIGATIONS
+3,66,Para 18,"In consideration of Point Funding, L.L.C. (“Lender”) extending credit to #{full_name} (“Borrower”), the undersigned (“Guarantor”, which term means individually, collectively and interchangeable any, each and/or all of them if more than one) jointly, severally and solidarily, if more than one Guarantor, unconditionally guarantees to Lender, the prompt payment in full when due, whether by acceleration or otherwise, of any and all indebtedness, obligations and liabilities of any kind of Borrower including, without limitation, principal, interest, fees, or costs payable pursuant to that certain Promissory Note, issued by Borrower to Lender on #{start_date} (as may be amended, modified, supplemented or restated from time to time, the “ Note ”)."
+3,67,Para 19,"The obligations of the Guarantor hereunder are primary, joint and several, in solido and independent of the obligation of Borrower, whether or not action is brought against Borrower and whether or not Borrower be joined in such action or actions."
+3,68,Para 20,"As security for this Guaranty, Guarantor does hereby pledge, assign, and grant a continuing security interest in favor of Lender in all of Guarantor’s right, title, and interest in and to any accounts, inventory, equipment, investment property, chattel paper, contract rights, goods and general intangibles (as each of the foregoing terms is defined and/or used in Chapter 9 of Title 10 of the Louisiana revised statutes), whether now or hereafter acquired, and all proceeds, substitutions or replacements thereof, thereto, and therefor (collectively, the “Collateral”).Guarantor authorizes Lender to file one or more financing or continuation statements (including statements of assignment, continuation and renewals thereof) or other instruments or amendments thereto relating to Lender’s security interest in the Collateral, without the signature of, and in the name of, Guarantor."
+3,69,Para 21,"The Guarantor’s obligations hereunder will expire upon the payment in full of all obligations of Borrower guaranteed hereunder; provided, however, that if at any time any payment to Lender under the Note is rescinded or must be otherwise restored or returned upon the insolvency, bankruptcy, liquidation, reorganization or other similar proceeding of Borrower, the Guarantor’s obligations hereunder with respect to such payment will be continued or reinstated and will expire upon payment thereof in full by the Guarantor. Guarantor’s liability under this instrument is absolute and unconditional. In the event of default by Borrower of its obligations under the Note, when such obligations become due, whether by its terms, by acceleration or otherwise, Guarantor shall promptly pay the amount due thereon to Lender without notice of demand. "
+3,70,Para 22,"The Guarantor hereby waives the benefit of any defense against the enforcement of this Guarantee against the Guarantor or any defense which Borrower might have against Lender (except defenses of payment or performance or such defenses as by law, cannot be expressly waived), including without limitation: (a) any right to require Lender to (i) proceed against Borrower, (ii) proceed against or exhaust any security, (iii) proceed against any other guarantor, or (iv) pursue any other remedy in Lender’ power whatsoever; (b) any defense arising by reason of any disability or by reason of the cessation from any cause whatsoever (other than payment in full) of the ability of Borrower; and (c) all rights and/or privileges the Guarantor might otherwise have to require Lender to pursue any other remedy available to Lender in any particular manner or order under the legal or equitable doctrine or principle of marshaling and/or suretyship and the Guarantor further agrees that Lender may proceed against any or all security in such order and manner as Lender in its sole discretion may determine."
+3,71,Para 23,"The Guarantor hereby waives all presentments, demands for performance, notices of nonperformance, protests, notices of protest, notices of dishonor, notice of acceptance of this Guarantee and all other notices whatsoever."
+3,72,footer I,{N3195955.1}                ___________                 Maker Initials
+3,73,Para 24,"It is not necessary for Lender to inquire into the powers of Borrower or its officers, directors, members or managers acting or purporting to act on its behalf, and the Guarantor shall be liable for the obligations of Borrower guaranteed hereunder in accordance with their terms notwithstanding any lack of authorization of defect in execution or delivery by Borrower."
+3,74,Para 25,"The Guarantor shall not assign or transfer the Guarantor’s obligations under this Guarantee without Lender’ written consent. The Guarantor’s obligations and agreements under this Guarantee shall be binding upon the Guarantor’s successors and assigns; provided, however, the Guarantor shall not be released of its obligations hereunder unless the Guarantor obtains Lender’ written consent prior to any voluntary transfer. The rights and remedies granted to Lender under this Guarantee shall inure to the benefit of Lender’ successors and assigns, as well as to any subsequent holder or holders of the Note. "
+3,75,Para 26,"This Guarantee shall be governed and controlled as to validity, endorsement, interpretation, construction, effect and in all other respects by the internal laws of the State of Louisiana without giving effect to conflicts of law principles. Guarantor hereby irrevocably submits and consents to the exclusive personal jurisdiction and venue of any state or federal court in Orleans Parish, Louisiana, and agrees that all actions or proceedings arising directly, indirectly or otherwise in connection with, out of, related to or from this Guaranty shall be litigated only in one of the foregoing described courts. "
+3,76,Para 27,"Lender shall not by any act, delay, omission or otherwise be deemed to have waived any of its rights or remedies, and no waiver of any kind shall be valid against Lender unless in writing and signed by Lender. All rights and remedies hereunder and under any statute or rule of law shall be cumulative and may be exercised successively or concurrently. "
+3,77,Para 28,"If any provision of this Guarantee is held to be invalid, illegal or unenforceable by any court, that provision shall be reformed to the extent possible and otherwise such provision shall be deleted from this Guarantee and the balance of this Guarantee shall be interpreted as if the deleted provisions never existed. "
+3,78,Para 29,"IN WITNESS WHEREOF, the undersigned Guarantor has executed this Guarantee #{current_date}"
+3,79,Backer,GUARANTOR:
+3,80,SIgn From,"
+___________________________________
+#{guarantee01}"
+3,81,header,GUARANTEE OF PAYMENT OBLIGATIONS
+3,82,Para 30,"In consideration of Point Funding, L.L.C. (“Lender”) extending credit to #{full_name} (“Borrower”), the undersigned (“Guarantor”, which term means individually, collectively and interchangeable any, each and/or all of them if more than one) jointly, severally and solidarily, if more than one Guarantor, unconditionally guarantees to Lender, the prompt payment in full when due, whether by acceleration or otherwise, of any and all indebtedness, obligations and liabilities of any kind of Borrower including, without limitation, principal, interest, fees, or costs payable pursuant to that certain Promissory Note, issued by Borrower to Lender on #{start_date} (as may be amended, modified, supplemented or restated from time to time, the “ Note ”). "
+3,83,footer J,{N3195955.1}                ___________                 Maker Initials
+3,84,Para 31,"The obligations of the Guarantor hereunder are primary, joint and several, in solido and independent of the obligation of Borrower, whether or not action is brought against Borrower and whether or not Borrower be joined in such action or actions. "
+3,85,Para 32,"As security for this Guaranty, Guarantor does hereby pledge, assign, and grant a continuing security interest in favor of Lender in all of Guarantor’s right, title, and interest in and to any accounts, inventory, equipment, investment property, chattel paper, contract rights, goods and general intangibles (as each of the foregoing terms is defined and/or used in Chapter 9 of Title 10 of the Louisiana revised statutes), whether now or hereafter acquired, and all proceeds, substitutions or replacements thereof, thereto, and therefor (collectively, the “Collateral”). Guarantor authorizes Lender to file one or more financing or continuation statements (including statements of assignment, continuation and renewals thereof) or other instruments or amendments thereto relating to Lender’s security interest in the Collateral, without the signature of, and in the name of, Guarantor."
+3,86,Para 33,"The Guarantor’s obligations hereunder will expire upon the payment in full of all obligations of Borrower guaranteed hereunder; provided, however, that if at any time any payment to Lender under the Note is rescinded or must be otherwise restored or returned upon the insolvency, bankruptcy, liquidation, reorganization or other similar proceeding of Borrower, the Guarantor’s obligations hereunder with respect to such payment will be continued or reinstated and will expire upon payment thereof in full by the Guarantor. Guarantor’s liability under this instrument is absolute and unconditional. In the event of default by Borrower of its obligations under the Note, when such obligations become due, whether by its terms, by acceleration or otherwise, Guarantor shall promptly pay the amount due thereon to Lender without notice of demand."
+3,87,Para 34,"The Guarantor hereby waives the benefit of any defense against the enforcement of this Guarantee against the Guarantor or any defense which Borrower might have against Lender (except defenses of payment or performance or such defenses as by law, cannot be expressly waived), including without limitation: (a) any right to require Lender to (i) proceed against Borrower, (ii) proceed against or exhaust any security, (iii) proceed against any other guarantor, or (iv) pursue any other remedy in Lender’ power whatsoever; (b) any defense arising by reason of any disability or by reason of the cessation from any cause whatsoever (other than payment in full) of the ability of Borrower; and (c) all rights and/or privileges the Guarantor might otherwise have to require Lender to pursue any other remedy available to Lender in any particular manner or order under the legal or equitable doctrine or principle of marshaling and/or suretyship and the Guarantor further agrees that Lender may proceed against any or all security in such order and manner as Lender in its sole discretion may determine. "
+3,88,Para 35,"The Guarantor hereby waives all presentments, demands for performance, notices of nonperformance, protests, notices of protest, notices of dishonor, notice of acceptance of this Guarantee and all other notices whatsoever. "
+3,89,Para 36,"It is not necessary for Lender to inquire into the powers of Borrower or its officers, directors, members or managers acting or purporting to act on its behalf, and the Guarantor shall be liable for the obligations of Borrower guaranteed hereunder in accordance with their terms notwithstanding any lack of authorization of defect in execution or delivery by Borrower. "
+3,90,Para 37,"The Guarantor shall not assign or transfer the Guarantor’s obligations under this Guarantee without Lender’ written consent. The Guarantor’s obligations and agreements under this Guarantee shall be binding upon the Guarantor’s successors and assigns; provided, however, the Guarantor shall not be released of its obligations hereunder unless the Guarantor obtains Lender’ written consent prior to any voluntary transfer. The rights and remedies granted to Lender under this Guarantee shall inure to the benefit of Lender’ successors and assigns, as well as to any subsequent holder or holders of the Note. "
+3,91,footer J,{N3195955.1}                ___________                 Maker Initials
+3,92,Para 38,"This Guarantee shall be governed and controlled as to validity, endorsement, interpretation, construction, effect and in all other respects by the internal laws of the State of Louisiana without giving effect to conflicts of law principles. Guarantor hereby irrevocably submits and consents to the exclusive personal jurisdiction and venue of any state or federal court in Orleans Parish, Louisiana, and agrees that all actions or proceedings arising directly, indirectly or otherwise in connection with, out of, related to or from this Guaranty shall be litigated only in one of the foregoing described courts. "
+3,93,Para 39,"Lender shall not by any act, delay, omission or otherwise be deemed to have waived any of its rights or remedies, and no waiver of any kind shall be valid against Lender unless in writing and signed by Lender. All rights and remedies hereunder and under any statute or rule of law shall be cumulative and may be exercised successively or concurrently. "
+3,94,Para 40,"If any provision of this Guarantee is held to be invalid, illegal or unenforceable by any court, that provision shall be reformed to the extent possible and otherwise such provision shall be deleted from this Guarantee and the balance of this Guarantee shall be interpreted as if the deleted provisions never existed. "
+3,95,Para 41,"IN WITNESS WHEREOF, the undersigned Guarantor has executed this Guarantee
+#{current_date}."
+3,96,backer B,GUARANTOR:
+3,97,sign line,__________________________________________________
+3,98,Guarn,#{guarantee02}
+3,99,Header,GUARANTEE OF PAYMENT OBLIGATIONS
+3,100,Para 42,"In consideration of Point Funding, L.L.C. (“Lender”) extending credit to #{full_name} (“Borrower”), the undersigned (“Guarantor”, which term means individually, collectively and interchangeable any, each and/or all of them if more than one) jointly, severally and solidarily, if more than one Guarantor, unconditionally guarantees to Lender, the prompt payment in full when due, whether by acceleration or otherwise, of any and all indebtedness, obligations and liabilities of any kind of Borrower including, without limitation, principal, interest, fees, or costs payable pursuant to that certain Promissory Note, issued by Borrower to Lender on #{start_date} (as may be amended, modified, supplemented or restated from time to time, the “ Note ”). "
+3,101,Para 43,"The obligations of the Guarantor hereunder are primary, joint and several, in solido and independent of the obligation of Borrower, whether or not action is brought against Borrower and whether or not Borrower be joined in such action or actions. "
+3,102,footer J,{N3195955.1}                ___________                 Maker Initials
+3,103,Para 44,"As security for this Guaranty, Guarantor does hereby pledge, assign, and grant a continuing security interest in favor of Lender in all of Guarantor’s right, title, and interest in and to any accounts, inventory, equipment, investment property, chattel paper, contract rights, goods and general intangibles (as each of the foregoing terms is defined and/or used in Chapter 9 of Title 10 of the Louisiana revised statutes), whether now or hereafter acquired, and all proceeds, substitutions or replacements thereof, thereto, and therefor (collectively, the “Collateral”). Guarantor authorizes Lender to file one or more financing or continuation statements (including statements of assignment, continuation and renewals thereof) or other instruments or amendments thereto relating to Lender’s security interest in the Collateral, without the signature of, and in the name of, Guarantor. "
+3,104,Para 45,"The Guarantor’s obligations hereunder will expire upon the payment in full of all obligations of Borrower guaranteed hereunder; provided, however, that if at any time any payment to Lender under the Note is rescinded or must be otherwise restored or returned upon the insolvency, bankruptcy, liquidation, reorganization or other similar proceeding of Borrower, the Guarantor’s obligations hereunder with respect to such payment will be continued or reinstated and will expire upon payment thereof in full by the Guarantor. Guarantor’s liability under this instrument is absolute and unconditional. In the event of default by Borrower of its obligations under the Note, when such obligations become due, whether by its terms, by acceleration or otherwise, Guarantor shall promptly pay the amount due thereon to Lender without notice of demand."
+3,105,Para 46,"The Guarantor hereby waives the benefit of any defense against the enforcement of this Guarantee against the Guarantor or any defense which Borrower might have against Lender (except defenses of payment or performance or such defenses as by law, cannot be expressly waived), including without limitation: (a) any right to require Lender to (i) proceed against Borrower, (ii) proceed against or exhaust any security, (iii) proceed against any other guarantor, or (iv) pursue any other remedy in Lender’ power whatsoever; (b) any defense arising by reason of any disability or by reason of the cessation from any cause whatsoever (other than payment in full) of the ability of Borrower; and (c) all rights and/or privileges the Guarantor might otherwise have to require Lender to pursue any other remedy available to Lender in any particular manner or order under the legal or equitable doctrine or principle of marshaling and/or suretyship and the Guarantor further agrees that Lender may proceed against any or all security in such order and manner as Lender in its sole discretion may determine. "
+3,106,Para 47,"The Guarantor hereby waives all presentments, demands for performance, notices of nonperformance, protests, notices of protest, notices of dishonor, notice of acceptance of this Guarantee and all other notices whatsoever. "
+3,107,Para 48,"It is not necessary for Lender to inquire into the powers of Borrower or its officers, directors, members or managers acting or purporting to act on its behalf, and the Guarantor shall be liable for the obligations of Borrower guaranteed hereunder in accordance with their terms notwithstanding any lack of authorization of defect in execution or delivery by Borrower. "
+3,108,Para 49,"The Guarantor shall not assign or transfer the Guarantor’s obligations under this Guarantee without Lender’ written consent. The Guarantor’s obligations and agreements under this Guarantee shall be binding upon the Guarantor’s successors and assigns; provided, however, the Guarantor shall not be released of its obligations hereunder unless the Guarantor obtains Lender’ written consent prior to any voluntary transfer. The rights and remedies granted to Lender under this Guarantee shall inure to the benefit of Lender’ successors and assigns, as well as to any subsequent holder or holders of the Note."
+3,109,footer J,{N3195955.1}                ___________                 Maker Initials
+3,110,Para 50,"This Guarantee shall be governed and controlled as to validity, endorsement, interpretation, construction, effect and in all other respects by the internal laws of the State of Louisiana without giving effect to conflicts of law principles. Guarantor hereby irrevocably submits and consents to the exclusive personal jurisdiction and venue of any state or federal court in Orleans Parish, Louisiana, and agrees that all actions or proceedings arising directly, indirectly or otherwise in connection with, out of, related to or from this Guaranty shall be litigated only in one of the foregoing described courts. "
+3,111,Para 51,"Lender shall not by any act, delay, omission or otherwise be deemed to have waived any of its rights or remedies, and no waiver of any kind shall be valid against Lender unless in writing and signed by Lender. All rights and remedies hereunder and under any statute or rule of law shall be cumulative and may be exercised successively or concurrently."
+3,112,Para 52,"If any provision of this Guarantee is held to be invalid, illegal or unenforceable by any court, that provision shall be reformed to the extent possible and otherwise such provision shall be deleted from this Guarantee and the balance of this Guarantee shall be interpreted as if the deleted provisions never existed. "
+3,113,Para 53,"IN WITNESS WHEREOF, the undersigned Guarantor has executed this Guarantee
+#{current_date}."
+3,114,backer B,GUARANTOR:
+3,115,sign line,__________________________________________________
+3,116,g - 3,#{guarantee03}
+3,117,footer J,{N3195955.1}                ___________                 Maker Initials

@@ -1,5 +1,6 @@
 class PagePartsController < ApplicationController
   before_action :set_page_part, only: [:show, :edit, :update, :destroy]
+     require 'csv' 
 hello = "hello me"
   # GET /page_parts
   # GET /page_parts.json
@@ -8,6 +9,19 @@ hello = "hello me"
     if(params[:contract_id] != nil)
         @contract = Contract.find(params["contract_id"])
     end
+
+
+
+    respond_to do |format|
+      format.html
+      format.csv {send_data @page_parts.to_csv}
+    end
+
+
+
+
+
+
   end
 
   # GET /page_parts/1

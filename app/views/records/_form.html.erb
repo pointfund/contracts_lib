@@ -63,7 +63,7 @@
                         <%= form.label :repay_term1 %>
                         <%= # form.select( :repay_term1, [seven, eight, ten]) 
                         %>
-                        <%= form.select :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select"%>
+                        <%= form.select :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select" %>
                         <%= form.label :repay_term2 %>
                         <%= form.select :repay_term2, ['seventh', 'eighth', 'tenth', 'twelfth', 'eighteenth', 'twentyfourth'],               class: "custom-select" %>
                    
@@ -72,7 +72,25 @@
                     
                 </div>
             </div>
+
+            <div class="panel">
+                    <div class="field  form_imput outline">
+
+                        <%= form.label "Backer" 
+                        %> 
+                        <%= form.text_field :guarantee01,   value:  @record.client_first_name + " " + @record.client_last_name,                          class: "form-control"  %>
+                        
+                        <%= form.label "Backer 2"
+                        %> 
+                        <%= form.text_field :guarantee02,                               class: "form-control"  %>
+                        
+                        <%= form.label "Backer 3" 
+                        %> 
+                        <%= form.text_field :guarantee03,                               class: "form-control"  %>
+                </div>
+            </div>
         </div>
+
         <div class="col-lg-2  outline " style="background:#6897bb;  padding: 10px; height:100%; ">
             <div class="panel ">
                 <div class="field  form_imput">
@@ -87,11 +105,7 @@
                         <%= form.text_field :repay_penalty ,                        class: "form-control" %>
 
 
-                        <%= form.label "Daily late fee" + " $" %>
-                        <% #if(:daily_late_fee != nil)  
-                            %>
-                            <%= form.text_field :daily_late_fee,    value:  @daily_late_fee.round(2),                        class: "form-control" 
-                            %>
+                   
                         <% #else 
                         %>
                         <%= #form.label get_total{record} 
@@ -102,17 +116,31 @@
                         <% # end 
                         %>
 
-                        <%= form.label "Total Payment Fees" + " $" %>
-                        <%= form.text_field :total_amount ,                         class: "form-control" %>
-
-                        <%=  form.label "Monthly payments" #+ ( record.loan_amount / record.repay_term1 ) 
+                        <%= form.label "Total Payment Fees" + " $" 
                         %>
-                            <%= form.text_field :total_default, value: @total_pay.round(2),                                                   class: "form-control"
+                        <%= form.text_field :total_amount ,value: @total_pay.to_f.round(2),                         class: "form-control" 
                         %>
 
-                        <%= form.label "Total Finance fee" + " $" + "(MFF * term)" %>
-                        <%= form.text_field :fin_fee, value: @total_fin_fee.to_i,                              class: "form-control" %>
-                    
+                        <%=  form.label "Penalty $" + :pay_pen.to_s  #+ ( record.loan_amount / record.repay_term1 ) 
+                        %>
+                        <%= form.text_field :pay_pen,                                     class: "form-control"
+                        %>
+                        <%= form.label "Total Finance fees" + " $" + "(MFF * term)" %>
+                        <%= form.text_field :fin_fee, value: @total_fin_fee.to_i,                                   class: "form-control" %>
+
+
+                        <%= form.label "Daily late fee" + " $" %>
+                        <% #if(:daily_late_fee != nil)  
+                            %>
+                            <%= form.text_field :daily_late_fee,    value:  @daily_late_fee.round(2),                        class: "form-control" 
+                            %>
+
+
+                        <%= form.label "Prepay Penality" + " $" %>
+                        <% #if(:daily_late_fee != nil)  
+                            %>
+                            <%= form.text_field :prepay_pen,                        class: "form-control" 
+                            %>
                 </div>
             </div>
         </div>
@@ -121,9 +149,11 @@
                 <div class="field  form_imput ">
                     <h3><strong> Finance - Schedule:   </strong></h3><br />
                    
-                        <%= form.label :current_date %><br />
-                     <div class="cap-form">
-                    <%= form.date_select :current_date,                             class: "custom-select"  %>
+                    <%= # form.label :current_date 
+                    %><br />
+                    <div class="cap-form">
+                    <%= #form.date_select :current_date,                             class: "custom-select"  
+                    %>
                     </div>
                         <br /> 
 
@@ -132,7 +162,7 @@
                     <%= form.date_select :note_date,                                class: "custom-select"  %>
                     </div><br />
 
-                    <%= form.label " Payment start date" %>
+                    <%= form.label " Payment start date" + @blink.to_s %>
                     <br />
                     <div class="cap-form">
                         <%= form.date_select :repay_start,                          class: "custom-select"  %><br />
@@ -140,27 +170,32 @@
 
                     <%= form.label :repay_1st %><br />
                     <div class="cap-form">
-                        <%= form.date_select :repay_1st,                            class: "custom-select" %><br />
+                        <%= form.date_select :repay_1st ,                            class: "custom-select" %><br />
                     </div><br />
 
-                    <%= form.label :repay_start %>
-                    <div class="cap-form">
-                        <%= form.date_select :repay_start,                          class: "custom-select"  %>
-                    </div><br />
+                  
 
-                    <%= form.label :final_date %>
-                    <div class="cap-form">
-                        <%= form.date_select :final_date,                           class: "custom-select"  %>
-                    </div><br />
-
-                    <%= form.label :repay_mature.to_s + " : date?" %>
+                    <%= form.label :repay_mature.to_s + " " + @blink.to_date.to_s %>
                     <%= #form.text_field :repay_mature 
                     %>
                     <div class="cap-form">
-                        <%= form.date_select :repay_mature,                         class: "custom-select"  
+                        <%= # form.date_select  value: @blink ,                         class: "custom-select"  
+                        %>
+
+                        <%= form.date_select   :repay_mature ,                         class: "custom-select"  
                         %>
                     </div><br />
    
+
+                      <%= form.label :final_date %>
+                    <div class="cap-form">
+                        <%= # form.text_field @blink_up.to_s#,  value: @blink.to_s,                               class: "custom-select"  
+                        %>
+                        <%= form.date_select :final_date,                           class: "custom-select"  
+                        %>
+                    </div><br />
+
+
                 </div>
             </div>
         </div>
@@ -204,26 +239,7 @@
 
 
 
-        <div class="col-lg-2  outline">
-            <div class="panel">
-                <div class="field  form_imput outline">
 
-                    <%= form.label "Backer" 
-                    %> 
-                    <%= form.text_field :guarantee01,                               class: "form-control"  %>
-                    
-                    <%= form.label "Backer 2"
-                    %> 
-                    <%= form.text_field :guarantee02,                               class: "form-control"  %>
-                    
-                    <%= form.label "Backer 3" 
-                    %> 
-                    <%= form.text_field :guarantee03,                               class: "form-control"  %>
-
-
-                </div>
-            </div>
-        </div>
         <div class="field  form_imput outline " > 
             <div class="actions pull-right col-lg-2 style="margin-top: 20px;"">
                 <%= form.submit class: "btn btn-success" %>
