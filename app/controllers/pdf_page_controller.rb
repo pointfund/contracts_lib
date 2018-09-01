@@ -111,6 +111,7 @@ class PdfPageController < ApplicationController
             if(job_id != nil)
                 # reset_contract(print_page)
                 reset_contract(job_id)
+                puts "reset contract"  + job_id
                 # parts.order('id ASC')  
                 # layouts.order('id ASC')
                 item_array = []
@@ -119,13 +120,11 @@ class PdfPageController < ApplicationController
                     puts "parts : " + x.content[0..20]
                     item_array.push(x.content) 
                 end
-                 
                 @layouts.each do |z|
                     puts "layouts : " + z.posx.to_s + " " + z.posy.to_s
                     place_array.push([z.posx, z.posy])
                 end
             end
-
             puts  " parts page long : " + @parts.length.to_s + "******************* " + place_array.to_s + " jobd ID : " + job_id 
             # puts  " layouts page long : " +  @layouts.length.to_s + "******************* " + item_array.to_s
             return place_array, item_array

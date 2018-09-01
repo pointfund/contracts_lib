@@ -103,7 +103,7 @@ module PdfPageHelper
 					when 3
 						page_letter_3(pdf, item_array, place_array, records_array, rec_set)
 					when 4
-					  	page_letter_4(pdf, item_array, place_array, records_array)
+					  	page_letter_4(pdf, item_array, place_array, records_array, rec_set)
 					when 5
 					 	page_letter_5(pdf, item_array, place_array, records_array, rec_set)
 					when 6
@@ -1792,7 +1792,7 @@ module PdfPageHelper
 
 
 		# Contract 4 Loan Confirmation
-		def page_letter_4(pdf, item_array, place_array, records_array)
+		def page_letter_4(pdf, item_array, place_array, records_array, rec_set)
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "ff0000"
 	          	pdf.transparent(1.0, 0.2) do 
@@ -2130,7 +2130,7 @@ module PdfPageHelper
 					
 					# pdf.font "Arial", size: 10 
 
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+					get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
  					# pdf.bounding_box.transparent(0.5) { stroke_bounds }
 
 		        end
@@ -2146,7 +2146,7 @@ module PdfPageHelper
 					pdf.text form_A_1, {:color => "000000"  , :character_spacing => 0.5}
 					# pdf.rectangle [ 150, 690 ], 310, 2
 					# pdf.text form_A_2, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+					get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 
 		        end
 				step = up_one(step)
