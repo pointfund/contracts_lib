@@ -1,5 +1,6 @@
 module PdfPageHelper
 	require 'date'
+	# extend 'page05_include'
 	class SendLetter < Prawn::Document 
 		def initialize(pdf,item_array, place_array,records_array, page_list, pick)
 			
@@ -1965,6 +1966,9 @@ module PdfPageHelper
 
 		# commission form
 		def page_letter_5(pdf, item_array, place_array, records_array)
+			# Service.page05_include
+			pdf.start_new_page
+
 				pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 		            pdf.fill_color "ff0000"
 		          	pdf.transparent(1.0, 0.2) do 
@@ -2035,7 +2039,6 @@ module PdfPageHelper
 					gettime = Time.new
 					date = gettime.localtime.strftime('  %b %d, %Y')
 
-
 					title = item_array[0].to_s
 					# my_string.gsub('#{current_date}', groupName )
 
@@ -2050,7 +2053,6 @@ module PdfPageHelper
 
 					form_A_1 = form_A_1.gsub('#{full_name}', records_array.loan_name.to_s )
 					form_A_1 = form_A_1.gsub('#{agent_code}', records_array.agent_num )
-
 				
 					form_A_2 = 			item_array[2].to_s
 					form_A_2 = 		form_A_2.gsub('#{full_name}', full_name )
@@ -2064,7 +2066,6 @@ module PdfPageHelper
 					form_A_4 = 		form_A_4.gsub('#{address_city}', records_array.address_city )
 					form_A_4 = 		form_A_4.gsub('#{address_state}', records_array.address_state )
 					form_A_4 = 		form_A_4.gsub('#{address_zip}', records_array.address_zip )
-
 
 					form_A_5 = 			item_array[5].to_s
 					form_A_5 =		form_A_5.gsub('#{agent_phone}', records_array.agent_phone )
@@ -2082,7 +2083,6 @@ module PdfPageHelper
 					form_B_1 =		form_B_1.gsub('#{agent_name}', full_name )
 
 					form_B_2 = 			item_array[13].to_s
-
 
 					form_B_3 = 			item_array[14].to_s
 					form_B_3 = 		form_B_3.gsub('#{current_date}', date )
@@ -2122,7 +2122,7 @@ module PdfPageHelper
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 30}) do
 					pdf.font "OpenSans", size: 10 , style: :bold
 					pdf.text title, {:color => "000000" , :character_spacing => 0.5}
-					pdf.font "OpenSans", size: 8 
+					
 					# pdf.font "Arial", size: 10 
 
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
@@ -2131,6 +2131,7 @@ module PdfPageHelper
 				
 				# Form line 1
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 60}) do
+					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_1, {:color => "000000"  , :character_spacing => 0.5}
 					# pdf.rectangle [ 150, 690 ], 310, 2
 					# pdf.text form_A_2, {:color => "000000"}
@@ -2138,59 +2139,60 @@ module PdfPageHelper
 		        end
 				step = up_one(step)
 				
-
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_2, {:color => "000000"  , :character_spacing => 0.5}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				step = up_one(step)
-				
 
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_3, {:color => "000000"}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				step = up_one(step)
 				
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_4, {:color => "000000"}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				step = up_one(step)
 
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_5, {:color => "000000"}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				step = up_one(step)
 
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_6, {:color => "000000"}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				step = up_one(step)
 
-
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_7, {:color => "000000"}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				step = up_one(step)
 
-
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_8, {:color => "000000"}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				step = up_one(step)
-
 
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 					pdf.text form_A_9, {:color => "000000"}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				step = up_one(step)
-
 
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 					pdf.text form_A_10, {:color => "000000"}
@@ -2237,15 +2239,14 @@ module PdfPageHelper
 		        end
 				step = up_one(step)
 
-
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 					pdf.text form_C_2, {:color => "000000"}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				step = up_one(step)
 
-
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					pdf.font "OpenSans", size: 8 
 					pdf.text form_C_3, {:color => "000000", size: 8 }
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
