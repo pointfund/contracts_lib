@@ -396,8 +396,6 @@ module PdfPageHelper
 			comp_address =  records_array.address_street;
 			comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
 
-
-
 			intro = item_array[4]
 			intro = intro.gsub('#{first_name}', full_name )
 
@@ -446,7 +444,7 @@ module PdfPageHelper
 				# pdf.text place_array[step][0].to_s
 				# pdf.text place_array[step][1].to_s
 
-				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
 			
 			# skip client info
@@ -455,7 +453,7 @@ module PdfPageHelper
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 				# get_page_loc(step, place_array, pdf);
 				# pdf.text records_array.loan_name	
-				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 			end
 			step = up_one(step)
 
@@ -1739,7 +1737,7 @@ module PdfPageHelper
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
-
+									pdf.font "OpenSans" , size => 12
 						# page 16
 						##########################################################################################
 						# pdf.start_new_page
@@ -2007,7 +2005,6 @@ module PdfPageHelper
 		        	pdf.rectangle [250, 270], 290, 1
 		        	pdf.rectangle [190, 250], 90, 1
 
-
 					# form C Lender sign
 		        	pdf.rectangle [400, 190], 140, 1
 		        	pdf.rectangle [400, 170], 140, 1
@@ -2031,77 +2028,77 @@ module PdfPageHelper
 				end
 
 
-				PagePart.order('part_area ASC').reorder('id ASC')
-				PageLayout.order('part_area ASC').reorder('id ASC')
+					PagePart.order('part_area ASC').reorder('id ASC')
+					PageLayout.order('part_area ASC').reorder('id ASC')
+
+					my_string = item_array[0].to_s
+					gettime = Time.new
+					date = gettime.localtime.strftime('  %b %d, %Y')
+
+
+					title = item_array[0].to_s
+					# my_string.gsub('#{current_date}', groupName )
+
+					comp_address =  records_array.address_street;
+					comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
+
+					form_A_1 = 		item_array[1].to_s
+
+					full_name = records_array.client_first_name.to_s  + " " + records_array.client_last_name.to_s 
+
+					# form_A_1 = form_A_1.gsub('#{full_name}', "Moe" )
+
+					form_A_1 = form_A_1.gsub('#{full_name}', records_array.loan_name.to_s )
+					form_A_1 = form_A_1.gsub('#{agent_code}', records_array.agent_num )
+
 				
-				my_string = item_array[0].to_s
-				gettime = Time.new
-				date = gettime.localtime.strftime('  %b %d, %Y')
-
-
-				title = item_array[0].to_s
-				# my_string.gsub('#{current_date}', groupName )
-
-				comp_address =  records_array.address_street;
-				comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
-
-				form_A_1 = 		item_array[1].to_s
-
-				full_name = records_array.client_first_name.to_s  + " " + records_array.client_last_name.to_s 
-
-				# form_A_1 = form_A_1.gsub('#{full_name}', "Moe" )
-
-				form_A_1 = form_A_1.gsub('#{full_name}', records_array.loan_name.to_s )
-				form_A_1 = form_A_1.gsub('#{agent_code}', records_array.agent_num )
-				
-				
-				form_A_2 = 			item_array[2].to_s
+					form_A_2 = 			item_array[2].to_s
 					form_A_2 = 		form_A_2.gsub('#{full_name}', full_name )
 
-				form_A_3 = 			item_array[3].to_s
+					form_A_3 = 			item_array[3].to_s
 					form_A_3 = 		form_A_3.gsub('#{address_street}', records_array.address_street )
 
-				form_A_4 = 			item_array[4].to_s
+					form_A_4 = 			item_array[4].to_s
 					# form_A_4 = 		form_A_4.gsub('#{address_city}', "hello" )
 					# form_A_4 = "hello"
 					form_A_4 = 		form_A_4.gsub('#{address_city}', records_array.address_city )
 					form_A_4 = 		form_A_4.gsub('#{address_state}', records_array.address_state )
 					form_A_4 = 		form_A_4.gsub('#{address_zip}', records_array.address_zip )
-					
 
-				form_A_5 = 			item_array[5].to_s
+
+					form_A_5 = 			item_array[5].to_s
 					form_A_5 =		form_A_5.gsub('#{agent_phone}', records_array.agent_phone )
 					form_A_5 =		form_A_5.gsub('#{agent_email}', records_array.agent_email )
 
-				form_A_6 = 			item_array[6].to_s
-				form_A_7 = 			item_array[7].to_s
-				form_A_8 = 			item_array[8].to_s
-				form_A_9 = 			item_array[9].to_s
-				form_A_10 = 		item_array[10].to_s
+					form_A_6 = 			item_array[6].to_s
+					form_A_7 = 			item_array[7].to_s
+					form_A_8 = 			item_array[8].to_s
+					form_A_9 = 			item_array[9].to_s
+					form_A_10 = 		item_array[10].to_s
 
-				para_A = 			item_array[11].to_s
-				# form B
-				form_B_1 = 			item_array[12].to_s
+					para_A = 			item_array[11].to_s
+					# form B
+					form_B_1 = 			item_array[12].to_s
 					form_B_1 =		form_B_1.gsub('#{agent_name}', full_name )
 
-				form_B_2 = 			item_array[13].to_s
-		
+					form_B_2 = 			item_array[13].to_s
 
-				form_B_3 = 			item_array[14].to_s
+
+					form_B_3 = 			item_array[14].to_s
 					form_B_3 = 		form_B_3.gsub('#{current_date}', date )
 
-				para_B = 			item_array[15].to_s
+					para_B = 			item_array[15].to_s
 
-				form_C_1 = 			item_array[16].to_s
-				form_C_2 = 			item_array[17].to_s
+					form_C_1 = 			item_array[16].to_s
+					form_C_2 = 			item_array[17].to_s
 
-				form_C_3 = 			item_array[18].to_s
-				form_C_3 = 			item_array[18].to_s
+					form_C_3 = 			item_array[18].to_s
+					form_C_3 = 			item_array[18].to_s
 					form_C_3 = 		form_C_3.gsub('#{current_date}', date )
 
-				tag_height = 14
-				# step = up_one(step) 
-				step = 0
+					tag_height = 14
+					# step = up_one(step) 
+					step = 0
 
 				def get_page_loc(step, place_array, pdf, var_x, var_y)
 					# move_l = place_array[step][0].to_f
@@ -2110,20 +2107,20 @@ module PdfPageHelper
 					var_y = place_array[step][1]
 				
 						
-					pdf.indent 320, 0 do
-						pdf.stroke_color 'FFFF00'
-						pdf.stroke_bounds
-						pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
-						# pdf.text 
-						# pdf.text place_array[step][1].to_s
-						pdf.line_to [var_x, var_y]
-					end
+					# pdf.indent 320, 0 do
+					# 	pdf.stroke_color 'FFFF00'
+					# 	pdf.stroke_bounds
+					# 	pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
+					# 	# pdf.text 
+					# 	# pdf.text place_array[step][1].to_s
+					# 	pdf.line_to [var_x, var_y]
+					# end
 						# pdf.rectangle [var_x, var_y], 100, 200
 					# end
 				end
 				# page layout area  : Area 1
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 30}) do
-					pdf.font "OpenSans", size: 8 , style: :bold
+					pdf.font "OpenSans", size: 10 , style: :bold
 					pdf.text title, {:color => "000000" , :character_spacing => 0.5}
 					pdf.font "OpenSans", size: 8 
 					# pdf.font "Arial", size: 10 
