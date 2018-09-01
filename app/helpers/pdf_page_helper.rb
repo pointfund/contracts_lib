@@ -105,7 +105,7 @@ module PdfPageHelper
 					when 4
 					  	page_letter_4(pdf, item_array, place_array, records_array)
 					when 5
-					 	page_letter_5(pdf, item_array, place_array, records_array)
+					 	page_letter_5(pdf, item_array, place_array, records_array, rec_set)
 					when 6
 						page_letter_6(pdf, item_array, place_array, records_array)
 					when 7
@@ -1965,9 +1965,9 @@ module PdfPageHelper
 
 
 		# commission form
-		def page_letter_5(pdf, item_array, place_array, records_array)
+		def page_letter_5(pdf, item_array, place_array, records_array, rec_set)
 			# Service.page05_include
-			pdf.start_new_page
+			# pdf.start_new_page
 
 				pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 		            pdf.fill_color "ff0000"
@@ -1978,7 +1978,8 @@ module PdfPageHelper
 		        end
 		        # page sign lines
 		        pdf.bounding_box([0, 0],{ :width => 200, :height => 100 }) do
-		        	
+		        	pdf.stroke_color '00ff00'
+					pdf.stroke_bounds
 		        	# pdf.rectangle [ 150, 690 ], 310, 2
 		        	# pdf.rectangle [ 150, 670 ], 310, 2
 		        	# pdf.rectangle [ 150, 650 ], 310, 2
@@ -2020,6 +2021,7 @@ module PdfPageHelper
 					# pdf.rectangle [310, 190], 180, 2
 					# pdf.fill_rectangle [10, 100],0, 0
 					# pdf.fill_rectangle [240, 510],0, 0
+					# pdf.bounds.top
 		        end
 		        
 		        def up_one(step)
@@ -2119,138 +2121,158 @@ module PdfPageHelper
 					# end
 				end
 				# page layout area  : Area 1
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 30}) do
+				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 200, :height => 30}) do
+					pdf.stroke_color 'FF0000'
+					pdf.stroke_bounds
+
 					pdf.font "OpenSans", size: 10 , style: :bold
 					pdf.text title, {:color => "000000" , :character_spacing => 0.5}
 					
 					# pdf.font "Arial", size: 10 
 
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+ 					# pdf.bounding_box.transparent(0.5) { stroke_bounds }
+
 		        end
 				step = up_one(step)
 				
 				# Form line 1
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 60}) do
+				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					
+					pdf.stroke_color 'FF0000'
+					pdf.stroke_bounds
+
 					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_1, {:color => "000000"  , :character_spacing => 0.5}
 					# pdf.rectangle [ 150, 690 ], 310, 2
 					# pdf.text form_A_2, {:color => "000000"}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+
 		        end
 				step = up_one(step)
 				
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.font "OpenSans", size: 8 
+				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 300, :height => 16}) do
+					
+					pdf.stroke_color 'FF0000'
+					pdf.stroke_bounds
+					# pdf.font "OpenSans", size: 8 
 					pdf.text form_A_2, {:color => "000000"  , :character_spacing => 0.5}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+ # transparent(0.5) { stroke_bounds }
 		        end
 				step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.font "OpenSans", size: 8 
-					pdf.text form_A_3, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => 16}) do
+
+	# 				pdf.stroke_color 'FF0000'
+	# 				pdf.stroke_bounds
+	# 				pdf.font "OpenSans", size: 8 
+	# 				pdf.text form_A_3, {:color => "000000"}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 				
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.font "OpenSans", size: 8 
-					pdf.text form_A_4, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.stroke_color 'FF0000'
+	# 				pdf.stroke_bounds
+					
+	# 				pdf.font "OpenSans", size: 8 
+	# 				pdf.text form_A_4, {:color => "000000"}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.font "OpenSans", size: 8 
-					pdf.text form_A_5, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.font "OpenSans", size: 8 
+	# 				pdf.text form_A_5, {:color => "000000"}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.font "OpenSans", size: 8 
-					pdf.text form_A_6, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.font "OpenSans", size: 8 
+	# 				pdf.text form_A_6, {:color => "000000"}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.font "OpenSans", size: 8 
-					pdf.text form_A_7, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.font "OpenSans", size: 8 
+	# 				pdf.text form_A_7, {:color => "000000"}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.font "OpenSans", size: 8 
-					pdf.text form_A_8, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.font "OpenSans", size: 8 
+	# 				pdf.text form_A_8, {:color => "000000"}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.text form_A_9, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.text form_A_9, {:color => "000000"}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.text form_A_10, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.text form_A_10, {:color => "000000"}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => 100}) do
-					pdf.text para_A, {:color => "000000", size: 8, :inline_format => "true" }
-					pdf.font "OpenSans", size: 8 
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
-
-
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.text form_B_1, {:color => "000000",  size: 8}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => 100}) do
+	# 				pdf.text para_A, {:color => "000000", size: 8, :inline_format => "true" }
+	# 				pdf.font "OpenSans", size: 8 
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.text form_B_2, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.text form_B_1, {:color => "000000",  size: 8}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.text form_B_3, {:color => "000000" }
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 30}) do
-					pdf.text para_B, {:color => "000000", size: 8, :inline_format => "true"  }
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.text form_B_2, {:color => "000000"}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.text form_C_1, {:color => "000000" }
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.text form_B_3, {:color => "000000" }
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.text form_C_2, {:color => "000000"}
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 30}) do
+	# 				pdf.text para_B, {:color => "000000", size: 8, :inline_format => "true"  }
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 
-				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.font "OpenSans", size: 8 
-					pdf.text form_C_3, {:color => "000000", size: 8 }
-					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		        end
-				step = up_one(step)
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.text form_C_1, {:color => "000000" }
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
+
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.text form_C_2, {:color => "000000"}
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
+
+	# 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+	# 				pdf.font "OpenSans", size: 8 
+	# 				pdf.text form_C_3, {:color => "000000", size: 8 }
+	# 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	# 	        end
+	# 			step = up_one(step)
 		end
 
 
