@@ -98,6 +98,7 @@ class PdfPageController < ApplicationController
         # end
 
         def reset_contract(print_page)
+            puts "reset Contract and add new"
             @parts = PagePart.where({contract_id: print_page})
             @parts.order('id ASC')   
             @layouts = PageLayout.where({contract_id: print_page})
@@ -106,6 +107,9 @@ class PdfPageController < ApplicationController
             # puts bridge[0][0].to_s + " : see part"
             return bridge
         end
+
+
+
 
         def is_list(job_id, item_array, place_array)
             if(job_id != nil)
@@ -125,10 +129,13 @@ class PdfPageController < ApplicationController
                     place_array.push([z.posx, z.posy])
                 end
             end
+
             puts  " parts page long : " + @parts.length.to_s + "******************* " + place_array.to_s + " jobd ID : " + job_id 
             # puts  " layouts page long : " +  @layouts.length.to_s + "******************* " + item_array.to_s
-            return place_array, item_array
+            return  item_array, place_array
         end
+
+
 
 
         if(params[:create_pages] != nil)
@@ -218,17 +225,23 @@ class PdfPageController < ApplicationController
                 if(@job_ids != nil)
                     i = @job_ids.length
                     @job_ids.each do |contract| 
-                        puts "items array " + item_array.length.to_s
+                        puts "items array of " + item_array.length.to_s
+                        puts contract + " who are you ?"
                         # puts is_list(contract, item_array, place_array)
                         items = is_list(contract, item_array, place_array)
+
+
                         item_things = items[0]
                         place_things = items[1]
+                        
+
+
                         puts "things array " + place_things.length.to_s
                         # reset_contract(contract)
                         # player
                         puts contract + " : each page loop "
                         # arg 
-                        sample = SendLetter.new(pdf, items[1], items[0], @records, @job_ids, contract)
+                        sample = SendLetter.new(pdf, items[0], items[1], @records, @job_ids, contract)
                         puts "Finish page : " + i.to_s
                         i--
                         # pdf.start_new_page
