@@ -224,11 +224,15 @@ class PdfPageController < ApplicationController
                 # file from assets 
                 if(@job_ids != nil)
                     i = @job_ids.length
+                    item_array = []
+                    place_array = []
+                    items = []
+
                     @job_ids.each do |contract| 
                         puts "items array of " + item_array.length.to_s
                         puts contract + " who are you ?"
                         # puts is_list(contract, item_array, place_array)
-                        items = is_list(contract, item_array, place_array)
+
 
                         page = []
 
@@ -239,33 +243,35 @@ class PdfPageController < ApplicationController
                         # @part.each do |x|
                         #     page.push(x.content)
                         # end    
-
-                        item_array = []
-                        place_array = []
-
+                    item_things = []
+                    place_things = []
 
                         @parts.each do |x|
                             puts "parts : " + x.content[0..20]
-                            item_array.push(x.content) 
+                            item_array.push(x.content)
+                            item_things.push(x.content) 
                         end
 
                         @layouts.each do |z|
                             puts "layouts : " + z.posx.to_s + " " + z.posy.to_s
                             place_array.push([z.posx, z.posy])
+                            place_things.push([z.posx, z.posy])
                         end
 
 
-                        item_things = items[0]
-                        place_things = items[1]
-                        
 
+
+                        # items = is_list(contract, item_array, place_array)
+
+                        # item_things.push(items[0])
+                        # place_things.push(items[1])
 
                         puts "things array " + place_things.length.to_s
                         # reset_contract(contract)
                         # player
                         puts contract + " : each page loop "
                         # arg 
-                        sample = SendLetter.new(pdf, item_array, place_array, @records, @job_ids, contract)
+                        sample = SendLetter.new(pdf, item_things, place_things, @records, @job_ids, contract)
                         puts "Finish page : " + i.to_s
                         i--
                         # pdf.start_new_page
@@ -273,7 +279,10 @@ class PdfPageController < ApplicationController
                         pdf.start_new_page
                         # end
                     end
+
+
                 end
+
             send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"
             end
         end
