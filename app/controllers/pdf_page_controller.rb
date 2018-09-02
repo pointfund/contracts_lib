@@ -230,6 +230,30 @@ class PdfPageController < ApplicationController
                         # puts is_list(contract, item_array, place_array)
                         items = is_list(contract, item_array, place_array)
 
+                        page = []
+
+
+                        @parts = PagePart.where({contract_id: contract})
+                        @layouts = PageLayout.where({contract_id: contract})
+                        
+                        # @part.each do |x|
+                        #     page.push(x.content)
+                        # end    
+
+                        item_array = []
+                        place_array = []
+
+
+                        @parts.each do |x|
+                            puts "parts : " + x.content[0..20]
+                            item_array.push(x.content) 
+                        end
+
+                        @layouts.each do |z|
+                            puts "layouts : " + z.posx.to_s + " " + z.posy.to_s
+                            place_array.push([z.posx, z.posy])
+                        end
+
 
                         item_things = items[0]
                         place_things = items[1]
@@ -241,7 +265,7 @@ class PdfPageController < ApplicationController
                         # player
                         puts contract + " : each page loop "
                         # arg 
-                        sample = SendLetter.new(pdf, items[0], items[1], @records, @job_ids, contract)
+                        sample = SendLetter.new(pdf, item_array, place_array, @records, @job_ids, contract)
                         puts "Finish page : " + i.to_s
                         i--
                         # pdf.start_new_page

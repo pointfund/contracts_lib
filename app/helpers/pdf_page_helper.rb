@@ -2,12 +2,12 @@ module PdfPageHelper
 	require 'date'
 	# extend 'page05_include'
 	class SendLetter < Prawn::Document 
-		def initialize(pdf,item_array, place_array,records_array, page_list, pick)
+		def initialize(pdf, item_array, place_array, records_array, page_list, pick)
 			
 
 
-			PagePart.order('part_area ASC').reorder('id ASC')
-			PageLayout.order('part_area ASC').reorder('id ASC')
+			# PagePart.order('part_area ASC').reorder('id ASC')
+			# PageLayout.order('part_area ASC').reorder('id ASC')
 
 			rec_set = []	
 
@@ -97,9 +97,9 @@ module PdfPageHelper
 						# puts "print pdf page " + zvar.to_s + " : parts : " + item_array.length.to_s
 						# 	puts "print pdf page " + zvar.to_s + " : parts : " + item_array.length.to_s
 						# 	puts place_array[0][1].to_s + " : " 
-					  	page_letter_1(pdf,item_array,place_array,records_array, rec_set)
+					  	page_letter_1(pdf,item_array, place_array, records_array, rec_set)
 					when 2
-					  	page_letter_2(pdf,item_array,place_array,records_array)
+					  	page_letter_2(pdf,item_array, place_array, records_array, rec_set)
 					when 3
 						page_letter_3(pdf, item_array, place_array, records_array, rec_set)
 					when 4
@@ -358,7 +358,7 @@ module PdfPageHelper
 		end
 
 		# Assignment of %
-		def page_letter_2(pdf,item_array,place_array,records_array)
+		def page_letter_2(pdf,item_array,place_array,records_array,rec_set)
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "ff0000"
 				pdf.transparent(1.0, 0.2) do 
@@ -1831,7 +1831,6 @@ module PdfPageHelper
 
 			comp_address =  records_array.address_street;
 			comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
-
 
 			law_header = item_array[1].to_s
 			# law_header = item_array[2].to_s
