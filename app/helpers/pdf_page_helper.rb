@@ -1738,7 +1738,7 @@ module PdfPageHelper
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
-									pdf.font "OpenSans" , size => 12
+								# pdf.font "OpenSans" , size => 12
 						# page 16
 						##########################################################################################
 						# pdf.start_new_page
