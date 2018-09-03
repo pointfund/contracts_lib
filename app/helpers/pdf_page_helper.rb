@@ -3,14 +3,9 @@ module PdfPageHelper
 	# extend 'page05_include'
 	class SendLetter < Prawn::Document 
 		def initialize(pdf, item_array, place_array, records_array, page_list, pick)
-			
-
-
 			# PagePart.order('part_area ASC').reorder('id ASC')
 			# PageLayout.order('part_area ASC').reorder('id ASC')
-
 			rec_set = []	
-
 					loan_name = records_array.loan_name.to_s										#	0
 					current_date = records_array.current_date								#	1
 				rec_set.push(loan_name)
@@ -130,7 +125,6 @@ module PdfPageHelper
 				end
 			# end 
 		end
-
 		# = records_array.||.to_s
 
 
@@ -143,24 +137,12 @@ module PdfPageHelper
 
 		# Assignment of $
 		def page_letter_1(pdf,item_array,place_array,records_array,rec_set)
-			# stroke_color "f0ffc1"
-			# side logo displaied as backdrop
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
-	            # pdf.rectangle [120, 100], 4, 700
-	            # pdf.rectangle [120, 100],120,100
 	            pdf.fill_color "000000"
-	            # pdf.fill_rectangle [200, 10],0, 0
-				# pdf.fill { rectangle [200, 100], 100, 100 }
 				pdf.transparent(1.0, 0.2) do 
-					#pdf.image open("app/assets/images/point_logo.png"), :fit => [500, 500], :at => [180, -100]#, 
 					pdf.image open("app/assets/images/logo_page.png"), :fit => [600, 1000], :at => [0, 160]
 				end
-               # pdf.font("app/assets/font/Spirax-Regular.ttf")
 	           pdf.fill_color "000000"
-	           # pdf.font "Arial", size: 11
-	           # pdf.image open("app/assets/images/point_logo.png"), :fit => [130, 135]
-	           # pdf.image open("app/assets/images/logo_page.png"), :fit => [600, 1000]
-			   # , :color => "00ff00"
 	        end
 	        # page sign lines
 	        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
@@ -171,7 +153,6 @@ module PdfPageHelper
 				pdf.fill_rectangle [10, 100],0, 0
 				# pdf.fill_rectangle [240, 510],0, 0
 	        end
-
 	        
 	        def up_one(step)
 	        	step = step + 1
@@ -181,12 +162,6 @@ module PdfPageHelper
 		    def number_to_currency(num)
 			  "$#{num.to_s.gsub(/\d(?=(...)+$)/, '\0,')}"
 			end
-
-
-			# PagePart.order('part_area ASC').reorder('id ASC')
-			# PageLayout.order('part_area ASC').reorder('id ASC')
-
-
 
 			current_date = records_array.client_first_name.to_s
 			my_string = item_array[0].to_s
@@ -227,57 +202,25 @@ module PdfPageHelper
 			step = 0
 
 			def get_page_loc(step, place_array, pdf, var_x, var_y)
-				# move_l = place_array[step][0].to_f
-				# move_r = 750.00
 				var_x = place_array[step][0]
 				var_y = place_array[step][1]
-				# adjust_x = var_x + -50
-				# adjust_y = var_y + 300
-				# var_x = 20.0
-				# var_y = 10.0
-				# var_y = var_y
-				# pdf.bounding_box([ adjust_x, adjust_y],{ :width => 300, :height => 20}) do
 					
 				pdf.indent 320, 0 do
 					pdf.stroke_color 'FFFF00'
 					pdf.stroke_bounds
-					# pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
-					# pdf.text 
-					# pdf.text place_array[step][1].to_s
+					pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
 					pdf.line_to [var_x, var_y]
 				end
 					# pdf.rectangle [var_x, var_y], 100, 200
 				# end
 			end
-			# play = 1
-			# play = place_array[step][0].to_i + 10
-			# play = play.to_s
-
-			# @parts.page_area 
-
-
-
     		# page layout 
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 				pdf.font "OpenSans", size: 10 
-				# var_x = place_array[step][0]
-				# var_y = place_array[step][1]	
-				# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
-				# pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
-				# pdf.text item_array[step], {:color => "00ff00"}
 				pdf.text say_date, {:color => "000000"}
-				# pdf.text place_array[step][0].to_s
-				# pdf.text place_array[step][1].to_s
-
 				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
-			
-			# skip client info
-			# step = up_one(step)  
-			# pdf.bounding_box( [ place_array[step][0], place_array[step][1] ] ),{ :width => 200, :height => 30}) do
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-				# get_page_loc(step, place_array, pdf);
-				# pdf.text records_array.loan_name	
 				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 			end
 			step = up_one(step)
@@ -285,9 +228,7 @@ module PdfPageHelper
 			# Client info 2
 			pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
 				pdf.text records_array.loan_name , {:color => "000000"}
-				# get_page_loc(step, place_array, pdf, var_x, var_y);
-				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-
+					get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 			end
 			step = up_one(step)  
 
@@ -450,7 +391,7 @@ module PdfPageHelper
 	        end
 			
 			# skip client info
-			step = up_one(step)  
+			# step = up_one(step)  
 			# pdf.bounding_box( [ place_array[step][0], place_array[step][1] ] ),{ :width => 200, :height => 30}) do
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 				puts step
@@ -2161,7 +2102,7 @@ module PdfPageHelper
 					# pdf.font "OpenSans", size: 8 
 					pdf.text form_A_2, {:color => "000000"  , :character_spacing => 0.5}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
- # transparent(0.5) { stroke_bounds }
+ 					# transparent(0.5) { stroke_bounds }
 		        end
 				step = up_one(step)
 
@@ -2276,7 +2217,7 @@ module PdfPageHelper
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				step = up_one(step)
-		end
+			end
 
 
 
@@ -3289,12 +3230,6 @@ module PdfPageHelper
 
 
 		end
-
-
-
-
-
-
 
 	end
 end

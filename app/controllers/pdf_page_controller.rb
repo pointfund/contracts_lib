@@ -79,6 +79,10 @@ class PdfPageController < ApplicationController
     end
 
     def create
+
+        PagePart.order('part_area ASC').reorder('id ASC')
+        PageLayout.order('part_area ASC').reorder('id ASC')
+
         get_cont = []
         @contracts = Contract.all
         @records = Record.find(params[:rec_id])
@@ -197,7 +201,7 @@ class PdfPageController < ApplicationController
                 # file from assets 
                 if(@job_ids != nil)
                     i = @job_ids.length
-                        page = []
+                    page = []
                     items = []
                     item_things = []
                     place_things = []
@@ -206,8 +210,8 @@ class PdfPageController < ApplicationController
                         # puts contract + " who are you ?"
                         # puts is_list(contract, item_array, place_array)
                         
-                        PagePart.order('part_area ASC').reorder('id ASC')
-                        PageLayout.order('part_area ASC').reorder('id ASC')
+                        # PagePart.order('part_area ASC').reorder('id ASC')
+                        # PageLayout.order('part_area ASC').reorder('id ASC')
 
                         @parts = PagePart.where({contract_id: contract})
                         @layouts = PageLayout.where({contract_id: contract})
@@ -224,7 +228,7 @@ class PdfPageController < ApplicationController
                         end
 
                         @layouts.each do |z|
-                            # puts "layouts : " + z.posx.to_s + " " + z.posy.to_s
+                            puts "layouts : " + z.posx.to_s + " " + z.posy.to_s + contract
                             place_array.push([z.posx, z.posy])
                         end
 
@@ -252,12 +256,6 @@ class PdfPageController < ApplicationController
                         # if(i <= @job_ids.length -1 )
                         
                         # end
-
-
-     
-
-
-
                     end
 
                         # puts "pages : " + page[0].to_s + page[1][0].to_s + " I'm done" + + page[2][0].to_s
