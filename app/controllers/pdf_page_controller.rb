@@ -218,24 +218,27 @@ class PdfPageController < ApplicationController
             format.js
             format.html
             format.pdf do 
-                pdf = Prawn::Document.new
-                AddFontsPdf.new(pdf)
+                # pdf = Prawn::Document.new
+                # AddFontsPdf.new(pdf)
+
+            pdf = Prawn::Document.new
+            AddFontsPdf.new(pdf)
+            # pdf.start_new_page
                 @record_page_set = params["create_pages"]
                 # file from assets 
                 if(@job_ids != nil)
                     i = @job_ids.length
-                    item_array = []
-                    place_array = []
-                    items = []
-
-                    @job_ids.each do |contract| 
-                        puts "items array of " + item_array.length.to_s
-                        puts contract + " who are you ?"
-                        # puts is_list(contract, item_array, place_array)
-
-
                         page = []
-
+                    items = []
+                    item_things = []
+                    place_things = []
+                    @job_ids.each do |contract| 
+                        # puts "items array of " + item_array.length.to_s
+                        # puts contract + " who are you ?"
+                        # puts is_list(contract, item_array, place_array)
+                        
+                        PagePart.order('part_area ASC').reorder('id ASC')
+                        PageLayout.order('part_area ASC').reorder('id ASC')
 
                         @parts = PagePart.where({contract_id: contract})
                         @layouts = PageLayout.where({contract_id: contract})
@@ -243,46 +246,72 @@ class PdfPageController < ApplicationController
                         # @part.each do |x|
                         #     page.push(x.content)
                         # end    
-                    item_things = []
-                    place_things = []
+                        item_array = []
+                        place_array = []
 
                         @parts.each do |x|
-                            puts "parts : " + x.content[0..20]
+                            # puts "parts : " + x.content[0..20]
                             item_array.push(x.content)
-                            item_things.push(x.content) 
                         end
 
                         @layouts.each do |z|
-                            puts "layouts : " + z.posx.to_s + " " + z.posy.to_s
+                            # puts "layouts : " + z.posx.to_s + " " + z.posy.to_s
                             place_array.push([z.posx, z.posy])
-                            place_things.push([z.posx, z.posy])
                         end
 
+                        # item_things.push(item_array) 
+                        # place_things.push(place_array)
 
-
+                        page.push([contract, item_array,  place_array ])
 
                         # items = is_list(contract, item_array, place_array)
 
                         # item_things.push(items[0])
                         # place_things.push(items[1])
 
-                        puts "things array " + place_things.length.to_s
-                        # reset_contract(contract)
-                        # player
-                        puts contract + " : each page loop "
-                        # arg 
-                        sample = SendLetter.new(pdf, item_things, place_things, @records, @job_ids, contract)
-                        puts "Finish page : " + i.to_s
-                        i--
-                        # pdf.start_new_page
+                        # puts " hello " + @job_ids.to_s
+
+                        # puts "things array " + item_array.length.to_s
+                        # # reset_contract(contract)
+                        # # player
+                        # puts contract.to_s + " : each page loop " + i.to_s
+                        # # arg 
+  
+                        # puts "Finish page : " + i.to_s
+                        # i--
+                        
                         # if(i <= @job_ids.length -1 )
-                        pdf.start_new_page
+                        
                         # end
+
+
+     
+
+
+
                     end
 
+                        # puts "pages : " + page[0].to_s + page[1][0].to_s + " I'm done" + + page[2][0].to_s
+                        # puts "pages : " + page[0].to_s + page[1].to_s + " I'm done" + + page[2].to_s
+                        # puts "pages : " + page.to_s 
 
+
+                        # puts page.length.to_s + " list length"
+                    page.each_with_index do |spread, ind|
+                        # pdf.start_new_page
+                        # puts spread[2]
+                        # spread.each do |a|
+                        # puts a
+                        # pdf.start_new_page 
+                        sample = SendLetter.new(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
+                        # sample = SendLetter.new(pdf, page[contract], place_things, @records, @job_ids, contract)
+                        if(ind <= page.length - 2 )
+                            pdf.start_new_page
+                        end
+                    end
+                        # pdf.start_new_page
+                    # end
                 end
-
             send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"
             end
         end
