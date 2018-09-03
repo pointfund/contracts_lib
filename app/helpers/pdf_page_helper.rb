@@ -5,6 +5,9 @@ module PdfPageHelper
 		def initialize(pdf, item_array, place_array, records_array, page_list, pick)
 			# PagePart.order('part_area ASC').reorder('id ASC')
 			# PageLayout.order('part_area ASC').reorder('id ASC')
+
+			puts "start class " + place_array[0][1].to_s
+			first_line = place_array[0][1].to_s
 			rec_set = []	
 					loan_name = records_array.loan_name.to_s										#	0
 					current_date = records_array.current_date								#	1
@@ -92,9 +95,9 @@ module PdfPageHelper
 						# puts "print pdf page " + zvar.to_s + " : parts : " + item_array.length.to_s
 						# 	puts "print pdf page " + zvar.to_s + " : parts : " + item_array.length.to_s
 						# 	puts place_array[0][1].to_s + " : " 
-					  	page_letter_1(pdf,item_array, place_array, records_array, rec_set)
+					  	page_letter_1(pdf, item_array, place_array, records_array, rec_set,first_line)
 					when 2
-					  	page_letter_2(pdf,item_array, place_array, records_array, rec_set)
+					  	page_letter_2(pdf, item_array, place_array, records_array, rec_set,first_line)
 					when 3
 						page_letter_3(pdf, item_array, place_array, records_array, rec_set)
 					when 4
@@ -136,7 +139,7 @@ module PdfPageHelper
 
 
 		# Assignment of $
-		def page_letter_1(pdf,item_array,place_array,records_array,rec_set)
+		def page_letter_1(pdf,item_array,place_array,records_array,rec_set,first_line)
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "000000"
 				pdf.transparent(1.0, 0.2) do 
@@ -217,7 +220,7 @@ module PdfPageHelper
     		# page layout 
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 				pdf.font "OpenSans", size: 10 
-				pdf.text say_date, {:color => "000000"}
+				pdf.text say_date + first_line, {:color => "000000"}
 				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
@@ -299,7 +302,7 @@ module PdfPageHelper
 		end
 
 		# Assignment of %
-		def page_letter_2(pdf,item_array,place_array,records_array,rec_set)
+		def page_letter_2(pdf,item_array,place_array,records_array,rec_set,first_line)
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "ff0000"
 				pdf.transparent(1.0, 0.2) do 
@@ -383,7 +386,7 @@ module PdfPageHelper
 				# pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
 				# pdf.text item_array[step], {:color => "00ff00"}
 				pdf.font "OpenSans", size: 10
-				pdf.text say_date, {:color => "000000"}
+				pdf.text say_date + " : " +first_line, {:color => "000000"}
 				# pdf.text place_array[step][0].to_s
 				# pdf.text place_array[step][1].to_s
 
