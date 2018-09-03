@@ -155,37 +155,6 @@ class PdfPageController < ApplicationController
         end
 
 
-
-        # get length of found array
-        # @job_ids.each do |x|
-        #     get_cont.push(Contract.where({id: x}))
-        #     puts " " + get_cont.length.to_s + " : total list of pdf docs "
-        # end
-        # @contracts = Contract.find()
-        # show each pick ID
-
-        # def grab_page(print_page )
-
-        # @contracts.each do |pick_id|
-        #     pick_id.id
-        # end
-        # check for page id 
-        # if(params[:id])
-        #     @parts = PagePart.where({contract_id: params[:id]})
-        #     @parts.order('id ASC')
-        #     # @parts[0].id
-        # else
-            # @parts = PagePart.where({contract_id: print_page})
-            # @parts.order('id ASC')   
-        # end
-
- 
-        # @layouts = 
-        # @layouts.order('id ASC')
-        # @layouts = PageLayout.all
-        # @layouts[0].posx
-
-        # reset_contract(print_page)
         #Check job list
 
 
