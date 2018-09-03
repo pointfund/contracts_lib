@@ -194,8 +194,7 @@ class PdfPageController < ApplicationController
                 # pdf = Prawn::Document.new
                 # AddFontsPdf.new(pdf)
 
-            pdf = Prawn::Document.new
-            AddFontsPdf.new(pdf)
+
             # pdf.start_new_page
                 @record_page_set = params["create_pages"]
                 # file from assets 
@@ -261,16 +260,23 @@ class PdfPageController < ApplicationController
                         # puts "pages : " + page[0].to_s + page[1][0].to_s + " I'm done" + + page[2][0].to_s
                         # puts "pages : " + page[0].to_s + page[1].to_s + " I'm done" + + page[2].to_s
                         # puts "pages : " + page.to_s 
-
-
                         # puts page.length.to_s + " list length"
+                    
+                    pdf = Prawn::Document.new
+                    AddFontsPdf.new(pdf)
+
                     page.each_with_index do |spread, ind|
                         # pdf.start_new_page
                         # puts spread[2]
                         # spread.each do |a|
                         # puts a
                         # pdf.start_new_page 
+
+
                         sample = SendLetter.new(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
+                        
+
+
                         # sample = SendLetter.new(pdf, page[contract], place_things, @records, @job_ids, contract)
                         if(ind <= page.length - 2 )
                             pdf.start_new_page
@@ -278,8 +284,9 @@ class PdfPageController < ApplicationController
                     end
                         # pdf.start_new_page
                     # end
+                    send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"        
                 end
-            send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"
+            # send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"
             end
         end
     end
