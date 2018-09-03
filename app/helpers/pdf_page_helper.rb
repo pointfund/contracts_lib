@@ -265,11 +265,11 @@ module PdfPageHelper
 				# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
 				# pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
 				# pdf.text item_array[step], {:color => "00ff00"}
-				pdf.text say_date #, {:color => "00ff00"}
+				pdf.text say_date, {:color => "000000"}
 				# pdf.text place_array[step][0].to_s
 				# pdf.text place_array[step][1].to_s
 
-				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
 			
 			# skip client info
@@ -278,7 +278,7 @@ module PdfPageHelper
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 				# get_page_loc(step, place_array, pdf);
 				# pdf.text records_array.loan_name	
-				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 			end
 			step = up_one(step)
 
@@ -418,7 +418,7 @@ module PdfPageHelper
 			tag_height = 14
 			# step = up_one(step) 
 			step = 0
-
+			puts step
 			def get_page_loc(step, place_array, pdf, var_x, var_y)
 				var_x = place_array[step][0]
 				var_y = place_array[step][1]
@@ -435,6 +435,7 @@ module PdfPageHelper
 			
     		# page layout 
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+				puts step
 				# var_x = place_array[step][0]
 				# var_y = place_array[step][1]	
 				# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
@@ -449,9 +450,10 @@ module PdfPageHelper
 	        end
 			
 			# skip client info
-			# step = up_one(step)  
+			step = up_one(step)  
 			# pdf.bounding_box( [ place_array[step][0], place_array[step][1] ] ),{ :width => 200, :height => 30}) do
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+				puts step
 				# get_page_loc(step, place_array, pdf);
 				# pdf.text records_array.loan_name	
 				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
@@ -525,12 +527,14 @@ module PdfPageHelper
 				pdf.text sign_to
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
-			step = up_one(step)
-			# #sign from 11
-			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-				pdf.text item_array[step]
-			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-			end
+
+			# step = up_one(step)
+			# # #sign from 11
+			# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			# puts step
+			# 	pdf.text item_array[step]
+			# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			# end
 		end
 
 
