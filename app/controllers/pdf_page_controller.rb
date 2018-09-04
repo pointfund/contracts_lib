@@ -3,8 +3,8 @@ class PdfPageController < ApplicationController
     include PdfPageHelper
     include PdfFontsHelper
     include ChooserPagesPdf
-    require 'active_support'
-    require 'active_support/core_ext'
+    # require 'active_support'
+    # require 'active_support/core_ext'
 
     def index
         @next = 0
@@ -101,43 +101,43 @@ class PdfPageController < ApplicationController
         #     puts "reset page"
         # end
 
-        def reset_contract(print_page)
-            puts "reset Contract and add new"
-            @parts = PagePart.where({contract_id: print_page})
-            @parts.order('id ASC')   
-            @layouts = PageLayout.where({contract_id: print_page})
-            @layouts = @layouts.order('id ASC')
-            bridge = [@layouts, @parts]
-            # puts bridge[0][0].to_s + " : see part"
-            return bridge
-        end
+        # def reset_contract(print_page)
+        #     puts "reset Contract and add new"
+        #     @parts = PagePart.where({contract_id: print_page})
+        #     @parts.order('id ASC')   
+        #     @layouts = PageLayout.where({contract_id: print_page})
+        #     @layouts = @layouts.order('id ASC')
+        #     bridge = [@layouts, @parts]
+        #     # puts bridge[0][0].to_s + " : see part"
+        #     return bridge
+        # end
 
 
 
 
-        def is_list(job_id, item_array, place_array)
-            if(job_id != nil)
-                # reset_contract(print_page)
-                reset_contract(job_id)
-                puts "reset contract"  + job_id
-                # parts.order('id ASC')  
-                # layouts.order('id ASC')
-                item_array = []
-                place_array = [] 
-                @parts.each do |x|
-                    puts "parts : " + x.content[0..20]
-                    item_array.push(x.content) 
-                end
-                @layouts.each do |z|
-                    puts "layouts : " + z.posx.to_s + " " + z.posy.to_s
-                    place_array.push([z.posx, z.posy])
-                end
-            end
+        # def is_list(job_id, item_array, place_array)
+        #     if(job_id != nil)
+        #         # reset_contract(print_page)
+        #         reset_contract(job_id)
+        #         puts "reset contract"  + job_id
+        #         # parts.order('id ASC')  
+        #         # layouts.order('id ASC')
+        #         item_array = []
+        #         place_array = [] 
+        #         @parts.each do |x|
+        #             puts "parts : " + x.content[0..20]
+        #             item_array.push(x.content) 
+        #         end
+        #         @layouts.each do |z|
+        #             puts "layouts : " + z.posx.to_s + " " + z.posy.to_s
+        #             place_array.push([z.posx, z.posy])
+        #         end
+        #     end
 
-            puts  " parts page long : " + @parts.length.to_s + "******************* " + place_array.to_s + " jobd ID : " + job_id 
-            # puts  " layouts page long : " +  @layouts.length.to_s + "******************* " + item_array.to_s
-            return  item_array, place_array
-        end
+        #     puts  " parts page long : " + @parts.length.to_s + "******************* " + place_array.to_s + " jobd ID : " + job_id 
+        #     # puts  " layouts page long : " +  @layouts.length.to_s + "******************* " + item_array.to_s
+        #     return  item_array, place_array
+        # end
 
 
 
@@ -155,7 +155,7 @@ class PdfPageController < ApplicationController
                 # page_X = page_P[0]
                 # page_Y = page_P[1]
             end
-            puts "found created pages "  
+            puts "found " + @job_ids.length.to_s + " created pages "  
         end
 
 
@@ -222,12 +222,12 @@ class PdfPageController < ApplicationController
                         @place_array = []
 
                         @parts.each do |x|
-                            puts "parts : " + x.content[0..20]
+                            # puts "parts : " + x.content[0..20]
                             @item_array.push(x.content)
                         end
 
                         @layouts.each do |z|
-                            puts "layouts : " + z.posx.to_s + " " + z.posy.to_s + contract
+                            # puts "layouts : " + z.posx.to_s + " " + z.posy.to_s + contract
                             @place_array.push([z.posx, z.posy])
                         end
 
@@ -316,7 +316,7 @@ class PdfPageController < ApplicationController
                             puts inx.to_s
                             # sample.page_letter_2(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
                         #     Prawn::Document.generate("point_funding_doc.pdf") do 
-                        #          text "Hello World"
+                        #     text "Hello World"
 
                         end
                         # end
