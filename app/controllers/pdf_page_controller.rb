@@ -301,7 +301,7 @@ class PdfPageController < ApplicationController
                             # sample = 
                             # mybook.push(SendLetter.new(pdf, spread[1], spread[2], @records, @job_ids, spread[0]))
                             # sample = SendLetter.generate(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
-                            puts "set sample " 
+                            puts "set sample " + inx.to_s
                             # send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"        
                             # Explicit Block
                             # Prawn::Document.generate("point_funding_doc.pdf") do |pdf|
@@ -313,7 +313,7 @@ class PdfPageController < ApplicationController
                             # nope.page_letter_2(pdf, item_array, place_array, @records, @job_ids, 1)
                             SendLetter.new(pdf, @page[inx][1], @page[inx][2], @records,  @job_ids, @page[inx][0])
                             # @nope.page_letter_2(pdf, @page[inx][1], @page[inx][2], @records, @job_ids, @page[inx][0])
-                            puts inx.to_s
+                            puts "set sample " + inx.to_s
                             # sample.page_letter_2(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
                         #     Prawn::Document.generate("point_funding_doc.pdf") do 
                         #     text "Hello World"
