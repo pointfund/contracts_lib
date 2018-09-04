@@ -390,7 +390,7 @@ module PdfPageHelper
 					# pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
 					# pdf.text item_array[step], {:color => "00ff00"}
 					pdf.font "OpenSans", size: 10
-					pdf.text say_date + " : " +first_line, {:color => "000000"}
+					pdf.text say_date + " : " + "first_line", {:color => "000000"}
 					# pdf.text place_array[step][0].to_s
 					# pdf.text place_array[step][1].to_s
 
