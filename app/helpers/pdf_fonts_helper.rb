@@ -34,10 +34,6 @@ module PdfFontsHelper
     			:italic => Rails.root.join("app/assets/fonts/times_i.ttf")
     			})
   			pdf.font "times"
-
-
-
-
 		end
 
 	

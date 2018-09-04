@@ -195,7 +195,7 @@ class PdfPageController < ApplicationController
                 # AddFontsPdf.new(pdf)
 
 
-            # pdf.start_new_page
+                # pdf.start_new_page
                 @record_page_set = params["create_pages"]
                 # file from assets 
                 if(@job_ids != nil)
@@ -261,9 +261,20 @@ class PdfPageController < ApplicationController
                         # puts "pages : " + page[0].to_s + page[1].to_s + " I'm done" + + page[2].to_s
                         # puts "pages : " + page.to_s 
                         # puts page.length.to_s + " list length"
-                    
+                   
+
                     pdf = Prawn::Document.new
                     AddFontsPdf.new(pdf)
+
+    
+
+
+                    # pdf = SendLetter.generate("point_funding_doc.pdf") do |doc|
+                    #     doc.text "what is going in here ??"
+                    # # pdf = Prawn::Document.new
+                    # end 
+
+                    # AddFontsPdf.new(pdf)
 
                     page.each_with_index do |spread, ind|
                         # pdf.start_new_page
@@ -271,20 +282,35 @@ class PdfPageController < ApplicationController
                         # spread.each do |a|
                         # puts a
                         # pdf.start_new_page 
-
-
-                        sample = SendLetter.new(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
+                        sample = nil
+                        puts ind.to_s + " count loop of : " + page.length.to_s
+                        # if(ind.to_i <= 0)
+                            # sample = 
+                            sample = SendLetter.new(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
+                            # sample = SendLetter.generate(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
+                            puts "set sample "
+                            # send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"        
+                            # Explicit Block
+                            # Prawn::Document.generate("point_funding_doc.pdf") do |pdf|
+                            #     pdf.text "Hello World"
                         
 
-
-                        # sample = SendLetter.new(pdf, page[contract], place_things, @records, @job_ids, contract)
-                        if(ind <= page.length - 2 )
+                        # end
+                        #     # sample = SendLetter.new(pdf, page[contract], place_things, @records, @job_ids, contract)
+                        # if(ind.to_i >= 1)
                             pdf.start_new_page
-                        end
+                            puts ind.to_s
+                            sample.page_letter_2(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
+                        #     Prawn::Document.generate("point_funding_doc.pdf") do 
+                        #          text "Hello World"
+
+                            # end
+                        # end
                     end
-                        # pdf.start_new_page
+                    # pdf.start_new_page
                     # end
-                    send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"        
+                    send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"    
+
                 end
             # send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"
             end
