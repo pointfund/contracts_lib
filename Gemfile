@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'prawn'
 gem 'prawn-table', '~> 0.1.0'
-
+gem 'prawnto', '~> 0.1.1' 
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

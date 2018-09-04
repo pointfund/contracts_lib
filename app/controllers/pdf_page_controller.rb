@@ -275,7 +275,7 @@ class PdfPageController < ApplicationController
                     # end 
 
                     # AddFontsPdf.new(pdf)
-
+                    mybook = []
                     page.each_with_index do |spread, ind|
                         # pdf.start_new_page
                         # puts spread[2]
@@ -286,21 +286,21 @@ class PdfPageController < ApplicationController
                         puts ind.to_s + " count loop of : " + page.length.to_s
                         # if(ind.to_i <= 0)
                             # sample = 
-                            sample = SendLetter.new(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
+                            mybook.push(SendLetter.new(pdf, spread[1], spread[2], @records, @job_ids, spread[0]))
                             # sample = SendLetter.generate(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
                             puts "set sample "
                             # send_data pdf.render, filename: 'point_funding_doc.pdf', type: 'application/pdf', disposition: "inline"        
                             # Explicit Block
                             # Prawn::Document.generate("point_funding_doc.pdf") do |pdf|
                             #     pdf.text "Hello World"
-                        
+                            
 
                         # end
                         #     # sample = SendLetter.new(pdf, page[contract], place_things, @records, @job_ids, contract)
                         # if(ind.to_i >= 1)
                             pdf.start_new_page
                             puts ind.to_s
-                            sample.page_letter_2(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
+                            # sample.page_letter_2(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
                         #     Prawn::Document.generate("point_funding_doc.pdf") do 
                         #          text "Hello World"
 
