@@ -218,23 +218,23 @@ class PdfPageController < ApplicationController
                         # @part.each do |x|
                         #     page.push(x.content)
                         # end    
-                        item_array = []
-                        place_array = []
+                        @item_array = []
+                        @place_array = []
 
                         @parts.each do |x|
-                            # puts "parts : " + x.content[0..20]
-                            item_array.push(x.content)
+                            puts "parts : " + x.content[0..20]
+                            @item_array.push(x.content)
                         end
 
                         @layouts.each do |z|
                             puts "layouts : " + z.posx.to_s + " " + z.posy.to_s + contract
-                            place_array.push([z.posx, z.posy])
+                            @place_array.push([z.posx, z.posy])
                         end
 
                         # item_things.push(item_array) 
                         # place_things.push(place_array)
 
-                        @page.push([contract, item_array,  place_array ])
+                        @page.push([contract, @item_array,  @place_array ])
                         # puts @page[0].to_s
                         # items = is_list(contract, item_array, place_array)
 
@@ -293,7 +293,10 @@ class PdfPageController < ApplicationController
                         sample = nil
                         puts inx.to_s + " count loop of : " + @page.length.to_s
                         if(counter.to_i == 1)
-                            @nope = SendLetter.new(pdf, @page[0][1], @page[0][2], @records, @job_ids, @page[0][0])
+                            # @nope = SendLetter.new(pdf, @page[0][1], @page[0][2], @records, @job_ids, @page[0][0])
+                            SendLetter.new(pdf, @page[0][1], @page[0][2], @records,  @job_ids, 13)
+                            pdf.start_new_page
+                            SendLetter.new(pdf, @page[1][1], @page[1][2], @records,  @job_ids, 13)
                             # pdf.start_new_page
                             # sample = 
                             # mybook.push(SendLetter.new(pdf, spread[1], spread[2], @records, @job_ids, spread[0]))
@@ -310,7 +313,7 @@ class PdfPageController < ApplicationController
                         if(counter.to_i >= 2)
                             pdf.start_new_page
                             # nope.page_letter_2(pdf, item_array, place_array, @records, @job_ids, 1)
-                            @nope.page_letter_2(pdf, @page[inx][1], @page[inx][2], @records, @job_ids, @page[inx][0])
+                            # @nope.page_letter_2(pdf, @page[inx][1], @page[inx][2], @records, @job_ids, @page[inx][0])
                             puts inx.to_s
                             # sample.page_letter_2(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
                         #     Prawn::Document.generate("point_funding_doc.pdf") do 

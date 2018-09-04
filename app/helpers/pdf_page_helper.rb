@@ -3,12 +3,13 @@ module PdfPageHelper
 	# extend 'page05_include'
 	# class SendLetter < Prawn::Document 
 	class SendLetter 	
+		# def initialize(pdf, item_array, place_array,records_array, pick)
 		def initialize(pdf, item_array, place_array, records_array, page_list, pick)
 			# PagePart.order('part_area ASC').reorder('id ASC')
 			# PageLayout.order('part_area ASC').reorder('id ASC')
 
-			puts "start class " + place_array[0][1].to_s
-			first_line = place_array[0][1].to_s
+			# puts "start class " + place_array[0][1].to_s
+			# first_line = place_array[0][1].to_s
 			rec_set = []	
 					loan_name = records_array.loan_name.to_s										#	0
 					current_date = records_array.current_date								#	1
@@ -96,9 +97,9 @@ module PdfPageHelper
 						# puts "print pdf page " + zvar.to_s + " : parts : " + item_array.length.to_s
 						# 	puts "print pdf page " + zvar.to_s + " : parts : " + item_array.length.to_s
 						# 	puts place_array[0][1].to_s + " : " 
-					  	page_letter_1(pdf, item_array, place_array, records_array, rec_set,first_line)
+					  	page_letter_1(pdf, item_array, place_array, records_array, rec_set)
 					when 2
-					  	page_letter_2(pdf, item_array, place_array, records_array, rec_set,first_line)
+					  	page_letter_2(pdf, item_array, place_array, records_array, rec_set)
 					when 3
 						page_letter_3(pdf, item_array, place_array, records_array, rec_set)
 					when 4
@@ -113,7 +114,7 @@ module PdfPageHelper
 						page_letter_8(pdf, item_array, place_array, records_array, rec_set)
 					when 9
 						page_letter_9(pdf, item_array, place_array, records_array, rec_set)
-					when 13..100
+					when 34..100
 					  	# puts "no pdf print page selection"  	
 					  	# page_letter_2(pdf,item_array,place_array,records_array)
 					when 10
@@ -121,7 +122,8 @@ module PdfPageHelper
 						# puts "print pdf page " + zvar.to_s + " : parts : " + item_array.length.to_s
 						# puts place_array[0][1].to_s + " : " 
 					  	# page_letter_3(pdf, item_array, place_array, records_array)
-					when 12
+					when 13
+						page_letter_13(pdf, item_array, place_array, records_array, rec_set)
 					when 33
 						page_letter_33(pdf, item_array, place_array, records_array, rec_set)
 					else
@@ -140,7 +142,7 @@ module PdfPageHelper
 
 
 		# Assignment of $
-		def page_letter_1(pdf,item_array,place_array,records_array,rec_set,first_line)
+		def page_letter_1(pdf,item_array,place_array,records_array,rec_set)
 		 Prawn::Document.generate("point_funding_doc.pdf") do
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "000000"
@@ -222,7 +224,7 @@ module PdfPageHelper
     		# page layout 
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 				pdf.font "OpenSans", size: 10 
-				pdf.text say_date + first_line, {:color => "000000"}
+				pdf.text say_date +" first_line", {:color => "000000"}
 				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
@@ -305,7 +307,7 @@ module PdfPageHelper
 		end
 
 		# Assignment of %
-		def page_letter_2(pdf,item_array,place_array,records_array,rec_set,first_line)
+		def page_letter_2(pdf,item_array,place_array,records_array,rec_set)
 			Prawn::Document.generate("point_funding_doc.pdf") do 
 				pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 		            pdf.fill_color "ff0000"
@@ -2916,493 +2918,485 @@ module PdfPageHelper
 		# end
 
 		# # Assignment of %
-		# def page_letter_33(pdf,item_array,place_array,records_array, rec_set,first_line)
-		# 	pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
-	 #            pdf.fill_color "ff0000"
-		# 		pdf.transparent(1.0, 0.2) do 
-		# 			pdf.image open("app/assets/images/logo_page.png"), :fit => [600, 1000], :at => [0, 160]
-		# 		end
-  #           pdf.fill_color "000000"
-	 #        end
+		def page_letter_33(pdf,item_array,place_array,records_array, rec_set)
+			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "ff0000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/logo_page.png"), :fit => [600, 1000], :at => [0, 160]
+				end
+            pdf.fill_color "000000"
+	        end
 
-	 #        # page sign lines
-	 #        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
-		# 		# pdf.rectangle [110, 190], 180, 2
-		# 		# pdf.fill_rectangle [10, 100],0, 0
-		# 		# # pdf.fill_color "ff0000"
-		# 		# pdf.rectangle [310, 190], 180, 2
-		# 		# pdf.fill_rectangle [10, 100],0, 0
-		# 		# pdf.fill_rectangle [240, 510],0, 0
-	 #        end
+	        # page sign lines
+	        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+				# pdf.rectangle [110, 190], 180, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+				# # pdf.fill_color "ff0000"
+				# pdf.rectangle [310, 190], 180, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+				# pdf.fill_rectangle [240, 510],0, 0
+	        end
 	        
-	 #        def up_one(step)
-	 #        	step = step + 1
-	 #        	return step	
-	 #        end
+	        def up_one(step)
+	        	step = step + 1
+	        	return step	
+	        end
 
-		#     def number_to_currency(num)
-		# 	  "$#{num.to_s.gsub(/\d(?=(...)+$)/, '\0,')}"
-		# 	end
-
-
-		# 	PagePart.order('part_area ASC').reorder('id ASC')
-		# 	PageLayout.order('part_area ASC').reorder('id ASC')
-		# 	# current_date = records_array.client_first_name.to_s
-		# 	# my_string = item_array[0].to_s
-		# 	# groupName = Time.new
-		# 	# groupName = groupName.localtime.strftime('%b %d, %Y')
-		# 	# say_date = my_string.gsub('#{current_date}', groupName )
-		# 	# full_name = records_array.client_first_name + " " + records_array.client_last_name
-		# 	# head_name = full_name
-		# 	# full_name_show = head_name.gsub('#{full_name}', head_name )
-		# 	# comp_address =  records_array.address_street;
-		# 	# comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
+		    def number_to_currency(num)
+			  "$#{num.to_s.gsub(/\d(?=(...)+$)/, '\0,')}"
+			end
 
 
+			PagePart.order('part_area ASC').reorder('id ASC')
+			PageLayout.order('part_area ASC').reorder('id ASC')
+			# current_date = records_array.client_first_name.to_s
+			# my_string = item_array[0].to_s
+			# groupName = Time.new
+			# groupName = groupName.localtime.strftime('%b %d, %Y')
+			# say_date = my_string.gsub('#{current_date}', groupName )
+			# full_name = records_array.client_first_name + " " + records_array.client_last_name
+			# head_name = full_name
+			# full_name_show = head_name.gsub('#{full_name}', head_name )
+			# comp_address =  records_array.address_street;
+			# comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
 
-		# 	# intro = item_array[4]
-		# 	# intro = intro.gsub('#{first_name}', full_name )
 
-		# 	# para_A = item_array[5].to_s 
-		# 	# para_A = para_A.sub('#{full_name}', full_name )
-		# 	# para_A = para_A.sub('#{agent_code}', records_array.agent_num.to_s )
-		# 	# # para_A = para_A.sub('#{agent_code}', records_array.agent_num.to_s )
-		# 	# # wash para B
-		# 	# para_B = item_array[6].to_s
-		# 	# # find vars and replace 
-		# 	# para_B = para_B.sub('#{start_month}', records_array.repay_start.to_s )
-		# 	# para_B = para_B.sub('#{total_amount}', number_to_currency(records_array.total_amount) )
-		# 	# para_B = para_B.sub('#{percent_of}', "--unkown--" )
-		# 	# # st_date = records_array.repay_start.strftime("%B")
-		# 	# # para_B = para_B.sub('#{start_month}', st_date )	
-		# 	# sign_to = item_array[9].to_s 
-		# 	# sign_to = sign_to.sub('#{full_name}', full_name )
 
-		# 	tag_height = 14
-		# 	# step = up_one(step) 
-		# 	step = 0
+			# intro = item_array[4]
+			# intro = intro.gsub('#{first_name}', full_name )
 
-		# 	def get_page_loc(step, place_array, pdf, var_x, var_y)
-		# 		# var_x = place_array[step][0]
-		# 		# var_y = place_array[step][1]
+			# para_A = item_array[5].to_s 
+			# para_A = para_A.sub('#{full_name}', full_name )
+			# para_A = para_A.sub('#{agent_code}', records_array.agent_num.to_s )
+			# # para_A = para_A.sub('#{agent_code}', records_array.agent_num.to_s )
+			# # wash para B
+			# para_B = item_array[6].to_s
+			# # find vars and replace 
+			# para_B = para_B.sub('#{start_month}', records_array.repay_start.to_s )
+			# para_B = para_B.sub('#{total_amount}', number_to_currency(records_array.total_amount) )
+			# para_B = para_B.sub('#{percent_of}', "--unkown--" )
+			# # st_date = records_array.repay_start.strftime("%B")
+			# # para_B = para_B.sub('#{start_month}', st_date )	
+			# sign_to = item_array[9].to_s 
+			# sign_to = sign_to.sub('#{full_name}', full_name )
+
+			tag_height = 14
+			# step = up_one(step) 
+			step = 0
+
+			def get_page_loc(step, place_array, pdf, var_x, var_y)
+				# var_x = place_array[step][0]
+				# var_y = place_array[step][1]
 					
-		# 		# pdf.indent 320, 0 do
-		# 		# 	pdf.stroke_color 'FFFF00'
-		# 		# 	pdf.stroke_bounds
-		# 		# 	pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
-		# 		# 	pdf.line_to [var_x, var_y]
-		# 		# end
-		# 			# pdf.rectangle [var_x, var_y], 100, 200
-		# 		# end
-		# 	end
+				# pdf.indent 320, 0 do
+				# 	pdf.stroke_color 'FFFF00'
+				# 	pdf.stroke_bounds
+				# 	pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
+				# 	pdf.line_to [var_x, var_y]
+				# end
+					# pdf.rectangle [var_x, var_y], 100, 200
+				# end
+			end
 			
-  #   		# page layout 
-		# 	pdf.bounding_box([ 110, 650],{ :width => 430, :height => 16}) do
-		# 		# var_x = place_array[step][0]
-		# 		# var_y = place_array[step][1]	
-		# 		# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
-		# 		# pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
-		# 		# pdf.text item_array[step], {:color => "00ff00"}
-		# 		pdf.font "OpenSans", size: 10
-		# 		# pdf.text say_date, {:color => "000000"}
-		# 		# pdf.text place_array[step][0].to_s
-		# 		# pdf.text place_array[step][1].to_s
+    		# page layout 
+			pdf.bounding_box([ 110, 650],{ :width => 430, :height => 16}) do
+				# var_x = place_array[step][0]
+				# var_y = place_array[step][1]	
+				# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
+				# pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
+				# pdf.text item_array[step], {:color => "00ff00"}
+				pdf.font "OpenSans", size: 10
+				# pdf.text say_date, {:color => "000000"}
+				# pdf.text place_array[step][0].to_s
+				# pdf.text place_array[step][1].to_s
 
-		# 		# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-	 #        end
+				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	        end
 			
-		# 	# skip client info
-		# 	# step = up_one(step)  
-		# 	# pdf.bounding_box( [ place_array[step][0], place_array[step][1] ] ),{ :width => 200, :height => 30}) do
-		# 	pdf.bounding_box([ 110, 550],{ :width => 430, :height => 100}) do
-		# 		# get_page_loc(step, place_array, pdf);
-		# 		# pdf.text records_array.loan_name	
-		# 		# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		# 	end
-		# 	step = up_one(step)
-		# 	# add_tab = para_A.sub('#{full_name}', full_name )
-		# 	# test page 
-		# 	# pdf.start_new_page
+			# skip client info
+			# step = up_one(step)  
+			# pdf.bounding_box( [ place_array[step][0], place_array[step][1] ] ),{ :width => 200, :height => 30}) do
+			pdf.bounding_box([ 110, 550],{ :width => 430, :height => 100}) do
+				# get_page_loc(step, place_array, pdf);
+				# pdf.text records_array.loan_name	
+				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+			end
+			step = up_one(step)
+			# add_tab = para_A.sub('#{full_name}', full_name )
+			# test page 
+			# pdf.start_new_page
 
 
 
 
-		# 	# ##########################################################################################
-		# 	pdf.bounding_box([ 110, 750],{ :width => 530, :height => 750}) do
-		# 	# pdf.font "OpenSans", size: 11
-		# 	# pdf.text say_date 
-		# 	# pdf.text address
-		# 	 pdf.table(	 	[ ["rec_set id", "value", "label", "label"],
-		# 	 				["#{ rec_set[0] }" , "0", "record name", "loan_name",],
-		# 	 				["#{ rec_set[1] }" , "1", "current date", "current_date"],
-		# 	 				["#{ rec_set[2] }" , "2", "First Name", "first_name"],
-		# 	 				["#{ rec_set[3] }" , "3", "Last Name", "last_name"],
-		# 	 				["#{ rec_set[4] }" , "4", "Nick Name", "nick_name"],
-		# 	 				["#{ rec_set[5] }" , "5", "Full Address ", "full address"],
-		# 	 				["#{ rec_set[6] }" , "6", "Sign Note Date ", "sign_note_date"],
+			# ##########################################################################################
+			pdf.bounding_box([ 110, 750],{ :width => 530, :height => 750}) do
+			# pdf.font "OpenSans", size: 11
+			# pdf.text say_date 
+			# pdf.text address
+			 pdf.table(	 	[ ["rec_set id", "value", "label", "label"],
+			 				["#{ rec_set[0] }" , "0", "record name", "loan_name",],
+			 				["#{ rec_set[1] }" , "1", "current date", "current_date"],
+			 				["#{ rec_set[2] }" , "2", "First Name", "first_name"],
+			 				["#{ rec_set[3] }" , "3", "Last Name", "last_name"],
+			 				["#{ rec_set[4] }" , "4", "Nick Name", "nick_name"],
+			 				["#{ rec_set[5] }" , "5", "Full Address ", "full address"],
+			 				["#{ rec_set[6] }" , "6", "Sign Note Date ", "sign_note_date"],
 
-		# 	 				["#{ rec_set[7] }" , "7", "Loan Amount", "loan_amount"],
-		# 	 				["#{ rec_set[8] }" , "8", "Total Finance Fees", "total_finance_fee"],
-		# 	 				["#{ rec_set[9] }" , "9", "Repay Term Months", "repay_term1"],
+			 				["#{ rec_set[7] }" , "7", "Loan Amount", "loan_amount"],
+			 				["#{ rec_set[8] }" , "8", "Total Finance Fees", "total_finance_fee"],
+			 				["#{ rec_set[9] }" , "9", "Repay Term Months", "repay_term1"],
 
-		# 	 				["#{ rec_set[10] }" , "10", "Repay Term :th", "repay_term2"],
+			 				["#{ rec_set[10] }" , "10", "Repay Term :th", "repay_term2"],
 
-		# 	 				["#{ rec_set[11] }" , "11", "Repay Start", "repay_start"],
-		# 	 				["#{ rec_set[12] }" , "12", "Repay 1st payment ", "repay_1st"],
-		# 	 				["#{ rec_set[13] }" , "13", "Repay mature date ", "repay_mature"],
+			 				["#{ rec_set[11] }" , "11", "Repay Start", "repay_start"],
+			 				["#{ rec_set[12] }" , "12", "Repay 1st payment ", "repay_1st"],
+			 				["#{ rec_set[13] }" , "13", "Repay mature date ", "repay_mature"],
 
-		# 	 				["#{ rec_set[14] }" , "14", "Monthly Payment ", "monthly_pay"],
-		# 	 				["#{ rec_set[15] }" , "15", "Payment late after ", "pay_due_day"],
-		# 	 				["#{ rec_set[16] }" , "16", "Activation Fee ", "activate_fee"],
+			 				["#{ rec_set[14] }" , "14", "Monthly Payment ", "monthly_pay"],
+			 				["#{ rec_set[15] }" , "15", "Payment late after ", "pay_due_day"],
+			 				["#{ rec_set[16] }" , "16", "Activation Fee ", "activate_fee"],
 
-		# 	 				["#{ rec_set[17] }%" , "17", "Loan Rate ", "loan_rate"],
-		# 	 				["#{ rec_set[18] }" , "18", "Monthly Late Fee ", "month_late"],
-		# 	 				["#{ rec_set[19] }" , "19", "Late payment", "daily_late_fee"],
-		# 	 				["#{ rec_set[20] }" , "20", "Final Date of loan", "final_date"],
-		# 	 				["#{ rec_set[21] }" , "21", "Backer 01", "backer_A"],
-		# 	 				["#{ rec_set[22] }" , "22", "Backer 02", "backer_B"],
-		# 	 				["#{ rec_set[23] }" , "23", "Backer 03", "backer_C"],
+			 				["#{ rec_set[17] }%" , "17", "Loan Rate ", "loan_rate"],
+			 				["#{ rec_set[18] }" , "18", "Monthly Late Fee ", "month_late"],
+			 				["#{ rec_set[19] }" , "19", "Late payment", "daily_late_fee"],
+			 				["#{ rec_set[20] }" , "20", "Final Date of loan", "final_date"],
+			 				["#{ rec_set[21] }" , "21", "Backer 01", "backer_A"],
+			 				["#{ rec_set[22] }" , "22", "Backer 02", "backer_B"],
+			 				["#{ rec_set[23] }" , "23", "Backer 03", "backer_C"],
 
-		# 	 				["#{ rec_set[24] }" , "24", "Commencement month ", "com_month"],
-		# 	 				["#{ rec_set[25] }" , "25", "Commencement year ", "com_year"],
-		# 	 				["#{ rec_set[26] }" , "26", "Total deduction ", "total_ded"],
-		# 	 				["#{ rec_set[27] }" , "27", "R300 date", "r3000_date"],
-		# 	 				["#{ rec_set[28] }" , "28", "Agent Number", "agent_code"],
-		# 	 				["#{ rec_set[29] }" , "29", "Email ", "agent_email"],
-		# 	 				["#{ rec_set[30] }" , "30", "Phone", "agent_phone"],
-		# 	 				["#{ rec_set[31] }" , "31", "Term assignment", "assign_term"],
-		# 	 				["#{ rec_set[32] }" , "32", "Position ", "agent_position"],
-		# 	 				["#{ rec_set[33] }" , "33", "Monthly Penality ", "pay_pen"],
-		# 	 				["#{ rec_set[34] }" , "34", "Pre pay Penality ", "prepay_pen"],
-		# 	 			],  :cell_style => { :size => 9, :background_color => "828fbb" }
+			 				["#{ rec_set[24] }" , "24", "Commencement month ", "com_month"],
+			 				["#{ rec_set[25] }" , "25", "Commencement year ", "com_year"],
+			 				["#{ rec_set[26] }" , "26", "Total deduction ", "total_ded"],
+			 				["#{ rec_set[27] }" , "27", "R300 date", "r3000_date"],
+			 				["#{ rec_set[28] }" , "28", "Agent Number", "agent_code"],
+			 				["#{ rec_set[29] }" , "29", "Email ", "agent_email"],
+			 				["#{ rec_set[30] }" , "30", "Phone", "agent_phone"],
+			 				["#{ rec_set[31] }" , "31", "Term assignment", "assign_term"],
+			 				["#{ rec_set[32] }" , "32", "Position ", "agent_position"],
+			 				["#{ rec_set[33] }" , "33", "Monthly Penality ", "pay_pen"],
+			 				["#{ rec_set[34] }" , "34", "Pre pay Penality ", "prepay_pen"],
+			 			],  :cell_style => { :size => 9, :background_color => "828fbb" }
 
-		# 	 			) 
+			 			) 
 
 
 
-		# 	pdf.text "records list ", {:color => "000000"} 
+			pdf.text "records list ", {:color => "000000"} 
 			
-		# 	pdf.text rec_set[0] + " ------ ------ ------ 0  ------" + " record Name", {:color => "000000"} 
+			pdf.text rec_set[0] + " ------ ------ ------ 0  ------" + " record Name", {:color => "000000"} 
 			
-		# 	pdf.text rec_set[1] + " ------ ------ ------ ------ ------ 1  ------" + " current date ", {:color => "ff0000"}
-		# 	pdf.text rec_set[2] + " ------ ------ ------ ------ ------ ------ 2  ------" + " first name", {:color => "00ff00"} 
-		# 	pdf.text rec_set[3] + " ------ ------ ------ ------ ------ ------ 3  ------" + " last name ", {:color => "0000ff"}
+			pdf.text rec_set[1] + " ------ ------ ------ ------ ------ 1  ------" + " current date ", {:color => "ff0000"}
+			pdf.text rec_set[2] + " ------ ------ ------ ------ ------ ------ 2  ------" + " first name", {:color => "00ff00"} 
+			pdf.text rec_set[3] + " ------ ------ ------ ------ ------ ------ 3  ------" + " last name ", {:color => "0000ff"}
 
-		# 	pdf.text rec_set[4] + " ------ ------ ------ ------ ------ 4  ------" + " Nick Name", {:color => "ff0000"}
+			pdf.text rec_set[4] + " ------ ------ ------ ------ ------ 4  ------" + " Nick Name", {:color => "ff0000"}
 
-		# 	pdf.text "\n"
+			pdf.text "\n"
 
-		# 	pdf.text rec_set[5] + " ------ ------ ------  5  ------" + " city state combo", 									{:color => "00ff00"}
+			pdf.text rec_set[5] + " ------ ------ ------  5  ------" + " city state combo", 									{:color => "00ff00"}
 			
-		# 	pdf.text "\n"
-		# 	pdf.text "\n"
+			pdf.text "\n"
+			pdf.text "\n"
 
-		# 	pdf.text rec_set[6].to_s + " ------ ------ ------ ------ 6  ------" + " note date", 								{:color => "000000"}
-		# 	pdf.text rec_set[7] + " ------ ------ ------ ------ ------ 7  ------" + " total loan amount", 		{:color => "ff0000"}
-		# 	pdf.text rec_set[8] + "  ------ ------ ------ ------ ------ 8  ------" + " finance fee", 				{:color => "00ff00"}
-		# 	pdf.text rec_set[9] + " ------ ------ ------ ------ ------    9  ------" + " repay term months", 		{:color => "0000ff"}
-		# 	pdf.text rec_set[10] + " ------ ------ ------ ------    10  ------" + " repay term month-th", 			{:color => "ff0000"}
+			pdf.text rec_set[6].to_s + " ------ ------ ------ ------ 6  ------" + " note date", 								{:color => "000000"}
+			pdf.text rec_set[7] + " ------ ------ ------ ------ ------ 7  ------" + " total loan amount", 		{:color => "ff0000"}
+			pdf.text rec_set[8] + "  ------ ------ ------ ------ ------ 8  ------" + " finance fee", 				{:color => "00ff00"}
+			pdf.text rec_set[9] + " ------ ------ ------ ------ ------    9  ------" + " repay term months", 		{:color => "0000ff"}
+			pdf.text rec_set[10] + " ------ ------ ------ ------    10  ------" + " repay term month-th", 			{:color => "ff0000"}
 			
-		# 	pdf.text "\n"
-		# 	pdf.text "\n"
+			pdf.text "\n"
+			pdf.text "\n"
 
-		# 	pdf.text rec_set[11].to_s + " ------ ------ ------ ------ 11  ------" + " repay start", 							{:color => "ff0000"}
-		# 	pdf.text rec_set[12].to_s + " ------ ------ ------ ------ 12  ------" + " repay 1st payment day", 				{:color => "00ff00"}
-		# 	pdf.text rec_set[13].to_s + " ------ ------ ------ ------ 13  ------" + " repay mature date", 					{:color => "0000ff"}
+			pdf.text rec_set[11].to_s + " ------ ------ ------ ------ 11  ------" + " repay start", 							{:color => "ff0000"}
+			pdf.text rec_set[12].to_s + " ------ ------ ------ ------ 12  ------" + " repay 1st payment day", 				{:color => "00ff00"}
+			pdf.text rec_set[13].to_s + " ------ ------ ------ ------ 13  ------" + " repay mature date", 					{:color => "0000ff"}
 			
-		# 	pdf.text "\n"
-		# 	pdf.text "\n"
+			pdf.text "\n"
+			pdf.text "\n"
 
-		# 	pdf.text rec_set[14] + " ------ ------ ------ ------ ------ 14  ------" + " monthly payment ", 			{:color => "ff0000"}
-		# 	pdf.text rec_set[15] + " ------ ------ ------ ------ ------ ------ 15  ------" + " Payment day ", 	{:color => "00ff00"}
-		# 	pdf.text rec_set[16] + " ------ ------ ------ ------ ------  16  ------" + " Activation Fee", 			{:color => "0000ff"}
-		# 	pdf.text rec_set[17] + " ------ ------ ------ ------ ------    17  ------" + " rate  ", 			{:color => "ff0000"}
-		# 	pdf.text rec_set[18] + " ------ ------ ------ ------ ------ 18  ------" + " Monthly late fee", 			{:color => "00ff00"}
-		# 	pdf.text rec_set[19] + " ------ ------ ------ ------ ------    19  ------" + " late payment", 			{:color => "0000ff"}
-
-
-		# 	pdf.text "\n"
-		# 	pdf.text "\n"
-
-		# 	pdf.text rec_set[20].to_s + " ------ ------ ------ --- 20  ------" + " final date of loan", 					{:color => "ff0000"}
-		# 	pdf.text rec_set[21] + " ------ ------ ------ - 21  ------" + " Backer 01", 							{:color => "00ff00"}
-		# 	pdf.text rec_set[22] + " ------ ------ ------ ------ ------  22  ------" + " Backer 02", 				{:color => "0000ff"}
-		# 	pdf.text rec_set[23] + " ------ ------ ------ ------ ------  23  ------" + " Backer 03", 				{:color => "ff0000"}
+			pdf.text rec_set[14] + " ------ ------ ------ ------ ------ 14  ------" + " monthly payment ", 			{:color => "ff0000"}
+			pdf.text rec_set[15] + " ------ ------ ------ ------ ------ ------ 15  ------" + " Payment day ", 	{:color => "00ff00"}
+			pdf.text rec_set[16] + " ------ ------ ------ ------ ------  16  ------" + " Activation Fee", 			{:color => "0000ff"}
+			pdf.text rec_set[17] + " ------ ------ ------ ------ ------    17  ------" + " rate  ", 			{:color => "ff0000"}
+			pdf.text rec_set[18] + " ------ ------ ------ ------ ------ 18  ------" + " Monthly late fee", 			{:color => "00ff00"}
+			pdf.text rec_set[19] + " ------ ------ ------ ------ ------    19  ------" + " late payment", 			{:color => "0000ff"}
 
 
-		# 	pdf.text "\n"
-		# 	pdf.text "\n"
+			pdf.text "\n"
+			pdf.text "\n"
 
-		# 	pdf.text rec_set[24] + " ------ ------ ------ ------ ------ --- 24 ------ ------ " + " commencement month  ", 			{:color => "ff0000"}
-		# 	pdf.text rec_set[25] + " ------ ------ ------ ------ ------ ------ 25 ------ ------ " + " commencement year ", 	{:color => "00ff00"}
-		# 	pdf.text rec_set[26] + " ------ ------ ------ ------ ------ ------ 26 ------ ------ " + " total deduction ", 			{:color => "0000ff"}
-		# 	pdf.text rec_set[27].to_s + " ------ ------ ------ ------ ---- 27 ------ ------ " + " R300 date ", 			{:color => "ff0000"}
-		# 	pdf.text rec_set[28] + " ------ ------ ------ ------ ------ --- 28 ------ ------ " + " Agent Number", 			{:color => "00ff00"}
-		# 	pdf.text rec_set[29] + " ------ ------ ------ ---- 29 ------ ------ " + " email", 			{:color => "0000ff"}
-		# 	pdf.text rec_set[30] + " ------ ------ ------ ---- 30 ------ ------ " + " phone ", 			{:color => "ff0000"}
-		# 	pdf.text rec_set[31] + " ------ ------ ------ ------ ------ --- 31 ------ ------ " + " term assignment", 			{:color => "00ff00"}
-		# 	pdf.text rec_set[32] + " ------ ------ ------ ------ ------ - 32 ------ ------ " + " position", 			{:color => "0000ff"}
-		# 	pdf.text records_array.pay_pen.to_s + " ------ ------ ------ ------ ------ - 33 ------ ------ " + " penality", 			{:color => "000000"}
-		# 	pdf.text rec_set[34] + " ------ ------ ------ ------ ------ - 34 ------ ------ " + " prepay penality", 			{:color => "0000ff"}
+			pdf.text rec_set[20].to_s + " ------ ------ ------ --- 20  ------" + " final date of loan", 					{:color => "ff0000"}
+			pdf.text rec_set[21] + " ------ ------ ------ - 21  ------" + " Backer 01", 							{:color => "00ff00"}
+			pdf.text rec_set[22] + " ------ ------ ------ ------ ------  22  ------" + " Backer 02", 				{:color => "0000ff"}
+			pdf.text rec_set[23] + " ------ ------ ------ ------ ------  23  ------" + " Backer 03", 				{:color => "ff0000"}
+
+
+			pdf.text "\n"
+			pdf.text "\n"
+
+			pdf.text rec_set[24] + " ------ ------ ------ ------ ------ --- 24 ------ ------ " + " commencement month  ", 			{:color => "ff0000"}
+			pdf.text rec_set[25] + " ------ ------ ------ ------ ------ ------ 25 ------ ------ " + " commencement year ", 	{:color => "00ff00"}
+			pdf.text rec_set[26] + " ------ ------ ------ ------ ------ ------ 26 ------ ------ " + " total deduction ", 			{:color => "0000ff"}
+			pdf.text rec_set[27].to_s + " ------ ------ ------ ------ ---- 27 ------ ------ " + " R300 date ", 			{:color => "ff0000"}
+			pdf.text rec_set[28] + " ------ ------ ------ ------ ------ --- 28 ------ ------ " + " Agent Number", 			{:color => "00ff00"}
+			pdf.text rec_set[29] + " ------ ------ ------ ---- 29 ------ ------ " + " email", 			{:color => "0000ff"}
+			pdf.text rec_set[30] + " ------ ------ ------ ---- 30 ------ ------ " + " phone ", 			{:color => "ff0000"}
+			pdf.text rec_set[31] + " ------ ------ ------ ------ ------ --- 31 ------ ------ " + " term assignment", 			{:color => "00ff00"}
+			pdf.text rec_set[32] + " ------ ------ ------ ------ ------ - 32 ------ ------ " + " position", 			{:color => "0000ff"}
+			pdf.text records_array.pay_pen.to_s + " ------ ------ ------ ------ ------ - 33 ------ ------ " + " penality", 			{:color => "000000"}
+			pdf.text rec_set[34] + " ------ ------ ------ ------ ------ - 34 ------ ------ " + " prepay penality", 			{:color => "0000ff"}
 					
 
-		# 	# pdf.text item_array[step]
-		# 	#, {:color => "00ff00"}
-		# 	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		# 	end
+			# pdf.text item_array[step]
+			#, {:color => "00ff00"}
+			# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+			end
 
-		# 	# page 02
+			# page 02
 
-		# 	# Client info 2
-		# 	# pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
-		# 	# 	pdf.text records_array.loan_name , {:color => "000000"}
-		# 	# 	# get_page_loc(step, place_array, pdf, var_x, var_y);
-		# 	# 	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+			# Client info 2
+			# pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
+			# 	pdf.text records_array.loan_name , {:color => "000000"}
+			# 	# get_page_loc(step, place_array, pdf, var_x, var_y);
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 
-		# 	# end
-		# 	# step = up_one(step)  
+			# end
+			# step = up_one(step)  
 
-		# 	# # info 3
-		# 	# pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
-		# 	# # 	pdf.text full_name_show , {:color => "000000"}
-		# 	# 	pdf.text records_array.client_first_name , {:color => "000000"}
-		# 	# 	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		# 	# end
+			# # info 3
+			# pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
+			# # 	pdf.text full_name_show , {:color => "000000"}
+			# 	pdf.text records_array.client_first_name , {:color => "000000"}
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+			# end
 
-		# 	# step = up_one(step)			
-		# 	# # #Address 4
-		# 	# pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			# step = up_one(step)			
+			# # #Address 4
+			# pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
 	
-		# 	# 	pdf.text comp_address + " \n" + comp_address_state
-		# 	# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
+			# 	pdf.text comp_address + " \n" + comp_address_state
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			# end
 
-		# 	# step = up_one(step)
-		# 	# # # #intro 5
-		# 	# pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 16) do
-		# 	# 	pdf.text intro
-		# 	# # 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# 	# step = up_one(step)
-		# 	# # #para 01 6
-		# 	# pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 	# 	pdf.text para_A
-		# 	# # 	# pdf.text item_array[5]
-		# 	# # 	pdf.text para_A 
-		# 	# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# 	# # # text item_array[step]
-		# 	# # # end
-		# 	# step = up_one(step)
-		# 	# # #para 02 7
-		# 	# pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 40) do
-		# 	# 	# pdf.text item_array[step]
-		# 	# 	pdf.text para_B
-		# 	# # 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			# step = up_one(step)
+			# # # #intro 5
+			# pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 16) do
+			# 	pdf.text intro
+			# # 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			# end
+			# step = up_one(step)
+			# # #para 01 6
+			# pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			# 	pdf.text para_A
+			# # 	# pdf.text item_array[5]
+			# # 	pdf.text para_A 
+			# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			# end
+			# # # text item_array[step]
+			# # # end
+			# step = up_one(step)
+			# # #para 02 7
+			# pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 40) do
+			# 	# pdf.text item_array[step]
+			# 	pdf.text para_B
+			# # 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			
-		# 	# end
-		# 	# step = up_one(step) 
-		# 	# # #para 03 8
-		# 	# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 	# 	pdf.text item_array[step]
-		# 	# # 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# 	# step = up_one(step)
-		# 	# # # #ender 9
-		# 	# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 	# 	pdf.text item_array[step]
-		# 	# # 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# 	# step = up_one(step)
-		# 	# # # #sign to 10
-		# 	# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 	# 	# pdf.text item_array[step]
-		# 	# 	pdf.text sign_to
-		# 	# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# 	# step = up_one(step)
-		# 	# # #sign from 11
-		# 	# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 	# 	pdf.text item_array[step]
-		# 	# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# end
+			# end
+			# step = up_one(step) 
+			# # #para 03 8
+			# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			# 	pdf.text item_array[step]
+			# # 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			# end
+			# step = up_one(step)
+			# # # #ender 9
+			# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			# 	pdf.text item_array[step]
+			# # 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			# end
+			# step = up_one(step)
+			# # # #sign to 10
+			# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			# 	# pdf.text item_array[step]
+			# 	pdf.text sign_to
+			# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			# end
+			# step = up_one(step)
+			# # #sign from 11
+			# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			# 	pdf.text item_array[step]
+			# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			# end
+		end
 
-		# def page_letter_25(pdf,item_array,place_array,records_array, rec_set,contract)
-		#     Prawn::Document.generate("point_funding_doc.pdf") do 
-		#         text "Hello World"
-		#         pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
-		#         	pdf.fill_color "000000"
-		# 			pdf.transparent(1.0, 0.2) do 
-		# 				pdf.image open("app/assets/images/logo_page.png"), :fit => [600, 1000], :at => [0, 160]
-		# 			end
-		#    			pdf.fill_color "000000"
-		#    		end
+		def page_letter_13(pdf,item_array,place_array,records_array, rec_set)
+		    Prawn::Document.generate("point_funding_doc.pdf") do 
+		        
+				pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
+				    pdf.fill_color "000000"
+					pdf.transparent(1.0, 0.2) do 
+						pdf.image open("app/assets/images/logo_page.png"), :fit => [600, 1000], :at => [0, 160]
+					end
+				   pdf.fill_color "000000"
+				end
+				# page sign lines
+				pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+					pdf.rectangle [110, 190], 180, 2
+					pdf.fill_rectangle [10, 100],0, 0
+					# pdf.fill_color "ff0000"
+					pdf.rectangle [310, 190], 180, 2
+					pdf.fill_rectangle [10, 100],0, 0
+					# pdf.fill_rectangle [240, 510],0, 0
+				end
 
-		#    		pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
-		# 			pdf.rectangle [110, 190], 180, 2
-		# 			pdf.fill_rectangle [10, 100],0, 0
-		# 			# pdf.fill_color "ff0000"
-		# 			pdf.rectangle [310, 190], 180, 2
-		# 			pdf.fill_rectangle [10, 100],0, 0
-		# 			# pdf.fill_rectangle [240, 510],0, 0
-		#     	end
-		    
-		#     def up_one(step)
-		#     	step = step + 1
-		#     	return step	
-		#     end
+				def up_one(step)
+					step = step + 1
+					return step	
+				end
 
-		#     def number_to_currency(num)
-		# 	  "$#{num.to_s.gsub(/\d(?=(...)+$)/, '\0,')}"
-		# 	end
-		# 	# PagePart.order('part_area ASC').reorder('id ASC')
-		# 	# PageLayout.order('part_area ASC').reorder('id ASC')
-		# 	current_date = records_array.client_first_name.to_s
-		# 	my_string = item_array[0].to_s
-		# 	groupName = Time.new
-		# 	groupName = groupName.localtime.strftime('%b %d, %Y')
-		# 	say_date = my_string.gsub('#{current_date}', groupName )
-		# 	full_name = records_array.client_first_name + " " + records_array.client_last_name
-		# 	head_name = full_name
-		# 	full_name_show = head_name.gsub('#{full_name}', head_name )
-		# 	comp_address =  records_array.address_street;
-		# 	comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
+				def number_to_currency(num)
+				  "$#{num.to_s.gsub(/\d(?=(...)+$)/, '\0,')}"
+				end
 
-		# 	intro = item_array[4]
-		# 	intro = intro.gsub('#{first_name}', full_name )
+				current_date = records_array.client_first_name.to_s
+				my_string = item_array[0].to_s
+				groupName = Time.new
+				groupName = groupName.localtime.strftime('%b %d, %Y')
+				say_date = my_string.gsub('#{current_date}', groupName )
 
-		# 	para_A = item_array[5].to_s 
-		# 	para_A = para_A.sub('#{full_name}', full_name )
-		# 	para_A = para_A.sub('#{agent_code}', records_array.agent_num.to_s )
-		# 	# para_A = para_A.sub('#{agent_code}', records_array.agent_num.to_s )
-		# 	# wash para B
-		# 	para_B = item_array[6].to_s
-		# 	# find vars and replace 
-		# 	para_B = para_B.sub('#{start_month}', records_array.repay_start.to_s )
-		# 	para_B = para_B.sub('#{total_amount}', number_to_currency(records_array.total_amount) )
-		# 	para_B = para_B.sub('#{percent_of}', "--unkown--" )
-		# 	# st_date = records_array.repay_start.strftime("%B")
-		# 	# para_B = para_B.sub('#{start_month}', st_date )	
-		# 	sign_to = item_array[9].to_s 
-		# 	sign_to = sign_to.sub('#{full_name}', full_name )
+				full_name = records_array.client_first_name + " " + records_array.client_last_name
 
-		# 	tag_height = 14
-		# 	# step = up_one(step) 
-		# 	step = 0
-		# 	puts step
-		# 	def get_page_loc(step, place_array, pdf, var_x, var_y)
-		# 		var_x = place_array[step][0]
-		# 		var_y = place_array[step][1]
+				head_name = full_name
+				full_name_show = head_name.gsub('#{full_name}', head_name )
+
+				comp_address =  records_array.address_street;
+				comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
+
+				intro = item_array[4]
+				intro = intro.gsub('#{full_name}', full_name )
+				intro = intro.gsub('#{nick_name}', rec_set[4].to_s )
+
+				para_A = item_array[5].to_s 
+				para_A = para_A.sub('#{full_name}', full_name )
+				para_A = para_A.sub('(A1234)', rec_set[28] )
+				# wash para B
+				para_B = item_array[6].to_s
+				# find vars and replace 
+				para_B = para_B.sub('#{loan_rate}', records_array.stated_rate.to_s )
+				para_B = para_B.sub('#{total_loan}', number_to_currency(records_array.total_amount) )
+				st_date = records_array.repay_start.strftime("%B")
+				para_B = para_B.sub('#{start_month}', st_date )	
+				sign_to = item_array[9].to_s 
+				sign_to = sign_to.sub('#{full_name}', full_name )
+
+
+				tag_height = 14
+				# step = up_one(step) 
+
+
+				step = 0
+
+				def get_page_loc(step, place_array, pdf, var_x, var_y)
+					var_x = place_array[step][0]
+					var_y = place_array[step][1]
+						
+					pdf.indent 320, 0 do
+						pdf.stroke_color 'FFFF00'
+						pdf.stroke_bounds
+						pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
+						pdf.line_to [var_x, var_y]
+					end
+						# pdf.rectangle [var_x, var_y], 100, 200
+					# end
+				end
+				# page layout 
+				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					pdf.font "OpenSans", size: 10 
+					pdf.text say_date +" Page 13" + place_array.length.to_s , {:color => "000000"}
+					get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				end
+				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+					get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				end
+				step = up_one(step)
+
+				# Client info 2
+				pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
+					pdf.text records_array.loan_name , {:color => "000000"}
+						get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				end
+				step = up_one(step)  
+
+				# info 3
+				pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
+				# 	pdf.text full_name_show , {:color => "000000"}
+					pdf.text records_array.client_first_name , {:color => "000000"}
+					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				end
+
+				step = up_one(step)			
+				# #Address 4
+				pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+					# pdf.font "OpenSans", size: 10 
+					pdf.text comp_address + " \n" + comp_address_state
+					# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+
+				step = up_one(step)
+				# #intro 5
+				pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 16) do
+					pdf.text intro
+					# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+				#para 01 6
+				pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+					# pdf.text item_array[step]
+					# pdf.text item_array[5]
+					pdf.text para_A 
+					# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				# text item_array[step]
+				# end
+				step = up_one(step)
+				#para 02 7
+				pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 40) do
 					
-		# 		pdf.indent 320, 0 do
-		# 			pdf.stroke_color 'FFFF00'
-		# 			pdf.stroke_bounds
-		# 			pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
-		# 			pdf.line_to [var_x, var_y]
-		# 		end
-		# 			# pdf.rectangle [var_x, var_y], 100, 200
-		# 		# end
-		# 	end
-			
-		# 	# page layout 
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-		# 		puts step
-		# 		# var_x = place_array[step][0]
-		# 		# var_y = place_array[step][1]	
-		# 		# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
-		# 		# pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
-		# 		# pdf.text item_array[step], {:color => "00ff00"}
-		# 		pdf.font "OpenSans", size: 10
-		# 		pdf.text say_date + " : " + "first_line", {:color => "000000"}
-		# 		# pdf.text place_array[step][0].to_s
-		# 		# pdf.text place_array[step][1].to_s
+					pdf.text para_B
+					# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 
-		# 		get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		#     end
-			
-		# 	# skip client info
-		# 	# step = up_one(step)  
-		# 	# pdf.bounding_box( [ place_array[step][0], place_array[step][1] ] ),{ :width => 200, :height => 30}) do
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-		# 		puts step
-		# 		# get_page_loc(step, place_array, pdf);
-		# 		# pdf.text records_array.loan_name	
-		# 		get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		# 	end
-		# 	step = up_one(step)
+				end
+				step = up_one(step) 
+				#para 03 8
+				pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+					pdf.text item_array[step]
+					# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+				# #ender 9
+				pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+					pdf.text item_array[step]
+					# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+				# #sign to 10
+				pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+				# 	# pdf.text item_array[step]
+					pdf.text sign_to
+					# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+				#sign from 11
+				pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+					pdf.text item_array[step]
+					# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+			end
+		end
 
-		# 	# Client info 2
-		# 	pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
-		# 		pdf.text records_array.loan_name , {:color => "000000"}
-		# 		# get_page_loc(step, place_array, pdf, var_x, var_y);
-		# 		# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 
-		# 	end
-		# 	step = up_one(step)  
 
-		# 	# info 3
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
-		# 	# 	pdf.text full_name_show , {:color => "000000"}
-		# 		pdf.text records_array.client_first_name , {:color => "000000"}
-		# 		# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		# 	end
-
-		# 	step = up_one(step)			
-		# 	# #Address 4
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-
-		# 		pdf.text comp_address + " \n" + comp_address_state
-		# 		# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	end
-
-		# 	step = up_one(step)
-		# 	# # #intro 5
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 16) do
-		# 		pdf.text intro
-		# 	# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	end
-		# 	step = up_one(step)
-		# 	# #para 01 6
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 		pdf.text para_A
-		# 	# 	# pdf.text item_array[5]
-		# 	# 	pdf.text para_A 
-		# 	# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	end
-		# 	# # text item_array[step]
-		# 	# # end
-		# 	step = up_one(step)
-		# 	# #para 02 7
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 40) do
-		# 		# pdf.text item_array[step]
-		# 		pdf.text para_B
-		# 	# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-			
-		# 	end
-		# 	step = up_one(step) 
-		# 	# #para 03 8
-		# 	pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 		pdf.text item_array[step]
-		# 	# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	end
-		# 	step = up_one(step)
-		# 	# # #ender 9
-		# 	pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 		pdf.text item_array[step]
-		# 	# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	end
-		# 	step = up_one(step)
-		# 	# # #sign to 10
-		# 	pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 		# pdf.text item_array[step]
-		# 		pdf.text sign_to
-		# 	# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	end
-
-		# 	end
-
-		# end
 
 	end
 end
