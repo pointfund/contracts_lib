@@ -213,7 +213,7 @@ module PdfPageHelper
 				var_y = place_array[step][1]
 					
 				pdf.indent 320, 0 do
-					pdf.stroke_color 'FFFF00'
+					pdf.stroke_color '000000'
 					pdf.stroke_bounds
 					pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
 					pdf.line_to [var_x, var_y]
@@ -225,17 +225,17 @@ module PdfPageHelper
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 				pdf.font "OpenSans", size: 10 
 				pdf.text say_date +" first_line", {:color => "000000"}
-				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-				get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 			end
 			step = up_one(step)
 
 			# Client info 2
 			pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
 				pdf.text records_array.loan_name , {:color => "000000"}
-					get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 			end
 			step = up_one(step)  
 
@@ -374,7 +374,7 @@ module PdfPageHelper
 					var_y = place_array[step][1]
 						
 					pdf.indent 320, 0 do
-						pdf.stroke_color 'FFFF00'
+						pdf.stroke_color '000000'
 						pdf.stroke_bounds
 						pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
 						pdf.line_to [var_x, var_y]
@@ -396,7 +396,7 @@ module PdfPageHelper
 					# pdf.text place_array[step][0].to_s
 					# pdf.text place_array[step][1].to_s
 
-					get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
 				
 				# skip client info
@@ -406,7 +406,7 @@ module PdfPageHelper
 					puts step
 					# get_page_loc(step, place_array, pdf);
 					# pdf.text records_array.loan_name	
-					get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 				end
 				step = up_one(step)
 
@@ -486,7 +486,6 @@ module PdfPageHelper
 				# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 		end
-
 
 
 		# # main Contract
@@ -688,9 +687,9 @@ module PdfPageHelper
 							
 									
 								pdf.indent 320, 0 do
-									pdf.stroke_color 'FFFF00'
+									pdf.stroke_color '000000'
 									pdf.stroke_bounds
-									pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
+									pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "000000" }
 									# pdf.text 
 									# pdf.text place_array[step][1].to_s
 									pdf.line_to [var_x, var_y]
@@ -1744,7 +1743,6 @@ module PdfPageHelper
 		end
 
 
-
 		# Contract 4 Loan Confirmation
 		def page_letter_4(pdf, item_array, place_array, records_array, rec_set)
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
@@ -1815,7 +1813,7 @@ module PdfPageHelper
 			
 					
 				pdf.indent 320, 0 do
-					pdf.stroke_color 'FFFF00'
+					pdf.stroke_color '000000'
 					pdf.stroke_bounds
 					pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
 					# pdf.text 
@@ -1916,7 +1914,6 @@ module PdfPageHelper
 		end
 
 
-
 		# # commission form
 		def page_letter_5(pdf, item_array, place_array, records_array, rec_set)
 			# Service.page05_include
@@ -1932,7 +1929,7 @@ module PdfPageHelper
 		        # page sign lines
 		        pdf.bounding_box([0, 0],{ :width => 200, :height => 100 }) do
 		        	pdf.stroke_color '00ff00'
-					pdf.stroke_bounds
+					# pdf.stroke_bounds
 		        	# pdf.rectangle [ 150, 690 ], 310, 2
 		        	# pdf.rectangle [ 150, 670 ], 310, 2
 		        	# pdf.rectangle [ 150, 650 ], 310, 2
@@ -2075,15 +2072,15 @@ module PdfPageHelper
 				end
 				# page layout area  : Area 1
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 200, :height => 30}) do
-					pdf.stroke_color 'FF0000'
-					pdf.stroke_bounds
+					# pdf.stroke_color 'FF0000'
+					# pdf.stroke_bounds
 
 					pdf.font "OpenSans", size: 10 , style: :bold
 					pdf.text title, {:color => "000000" , :character_spacing => 0.5}
 					
 					# pdf.font "Arial", size: 10 
 
-					get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
  					# pdf.bounding_box.transparent(0.5) { stroke_bounds }
 
 		        end
@@ -2092,22 +2089,22 @@ module PdfPageHelper
 				# Form line 1
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 					
-					pdf.stroke_color 'FF0000'
-					pdf.stroke_bounds
+					# pdf.stroke_color 'FF0000'
+					# pdf.stroke_bounds
 
 					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_1, {:color => "000000"  , :character_spacing => 0.5}
 					# pdf.rectangle [ 150, 690 ], 310, 2
 					# pdf.text form_A_2, {:color => "000000"}
-					get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 
 		        end
 				step = up_one(step)
 				
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 300, :height => 16}) do
 					
-					pdf.stroke_color 'FF0000'
-					pdf.stroke_bounds
+					# pdf.stroke_color 'FF0000'
+					# pdf.stroke_bounds
 					# pdf.font "OpenSans", size: 8 
 					pdf.text form_A_2, {:color => "000000"  , :character_spacing => 0.5}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
@@ -2117,8 +2114,8 @@ module PdfPageHelper
 
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => 16}) do
 
-					pdf.stroke_color 'FF0000'
-					pdf.stroke_bounds
+					# pdf.stroke_color 'FF0000'
+					# pdf.stroke_bounds
 					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_3, {:color => "000000"}
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
@@ -2126,8 +2123,8 @@ module PdfPageHelper
 				step = up_one(step)
 				
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.stroke_color 'FF0000'
-					pdf.stroke_bounds
+					# pdf.stroke_color 'FF0000'
+					# pdf.stroke_bounds
 					
 					pdf.font "OpenSans", size: 8 
 					pdf.text form_A_4, {:color => "000000"}
@@ -2297,7 +2294,7 @@ module PdfPageHelper
 				var_y = place_array[step][1]
 					
 				pdf.indent 320, 0 do
-					pdf.stroke_color 'FFFF00'
+					pdf.stroke_color '000000'
 					pdf.stroke_bounds
 					pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
 					pdf.line_to [var_x, var_y]
@@ -2473,7 +2470,7 @@ module PdfPageHelper
 				var_y = place_array[step][1]
 					
 				pdf.indent 320, 0 do
-					pdf.stroke_color 'FFFF00'
+					pdf.stroke_color '000000'
 					pdf.stroke_bounds
 					pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
 					pdf.line_to [var_x, var_y]
@@ -3302,7 +3299,7 @@ module PdfPageHelper
 					var_y = place_array[step][1]
 						
 					pdf.indent 320, 0 do
-						pdf.stroke_color 'FFFF00'
+						pdf.stroke_color '000000'
 						pdf.stroke_bounds
 						pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
 						pdf.line_to [var_x, var_y]
