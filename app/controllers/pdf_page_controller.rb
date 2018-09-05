@@ -140,7 +140,9 @@ class PdfPageController < ApplicationController
         # end
 
 
+        @job_ids = []
 
+        puts "length " + @job_ids.length.to_s 
 
         if(params[:create_pages] != nil)
             @job_ids = params[:create_pages].split(', ')
@@ -156,6 +158,7 @@ class PdfPageController < ApplicationController
                 # page_Y = page_P[1]
             end
             puts "found " + @job_ids.length.to_s + " created pages "  
+
         end
 
 
