@@ -188,6 +188,7 @@ class PdfPageController < ApplicationController
         # end
         # puts @record_page_set + "hello2"
         # puts place_array.length
+        puts "No Way ..............................................................."
 
         # if format is pdf create pdf 
         respond_to do |format|
