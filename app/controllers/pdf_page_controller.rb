@@ -299,7 +299,8 @@ class PdfPageController < ApplicationController
                     #         # @nope = SendLetter.new(pdf, @page[0][1], @page[0][2], @records, @job_ids, @page[0][0])
                     #         # SendLetter.new(pdf, @page[0][1], @page[0][2], @records,  @job_ids, 13)
                     #         pdf.start_new_page
-                            SendLetter.new(pdf, @page[inx][1], @page[inx][2], @records,  @job_ids, 13)
+                            # SendLetter.new(pdf, @page[inx][1], @page[inx][2], @records,  @job_ids, @page[inx][0])
+                            SendLetter.new(pdf, @page[inx][1], @page[inx][2], @records,  @job_ids, 5)
                     #         # pdf.start_new_page
                     #         # sample = 
                     #         # mybook.push(SendLetter.new(pdf, spread[1], spread[2], @records, @job_ids, spread[0]))
