@@ -295,7 +295,7 @@ class PdfPageController < ApplicationController
                     #     # pdf.start_new_page 
                     #     sample = nil
                     #     puts inx.to_s + " count loop of : " + @page.length.to_s
-                    #     if(counter.to_i == 1)
+                        if(counter.to_i == 1)
                     #         # @nope = SendLetter.new(pdf, @page[0][1], @page[0][2], @records, @job_ids, @page[0][0])
                     #         # SendLetter.new(pdf, @page[0][1], @page[0][2], @records,  @job_ids, 13)
                     #         pdf.start_new_page
@@ -309,9 +309,9 @@ class PdfPageController < ApplicationController
                     #         # Explicit Block
                     #         # Prawn::Document.generate("point_funding_doc.pdf") do |pdf|
                     #         #     pdf.text "Hello World"
-                    #     end
+                        end
                     #     #     # sample = SendLetter.new(pdf, page[contract], place_things, @records, @job_ids, contract)
-                    #     if(counter.to_i >= 2)
+                        if(counter.to_i >= 2)
                     #         pdf.start_new_page
                     #         # nope.page_letter_2(pdf, item_array, place_array, @records, @job_ids, 1)
                     #         SendLetter.new(pdf, @page[inx][1], @page[inx][2], @records,  @job_ids, @page[inx][0])
@@ -321,7 +321,7 @@ class PdfPageController < ApplicationController
                     #     #     Prawn::Document.generate("point_funding_doc.pdf") do 
                     #     #     text "Hello World"
 
-                    #     end
+                        end
                     #     # end
                     #     counter = counter + 1
                     end
