@@ -312,9 +312,9 @@ class PdfPageController < ApplicationController
                         end
                     #     #     # sample = SendLetter.new(pdf, page[contract], place_things, @records, @job_ids, contract)
                         if(counter.to_i >= 2)
-                    #         pdf.start_new_page
+                            pdf.start_new_page
                     #         # nope.page_letter_2(pdf, item_array, place_array, @records, @job_ids, 1)
-                    #         SendLetter.new(pdf, @page[inx][1], @page[inx][2], @records,  @job_ids, @page[inx][0])
+                            SendLetter.new(pdf, @page[inx][1], @page[inx][2], @records,  @job_ids, @page[inx][0])
                     #         # @nope.page_letter_2(pdf, @page[inx][1], @page[inx][2], @records, @job_ids, @page[inx][0])
                     #         puts "set sample " + inx.to_s
                     #         # sample.page_letter_2(pdf, spread[1], spread[2], @records, @job_ids, spread[0])
