@@ -270,7 +270,7 @@ class PdfPageController < ApplicationController
                     AddFontsPdf.new(pdf)
 
     
-
+                    puts "not goin to run this time"
 
                     # pdf = SendLetter.generate("point_funding_doc.pdf") do |doc|
                     #     doc.text "what is going in here ??"
