@@ -285,7 +285,7 @@ class PdfPageController < ApplicationController
                     # mybook = []
                     # counter = 1
                     @page.each_with_index do |spread, inx|
-                    #     # counter = 1
+                        counter = inx + 1
                     #     puts counter.to_s + " ticker"
                     #     # pdf.start_new_page
                     #     # puts spread[2]
