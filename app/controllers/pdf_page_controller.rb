@@ -276,15 +276,15 @@ class PdfPageController < ApplicationController
                     #     doc.text "what is going in here ??"
                     # # pdf = Prawn::Document.new
                     # end 
-                   # nope = SendLetter.new(pdf, item_array, place_array, @records, @job_ids, 1)
-                   #                     pdf.start_new_page
-                   # nope.page_letter_2(pdf, item_array, place_array, @records, @job_ids, 1)
-                   # nope.page_letter_2(pdf, @page[0][1], @page[0][2], @records, @job_ids, 2)
-                   # puts @page[1][2].to_s
+                    # nope = SendLetter.new(pdf, item_array, place_array, @records, @job_ids, 1)
+                    #                     pdf.start_new_page
+                    # nope.page_letter_2(pdf, item_array, place_array, @records, @job_ids, 1)
+                    # nope.page_letter_2(pdf, @page[0][1], @page[0][2], @records, @job_ids, 2)
+                    # puts @page[1][2].to_s
                     # AddFontsPdf.new(pdf)
                     # mybook = []
                     # counter = 1
-                    # @page.each_with_index do |spread, inx|
+                    @page.each_with_index do |spread, inx|
                     #     # counter = 1
                     #     puts counter.to_s + " ticker"
                     #     # pdf.start_new_page
@@ -299,7 +299,7 @@ class PdfPageController < ApplicationController
                     #         # @nope = SendLetter.new(pdf, @page[0][1], @page[0][2], @records, @job_ids, @page[0][0])
                     #         # SendLetter.new(pdf, @page[0][1], @page[0][2], @records,  @job_ids, 13)
                     #         pdf.start_new_page
-                    #         SendLetter.new(pdf, @page[inx][1], @page[inx][2], @records,  @job_ids, 13)
+                            SendLetter.new(pdf, @page[inx][1], @page[inx][2], @records,  @job_ids, 13)
                     #         # pdf.start_new_page
                     #         # sample = 
                     #         # mybook.push(SendLetter.new(pdf, spread[1], spread[2], @records, @job_ids, spread[0]))
@@ -324,7 +324,7 @@ class PdfPageController < ApplicationController
                     #     end
                     #     # end
                     #     counter = counter + 1
-                    # end
+                    end
 
                     # mybook.each do |a|
                     #    puts a.to_s + "next"
