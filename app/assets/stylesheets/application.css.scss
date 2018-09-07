@@ -15,7 +15,9 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+body{
+    background-color: #d9edf7;
+}
 .turbolinks-progress-bar {
   height: 5px;
   background-color: #9cbef4;
@@ -540,7 +542,7 @@ border-radius: 9px;
 .image_offset{
 	margin-top:20px;
 	margin-bottom: 20px;
-	margin-left:40%;
+	margin-left:36%;
 	border:4px solid #F36438;
 	-webkit-box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
 	-moz-box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
@@ -548,7 +550,7 @@ border-radius: 9px;
 }
 .page-body{
 	background-color: #768796;
-	min-height: 250px;
+	min-height: 150px;
 	padding:20px;
 	-webkit-box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);
 	-moz-box-shadow: 10px 10px 24px -7px rgba(0,0,0,0.39);

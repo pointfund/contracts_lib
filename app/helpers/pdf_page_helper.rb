@@ -2915,7 +2915,7 @@ module PdfPageHelper
 		# end
 
 		# # Assignment of %
-		def page_letter_33(pdf,item_array,place_array,records_array, rec_set)
+		def page_letter_10(pdf,item_array,place_array,records_array, rec_set)
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "ff0000"
 				pdf.transparent(1.0, 0.2) do 
@@ -3079,70 +3079,70 @@ module PdfPageHelper
 
 
 
-			pdf.text "records list ", {:color => "000000"} 
+			# pdf.text "records list ", {:color => "000000"} 
 			
-			pdf.text rec_set[0] + " ------ ------ ------ 0  ------" + " record Name", {:color => "000000"} 
+			# pdf.text rec_set[0] + " ------ ------ ------ 0  ------" + " record Name", {:color => "000000"} 
 			
-			pdf.text rec_set[1] + " ------ ------ ------ ------ ------ 1  ------" + " current date ", {:color => "ff0000"}
-			pdf.text rec_set[2] + " ------ ------ ------ ------ ------ ------ 2  ------" + " first name", {:color => "00ff00"} 
-			pdf.text rec_set[3] + " ------ ------ ------ ------ ------ ------ 3  ------" + " last name ", {:color => "0000ff"}
+			# pdf.text rec_set[1] + " ------ ------ ------ ------ ------ 1  ------" + " current date ", {:color => "ff0000"}
+			# pdf.text rec_set[2] + " ------ ------ ------ ------ ------ ------ 2  ------" + " first name", {:color => "00ff00"} 
+			# pdf.text rec_set[3] + " ------ ------ ------ ------ ------ ------ 3  ------" + " last name ", {:color => "0000ff"}
 
-			pdf.text rec_set[4] + " ------ ------ ------ ------ ------ 4  ------" + " Nick Name", {:color => "ff0000"}
+			# pdf.text rec_set[4] + " ------ ------ ------ ------ ------ 4  ------" + " Nick Name", {:color => "ff0000"}
 
-			pdf.text "\n"
+			# pdf.text "\n"
 
-			pdf.text rec_set[5] + " ------ ------ ------  5  ------" + " city state combo", 									{:color => "00ff00"}
+			# pdf.text rec_set[5] + " ------ ------ ------  5  ------" + " city state combo", 									{:color => "00ff00"}
 			
-			pdf.text "\n"
-			pdf.text "\n"
+			# pdf.text "\n"
+			# pdf.text "\n"
 
-			pdf.text rec_set[6].to_s + " ------ ------ ------ ------ 6  ------" + " note date", 								{:color => "000000"}
-			pdf.text rec_set[7] + " ------ ------ ------ ------ ------ 7  ------" + " total loan amount", 		{:color => "ff0000"}
-			pdf.text rec_set[8] + "  ------ ------ ------ ------ ------ 8  ------" + " finance fee", 				{:color => "00ff00"}
-			pdf.text rec_set[9] + " ------ ------ ------ ------ ------    9  ------" + " repay term months", 		{:color => "0000ff"}
-			pdf.text rec_set[10] + " ------ ------ ------ ------    10  ------" + " repay term month-th", 			{:color => "ff0000"}
+			# pdf.text rec_set[6].to_s + " ------ ------ ------ ------ 6  ------" + " note date", 								{:color => "000000"}
+			# pdf.text rec_set[7] + " ------ ------ ------ ------ ------ 7  ------" + " total loan amount", 		{:color => "ff0000"}
+			# pdf.text rec_set[8] + "  ------ ------ ------ ------ ------ 8  ------" + " finance fee", 				{:color => "00ff00"}
+			# pdf.text rec_set[9] + " ------ ------ ------ ------ ------    9  ------" + " repay term months", 		{:color => "0000ff"}
+			# pdf.text rec_set[10] + " ------ ------ ------ ------    10  ------" + " repay term month-th", 			{:color => "ff0000"}
 			
-			pdf.text "\n"
-			pdf.text "\n"
+			# pdf.text "\n"
+			# pdf.text "\n"
 
-			pdf.text rec_set[11].to_s + " ------ ------ ------ ------ 11  ------" + " repay start", 							{:color => "ff0000"}
-			pdf.text rec_set[12].to_s + " ------ ------ ------ ------ 12  ------" + " repay 1st payment day", 				{:color => "00ff00"}
-			pdf.text rec_set[13].to_s + " ------ ------ ------ ------ 13  ------" + " repay mature date", 					{:color => "0000ff"}
+			# pdf.text rec_set[11].to_s + " ------ ------ ------ ------ 11  ------" + " repay start", 							{:color => "ff0000"}
+			# pdf.text rec_set[12].to_s + " ------ ------ ------ ------ 12  ------" + " repay 1st payment day", 				{:color => "00ff00"}
+			# pdf.text rec_set[13].to_s + " ------ ------ ------ ------ 13  ------" + " repay mature date", 					{:color => "0000ff"}
 			
-			pdf.text "\n"
-			pdf.text "\n"
+			# pdf.text "\n"
+			# pdf.text "\n"
 
-			pdf.text rec_set[14] + " ------ ------ ------ ------ ------ 14  ------" + " monthly payment ", 			{:color => "ff0000"}
-			pdf.text rec_set[15] + " ------ ------ ------ ------ ------ ------ 15  ------" + " Payment day ", 	{:color => "00ff00"}
-			pdf.text rec_set[16] + " ------ ------ ------ ------ ------  16  ------" + " Activation Fee", 			{:color => "0000ff"}
-			pdf.text rec_set[17] + " ------ ------ ------ ------ ------    17  ------" + " rate  ", 			{:color => "ff0000"}
-			pdf.text rec_set[18] + " ------ ------ ------ ------ ------ 18  ------" + " Monthly late fee", 			{:color => "00ff00"}
-			pdf.text rec_set[19] + " ------ ------ ------ ------ ------    19  ------" + " late payment", 			{:color => "0000ff"}
-
-
-			pdf.text "\n"
-			pdf.text "\n"
-
-			pdf.text rec_set[20].to_s + " ------ ------ ------ --- 20  ------" + " final date of loan", 					{:color => "ff0000"}
-			pdf.text rec_set[21] + " ------ ------ ------ - 21  ------" + " Backer 01", 							{:color => "00ff00"}
-			pdf.text rec_set[22] + " ------ ------ ------ ------ ------  22  ------" + " Backer 02", 				{:color => "0000ff"}
-			pdf.text rec_set[23] + " ------ ------ ------ ------ ------  23  ------" + " Backer 03", 				{:color => "ff0000"}
+			# pdf.text rec_set[14] + " ------ ------ ------ ------ ------ 14  ------" + " monthly payment ", 			{:color => "ff0000"}
+			# pdf.text rec_set[15] + " ------ ------ ------ ------ ------ ------ 15  ------" + " Payment day ", 	{:color => "00ff00"}
+			# pdf.text rec_set[16] + " ------ ------ ------ ------ ------  16  ------" + " Activation Fee", 			{:color => "0000ff"}
+			# pdf.text rec_set[17] + " ------ ------ ------ ------ ------    17  ------" + " rate  ", 			{:color => "ff0000"}
+			# pdf.text rec_set[18] + " ------ ------ ------ ------ ------ 18  ------" + " Monthly late fee", 			{:color => "00ff00"}
+			# pdf.text rec_set[19] + " ------ ------ ------ ------ ------    19  ------" + " late payment", 			{:color => "0000ff"}
 
 
-			pdf.text "\n"
-			pdf.text "\n"
+			# pdf.text "\n"
+			# pdf.text "\n"
 
-			pdf.text rec_set[24] + " ------ ------ ------ ------ ------ --- 24 ------ ------ " + " commencement month  ", 			{:color => "ff0000"}
-			pdf.text rec_set[25] + " ------ ------ ------ ------ ------ ------ 25 ------ ------ " + " commencement year ", 	{:color => "00ff00"}
-			pdf.text rec_set[26] + " ------ ------ ------ ------ ------ ------ 26 ------ ------ " + " total deduction ", 			{:color => "0000ff"}
-			pdf.text rec_set[27].to_s + " ------ ------ ------ ------ ---- 27 ------ ------ " + " R300 date ", 			{:color => "ff0000"}
-			pdf.text rec_set[28] + " ------ ------ ------ ------ ------ --- 28 ------ ------ " + " Agent Number", 			{:color => "00ff00"}
-			pdf.text rec_set[29] + " ------ ------ ------ ---- 29 ------ ------ " + " email", 			{:color => "0000ff"}
-			pdf.text rec_set[30] + " ------ ------ ------ ---- 30 ------ ------ " + " phone ", 			{:color => "ff0000"}
-			pdf.text rec_set[31] + " ------ ------ ------ ------ ------ --- 31 ------ ------ " + " term assignment", 			{:color => "00ff00"}
-			pdf.text rec_set[32] + " ------ ------ ------ ------ ------ - 32 ------ ------ " + " position", 			{:color => "0000ff"}
-			pdf.text records_array.pay_pen.to_s + " ------ ------ ------ ------ ------ - 33 ------ ------ " + " penality", 			{:color => "000000"}
-			pdf.text rec_set[34] + " ------ ------ ------ ------ ------ - 34 ------ ------ " + " prepay penality", 			{:color => "0000ff"}
+			# pdf.text rec_set[20].to_s + " ------ ------ ------ --- 20  ------" + " final date of loan", 					{:color => "ff0000"}
+			# pdf.text rec_set[21] + " ------ ------ ------ - 21  ------" + " Backer 01", 							{:color => "00ff00"}
+			# pdf.text rec_set[22] + " ------ ------ ------ ------ ------  22  ------" + " Backer 02", 				{:color => "0000ff"}
+			# pdf.text rec_set[23] + " ------ ------ ------ ------ ------  23  ------" + " Backer 03", 				{:color => "ff0000"}
+
+
+			# pdf.text "\n"
+			# pdf.text "\n"
+
+			# pdf.text rec_set[24] + " ------ ------ ------ ------ ------ --- 24 ------ ------ " + " commencement month  ", 			{:color => "ff0000"}
+			# pdf.text rec_set[25] + " ------ ------ ------ ------ ------ ------ 25 ------ ------ " + " commencement year ", 	{:color => "00ff00"}
+			# pdf.text rec_set[26] + " ------ ------ ------ ------ ------ ------ 26 ------ ------ " + " total deduction ", 			{:color => "0000ff"}
+			# pdf.text rec_set[27].to_s + " ------ ------ ------ ------ ---- 27 ------ ------ " + " R300 date ", 			{:color => "ff0000"}
+			# pdf.text rec_set[28] + " ------ ------ ------ ------ ------ --- 28 ------ ------ " + " Agent Number", 			{:color => "00ff00"}
+			# pdf.text rec_set[29] + " ------ ------ ------ ---- 29 ------ ------ " + " email", 			{:color => "0000ff"}
+			# pdf.text rec_set[30] + " ------ ------ ------ ---- 30 ------ ------ " + " phone ", 			{:color => "ff0000"}
+			# pdf.text rec_set[31] + " ------ ------ ------ ------ ------ --- 31 ------ ------ " + " term assignment", 			{:color => "00ff00"}
+			# pdf.text rec_set[32] + " ------ ------ ------ ------ ------ - 32 ------ ------ " + " position", 			{:color => "0000ff"}
+			# pdf.text records_array.pay_pen.to_s + " ------ ------ ------ ------ ------ - 33 ------ ------ " + " penality", 			{:color => "000000"}
+			# pdf.text rec_set[34] + " ------ ------ ------ ------ ------ - 34 ------ ------ " + " prepay penality", 			{:color => "0000ff"}
 					
 
 			# pdf.text item_array[step]
