@@ -26,6 +26,75 @@
 console.log("before load");
 
 $( document ).ready(function() {
+var psge_A = [0, 1, 2, 4, 5, 6, 7, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+var psge_B = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10 ];
+var psge_C = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+var psge_D = [0, 1, 2, 4, 5, 6, 7, 8 ];
+var psge_E = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 13, ];
+var psge_F = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10];
+var psge_G = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10];
+var psge_H = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+var psge_I = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// switch(expression) {
+//     case x:
+//         code block
+//         break;
+//     case y:
+//         code block
+//         break;
+//     default:
+//         code block
+// }
+
+
+var sampl = [2, 4, 5, 6, 7, 8];
+
+// var required = []
+// $(".form-control").eq( 3 ).css( "background-color", "#88f" );
+
+// $pizza.css('background-color', '#88f');
+// console.log( $(".form-control").get(3).css("background-color") );
+console.log("hello");
+recs = $(".form-control");
+// var picks = [1]
+
+// required[3].css('background-color', '#111');
+
+for (var i = 0;  i <= recs.length - 1 ; i++) {
+	// required.push( $(".form-control") );
+	if(psge_A.includes(i)){
+		$(".form-control").eq( i ).css( "background-color", "#aaead7" );
+		// if(picks.includes(i)){
+		// 	$(".form-control").css('background-color', '#88f');
+		// }
+	}
+}
+
+
+
+
+
+
+// required[0].css('background-color', '#88f');
+
+// required[2].css('background-color', '#88f');
+// console.log(required.length + " : person");
+
+
 	$(".info-item .btn").click(function() {
 	  $(".container").toggleClass("log-in");
 	});
@@ -104,7 +173,7 @@ $( document ).ready(function() {
 		}
 
 
-var mars = $('.panel_selection');
+	var mars = $('.panel_selection');
 
 		for (var i = 0;  i <= mars.length - 2 ; i++) {
 			var my_page = "#page_" + i;
@@ -153,11 +222,40 @@ var mars = $('.panel_selection');
 	// $(".page-selection .clicked:nth-child(1)").css("border", "3px solid red");
 	// $(".clicked").filter(":even").css("border", "3px solid red");
 	// $(".clicked").filter("2").css("border", "4px solid yellow");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	document.addEventListener("turbolinks:load", function() {
 		record_display();
 		high_page();
 	});
+
+
+
+
+
+
+
+
+
+
+
+
 });
+
 
 
 
