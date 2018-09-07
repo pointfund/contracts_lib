@@ -3,7 +3,7 @@
 		<div class="panel-heading accord-btn" role="tab" id="headingOne">
 			<h4 class="panel-title">
 				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-					Book 1 <%= @books[0].name %>
+					Library of Contracts 
 				</a>
 			</h4>
 		</div>
@@ -11,12 +11,12 @@
 	    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">	<% counter = 1 %>
 	    	<div class="panel-body panel-wide">
 	 			<% @contracts.each do |z| %>
-					<div class="panel_selection panel-default " id="page_<%= z.id %>">
-						<div class="col-sm-3 col-md-2  page-selection">
+					<div class="panel_selection panel-default " id="page_<%= z.id %>" >
+						<div class="col-sm-3 col-md-2  page-selection" style="width:110px;">
 							<div class="panel panel-default panel-page">
 								<%  %>
 		 						<div class="panel panel-heading caption min-head">
-									<h6 class=pg-title><span id="page-id"><%= z.id %></span> <%= z.name[0..24] %></h6>  
+									<p class=pg-title><span id="page-id"><%= z.id %></span> </p>  
 								</div>
 								<div class="panel-body panel-button clicked" id="btn-clicked">
 			    					
@@ -49,7 +49,7 @@
 	    <div class="panel-heading" role="tab" id="headingTwo">
 	      <h4 class="panel-title">
 	        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-	         Book 1 <%= @books[1].name %>
+	         Book 1 <%= @books[0].name %>
 	        </a>
 	      </h4>
 	    </div>
@@ -63,20 +63,21 @@
 									<h6><%= z.id %> <%= z.name[0..24] %></h6>  
 								</div>
 								<div class="panel-body panel-button clicked" id="btn-clicked">
-				    				<div class="thumbnail">
-										<%= link_to pdf_page_index_path(page: z.id, "create_pages" =>  @record_page_set) do %>
-										<%=  image_tag "pf_base_btn_set/#{counter}.jpg", width: 136, height: 67, alt: ('PF Contract form : ' + z.name) %>
-									<% end %> 
-				    			    <% counter = counter + 1 %>
-				    			   
-				    				</div>
-								
-									<%= link_to "Add", pdf_page_index_path(rec_id: @my_record, page: z.id, "create_pages" =>  @record_page_set), class: "btn btn-success pull-left" 
+			    					
+			    					<div class="viewer-image">
+			    						<div class="thumbnail">
+											<%= link_to pdf_page_index_path(page: z.id, "create_pages" =>  @record_page_set, rec_id: @my_record,) do %>
+												<%=  image_tag "pf_base_btn_set/#{counter}.jpg", width: 136, height: 67, alt: ('PF Contract form : ' + z.name) %>
+											<% end %> 
+					    			    	<% counter = counter + 1 %>
+				    					</div>
+									</div>
+									<%= link_to "Add", pdf_page_index_path(rec_id: @my_record, page: z.id, "create_pages" =>  @record_page_set), class: "btn btn-success pull-left", id: counter - 1  
 									%>
 
-									<%= link_to "Remove", pdf_page_index_path(rec_id: @my_record, remove: z.id, "create_pages" =>  @record_page_set), class: "btn btn-info pull-right" 
+									<%= link_to "Remove", pdf_page_index_path(rec_id: @my_record, remove: z.id, "create_pages" =>  @record_page_set), class: "btn btn-warning pull-right" 
 									%>	
-							
+									
 								</div>
 							</div>
 						</div>
@@ -94,13 +95,13 @@
 	<div class="panel-heading" role="tab" id="headingthree">
 	<h4 class="panel-title">
 	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsethree" aria-expanded="false" aria-controls="collapseTwo">
-	Book 3 <%= @books[2].name %>
+	Book 2 <%= @books[1].name %>
 	</a>
 	</h4>
 	</div>
 	<div id="collapsethree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingthree"><% counter = 1 %>
 		<div class="panel-body">
-		<%  @contracts.each do |z| %>
+		<%  @contractB.each do |z| %>
 			<div class="panel_selection panel-default panel-page">
 				<div class="col-sm-3 col-md-2  page-selection">
 					<div class="panel panel-default panel-page">
@@ -108,21 +109,22 @@
 							<h6><%= z.id %> <%= z.name[0..24] %></h6>  
 						</div>
 						<div class="panel-body panel-button clicked" id="btn-clicked">
-							<div class="thumbnail">
-								<%= link_to pdf_page_index_path(page: z.id, "create_pages" =>  @record_page_set) do %>
-								<%=  image_tag "pf_base_btn_set/#{counter}.jpg", width: 136, height: 67, alt: ('PF Contract form : ' + z.name) %>
-								<% end %> 
-								<% counter = counter + 1 %>
+			    					
+			    					<div class="viewer-image">
+			    						<div class="thumbnail">
+											<%= link_to pdf_page_index_path(page: z.id, "create_pages" =>  @record_page_set, rec_id: @my_record,) do %>
+												<%=  image_tag "pf_base_btn_set/#{counter}.jpg", width: 136, height: 67, alt: ('PF Contract form : ' + z.name) %>
+											<% end %> 
+					    			    	<% counter = counter + 1 %>
+				    					</div>
+									</div>
+									<%= link_to "Add", pdf_page_index_path(rec_id: @my_record, page: z.id, "create_pages" =>  @record_page_set), class: "btn btn-success pull-left", id: counter - 1  
+									%>
 
-							</div>
-
-							<%= link_to "Add", pdf_page_index_path(rec_id: @my_record, page: z.id, "create_pages" =>  @record_page_set), class: "btn btn-success pull-left" 
-							%>
-
-							<%= link_to "Remove", pdf_page_index_path(rec_id: @my_record, remove: z.id, "create_pages" =>  @record_page_set), class: "btn btn-info pull-right" 
-							%>	
-
-						</div>
+									<%= link_to "Remove", pdf_page_index_path(rec_id: @my_record, remove: z.id, "create_pages" =>  @record_page_set), class: "btn btn-warning pull-right" 
+									%>	
+									
+								</div>
 					</div>
 				</div>
 			</div>
@@ -130,5 +132,54 @@
 		</div>
 	</div>
 </div>
+
+
+<div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingfour">
+	<h4 class="panel-title">
+	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+	Book 3 <%= @books[2].name %>
+	</a>
+	</h4>
+	</div>
+	<div id="collapsefour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfour"><% counter = 1 %>
+		<div class="panel-body">
+		<%  @contractC.each do |z| %>
+			<div class="panel_selection panel-default panel-page">
+				<div class="col-sm-3 col-md-2  page-selection">
+					<div class="panel panel-default panel-page">
+						<div class="panel panel-heading caption min-head">
+							<h6><%= z.id %> <%= z.name[0..24] %></h6>  
+						</div>
+			<div class="panel-body panel-button clicked" id="btn-clicked">
+			    					
+			    					<div class="viewer-image">
+			    						<div class="thumbnail">
+											<%= link_to pdf_page_index_path(page: z.id, "create_pages" =>  @record_page_set, rec_id: @my_record,) do %>
+												<%=  image_tag "pf_base_btn_set/#{counter}.jpg", width: 136, height: 67, alt: ('PF Contract form : ' + z.name) %>
+											<% end %> 
+					    			    	<% counter = counter + 1 %>
+				    					</div>
+									</div>
+									<%= link_to "Add", pdf_page_index_path(rec_id: @my_record, page: z.id, "create_pages" =>  @record_page_set), class: "btn btn-success pull-left", id: counter - 1  
+									%>
+
+									<%= link_to "Remove", pdf_page_index_path(rec_id: @my_record, remove: z.id, "create_pages" =>  @record_page_set), class: "btn btn-warning pull-right" 
+									%>	
+									
+								</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
 
 </div>
