@@ -4,7 +4,7 @@
 	</div>
 	<div class="panel-body"> 
 		<p>Create pdf from record</p>
-		<%= link_to "Generate Pdf files", pdf_pages_create_path(format: 'pdf', records: params["records"]) %>
+		<%= link_to "Generate Pdf files", pdf_pages_create_path(format: 'pdf', records: params["records"], class:  "btn-primary btn-lg") %>
 	</div>
     <div class="panel-heading"> 
 		<h1>Contracts <%= @contracts.length %> Total <%= @moof %></h1>

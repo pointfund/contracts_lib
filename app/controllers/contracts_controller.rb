@@ -4,8 +4,14 @@ before_action :set_contract, only: [:show, :edit, :update, :destroy]
 # GET /contracts
 # GET /contracts.json
 def index
-    @contracts = Contract.all
+    # @contracts = Contract.all
+ @contractB = Contract.all
     @layouts = PageLayout.all
+
+    # @contractB = Contract.where("book_id" => "2");
+
+
+
 end
 
 # GET /contracts/1
