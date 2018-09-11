@@ -215,8 +215,8 @@ class PdfPageController < ApplicationController
                         # PagePart.order('part_area ASC').reorder('id ASC')
                         # PageLayout.order('part_area ASC').reorder('id ASC')
 
-                        @parts = PagePart.where({contract_id: contract.to_s})
-                        @layouts = PageLayout.where({contract_id: contract.to_s})
+                        @parts = PagePart.where({contract_id: contract.to_s}).reorder('id ASC')
+                        @layouts = PageLayout.where({contract_id: contract.to_s}).reorder('id ASC')
                         
                         # @part.each do |x|
                         #     page.push(x.content)
