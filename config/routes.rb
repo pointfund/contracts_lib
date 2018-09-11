@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'bookbuilder/build_layouts'
   get 'bookbuilder/build_books'
   get 'bookbuilder/build_contracts'
+  get 'bookbuilder/build_page_09'
 
 
   devise_for :users

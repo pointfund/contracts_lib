@@ -1,0 +1,185 @@
+contract_id,page_area,name,posx,posy
+9,0,Date,30,580
+9,1,point address,30,620
+9,2,name,30,560
+9,3,address,30,544
+9,4,Fee note,30,420
+9,5,Fees,30,400
+9,6,Fee list,60,350
+9,7,para 02,30,280
+9,8,close address,60,230
+9,9,closing,30,175
+9,10,payment notes,30,100
+9,11,Footer,10,10
+9,12,-,0,0
+9,13,header B,30,680
+9,14,info B,30,620
+9,15,list label A,30,600
+9,16,list A,30,580
+9,17,list label B,30,320
+9,18,list B,30,310
+9,19,footer ,10,10
+9,20,comm form,30,700
+9,21,form input ,30,760
+9,22,header C,30,700
+9,23,Agent form B name,30,700
+9,24,form agent B agent num,30,680
+9,25,form agent C,30,600
+9,26,form agent C agency,30,110
+9,27,form agent C Lending ,300,110
+9,28,form C Date A,30,50
+9,29,form C Date B,300,50
+9,30,footer ,10,10
+9,31,Header D,30,700
+9,32,form D intro,30,680
+9,33,form D sign A,30,660
+9,34,form D sign B,30,640
+9,35,form D label A,30,500
+9,36,form D list A,30,560
+9,37,form D label B,30,420
+9,38,form D list B,30,400
+9,39,for D list B item,30,700
+9,40,for D list B item,30,680
+9,41,for D list B item,30,660
+9,42,for D list B item,30,600
+9,43,for D list B item,30,580
+9,44,for D list B item,30,520
+9,45,for D list B item,30,480
+9,46,for D list B item,30,420
+9,47,for D list B item,30,300
+9,48,for D list B item,30,320
+9,49,for D list B item,30,100
+9,50,footer,10,10
+9,51,for D list B item,30,700
+9,52,for D list B item,30,500
+9,53,for D list B item,30,300
+9,54,for D list B item,30,100
+9,55,footer,10,10
+9,56,for D list B item,30,700
+9,57,Company to,30,660
+9,58,Lending fax,30,640
+9,59,Lend address,30,620
+9,60,to lender form ,30,600
+9,61,to lender form ,30,580
+9,62,to lender form ,30,560
+9,63,to lender form ,30,540
+9,64,to lender form ,30,520
+9,65,to lender form ,30,500
+9,66,to lender form ,30,400
+9,67,,30,480
+9,68,from agent form ,30,460
+9,69,from agent form ,30,420
+9,70,from agent form ,30,400
+9,71,from agent form ,30,380
+9,72,from agent form ,30,360
+9,73,from agent form ,30,340
+9,74,,30,320
+9,75,footer,10,10
+9,76,,30,700
+9,77,,30,680
+9,78,,30,660
+9,79,from agent form B,30,600
+9,80,from agent form B,30,580
+9,81,from agent form B,30,560
+9,82,from lender from B,30,540
+9,83,from lender from B,30,520
+9,84,from lender from B,30,500
+9,85,from lender from B,30,480
+9,86,from lender from B,30,460
+9,87,Lender Title,30,420
+9,88,Rep Sig,30,300
+9,89,sign title,30,280
+9,90,sign date,30,180
+9,91,All state address,30,160
+9,92,Attn:,30,140
+9,93,footer,10,10
+9,94,Header AUTH,30,700
+9,95,agency name,30,680
+9,96,agent,30,660
+9,97,agent name,30,640
+9,98,mail address,30,620
+9,99,mail zip,30,600
+9,100,agent phone,30,580
+9,101,agent email,30,560
+9,102,Business Ent,30,540
+9,103,Lender Name,30,520
+9,104,Lender Contact,30,500
+9,105,rep note,30,440
+9,106,Address,30,420
+,107,city,30,380
+9,108,phone,30,360
+9,109,email,30,340
+9,110,per month,30,320
+9,111,lender agree,30,300
+9,112,Notify,30,280
+9,113,item 01,30,260
+9,114,item 02,30,240
+9,115,item 03,30,220
+9,116,item 04,30,200
+9,117,item 05,30,180
+9,118,item 06,30,160
+9,119,item 07,30,140
+9,120,footer,10,10
+9,121,item 08,30,700
+9,122,item 09,30,680
+9,123,item 10,30,660
+9,124,item 11,30,640
+9,125,item 12,30,620
+9,126,item 13,30,600
+9,127,item 14,30,580
+9,128,item 15,30,560
+9,129,item 16,30,540
+9,130,item 17,30,520
+9,131,item 18,30,500
+9,132,item 19,30,480
+9,133,item 20,30,460
+9,134,item 21,30,440
+9,135,item 22,30,420
+9,136,item 23,30,400
+9,137,item 24,30,380
+9,138,item 25,30,360
+9,139,item 26,30,340
+9,140,item 27,30,320
+9,141,item 28,30,300
+9,142,item 29,30,280
+9,143,item 30,30,260
+9,144,item 31,30,200
+9,145,footer,10,10
+9,146,item 31,30,700
+9,147,item 32,30,680
+9,148,item 33,30,660
+9,149,item 34,30,640
+9,150,item 35,30,620
+9,151,item 36,30,600
+9,152,item 37,30,580
+9,153,item 38,30,560
+9,154,item 39,30,540
+9,155,item 40,30,520
+9,156,item 41,30,500
+9,157,item 42,30,480
+9,158,item 43,30,460
+9,159,item 44,30,440
+9,160,item 45,30,420
+9,161,item 46,30,400
+9,162,item 47,30,380
+9,163,item 48,30,360
+9,164,item 49,30,340
+9,165,item 50,30,320
+9,166,item 51,30,300
+9,167,item 52,30,280
+9,168,item 53,30,260
+9,169,item 54,30,200
+9,170,footer,10,180
+9,171,item 55,30,160
+9,172,item 56,30,140
+9,173,item 57,30,120
+9,174,footer,10,10
+9,175,item 58,30,700
+9,176,item 59,30,500
+9,177,item 60,30,420
+9,178,item 61,30,400
+9,179,item 62,30,380
+9,180,item 63,30,260
+9,181,item 64,30,200
+9,182,item 65,30,160
+9,183,footer,10,10

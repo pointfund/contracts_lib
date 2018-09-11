@@ -2740,179 +2740,1593 @@ module PdfPageHelper
 		# end
 
 
-		# def page_letter_9(pdf,item_array,place_array,records_array, rec_set)
-		# 	pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
+		def page_letter_9(pdf,item_array,place_array,records_array, rec_set)
+			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 
-	 #            pdf.fill_color "ff0000"
+	            pdf.fill_color "ff0000"
 
-		# 		pdf.transparent(1.0, 0.2) do 
-		# 			pdf.image open("app/assets/images/logo_page.png"), :fit => [600, 1000], :at => [0, 160]
-		# 		end
-	 #           pdf.fill_color "000000"
-	 #        end
-	 #        # page sign lines
-	 #        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
-		# 		pdf.rectangle [110, 190], 180, 2
-		# 		pdf.fill_rectangle [10, 100],0, 0
-		# 		# pdf.fill_color "ff0000"
-		# 		pdf.rectangle [310, 190], 180, 2
-		# 		pdf.fill_rectangle [10, 100],0, 0
-		# 		# pdf.fill_rectangle [240, 510],0, 0
-	 #        end
+				pdf.transparent(1.0, 0.2) do 
+					# pdf.image open("app/assets/images/allstate_logo.png"), :fit => [300, 700], :at => [300, 760]
+				end
+	           pdf.fill_color "000000"
+	        end
+	        # page sign lines
+	        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+				# pdf.rectangle [110, 190], 180, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+				# # pdf.fill_color "ff0000"
+				# pdf.rectangle [310, 190], 180, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+				# pdf.fill_rectangle [240, 510],0, 0
+	        end
 	        
-	 #        def up_one(step)
-	 #        	step = step + 1
-	 #        	return step	
-	 #        end
+	        def up_one(step)
+	        	step = step + 1
+	        	return step	
+	        end
 
-		#     def number_to_currency(num)
-		# 	  "$#{num.to_s.gsub(/\d(?=(...)+$)/, '\0,')}"
-		# 	end
-		# 	PagePart.order('part_area ASC').reorder('id ASC')
-		# 	PageLayout.order('part_area ASC').reorder('id ASC')
-		# 	current_date = records_array.client_first_name.to_s
-		# 	my_string = item_array[0].to_s
-		# 	groupName = Time.new
-		# 	groupName = groupName.localtime.strftime('%b %d, %Y')
-		# 	say_date = my_string.gsub('#{current_date}', groupName )
-		# 	full_name = records_array.client_first_name + " " + records_array.client_last_name
-		# 	head_name = full_name
-		# 	full_name_show = head_name.gsub('#{full_name}', head_name )
-		# 	comp_address =  records_array.address_street;
-		# 	comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
+		    def number_to_currency(num)
+			  "$#{num.to_s.gsub(/\d(?=(...)+$)/, '\0,')}"
+			end
+			# PagePart.order('part_area ASC').reorder('id ASC')
+			# PageLayout.order('part_area ASC').reorder('id ASC')
+			# current_date = records_array.client_first_name.to_s
+			# my_string = item_array[0].to_s
+			# groupName = Time.new
+			# groupName = groupName.localtime.strftime('%b %d, %Y')
+			# say_date = my_string.gsub('#{current_date}', groupName )
+			# full_name = records_array.client_first_name + " " + records_array.client_last_name
+			# head_name = full_name
+			# full_name_show = head_name.gsub('#{full_name}', head_name )
+			# comp_address =  records_array.address_street;
+			# comp_address_state = records_array.address_city + ", " + records_array.address_state + " " + records_array.address_zip;
 
-		# 	intro = item_array[4]
-		# 	intro = intro.gsub('#{full_name}', full_name )
+			# intro = item_array[4]
+			# intro = intro.gsub('#{full_name}', full_name )
 
-		# 	para_A = item_array[5].to_s 
-		# 	para_A = para_A.sub('#{full_name}', full_name )
+			# para_A = item_array[5].to_s 
+			# para_A = para_A.sub('#{full_name}', full_name )
 
-		# 	# wash para B
-		# 	para_B = item_array[6].to_s
-		# 	# find vars and replace 
-		# 	para_B = para_B.sub('#{loan_rate}', records_array.stated_rate.to_s )
-		# 	para_B = para_B.sub('#{total_loan}', number_to_currency(records_array.total_amount) )
-		# 	st_date = records_array.repay_start.strftime("%B")
-		# 	para_B = para_B.sub('#{start_month}', st_date )	
-		# 	sign_to = item_array[9].to_s 
-		# 	sign_to = sign_to.sub('#{full_name}', full_name )
+			# # wash para B
+			# para_B = item_array[6].to_s
+			# # find vars and replace 
+			# para_B = para_B.sub('#{loan_rate}', records_array.stated_rate.to_s )
+			# para_B = para_B.sub('#{total_loan}', number_to_currency(records_array.total_amount) )
+			# st_date = records_array.repay_start.strftime("%B")
+			# para_B = para_B.sub('#{start_month}', st_date )	
+			# sign_to = item_array[9].to_s 
+			# sign_to = sign_to.sub('#{full_name}', full_name )
 
-		# 	tag_height = 14
-		# 	# step = up_one(step) 
-		# 	step = 0
+			# tag_height = 14
+			# step = up_one(step) 
+			step = 0
 
-		# 	def get_page_loc(step, place_array, pdf, var_x, var_y)
-		# 		var_x = place_array[step][0]
-		# 		var_y = place_array[step][1]
+			def get_page_loc(step, place_array, pdf, var_x, var_y)
+				pdf.indent 320, 0 do
+					pdf.stroke_color 'FFFF00'
+					pdf.stroke_bounds
+					pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
+					pdf.line_to [var_x, var_y]
+				end
+					# pdf.rectangle [var_x, var_y], 100, 200
+				# end
+			end
+			
+
+ 			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+ 				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [200, 700], :at => [200, 760]
+				end
+ 				pdf.fill_color 'FF00FF'
+				pdf.rectangle [140, 734], 310, 20
+				pdf.fill_rectangle [10, 100],0, 0
+				pdf.fill_color '000000'
+	        end
+
+    		# page Header 
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 530, :height => 16}) do
+				pdf.fill_color '000000'
+				pdf.font "OpenSans", size: 10
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 14, :align => :center
+				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+	        end
+			step = up_one(step)
+			# skip client info 02
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 500, :height => 250}) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			end
+			step = up_one(step)
+
+			# Client info 03
+			pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 500, :height => 200) do
+				# pdf.text records_array.loan_name , {:color => "000000"}
+				pdf.text item_array[step].chomp.to_s, :inline_format => true
+			end
+			step = up_one(step)  
+
+			# info 04
+			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 500, :height => 200) do
+			# 	pdf.text full_name_show , {:color => "000000"}
+				pdf.text item_array[step].chomp.to_s, :inline_format => true
+				# pdf.text records_array.client_first_name , {:color => "000000"}
+				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+			end
+
+			step = up_one(step)			
+			# # #Address 05
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true
+				# pdf.font "OpenSans", size: 10 
+				# pdf.text comp_address + " \n" + comp_address_state
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+
+			step = up_one(step)
+			# # #intro 5
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 250, :height => 100) do
+				pdf.text item_array[step]
+			# # 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+			# # #para 01 5 nums
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 400, :height => 100) do
+				pdf.text item_array[step]
+			# 	# pdf.text item_array[5]
+			# 	# pdf.text para_A 
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			# text item_array[step]
+			# # end
+			step = up_one(step)
+			# #para 02 7
+			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 450, :height => 100) do
+				pdf.text item_array[step]
+			# 	pdf.text para_B
+			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			
+			end
+			step = up_one(step) 
+			# #para 03 8
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true
+			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+			# # #ender 9
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true
+			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+			# # #sign to 10
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 400) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true
+			# 	pdf.text sign_to
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+			# #sign from 11
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			step = up_one(step)
+
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+
+
+
+
+
+			##########################################################################################
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [150, 700], :at => [400, 750]
+				end
+			end
+
+			# #sign from 13
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 14, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 100) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 380, :height => 300) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 300) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+
+
+
+
+
+
+			##########################################################################################
+			#PAGE 03
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+					pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [200, 700], :at => [200, 760]
+				end
+				pdf.fill_color 'FF00FF'
+				pdf.rectangle [110, 714], 310, 20
+				pdf.fill_rectangle [10, 100],0, 0
+
+				pdf.rectangle [440, 754], 130, 60
+				pdf.fill_rectangle [10, 100],0, 0
+
+				pdf.fill_color '000000'
+			end
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 120, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 100, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 460, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 12, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 100) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 500) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+
+
+			##########################################################################################
+
+
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+					pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [200, 700], :at => [200, 760]
+				end
+					pdf.fill_color 'FF00FF'
+				pdf.rectangle [150, 714], 250, 20
+				pdf.fill_rectangle [10, 100],0, 0
+				pdf.fill_color '000000'
+			end
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 200) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+
+			pdf.bounding_box([30,460], :width => 500, :height => 100) do
+				pdf.text "<b>AGREEMENTS</b>", :inline_format => true, :size => 10, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 200) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+			# step = up_one(step)
+		
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+
+
+
+
+
+			#PAGE 05
+			##########################################################################################
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [150, 700], :at => [400, 750]
+				end
+			end
+
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 300) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 340) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+
+
+			#PAGE 06
+			##########################################################################################
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [150, 700], :at => [400, 750]
+				end
+			end
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 460) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 200) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+
+
+
+			#PAGE 07
+			##########################################################################################
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [150, 700], :at => [400, 750]
+				end
+			end
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 400) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 60) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+
+
+			#PAGE 08
+
+			##########################################################################################
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [150, 700], :at => [400, 750]
+				end
+			end
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+	
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+				pdf.transparent(1.0, 0.2) do 
+				pdf.image open("app/assets/images/allstate_logo.png"), :fit => [200, 700], :at => [200, 760]
+			end
+				pdf.fill_color 'FF00FF'
+			pdf.rectangle [100, 718], 330, 35
+
+			pdf.fill_rectangle [10, 100],0, 0
+			pdf.fill_color '000000'
+			end
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 11, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 260, :height => 100) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 580, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+			#need to indent lines
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 260) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 260) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 260) do
+				pdf.text item_array[step], :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 260) do
+				pdf.text item_array[step], :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 260) do
+				pdf.text item_array[step], :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 220, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 220, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 220, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+
+
+
+
+
+
+			#PAGE 10
+			##########################################################################################
+			pdf.start_new_page
+
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+					pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [200, 700], :at => [200, 750]
+				end
+					pdf.fill_color 'FF00FF'
+				pdf.rectangle [100, 718], 330, 35
+
+				pdf.fill_rectangle [10, 100],0, 0
+				pdf.fill_color '000000'
+			end
+
+	 		pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+					pdf.rectangle [0, 760], 510, 6
+					pdf.fill_rectangle [10, 100],0, 0
 					
-		# 		pdf.indent 320, 0 do
-		# 			pdf.stroke_color 'FFFF00'
-		# 			pdf.stroke_bounds
-		# 			pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
-		# 			pdf.line_to [var_x, var_y]
-		# 		end
-		# 			# pdf.rectangle [var_x, var_y], 100, 200
-		# 		# end
-		# 	end
-			
-  #   		# page layout 
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-		# 		# var_x = place_array[step][0]
-		# 		# var_y = place_array[step][1]	
-		# 		# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
-		# 		# pdf.font "/app/assets/fonts/Spirax-Regular.ttf"
-		# 		# pdf.text item_array[step], {:color => "00ff00"}
-		# 		pdf.text say_date, {:color => "00ff00"}
-		# 		# pdf.text place_array[step][0].to_s
-		# 		# pdf.text place_array[step][1].to_s
+		        end
 
-		# 		get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-	 #        end
-			
-		# 	# skip client info
-		# 	# step = up_one(step)  
-		# 	# pdf.bounding_box( [ place_array[step][0], place_array[step][1] ] ),{ :width => 200, :height => 30}) do
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-		# 		# get_page_loc(step, place_array, pdf);
-		# 		# pdf.text records_array.loan_name	
-		# 		# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		# 	end
-		# 	step = up_one(step)
 
-		# 	# Client info 2
-		# 	pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
-		# 		pdf.text records_array.loan_name , {:color => "000000"}
-		# 		# get_page_loc(step, place_array, pdf, var_x, var_y);
-		# 		get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 12, :align => :center
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
 
-		# 	end
-		# 	step = up_one(step)  
 
-		# 	# info 3
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
-		# 	# 	pdf.text full_name_show , {:color => "000000"}
-		# 		pdf.text records_array.client_first_name , {:color => "000000"}
-		# 		get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
-		# 	end
 
-		# 	step = up_one(step)			
-		# 	# #Address 4
-		# 	pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 		pdf.font "OpenSans", size: 10 
-		# 		pdf.text comp_address + " \n" + comp_address_state
-		# 		get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	end
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
 
-		# 	# step = up_one(step)
-		# 	# # #intro 5
-		# 	# pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 16) do
-		# 	# 	pdf.text intro
-		# 	# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# 	# step = up_one(step)
-		# 	# #para 01 6
-		# 	# pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 	# 	# pdf.text item_array[step]
-		# 	# 	# pdf.text item_array[5]
-		# 	# 	pdf.text para_A 
-		# 	# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# 	# # text item_array[step]
-		# 	# # end
-		# 	# step = up_one(step)
-		# 	# #para 02 7
-		# 	# pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 40) do
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+
+	 		pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+					pdf.rectangle [10, 620], 510, 3
+					pdf.fill_rectangle [10, 100],0, 0
+					
+		        end
+
+	 		pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+					pdf.rectangle [10, 560], 510, 2
+					pdf.fill_rectangle [10, 100],0, 0
+					
+		        end
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+	 		pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+					pdf.rectangle [0, 410], 510, 2
+					pdf.fill_rectangle [10, 100],0, 0
+					
+		        end
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 8, :align => :center
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 8, :align => :center
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+	 		pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+					pdf.rectangle [0, 240], 510, 2
+					pdf.fill_rectangle [10, 100],0, 0
+					
+		        end
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+					pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+
+
+		#PAGE 11
+		##########################################################################################
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [200, 700], :at => [400, 750]
+				end
+			end
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 11, :align => :center
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+					pdf.text item_array[step], :inline_format => true, :size => 10
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
+				step = up_one(step)
+
+
+
+	 		pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+				pdf.rectangle [0, 580], 510, 2
+				pdf.fill_rectangle [10, 100],0, 0
 				
-		# 	# 	pdf.text para_B
-		# 	# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+	        end
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+			pdf.bounding_box([0, 90],{ :width => 470, :height => 100 }) do
+				pdf.rectangle [0, 490], 510, 2
+				pdf.fill_rectangle [10, 100],0, 0
+				
+	        end
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
 			
-		# 	# end
-		# 	# step = up_one(step) 
-		# 	# #para 03 8
-		# 	# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 	# 	pdf.text item_array[step]
-		# 	# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# 	# step = up_one(step)
-		# 	# # #ender 9
-		# 	# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 	# 	pdf.text item_array[step]
-		# 	# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# 	# step = up_one(step)
-		# 	# # #sign to 10
-		# 	# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 	# # 	# pdf.text item_array[step]
-		# 	# 	pdf.text sign_to
-		# 	# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# 	# step = up_one(step)
-		# 	# #sign from 11
-		# 	# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-		# 	# 	pdf.text item_array[step]
-		# 	# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-		# 	# end
-		# end
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				# pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 8
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 110) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([0, 90],{ :width => 400, :height => 100 }) do
+				pdf.rectangle [0, 400], 510, 2
+				pdf.fill_rectangle [10, 100],0, 0
+	        end
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([0, 90],{ :width => 400, :height => 100 }) do
+				pdf.rectangle [0, 30], 510, 2
+				pdf.fill_rectangle [10, 100],0, 0
+				
+	        end
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+
+
+			#PAGE 12
+			##########################################################################################
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [150, 700], :at => [400, 750]
+				end
+			end
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 8
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+
+
+
+
+			#page 13
+			##########################################################################################
+			pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/images/allstate_logo.png"), :fit => [150, 700], :at => [400, 750]
+				end
+			end
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 12, :align => :center
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
+				pdf.text item_array[step], :inline_format => true, :size => 10
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 260) do
+				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
+			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+			end
+			step = up_one(step)
+
+		end
 
 		# # Assignment of %
 		def page_letter_10(pdf,item_array,place_array,records_array, rec_set)

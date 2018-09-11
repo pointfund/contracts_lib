@@ -5,7 +5,7 @@ before_action :set_contract, only: [:show, :edit, :update, :destroy]
 # GET /contracts.json
 def index
     # @contracts = Contract.all
- @contractB = Contract.all
+    @contracts = Contract.all
     @layouts = PageLayout.all
 
     # @contractB = Contract.where("book_id" => "2");
@@ -90,8 +90,9 @@ def show_edit
 
         get_book = @contracts.book_id 
         @contracts = Contract.where({ book_id: get_book })
-        @page_parts = PagePart.where(contract_id: get_contract)
-        @page_layouts = PageLayout.where({contract_id: get_contract})    
+        @page_parts = PagePart.where(contract_id: get_contract).first(210)
+        @page_layouts = PageLayout.where({contract_id: get_contract}).first(210)
+
     else
         @contracts = Contract.where({ book_id: 1 })
         @page_parts = PagePart.where(contract_id: get_record)
