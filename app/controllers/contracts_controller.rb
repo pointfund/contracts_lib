@@ -29,7 +29,7 @@ def show
     @home = @contracts
     # @books = Book.where({id: @contract.book_id})
     @all_layouts = PageLayout.all.length
-    @page_parts = PagePart.where(contract_id: params[:id])
+    @page_parts = PagePart.where(contract_id: params[:id]).reorder('id ASC')
     @page_parts.length
     # @layouts = PageLayout.where({contract_id: params[:id]}).order('page_area DESC').reorder('id ASC')
     @layouts = PageLayout.where({contract_id: params[:id]}).reorder('id ASC')
