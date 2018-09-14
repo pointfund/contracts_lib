@@ -1,7 +1,6 @@
 class PagePart < ApplicationRecord
 	# belongs_to :contract
 
-
 	def self.to_csv
 		attributes = %w{contract_id	page_area name content}
 		CSV.generate(headers: true) do |csv|

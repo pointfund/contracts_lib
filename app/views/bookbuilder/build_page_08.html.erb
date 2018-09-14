@@ -1,0 +1,11 @@
+<h1>Bookbuilder#build_parts</h1>
+<p>Find me in app/views/bookbuilder/build_parts.html.erb</p>
+<%= #link_to "Build Layouts", bookbuilder_build_layouts_path, class: "btn btn-info btn-lg" 
+%> 
+
+
+<% if(@layouts.length ==  0) %>
+	<%= link_to "Build Layouts -->", bookbuilder_build_layouts_path, class: "btn btn-info btn-lg" %> 
+<% else %>
+	<%= link_to "Build Show ", bookbuilder_show_path, class: "btn btn-info btn-lg" %> 
+<% end %>

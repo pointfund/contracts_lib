@@ -120,18 +120,27 @@ class BookbuilderController < ApplicationController
 
         
 
- 
-        
+    def build_page_08
+        @books = Book.all
+        @contracts = Contract.all
+        @page_parts = PagePart.all
+        @layouts = PageLayout.all
 
-
-
-
-
-
-
-
-
-
+        imp_page_08 = "app/assets/builddb/page_parts_08.csv"
+        imp_lay_08 = "app/assets/builddb/page_layout_08.csv"
+        if(@layouts.length <= 380)
+            CSV.foreach(imp_page_08, :headers => true) do |row|
+                # puts row
+                PagePart.create!(row.to_hash)
+            end
+            CSV.foreach(imp_lay_08, :headers => true) do |row|
+                # puts row
+                PageLayout.create!(row.to_hash)
+            end
+        end
+    #     @layouts = PageLayout.all
+    #     @page_parts = PagePart.all
+    end     
 
 
 

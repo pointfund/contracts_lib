@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'bookbuilder/build_books'
   get 'bookbuilder/build_contracts'
   get 'bookbuilder/build_page_09'
-
+  get 'bookbuilder/build_page_08'
 
   devise_for :users
   get 'pdf_page/index'

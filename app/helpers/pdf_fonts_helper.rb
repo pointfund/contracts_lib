@@ -7,10 +7,10 @@ module PdfFontsHelper
 
 		def loadfonts(pdf)
 
-			pdf.font_families.update("Arial" => {
+			pdf.font_families.update("Spirax" => {
     			:normal => Rails.root.join("app/assets/fonts/Spirax-Regular.ttf")
   				})
-			# pdf.font "Arial"
+			# pdf.font "Spirax"
 			pdf.font_families.update("OpenSans" => {
     			:normal => Rails.root.join("app/assets/fonts/OpenSans-Regular.ttf"),
     			:bold => Rails.root.join("app/assets/fonts/OpenSans-Bold.ttf")
@@ -34,6 +34,13 @@ module PdfFontsHelper
     			:italic => Rails.root.join("app/assets/fonts/times_i.ttf")
     			})
   			pdf.font "times"
+      pdf.font_families.update("arial" => {
+          :normal => Rails.root.join("app/assets/fonts/arial.ttf"),
+          :bold => Rails.root.join("app/assets/fonts/arialbd.ttf"),
+          :italic => Rails.root.join("app/assets/fonts/ariali.ttf")
+          })
+        pdf.font "arial"
+
 		end
 
 	

@@ -91,8 +91,8 @@ def show_edit
 
         get_book = @contracts.book_id 
         @contracts = Contract.where({ book_id: get_book })
-        @page_parts = PagePart.where(contract_id: get_contract).first(210)
-        @page_layouts = PageLayout.where({contract_id: get_contract}).first(210)
+        @page_parts = PagePart.where(contract_id: get_contract).last(62)
+        @page_layouts = PageLayout.where({contract_id: get_contract}).last(62)
 
     else
         @contracts = Contract.where({ book_id: 1 })

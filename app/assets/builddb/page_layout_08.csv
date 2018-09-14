@@ -1,0 +1,120 @@
+contract_id,page_area,name,posx,posy
+8,0,title,0,700
+8,1,point address,30,640
+8,2,name,30,600
+8,3,proc fee,60,540
+8,4,Granting,60,510
+8,5,para 01,60,460
+8,6,Submission ,60,350
+8,7,para 02,60,110
+8,8,Footer,10,10
+8,9,Conf,60,700
+8,10,para 01,0,640
+8,11,info B,30,610
+8,12,list label A,60,560
+8,13,list A,80,540
+8,14,list label B,60,310
+8,15,list B,80,280
+8,16,footer ,10,10
+8,17,comm form,300,730
+8,18,form input ,300,710
+8,19,header C,0,680
+8,20,Agent form B name,30,660
+8,21,form agent B agent num,30,630
+8,22,form agent C,30,560
+8,23,footer ,10,10
+8,24,none,110,730
+8,25,form D intro,30,700
+,26,,30,320
+8,27,form agent C agency,60,300
+8,28,lender header,30,220
+8,29,form agent C Lending ,60,200
+8,30,form C Date A,200,340
+8,31,form C Date B,200,240
+8,32,agent Sig,60,340
+8,33,lender Sig,60,240
+8,34,footer,10,10
+8,35,for D list B item,0,700
+8,36,for D list B item,30,660
+8,37,for list header,30,560
+8,38,for D list B item,30,540
+8,39,for D list B item,30,520
+8,40,for D list B item,30,480
+8,41,footer,10,10
+8,42,for D list B item,30,700
+8,43,for D list B item,60,640
+8,44,lender name,100,640
+8,45,address,60,600
+8,46,city zip,60,560
+8,47,lend email ,60,520
+8,48,lend phone,200,520
+8,49,add,60,480
+8,50,Agent label,60,440
+8,51,agent name,100,440
+8,52,agent address,60,400
+8,53,agent city zip,200,400
+8,54,agent  email ,60,360
+8,55,agent phone,200,360
+8,56,Company to,60,320
+8,57,Lending fax,200,300
+8,58,Lend address,100,280
+8,59,to lender form ,100,240
+8,60,from agent form ,60,200
+8,61,from agent form ,60,140
+8,62,from agent form ,60,100
+8,63,from agent form ,60,60
+8,64,from agent form ,60,30
+8,65,footer,10,10
+8,66,from agent form ,60,700
+8,67,govern,60,640
+8,68,entire,60,600
+8,69,execute,60,560
+8,70,witness,60,500
+8,71,Agent Title,30,460
+8,72,agent name ,100,460
+8,73,agent address,100,430
+8,74,agent zip,100,400
+8,75,agent sig,100,370
+8,76,lender title,30,340
+8,77,lender name,100,340
+8,78,lender address,100,310
+8,79,lender zip ,100,280
+8,80,Auth sign ,100,250
+,81,label,30,230
+8,82,Rep Sig,100,230
+8,83,sign title,100,200
+8,84,sign date,100,170
+8,85,All state address,100,140
+8,86,Attn:,100,60
+8,87,footer,10,10
+8,88,header,0,700
+8,89,agency name,200,680
+8,90,agent,200,650
+8,91,sub header,60,620
+8,92,fee list,80,600
+8,93,pay method,50,570
+8,94,pay options,60,550
+8,95,if check note,30,530
+8,96,greeting,30,490
+8,97,intro ,30,450
+8,98,name,30,400
+8,99,agt sig,30,370
+8,100,agt sign ,30,350
+8,101,From lender,30,220
+8,102,Rep name ,30,190
+8,103,Rep sig,30,160
+8,104,sig date,30,130
+8,105,footer,10,10
+8,106,terminate,0,700
+8,107,graph,30,670
+8,108,contact info,30,100
+8,109,footer,10,10
+8,110,item 58,30,700
+8,111,item 59,30,500
+8,112,item 60,30,420
+8,113,item 61,30,400
+8,114,item 62,30,380
+8,115,item 63,30,260
+8,116,item 64,30,200
+8,117,item 65,30,160
+8,118,footer,10,10

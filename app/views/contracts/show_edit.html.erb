@@ -40,23 +40,23 @@
 
 			<div class="col-md-6 " style="">
 				<div class="panel panel-default">
-					<div class="panel panel-heading">
+					<!-- <div class="panel panel-heading"> -->
 						<%=# render 'page_layouts/form_layouts', action: "new" 
 							 %>
-						Section Layout : 	 
-					</div>
+						<!-- Section Layout : 	  -->
+					<!-- </div> -->
 					<div class="panel panel-body" style="border:1px solid orange; ">
 						<table >  
-							<tr>
-							    <th>Id</th>
+							<tr style="height:0px; margin:0px; padding: 0px;">
+							  <!--   <th>Id</th>
 							    <th>Name</th> 
 							    <th>X </th>
 							    <th>Y </th>
 							    <th>Page ID</th>
-							    <th>Save</th>
+							    <th>Save</th> -->
 						    </tr>
 						    <%  @page_layouts.each do |part| %>
-								<tr style="min-height:50px; margin:12px;">
+								<tr style="height:76px; margin:12px; border:1px solid orange; ">
 									<%=  render 'page_layouts/eachform', page_layout: part, local: {id: part.id} 
 									%>
 								</tr>
