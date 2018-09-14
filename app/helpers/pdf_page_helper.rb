@@ -2740,7 +2740,7 @@ module PdfPageHelper
 		# 	# end
 		# end
 
-		def page_letter_8(pdf,item_array,place_array,records_array, rec_set)
+		def page_letter_18(pdf,item_array,place_array,records_array, rec_set)
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 
 	            pdf.fill_color "ff0000"
@@ -2904,8 +2904,6 @@ module PdfPageHelper
 
 
 
-
-
 			# PAGE 02
 			# ##########################################################################################
 			# pdf.bounding_box([0, 90],{ :width => 520, :height => 100 }) do
@@ -2968,10 +2966,6 @@ module PdfPageHelper
 
 			##########################################################################################
 			pdf.start_new_page
-
-
-
-
 
 
 
@@ -3160,8 +3154,6 @@ module PdfPageHelper
 
 
 
-
-
 			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 60) do
 				pdf.text item_array[step].chomp.to_s, :inline_format => true, :size => 8, :align => :center
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
@@ -3170,11 +3162,6 @@ module PdfPageHelper
 
 			##########################################################################################
 			pdf.start_new_page
-
-
-
-
-
 
 
 
@@ -3308,12 +3295,6 @@ module PdfPageHelper
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
-
-
-
-
-
-
 
 
 
@@ -3712,12 +3693,6 @@ module PdfPageHelper
 
 
 
-
-
-
-
-
-
 	 		pdf.bounding_box([-10, 90],{ :width => 560, :height => 100 }) do
 				pdf.rectangle [30, 374], 510, 4
 				pdf.fill_rectangle [10, 100],0, 0
@@ -3934,7 +3909,7 @@ module PdfPageHelper
 
 
 
-
+		# PAGE 09
 		def page_letter_9(pdf,item_array,place_array,records_array, rec_set)
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 
@@ -5520,7 +5495,6 @@ module PdfPageHelper
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
-
 		end
 
 		# # Assignment of %
@@ -6001,7 +5975,8 @@ module PdfPageHelper
 			end
 		end
 
-		def page_letter_11(pdf,item_array,place_array,records_array,rec_set)
+		# Contract 8 pic 
+		def page_letter_8(pdf,item_array,place_array,records_array,rec_set)
 			Prawn::Document.generate("point_funding_doc.pdf") do
 			pdf.bounding_box([-40, 660], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "000000"
@@ -6174,14 +6149,10 @@ module PdfPageHelper
 
 			##########################################################################################
 			# pdf.start_new_page
-
-
-
-
 		end
 
 
-		# Contract 9
+		# Contract 9 pic 
 		def page_letter_12(pdf,item_array,place_array,records_array,rec_set)
 			Prawn::Document.generate("point_funding_doc.pdf") do
 			pdf.bounding_box([-10, 700], :width => 100, :height => 100, :at => [200, 550]) do
@@ -6221,13 +6192,13 @@ module PdfPageHelper
 
 
 			# pdf.bounding_box([-50, 710], :width => 100, :height => 100, :at => [200, 550]) do
-	  #           pdf.fill_color "000000"
+			#           pdf.fill_color "000000"
 			# 	pdf.transparent(1.0, 0.2) do 
 			# 		pdf.image open("app/assets/page_files/Con 9 page-2.png"), :fit => [600, 1000], :at => [0, 160]
 			# 	end
-	  #          pdf.fill_color "000000"
-	  #       end
-	  #       pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+			#          pdf.fill_color "000000"
+			#       end
+			#       pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
 			# 	pdf.fill_color "ff0000"
 			# 	pdf.rectangle [0, 600], 2, 600
 			# 	pdf.fill_rectangle [10, 100],0, 0
@@ -6235,7 +6206,7 @@ module PdfPageHelper
 			# 	pdf.rectangle [530, 600], 2, 600
 			# 	pdf.fill_rectangle [10, 100],0, 0
 			# 	pdf.fill_color "000000"
-	  #       end
+			#       end
 
 	        # page 03
 			##########################################################################################
@@ -6252,15 +6223,15 @@ module PdfPageHelper
 			         pdf.fill_color "000000"
 			end
 
-	   #      pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
-				# pdf.fill_color "ff0000"
-				# pdf.rectangle [0, 600], 2, 600
-				# pdf.fill_rectangle [10, 100],0, 0
+		   #      pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+					# pdf.fill_color "ff0000"
+					# pdf.rectangle [0, 600], 2, 600
+					# pdf.fill_rectangle [10, 100],0, 0
 
-				# pdf.rectangle [530, 600], 2, 600
-				# pdf.fill_rectangle [10, 100],0, 0
-				# pdf.fill_color "000000"
-	   #      end
+					# pdf.rectangle [530, 600], 2, 600
+					# pdf.fill_rectangle [10, 100],0, 0
+					# pdf.fill_color "000000"
+		   #      end
 
 
 
@@ -6278,15 +6249,15 @@ module PdfPageHelper
 		    end
 
 
-	   #      pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
-				# pdf.fill_color "ff0000"
-				# pdf.rectangle [0, 600], 2, 600
-				# pdf.fill_rectangle [10, 100],0, 0
+		   #      pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+					# pdf.fill_color "ff0000"
+					# pdf.rectangle [0, 600], 2, 600
+					# pdf.fill_rectangle [10, 100],0, 0
 
-				# pdf.rectangle [530, 600], 2, 600
-				# pdf.fill_rectangle [10, 100],0, 0
-				# pdf.fill_color "000000"
-	   #      end
+					# pdf.rectangle [530, 600], 2, 600
+					# pdf.fill_rectangle [10, 100],0, 0
+					# pdf.fill_color "000000"
+		   #      end
 
 		    # page 05
 			# ##########################################################################################
@@ -6301,15 +6272,15 @@ module PdfPageHelper
 			         pdf.fill_color "000000"
 			end
 	        
-	   #      pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
-				# pdf.fill_color "ff0000"
-				# pdf.rectangle [0, 600], 2, 600
-				# pdf.fill_rectangle [10, 100],0, 0
+		   #      pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+					# pdf.fill_color "ff0000"
+					# pdf.rectangle [0, 600], 2, 600
+					# pdf.fill_rectangle [10, 100],0, 0
 
-				# pdf.rectangle [530, 600], 2, 600
-				# pdf.fill_rectangle [10, 100],0, 0
-				# pdf.fill_color "000000"
-	   #      end
+					# pdf.rectangle [530, 600], 2, 600
+					# pdf.fill_rectangle [10, 100],0, 0
+					# pdf.fill_color "000000"
+		   #      end
 
 			 # page 06
 			# ##########################################################################################
@@ -6325,15 +6296,15 @@ module PdfPageHelper
 			end
 
 	        
-	   #      pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
-				# pdf.fill_color "ff0000"
-				# pdf.rectangle [0, 600], 2, 600
-				# pdf.fill_rectangle [10, 100],0, 0
+		   #      pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+					# pdf.fill_color "ff0000"
+					# pdf.rectangle [0, 600], 2, 600
+					# pdf.fill_rectangle [10, 100],0, 0
 
-				# pdf.rectangle [530, 600], 2, 600
-				# pdf.fill_rectangle [10, 100],0, 0
-				# pdf.fill_color "000000"
-	   #      end
+					# pdf.rectangle [530, 600], 2, 600
+					# pdf.fill_rectangle [10, 100],0, 0
+					# pdf.fill_color "000000"
+		   #      end
 
 
 			# # page 07
@@ -6445,10 +6416,6 @@ module PdfPageHelper
 
 
 			# ##########################################################################################
-
-
-
-
 		end
 
 	end
