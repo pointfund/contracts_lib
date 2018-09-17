@@ -6061,6 +6061,19 @@ module PdfPageHelper
 			##########################################################################################
 			pdf.start_new_page
 
+
+			pdf.bounding_box([-20, 690], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_4.png"), :fit => [580, 1000], :at => [0, 160]
+				end
+	           pdf.fill_color "000000"
+	        end
+
+
+
+
+
 			pdf.bounding_box([ 100, 434], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
@@ -6086,18 +6099,20 @@ module PdfPageHelper
 
 
 
-			pdf.bounding_box([-20, 690], :width => 100, :height => 100, :at => [200, 550]) do
-	            pdf.fill_color "000000"
-				pdf.transparent(1.0, 0.2) do 
-					pdf.image open("app/assets/page_files/con_8_page_4.png"), :fit => [580, 1000], :at => [0, 160]
-				end
-	           pdf.fill_color "000000"
-	        end
-
 
 	        # PAGE 05
 			##########################################################################################
 			pdf.start_new_page
+
+
+			pdf.bounding_box([-10, 690], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_5.png"), :fit => [560, 940], :at => [0, 160]
+				end
+	           pdf.fill_color "000000"
+	        end
+
 
 			pdf.bounding_box([ 144, 628], :width => 430, :height => 30) do
 				pdf.text rec_set[6].strftime('%d'), :color => "ff0000" 
@@ -6124,17 +6139,22 @@ module PdfPageHelper
 			end
 
 
-			pdf.bounding_box([-10, 690], :width => 100, :height => 100, :at => [200, 550]) do
-	            pdf.fill_color "000000"
-				pdf.transparent(1.0, 0.2) do 
-					pdf.image open("app/assets/page_files/con_8_page_5.png"), :fit => [560, 940], :at => [0, 160]
-				end
-	           pdf.fill_color "000000"
-	        end
 
 	        # PAGE 06
 			##########################################################################################
 			pdf.start_new_page
+
+
+			pdf.bounding_box([-10, 670], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_6.png"), :fit => [560, 940], :at => [0, 160]
+				end
+	           pdf.fill_color "000000"
+	        end
+			
+
+
 
 			pdf.bounding_box([ 220, 622], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
@@ -6206,18 +6226,18 @@ module PdfPageHelper
 
 
 
-			pdf.bounding_box([-10, 670], :width => 100, :height => 100, :at => [200, 550]) do
-	            pdf.fill_color "000000"
-				pdf.transparent(1.0, 0.2) do 
-					pdf.image open("app/assets/page_files/con_8_page_6.png"), :fit => [560, 940], :at => [0, 160]
-				end
-	           pdf.fill_color "000000"
-	        end
-			
 			#PAGE 07  
 			##########################################################################################
 			pdf.start_new_page
 
+
+			pdf.bounding_box([0, 670], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_7.png"), :fit => [560, 940], :at => [0, 160]
+				end
+	           pdf.fill_color "000000"
+	        end
 			# Agency Accepted form
 
 			pdf.bounding_box([ 440, 644], :width => 430, :height => 30) do
@@ -6279,14 +6299,6 @@ module PdfPageHelper
 
 
 
-
-			pdf.bounding_box([0, 670], :width => 100, :height => 100, :at => [200, 550]) do
-	            pdf.fill_color "000000"
-				pdf.transparent(1.0, 0.2) do 
-					pdf.image open("app/assets/page_files/con_8_page_7.png"), :fit => [560, 940], :at => [0, 160]
-				end
-	           pdf.fill_color "000000"
-	        end
 
 	        # PAGE 08
 			##########################################################################################
