@@ -124,7 +124,7 @@ module PdfPageHelper
 						page_letter_13(pdf, item_array, place_array, records_array, rec_set)
 					when 14
 						page_letter_14(pdf, item_array, place_array, records_array, rec_set)	
-					when 14
+					when 15
 						page_letter_15(pdf, item_array, place_array, records_array, rec_set)	
 					when 33
 						page_letter_33(pdf, item_array, place_array, records_array, rec_set)
