@@ -5981,7 +5981,7 @@ module PdfPageHelper
 			pdf.bounding_box([-40, 660], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "000000"
 				pdf.transparent(1.0, 0.2) do 
-					pdf.image open("app/assets/page_files/Con 8 page-1.png"), :fit => [600, 1000], :at => [0, 160]
+					pdf.image open("app/assets/page_files/con_8_page_1.png"), :fit => [600, 1000], :at => [0, 160]
 				end
 	           pdf.fill_color "000000"
 	        end
@@ -6374,7 +6374,7 @@ module PdfPageHelper
 				pdf.bounding_box([-10, 700], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "000000"
 					pdf.transparent(1.0, 0.2) do 
-						pdf.image open("app/assets/page_files/Con 9 page-1.png"), :fit => [550, 970], :at => [0, 160]
+						pdf.image open("app/assets/page_files/con_9_page_1.png"), :fit => [550, 970], :at => [0, 160]
 					end
 	           pdf.fill_color "000000"
 	        end
@@ -6410,7 +6410,7 @@ module PdfPageHelper
 			pdf.bounding_box([-50, 710], :width => 100, :height => 100, :at => [200, 550]) do
 			          pdf.fill_color "000000"
 				pdf.transparent(1.0, 0.2) do 
-					pdf.image open("app/assets/page_files/Con 9 page-2.png"), :fit => [600, 1000], :at => [0, 160]
+					pdf.image open("app/assets/page_files/con_9_page_2.png"), :fit => [600, 1000], :at => [0, 160]
 				end
 			         pdf.fill_color "000000"
 			end
