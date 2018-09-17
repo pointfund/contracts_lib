@@ -6037,7 +6037,7 @@ module PdfPageHelper
 
 
 	        pdf.bounding_box([ 470, 730], :width => 430, :height => 30) do
-				pdf.text rec_set[32] , :color => "ff0000", :size => 10 
+				pdf.text rec_set[32] , :color => "ff0000", :size => 8 
 			end
 	        pdf.bounding_box([ 490, 714], :width => 430, :height => 30) do
 				pdf.text rec_set[2][0] + ". " + rec_set[3][0] + ". ", :color => "ff0000", :size => 10 
@@ -6913,133 +6913,133 @@ module PdfPageHelper
 
 			# # # page 11
 			# # ##########################################################################################
-			pdf.start_new_page
+			# pdf.start_new_page
 
-    		# 	pdf.bounding_box([0, 90],{ :width => 600, :height => 100 }) do
-				# pdf.fill_color "ff0000"
-				# pdf.rectangle [0, 700], 600, 2
-				# pdf.fill_rectangle [10, 100],0, 0
+   #  		# 	pdf.bounding_box([0, 90],{ :width => 600, :height => 100 }) do
+			# 	# pdf.fill_color "ff0000"
+			# 	# pdf.rectangle [0, 700], 600, 2
+			# 	# pdf.fill_rectangle [10, 100],0, 0
 				
-				# pdf.fill_color "00ff00"
-				# pdf.rectangle [0, 600], 600, 2
-				# pdf.fill_rectangle [10, 100],0, 0
+			# 	# pdf.fill_color "00ff00"
+			# 	# pdf.rectangle [0, 600], 600, 2
+			# 	# pdf.fill_rectangle [10, 100],0, 0
 
-				# pdf.fill_color "0000ff"
-				# pdf.rectangle [0, 500], 600, 2
-				# pdf.fill_rectangle [10, 100],0, 0
+			# 	# pdf.fill_color "0000ff"
+			# 	# pdf.rectangle [0, 500], 600, 2
+			# 	# pdf.fill_rectangle [10, 100],0, 0
 
-				# pdf.fill_color "ff0000"
-				# pdf.rectangle [0, 400], 600, 2
-				# pdf.fill_rectangle [10, 100],0, 0
+			# 	# pdf.fill_color "ff0000"
+			# 	# pdf.rectangle [0, 400], 600, 2
+			# 	# pdf.fill_rectangle [10, 100],0, 0
 				
-				# pdf.fill_color "00ff00"
-				# pdf.rectangle [0, 300], 600, 2
-				# pdf.fill_rectangle [10, 100],0, 0
+			# 	# pdf.fill_color "00ff00"
+			# 	# pdf.rectangle [0, 300], 600, 2
+			# 	# pdf.fill_rectangle [10, 100],0, 0
 
-				# pdf.fill_color "0000ff"
-				# pdf.rectangle [0, 200], 600, 2
-				# pdf.fill_rectangle [10, 100],0, 0
+			# 	# pdf.fill_color "0000ff"
+			# 	# pdf.rectangle [0, 200], 600, 2
+			# 	# pdf.fill_rectangle [10, 100],0, 0
 
-				# pdf.fill_color "ff0000"
-				# pdf.rectangle [0, 100], 600, 2
-				# pdf.fill_rectangle [10, 100],0, 0
+			# 	# pdf.fill_color "ff0000"
+			# 	# pdf.rectangle [0, 100], 600, 2
+			# 	# pdf.fill_rectangle [10, 100],0, 0
 				
-				# pdf.fill_color "00ff00"
-				# pdf.rectangle [0, 0], 600, 2
-				# pdf.fill_rectangle [10, 100],0, 0
+			# 	# pdf.fill_color "00ff00"
+			# 	# pdf.rectangle [0, 0], 600, 2
+			# 	# pdf.fill_rectangle [10, 100],0, 0
 
-				# pdf.fill_color "000000"
-	   		#      end
-
-
-
-			pdf.bounding_box([-30, 690], :width => 100, :height => 100, :at => [200, 550]) do
-			          pdf.fill_color "000000"
-				pdf.transparent(1.0, 0.2) do 
-					pdf.image open("app/assets/page_files/Con 9 page-11.png"), :fit => [580, 960], :at => [0, 160]
-				end
-			         pdf.fill_color "000000"
-			end
-
-			pdf.bounding_box([ 240, 636], :width => 430, :height => 30) do
-				pdf.text "Attn :", :color => "ff0000" 
-			end
-
-			pdf.bounding_box([ 240, 614], :width => 430, :height => 30) do
-				pdf.text "Attn :", :color => "ff0000" 
-			end
-
-
-			pdf.bounding_box([ 16, 536], :width => 430, :height => 30) do
-				pdf.text "X", :color => "ff0000", :size => 20 
-			end		
-			pdf.bounding_box([ 16, 514], :width => 430, :height => 30) do
-				pdf.text "X", :color => "ff0000", :size => 20 
-			end		
-			pdf.bounding_box([ 16, 490], :width => 430, :height => 30) do
-				pdf.text "X", :color => "ff0000", :size => 20 
-			end	
+			# 	# pdf.fill_color "000000"
+	  #  		#      end
 
 
 
+			# pdf.bounding_box([-30, 690], :width => 100, :height => 100, :at => [200, 550]) do
+			#           pdf.fill_color "000000"
+			# 	pdf.transparent(1.0, 0.2) do 
+			# 		pdf.image open("app/assets/page_files/Con 9 page-11.png"), :fit => [580, 960], :at => [0, 160]
+			# 	end
+			#          pdf.fill_color "000000"
+			# end
 
-			pdf.bounding_box([ 30, 434], :width => 430, :height => 30) do
-				pdf.text "X", :color => "ff0000", :size => 20 
-			end		
-			pdf.bounding_box([ 186, 434], :width => 430, :height => 30) do
-				pdf.text "X", :color => "ff0000", :size => 20 
-			end		
-			pdf.bounding_box([ 336, 434], :width => 430, :height => 30) do
-				pdf.text "X", :color => "ff0000", :size => 20 
-			end		
+			# pdf.bounding_box([ 240, 636], :width => 430, :height => 30) do
+			# 	pdf.text "Attn :", :color => "ff0000" 
+			# end
+
+			# pdf.bounding_box([ 240, 614], :width => 430, :height => 30) do
+			# 	pdf.text "Attn :", :color => "ff0000" 
+			# end
 
 
-
-			pdf.bounding_box([ 230, 222], :width => 430, :height => 30) do
-				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
-			end
-			pdf.bounding_box([ 250, 176], :width => 430, :height => 30) do
-				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
-			end
+			# pdf.bounding_box([ 16, 536], :width => 430, :height => 30) do
+			# 	pdf.text "X", :color => "ff0000", :size => 20 
+			# end		
+			# pdf.bounding_box([ 16, 514], :width => 430, :height => 30) do
+			# 	pdf.text "X", :color => "ff0000", :size => 20 
+			# end		
+			# pdf.bounding_box([ 16, 490], :width => 430, :height => 30) do
+			# 	pdf.text "X", :color => "ff0000", :size => 20 
+			# end	
 
 
 
 
-			pdf.bounding_box([ 230, 80], :width => 430, :height => 30) do
-				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
-			end
-			pdf.bounding_box([ 250, 34], :width => 430, :height => 30) do
-				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
-			end
+			# pdf.bounding_box([ 30, 434], :width => 430, :height => 30) do
+			# 	pdf.text "X", :color => "ff0000", :size => 20 
+			# end		
+			# pdf.bounding_box([ 186, 434], :width => 430, :height => 30) do
+			# 	pdf.text "X", :color => "ff0000", :size => 20 
+			# end		
+			# pdf.bounding_box([ 336, 434], :width => 430, :height => 30) do
+			# 	pdf.text "X", :color => "ff0000", :size => 20 
+			# end		
+
+
+
+			# pdf.bounding_box([ 230, 222], :width => 430, :height => 30) do
+			# 	pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			# end
+			# pdf.bounding_box([ 250, 176], :width => 430, :height => 30) do
+			# 	pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			# end
 
 
 
 
-			# # # page 12
-			# # # ##########################################################################################
-			pdf.start_new_page
-
-			pdf.bounding_box([-30, 680], :width => 100, :height => 100, :at => [200, 550]) do
-			          pdf.fill_color "000000"
-				pdf.transparent(1.0, 0.2) do 
-					pdf.image open("app/assets/page_files/Con 8 page-9.png"), :fit => [600, 1000], :at => [0, 160]
-				end
-			         pdf.fill_color "000000"
-			end
+			# pdf.bounding_box([ 230, 80], :width => 430, :height => 30) do
+			# 	pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			# end
+			# pdf.bounding_box([ 250, 34], :width => 430, :height => 30) do
+			# 	pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			# end
 
 
-			# # # page 13
-			# # # ##########################################################################################
-			pdf.start_new_page
 
 
-			pdf.bounding_box([-10, 690], :width => 100, :height => 100, :at => [200, 550]) do
-			          pdf.fill_color "000000"
-				pdf.transparent(1.0, 0.2) do 
-					pdf.image open("app/assets/page_files/Con 8 page-10.png"), :fit => [570, 960], :at => [0, 160]
-				end
-			         pdf.fill_color "000000"
-			end
+			# # # # page 12
+			# # # # ##########################################################################################
+			# pdf.start_new_page
+
+			# pdf.bounding_box([-30, 680], :width => 100, :height => 100, :at => [200, 550]) do
+			#           pdf.fill_color "000000"
+			# 	pdf.transparent(1.0, 0.2) do 
+			# 		pdf.image open("app/assets/page_files/Con 8 page-9.png"), :fit => [600, 1000], :at => [0, 160]
+			# 	end
+			#          pdf.fill_color "000000"
+			# end
+
+
+			# # # # page 13
+			# # # # ##########################################################################################
+			# pdf.start_new_page
+
+
+			# pdf.bounding_box([-10, 690], :width => 100, :height => 100, :at => [200, 550]) do
+			#           pdf.fill_color "000000"
+			# 	pdf.transparent(1.0, 0.2) do 
+			# 		pdf.image open("app/assets/page_files/Con 8 page-10.png"), :fit => [570, 960], :at => [0, 160]
+			# 	end
+			#          pdf.fill_color "000000"
+			# end
 
 
 
