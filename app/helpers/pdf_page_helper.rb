@@ -228,8 +228,8 @@ module PdfPageHelper
 			end
     		# page layout 
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-				pdf.font "arial", size: 10 
-				pdf.text say_date +" first_line", {:color => "000000"}
+				pdf.font "times", size: 12 
+				pdf.text say_date , {:color => "ff0000", :size => 12, :font => "arial"}
 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
@@ -391,15 +391,10 @@ module PdfPageHelper
 	    		# page layout 
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 					puts step
-					# var_x = place_array[step][0]
-					# var_y = place_array[step][1]	
-					# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
-					# pdf.font "/app/assets/fonts/times-Regular.ttf"
-					# pdf.text item_array[step], {:color => "00ff00"}
-					pdf.font "arial", size: 10
-					pdf.text say_date + " : " + "first_line", {:color => "000000"}
-					# pdf.text place_array[step][0].to_s
-					# pdf.text place_array[step][1].to_s
+
+					# pdf.font "arial", size: 10
+					pdf.font "times", size: 12
+					pdf.text say_date , {:color => "000000", :size => 12 }
 
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
@@ -7088,6 +7083,7 @@ module PdfPageHelper
 	        end
 	        # page sign lines
 	        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+
 				# pdf.rectangle [110, 190], 180, 2
 				# pdf.fill_rectangle [10, 100],0, 0
 				# # pdf.fill_color "ff0000"
@@ -7110,6 +7106,7 @@ module PdfPageHelper
 					pdf.image open("app/assets/page_files/con_8_page_2.png"), :fit => [600, 1000], :at => [0, 160]
 				end
 	           pdf.fill_color "000000"
+	           	pdf.font "arial", size: 12
 	        end
 
 
