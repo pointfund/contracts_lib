@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'prawn'
 gem 'prawn-table', '~> 0.1.0'
+# gem 'rmagick', '~> 2.16'
+# gem 'prawn-fast-png', '~> 0.2.3'
 # gem 'prawnto', '~> 0.1.1' 
 
 # Use ActiveStorage variant
