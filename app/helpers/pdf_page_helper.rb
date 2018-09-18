@@ -7498,7 +7498,7 @@ module PdfPageHelper
 
 
 		def page_letter_15(pdf,item_array,place_array,records_array,rec_set)
-			Prawn::Document.generate("point_funding_doc.pdf") do
+			Prawn::Document.generate("point_funding_doc.pdf", :compress => true) do
 				pdf.bounding_box([-10, 700], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "000000"
 					pdf.transparent(1.0, 0.2) do 
