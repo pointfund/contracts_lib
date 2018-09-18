@@ -2745,7 +2745,7 @@ module PdfPageHelper
 		# end
 
 		# Working 8
-		def page_letter_8(pdf,item_array,place_array,records_array, rec_set)
+		def page_letter_88(pdf,item_array,place_array,records_array, rec_set)
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 
 	            pdf.fill_color "ff0000"
@@ -7076,8 +7076,8 @@ module PdfPageHelper
 
 
 
-		# Contract 8 pic test
-		def page_letter_14(pdf,item_array,place_array,records_array,rec_set)
+		# Contract 8 pic test was 14
+		def page_letter_8(pdf,item_array,place_array,records_array,rec_set)
 			Prawn::Document.generate("point_funding_doc.pdf", :compress => true) do
 			pdf.bounding_box([-40, 660], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "000000"
