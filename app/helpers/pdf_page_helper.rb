@@ -7193,61 +7193,94 @@ module PdfPageHelper
 			        end
 			
 
+					pdf.bounding_box([ 250, 649], :width => 430, :height => 30) do
+						pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+					end
+					pdf.bounding_box([ 260, 622], :width => 430, :height => 30) do
+						pdf.text rec_set[28], :color => "ff0000" 
+					end
 
-			# #PAGE 07  
-			# ##########################################################################################
-			pdf.start_new_page
 
 
-					pdf.bounding_box([0, 670], :width => 100, :height => 100, :at => [200, 550]) do
-			            pdf.fill_color "000000"
-						pdf.transparent(1.0, 0.2) do 
-							pdf.image open("app/assets/page_files/con_8_page_7.png"), :fit => [560, 940], :at => [0, 160]
-						end
-			           pdf.fill_color "000000"
-			        end
-			
+					pdf.bounding_box([ 26, 432], :width => 430, :height => 30) do
+						pdf.text "X", :color => "ff0000", :size => 20 
+					end
+					pdf.bounding_box([ 166, 432], :width => 430, :height => 30) do
+						pdf.text "X", :color => "ff0000", :size => 20 
+					end
+
+
+
+					pdf.bounding_box([ 80, 166], :width => 430, :height => 30) do
+						pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+					end
+					pdf.bounding_box([ 160, 214], :width => 430, :height => 30) do
+						pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+					end
+
+
+
+					pdf.bounding_box([ 260, 68], :width => 430, :height => 30) do
+						pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+					end
+					pdf.bounding_box([ 80, 16], :width => 430, :height => 30) do
+						pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+					end
+
+
+
+				# #PAGE 07  
+				# ##########################################################################################
+				pdf.start_new_page
+
+
+				pdf.bounding_box([0, 670], :width => 100, :height => 100, :at => [200, 550]) do
+		            pdf.fill_color "000000"
+					pdf.transparent(1.0, 0.2) do 
+						pdf.image open("app/assets/page_files/con_8_page_7.png"), :fit => [560, 940], :at => [0, 160]
+					end
+		           pdf.fill_color "000000"
+		        end
+		
 
 
 			        # PAGE 08
 					##########################################################################################
-					pdf.start_new_page
+				pdf.start_new_page
 
 
-					pdf.bounding_box([-10, 690], :width => 100, :height => 100, :at => [200, 550]) do
-			            pdf.fill_color "000000"
-						pdf.transparent(1.0, 0.2) do 
-							pdf.image open("app/assets/page_files/con_8_page_8.png"), :fit => [580, 940], :at => [0, 160]
-						end
-			           pdf.fill_color "000000"
-			        end
+				pdf.bounding_box([-10, 690], :width => 100, :height => 100, :at => [200, 550]) do
+		            pdf.fill_color "000000"
+					pdf.transparent(1.0, 0.2) do 
+						pdf.image open("app/assets/page_files/con_8_page_8.png"), :fit => [580, 940], :at => [0, 160]
+					end
+		           pdf.fill_color "000000"
+		        end
 
 
 				# # PAGE 09
 				# ##########################################################################################
-				# pdf.start_new_page
+				pdf.start_new_page
 
-				# pdf.bounding_box([-30, 690], :width => 100, :height => 100, :at => [200, 550]) do
-				#           pdf.fill_color "000000"
-				# 	pdf.transparent(1.0, 0.2) do 
-				# 		pdf.image open("app/assets/page_files/con_8_page_9.png"), :fit => [600, 1000], :at => [0, 160]
-				# 	end
-				#          pdf.fill_color "000000"
-				#       end
+				pdf.bounding_box([-30, 690], :width => 100, :height => 100, :at => [200, 550]) do
+				          pdf.fill_color "000000"
+					pdf.transparent(1.0, 0.2) do 
+						pdf.image open("app/assets/page_files/con_8_page_9.png"), :fit => [600, 1000], :at => [0, 160]
+					end
+				         pdf.fill_color "000000"
+				end
 
-				#       # PAGE 10
-				# # ##########################################################################################
-				# pdf.start_new_page
+				      # PAGE 10
+				# ##########################################################################################
+				pdf.start_new_page
 
-				# pdf.bounding_box([-10, 690], :width => 100, :height => 100, :at => [200, 550]) do
-				#           pdf.fill_color "000000"
-				# 	pdf.transparent(1.0, 0.2) do 
-				# 		pdf.image open("app/assets/page_files/con_8_page_10.png"), :fit => [570, 960], :at => [0, 160]
-				# 	end
-				#          pdf.fill_color "000000"
-				#       end
-
-
+				pdf.bounding_box([-10, 690], :width => 100, :height => 100, :at => [200, 550]) do
+				          pdf.fill_color "000000"
+					pdf.transparent(1.0, 0.2) do 
+						pdf.image open("app/assets/page_files/con_8_page_10.png"), :fit => [570, 960], :at => [0, 160]
+					end
+				         pdf.fill_color "000000"
+				end	
 				##########################################################################################
 				# pdf.start_new_page
 		end
