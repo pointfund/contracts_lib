@@ -7480,19 +7480,1089 @@ module PdfPageHelper
 
 
 
+		# Contract 8 pic test was 14 
+		def page_letter_88(pdf,item_array,place_array,records_array,rec_set)
+			Prawn::Document.generate("point_funding_doc.pdf") do
+			pdf.bounding_box([-40, 630], :width => 100, :height => 100, :at => [200, 550]) do
+		            pdf.fill_color "000000"
+					pdf.transparent(1.0, 0.2) do 
+						pdf.image open("app/assets/page_files/con_8_page_1.png"), :fit => [600, 1000], :at => [0, 160]
+					end
+		           pdf.fill_color "000000"
+		        end
+	       		# page sign lines
+
+
+		        # outline 
+
+	
+			end
+
+			#PAGE 02
+			##########################################################################################
+			pdf.start_new_page
 
 
 
+			pdf.bounding_box([-10, 630], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_2.png"), :fit => [570, 1000], :at => [0, 180]
+				end
+	           pdf.fill_color "000000"
+	           pdf.font "arial", size: 12
+	        end
+			# pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+			#       	pdf.fill_color "ff0000"
+
+			#       	pdf.rectangle [400, 750], 150, 2
+			# 	pdf.fill_rectangle [10, 100],0, 0
+
+			#       	pdf.rectangle [550, 750], 2, 180
+			# 	pdf.fill_rectangle [10, 100],0, 0
+
+			# 	pdf.rectangle [-10, 0], 180, 2
+			# 	pdf.fill_rectangle [10, 100],0, 0
+			# 	# # pdf.fill_color "ff0000"
+			# 	pdf.rectangle [-10, 180], 2, 180
+			# 	pdf.fill_rectangle [0, 100],0, 0
+
+			# 	# pdf.fill_rectangle [240, 510],0, 0
+			#       end
+
+			#PAGE 03
+			##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([-10, 670], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_3.png"), :fit => [570, 1000], :at => [0, 160]
+				end
+	           pdf.fill_color "000000"
+	        end
+
+	        # top form 
+	        pdf.bounding_box([ 455, 720], :width => 430, :height => 30) do
+				pdf.text rec_set[32] , :color => "ff0000", :size => 8 
+			end
+	        pdf.bounding_box([ 474, 704], :width => 430, :height => 30) do
+				pdf.text rec_set[2][0] + ". " + rec_set[3][0] + ". ", :color => "ff0000", :size => 10 
+			end
+
+			
+
+			# Main form 
+			pdf.bounding_box([ 100, 614], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 44, 586], :width => 430, :height => 30) do
+				pdf.text rec_set[28] , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 160, 536], :width => 430, :height => 30) do
+				pdf.text rec_set[0] , :color => "ff0000" 
+			end
+
+
+
+			
+			# PAGE 04
+			##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([-10, 680], :width => 100, :height => 100, :at => [200, 550]) do
+			    pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_4.png"), :fit => [580, 1000], :at => [0, 160]
+				end
+			 	pdf.fill_color "000000"
+			end
+
+
+
+			pdf.bounding_box([ 100, 420], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 260, 366], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+
+			pdf.bounding_box([ 100, 294], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 260, 214], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+	        # PAGE 05
+			##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([-10, 684], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_5.png"), :fit => [550, 940], :at => [0, 160]
+				end
+	           pdf.fill_color "000000"
+	        end
+
+	        pdf.bounding_box([ 144, 624], :width => 430, :height => 30) do
+				pdf.text rec_set[6].strftime('%d'), :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 240, 624], :width => 430, :height => 30) do
+				pdf.text rec_set[6].strftime('%B'), :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 340, 624], :width => 430, :height => 30) do
+				pdf.text rec_set[6].strftime('%Y'), :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 200, 598], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 200, 572], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 40, 496], :width => 430, :height => 30) do
+				pdf.text rec_set[28] , :color => "ff0000" 
+			end
+
+
+
+
+
+	        # PAGE 06
+			##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([-10, 670], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_6.png"), :fit => [560, 940], :at => [0, 160]
+				end
+	           pdf.fill_color "000000"
+	        end
+			
+
+
+
+			pdf.bounding_box([ 220, 624], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 140, 592], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 380, 592], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 460, 592], :width => 430, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 140, 562], :width => 430, :height => 30) do
+				pdf.text rec_set[29].to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([340, 562], :width => 430, :height => 30) do
+				pdf.text rec_set[30].to_s , :color => "ff0000" 
+			end
+
+
+			# Agency form
+			pdf.bounding_box([ 220, 528], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 220, 482], :width => 430, :height => 30) do
+				pdf.text "Agency Name", :color => "ff0000" 
+			end
+
+
+			pdf.bounding_box([ 140, 454], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 380, 454], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 460, 454], :width => 430, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 140, 418], :width => 430, :height => 30) do
+				pdf.text rec_set[29].to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([340, 418], :width => 430, :height => 30) do
+				pdf.text rec_set[30].to_s , :color => "ff0000" 
+			end
+
+
+		
+
+
+
+			# #PAGE 07  
+			# ##########################################################################################
+			pdf.start_new_page
+
+			pdf.bounding_box([-10, 684], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_7.png"), :fit => [560, 940], :at => [0, 160]
+				end
+	           pdf.fill_color "000000"
+	        end
+	
+	        		# Agency Accepted form
+
+			pdf.bounding_box([ 440, 658], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 60, 632], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 130, 478], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 130, 444], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 130, 410], :width => 430, :height => 30) do
+				pdf.text records_array.address_city.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 240, 410], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 310, 410], :width => 430, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+
+
+			# Lender Accepted form
+			pdf.bounding_box([ 130, 316], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 130, 284], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 130, 254], :width => 430, :height => 30) do
+				pdf.text records_array.address_city.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 240, 254], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 310, 254], :width => 430, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+
+
+			pdf.bounding_box([ 280, 210], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+
+
+
+
+			pdf.bounding_box([ 180, 118], :width => 430, :height => 30) do
+				pdf.text rec_set[32].to_s, :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 180, 88], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+
+
+
+	        # PAGE 08
+			##########################################################################################
+			pdf.start_new_page
+
+			pdf.bounding_box([-30, 690], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_8.png"), :fit => [580, 940], :at => [0, 160]
+				end
+	           pdf.fill_color "000000"
+	        end
+
+			pdf.bounding_box([ 230, 649], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 240, 622], :width => 430, :height => 30) do
+				pdf.text rec_set[28], :color => "ff0000" 
+			end
+
+
+			pdf.bounding_box([ 6, 432], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end
+			pdf.bounding_box([ 146, 432], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end
+
+
+			pdf.bounding_box([ 80, 166], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+			pdf.bounding_box([ 160, 214], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+
+			pdf.bounding_box([ 260, 68], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 80, 16], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+
+
+			# # PAGE 09
+			# ##########################################################################################
+			pdf.start_new_page
+
+			pdf.bounding_box([-16, 650], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_9.png"), :fit => [580, 1000], :at => [0, 160]
+				end
+			         pdf.fill_color "000000"
+			end
+
+
+
+
+			# PAGE 10
+			# ##########################################################################################
+			pdf.start_new_page
+
+			pdf.bounding_box([-10, 680], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_8_page_10.png"), :fit => [560, 950], :at => [0, 160]
+				end
+			         pdf.fill_color "000000"
+			end	
+
+
+				# pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+			#       	pdf.fill_color "ff0000"
+
+			#       	pdf.rectangle [400, 750], 150, 2
+				# 	pdf.fill_rectangle [10, 100],0, 0
+
+			#       	pdf.rectangle [550, 750], 2, 180
+				# 	pdf.fill_rectangle [10, 100],0, 0
+
+				# 	pdf.rectangle [-10, 0], 180, 2
+				# 	pdf.fill_rectangle [10, 100],0, 0
+				# 	# # pdf.fill_color "ff0000"
+				# 	pdf.rectangle [-10, 180], 2, 180
+				# 	pdf.fill_rectangle [0, 100],0, 0
+
+				# 	# pdf.fill_rectangle [240, 510],0, 0
+			#       end
+
+
+
+			##########################################################################################
+			# pdf.start_new_page
+		end
 
 
 		def page_letter_9(pdf,item_array,place_array,records_array,rec_set)
+			Prawn::Document.generate("point_funding_doc.pdf") do
+				pdf.bounding_box([-20, 686], :width => 100, :height => 100, :at => [200, 550]) do
+	            pdf.fill_color "000000"
+					# pdf.transparent(1.0, 0.2) do 
+						pdf.image open("app/assets/page_files/con_9_page_1.png"), :fit => [540, 940], :at => [0, 160]
+					# end
+	            pdf.fill_color "000000"
+	        end
+	        end
+	        # page sign lines
+
+
+
+			# page 02
+			##########################################################################################
+			pdf.start_new_page
+
+
+
+			pdf.bounding_box([-50, 710], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				# pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_2.png"), :fit => [600, 1000], :at => [0, 160]
+				# end
+			         pdf.fill_color "000000"
+			end
+
+
+
+
+	        # page 03
+			#########################################################################################
+			pdf.start_new_page
+
+			pdf.bounding_box([-10, 690], :width => 100, :height => 100, :at => [200, 550]) do
+			         pdf.fill_color "000000"
+				# pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_3.png"), :fit => [580, 980], :at => [0, 160]
+				# end
+			         pdf.fill_color "000000"
+			end
+
+			# HEADER FORM 
+			pdf.bounding_box([ 420, 714], :width => 430, :height => 30) do
+				pdf.text rec_set[24].to_s , :color => "ff0000", :size => 10 
+			end
+			pdf.bounding_box([ 490, 714], :width => 430, :height => 30) do
+				pdf.text rec_set[25].to_s , :color => "ff0000", :size => 10 
+			end
+
+
+			# TOP FORM 
+			pdf.bounding_box([ 180, 652], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 94, 622], :width => 430, :height => 30) do
+				pdf.text rec_set[28] , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 250, 604], :width => 430, :height => 30) do
+				pdf.text  "$ " + rec_set[26].to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 210, 582], :width => 430, :height => 30) do
+				pdf.text "$ " + rec_set[8].to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 70, 34], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+			pdf.bounding_box([ 360, 34], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+			  #    pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+					# pdf.fill_color "ff0000"
+					# pdf.rectangle [0, 600], 2, 600
+					# pdf.fill_rectangle [10, 100],0, 0
+
+					# pdf.rectangle [530, 600], 2, 600
+					# pdf.fill_rectangle [10, 100],0, 0
+					# pdf.fill_color "000000"
+			  #    end
+
+
+
+
+
+			# page 04
+			##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([-40, 714], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				# pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_4.png"), :fit => [590, 990], :at => [0, 160]
+				# end
+			         pdf.fill_color "000000"
+		    end
+
+			pdf.bounding_box([ 390, 660], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+			pdf.bounding_box([ 250, 640], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 200, 620], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 410, 520], :width => 430, :height => 30) do
+				pdf.text rec_set[27].to_s, :color => "ff0000" 
+			end			
+	
+
+
+
+
+		    # page 05
+			# ##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([-40, 686], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				# pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_5.png"), :fit => [600, 1000], :at => [0, 160]
+				# end
+			         pdf.fill_color "000000"
+			end
+	        
+
+
+
+
+			#  # page 06
+			# # ##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([-40, 700], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				# pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_6.png"), :fit => [600, 1000], :at => [0, 160]
+				# end
+			         pdf.fill_color "000000"
+			end
+				# pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+			 #      	pdf.fill_color "ff0000"
+
+
+
+			# # # page 07
+			# # # ##########################################################################################
+			pdf.start_new_page
+
+			pdf.bounding_box([-50, 690], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				# pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_7.png"), :fit => [590, 990], :at => [0, 160]
+				# end
+			         pdf.fill_color "000000"
+			end
+
+
+
+			pdf.bounding_box([ 130, 256], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 100, 220], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 320, 220], :width => 430, :height => 30) do
+				pdf.text records_array.address_city.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 420, 220], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 470, 220], :width => 430, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 140, 186], :width => 430, :height => 30) do
+				pdf.text rec_set[29].to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([340, 186], :width => 430, :height => 30) do
+				pdf.text rec_set[30].to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 130, 132], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 100, 96], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 320, 96], :width => 430, :height => 30) do
+				pdf.text records_array.address_city.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 420, 96], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 470, 96], :width => 430, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+
+
+			pdf.bounding_box([ 140, 60], :width => 430, :height => 30) do
+				pdf.text rec_set[29].to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([340, 60], :width => 430, :height => 30) do
+				pdf.text rec_set[30].to_s , :color => "ff0000" 
+			end
+
+
+
+			# # page 08
+			# # ##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([0, 696], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				# pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_8.png"), :fit => [560, 980], :at => [0, 160]
+				# end
+			         pdf.fill_color "000000"
+			end
+
+
+	  		#       # TOP FORM 
+			pdf.bounding_box([ 130, 550], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 120, 520], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 110, 488], :width => 430, :height => 30) do
+				pdf.text records_array.address_city.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 176, 488], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 240, 488], :width => 430, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 280, 444], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+
+			# Lender FORM
+			pdf.bounding_box([ 130, 378], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 120, 350], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 110, 320], :width => 430, :height => 30) do
+				pdf.text records_array.address_city.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 176, 320], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 240, 320], :width => 430, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+			pdf.bounding_box([ 280, 262], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+
+			# pdf.bounding_box([ 380, 46], :width => 430, :height => 30) do
+			# 	pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			# end
+			# pdf.bounding_box([ 380, 16], :width => 430, :height => 30) do
+			# 	pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			# end
+
+
+			pdf.bounding_box([140, 154], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000"
+			end
+
+			pdf.bounding_box([140, 182], :width => 430, :height => 30) do
+				pdf.text "Title" , :color => "ff0000" 
+			end
+
+
+
+
+			# # # page 09
+			# # # ##########################################################################################
+			pdf.start_new_page
+
+			pdf.bounding_box([0, 680], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				# pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_9.png"), :fit => [540, 950], :at => [0, 160]
+				# end
+			         pdf.fill_color "000000"
+			end
+
+	  		#       # TOP FORM 
+			pdf.bounding_box([ 420, 646], :width => 430, :height => 30) do
+				pdf.text rec_set[28].to_s, :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 130, 624], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 120, 603], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 110, 580], :width => 430, :height => 30) do
+				pdf.text records_array.address_city.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 270, 580], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 380, 580], :width => 430, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+	
+			pdf.bounding_box([ 110, 560], :width => 430, :height => 30) do
+				pdf.text rec_set[30].to_s, :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 360, 560], :width => 430, :height => 30) do
+				pdf.text rec_set[29].to_s, :color => "ff0000" 
+			end
+
+
+
+
+			pdf.bounding_box([ 142, 538], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end
+			pdf.bounding_box([ 314, 538], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end
+
+
+
+
+
+			# Lender form
+			pdf.bounding_box([ 130, 486], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 120, 464], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 110, 420], :width => 430, :height => 30) do
+				pdf.text records_array.address_city.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 270, 420], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 380, 420], :width => 430, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 110, 400], :width => 430, :height => 30) do
+				pdf.text rec_set[30].to_s, :color => "ff0000" 
+			end
+			pdf.bounding_box([ 360, 400], :width => 430, :height => 30) do
+				pdf.text rec_set[29].to_s, :color => "ff0000" 
+			end
+
+
+			# Mid placement 
+			pdf.bounding_box([ 420, 344], :width => 430, :height => 30) do
+				pdf.text "$" + rec_set[26].to_s, :color => "ff0000" 
+			end
+			pdf.bounding_box([ 100, 292], :width => 430, :height => 30) do
+				pdf.text "$" + rec_set[7].to_s, :color => "ff0000" 
+			end
+
+
+
+
+			#BOTTOM FORM SIGN NAME DATE 
+			pdf.bounding_box([ 280, 72], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 430, 72], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+			pdf.bounding_box([ 430, 36], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+
+
+
+
+
+			# # # # page 10
+			# # # ##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([-40, 686], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				# pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_10.png"), :fit => [590, 990], :at => [0, 160]
+				# end
+			         pdf.fill_color "000000"
+			end
+
+			pdf.bounding_box([ 130, 628], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 130, 600], :width => 430, :height => 30) do
+				pdf.text rec_set[28].to_s, :color => "ff0000" 
+			end
+
+
+			pdf.bounding_box([ 168, 548], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end
+			pdf.bounding_box([ 346, 548], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end
+
+
+			# pdf.bounding_box([ 420, 646], :width => 430, :height => 30) do
+			# 	pdf.text rec_set[28].to_s, :color => "ff0000" 
+			# end
+
+			pdf.bounding_box([ 204, 482], :width => 430, :height => 30) do
+				pdf.text "Bank Name", :color => "ff0000" 
+			end
+			pdf.bounding_box([ 200, 458], :width => 430, :height => 30) do
+				pdf.text  "Bank Routing", :color => "ff0000" 
+			end
+			pdf.bounding_box([ 110, 438], :width => 430, :height => 30) do
+				pdf.text  "Account Number", :color => "ff0000" 
+			end
+			pdf.bounding_box([ 330, 438], :width => 430, :height => 30) do
+				pdf.text "Loan Account Number", :color => "ff0000" 
+			end
+
+
+			pdf.bounding_box([ 116, 416], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end
+			pdf.bounding_box([ 396, 416], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end		
+
+
+			# Lender form
+			pdf.bounding_box([ 230, 314], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 120, 288], :width => 430, :height => 30) do
+				pdf.text records_array.address_street.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 110, 261], :width => 430, :height => 30) do
+				pdf.text records_array.address_city.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 290, 261], :width => 430, :height => 30) do
+				pdf.text records_array.address_state.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 440, 261], :width => 530, :height => 30) do
+				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 110, 234], :width => 430, :height => 30) do
+				pdf.text "Attn :", :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 360, 202], :width => 430, :height => 30) do
+				pdf.text "Memo ", :color => "ff0000" 
+			end
+
+			# Acknowledgement
+			pdf.bounding_box([ 360, 106], :width => 430, :height => 30) do
+				pdf.text "Lender ", :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 260, 202], :width => 430, :height => 30) do
+				# pdf.text "Lender ", :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 210, 58], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+
+
+
+			# # page 11
+			# ##########################################################################################
+			pdf.start_new_page
+
+    		# 	pdf.bounding_box([0, 90],{ :width => 600, :height => 100 }) do
+				# pdf.fill_color "ff0000"
+				# pdf.rectangle [0, 700], 600, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+				
+				# pdf.fill_color "00ff00"
+				# pdf.rectangle [0, 600], 600, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+
+				# pdf.fill_color "0000ff"
+				# pdf.rectangle [0, 500], 600, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+
+				# pdf.fill_color "ff0000"
+				# pdf.rectangle [0, 400], 600, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+				
+				# pdf.fill_color "00ff00"
+				# pdf.rectangle [0, 300], 600, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+
+				# pdf.fill_color "0000ff"
+				# pdf.rectangle [0, 200], 600, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+
+				# pdf.fill_color "ff0000"
+				# pdf.rectangle [0, 100], 600, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+				
+				# pdf.fill_color "00ff00"
+				# pdf.rectangle [0, 0], 600, 2
+				# pdf.fill_rectangle [10, 100],0, 0
+
+				# pdf.fill_color "000000"
+	   		#      end
+
+
+
+			pdf.bounding_box([-50, 690], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_11.png"), :fit => [590, 980], :at => [0, 160]
+				end
+			         pdf.fill_color "000000"
+			end
+
+			pdf.bounding_box([ 240, 636], :width => 430, :height => 30) do
+				pdf.text "Attn :", :color => "ff0000" 
+			end
+
+			pdf.bounding_box([ 240, 614], :width => 430, :height => 30) do
+				pdf.text "Attn :", :color => "ff0000" 
+			end
+
+
+			pdf.bounding_box([ 4, 533], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end		
+			pdf.bounding_box([ 4, 510], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end		
+			pdf.bounding_box([ 4, 488], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end	
+
+
+
+
+			pdf.bounding_box([ 10, 426], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end		
+			pdf.bounding_box([ 170, 426], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end		
+			pdf.bounding_box([ 322, 426], :width => 430, :height => 30) do
+				pdf.text "X", :color => "ff0000", :size => 20 
+			end		
+
+
+
+			pdf.bounding_box([ 230, 211], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 250, 162], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+
+
+
+			pdf.bounding_box([ 230, 66], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 250, 16], :width => 430, :height => 30) do
+				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
+			end
+
+
+			
+			# # # page 12
+			# # # ##########################################################################################
+			pdf.start_new_page
+
+			pdf.bounding_box([-30, 670], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_12.png"), :fit => [580, 1000], :at => [0, 160]
+				end
+			         pdf.fill_color "000000"
+			end
+				
+
+
+			# # # page 13
+			# # # ##########################################################################################
+			pdf.start_new_page
+
+
+			pdf.bounding_box([-50, 720], :width => 100, :height => 100, :at => [200, 550]) do
+			          pdf.fill_color "000000"
+				pdf.transparent(1.0, 0.2) do 
+					pdf.image open("app/assets/page_files/con_9_page_13.png"), :fit => [590, 970], :at => [0, 160]
+				end
+			         pdf.fill_color "000000"
+			end
+
+					# 		pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+			  #     	pdf.fill_color "ff0000"
+
+			  #     	pdf.rectangle [400, 750], 150, 2
+					# pdf.fill_rectangle [10, 100],0, 0
+
+			  #     	pdf.rectangle [550, 750], 2, 180
+					# pdf.fill_rectangle [10, 100],0, 0
+
+					# pdf.rectangle [-10, 0], 180, 2
+					# pdf.fill_rectangle [10, 100],0, 0
+					# # # pdf.fill_color "ff0000"
+					# pdf.rectangle [-10, 180], 2, 180
+					# pdf.fill_rectangle [0, 100],0, 0
+
+					# # pdf.fill_rectangle [240, 510],0, 0
+			  #   end
+			# ##########################################################################################
+		end
+
+
+
+
+		def page_letter_19(pdf,item_array,place_array,records_array,rec_set)
 			Prawn::Document.generate("point_funding_doc.pdf") do
 				pdf.bounding_box([-10, 700], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "000000"
 					# pdf.transparent(1.0, 0.2) do 
 						pdf.image open("app/assets/page_files/con_9_page_1.png"), :fit => [560, 940], :at => [0, 160]
 					# end
-	           pdf.fill_color "000000"
+	            pdf.fill_color "000000"
 	        end
 	        end
 	        # page sign lines
@@ -7521,7 +8591,7 @@ module PdfPageHelper
 			pdf.start_new_page
 
 			pdf.bounding_box([0, 680], :width => 100, :height => 100, :at => [200, 550]) do
-			          pdf.fill_color "000000"
+			         pdf.fill_color "000000"
 				# pdf.transparent(1.0, 0.2) do 
 					pdf.image open("app/assets/page_files/con_9_page_3.png"), :fit => [580, 980], :at => [0, 160]
 				# end
