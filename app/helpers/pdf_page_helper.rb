@@ -7194,7 +7194,7 @@ module PdfPageHelper
 				pdf.text rec_set[6].strftime('%d'), :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 240, 626], :width => 430, :height => 30) do
+			pdf.bounding_box([ 220, 626], :width => 430, :height => 30) do
 				pdf.text rec_set[6].strftime('%B'), :color => "ff0000" 
 			end
 
@@ -7210,7 +7210,7 @@ module PdfPageHelper
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 40, 500], :width => 430, :height => 30) do
+			pdf.bounding_box([ 10, 500], :width => 430, :height => 30) do
 				pdf.text rec_set[28] , :color => "ff0000" 
 			end
 
@@ -7234,20 +7234,17 @@ module PdfPageHelper
 
 
 
-			pdf.bounding_box([ 220, 630], :width => 430, :height => 30) do
+			pdf.bounding_box([ 200, 630], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 100, 600], :width => 430, :height => 30) do
+			pdf.bounding_box([ 40, 600], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 300, 600], :width => 430, :height => 30) do
+			pdf.bounding_box([ 320, 600], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
-
-
-
 
 			pdf.bounding_box([ 400, 600], :width => 430, :height => 30) do
 				pdf.text records_array.address_state.to_s , :color => "ff0000" 
@@ -7257,17 +7254,15 @@ module PdfPageHelper
 				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 140, 566], :width => 430, :height => 30) do
+			pdf.bounding_box([ 100, 566], :width => 430, :height => 30) do
 				pdf.text rec_set[29].to_s , :color => "ff0000" 
 			end
 
-			pdf.bounding_box([340, 566], :width => 430, :height => 30) do
+			pdf.bounding_box([332, 566], :width => 430, :height => 30) do
 				pdf.text rec_set[30].to_s , :color => "ff0000" 
 			end
 
-
-
-			pdf.bounding_box([ 220, 534], :width => 430, :height => 30) do
+			pdf.bounding_box([ 40, 534], :width => 430, :height => 30) do
 				pdf.text " Add info", :color => "ff0000" 
 			end
 
@@ -7276,16 +7271,16 @@ module PdfPageHelper
 
 			# Agency form
 
-			pdf.bounding_box([ 220, 488], :width => 430, :height => 30) do
+			pdf.bounding_box([ 140, 488], :width => 430, :height => 30) do
 				pdf.text "Agency Name", :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 100, 458], :width => 430, :height => 30) do
+			pdf.bounding_box([ 40, 458], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
 
 
-			pdf.bounding_box([ 300, 458], :width => 430, :height => 30) do
+			pdf.bounding_box([ 320, 458], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
 
@@ -7297,11 +7292,11 @@ module PdfPageHelper
 				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 140, 424], :width => 430, :height => 30) do
+			pdf.bounding_box([ 100, 424], :width => 430, :height => 30) do
 				pdf.text rec_set[29].to_s , :color => "ff0000" 
 			end
 
-			pdf.bounding_box([340, 424], :width => 430, :height => 30) do
+			pdf.bounding_box([332, 424], :width => 430, :height => 30) do
 				pdf.text rec_set[30].to_s , :color => "ff0000" 
 			end
 
@@ -7336,17 +7331,17 @@ module PdfPageHelper
 
 
 			# Agency Accepted form
-			pdf.bounding_box([ 130, 476], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 476], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 130, 442], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 442], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 130, 408], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 408], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 240, 408], :width => 430, :height => 30) do
+			pdf.bounding_box([ 210, 408], :width => 430, :height => 30) do
 				pdf.text records_array.address_state.to_s , :color => "ff0000" 
 			end
 			pdf.bounding_box([ 310, 408], :width => 430, :height => 30) do
@@ -7359,16 +7354,16 @@ module PdfPageHelper
 
 
 			# Lender Accepted form
-			pdf.bounding_box([ 130, 312], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 312], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-			pdf.bounding_box([ 130, 282], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 282], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 130, 252], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 252], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 240, 252], :width => 430, :height => 30) do
+			pdf.bounding_box([ 210, 252], :width => 430, :height => 30) do
 				pdf.text records_array.address_state.to_s , :color => "ff0000" 
 			end
 			pdf.bounding_box([ 310, 252], :width => 430, :height => 30) do
@@ -7383,11 +7378,10 @@ module PdfPageHelper
 
 
 
-			pdf.bounding_box([ 180, 120], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 120], :width => 430, :height => 30) do
 				pdf.text rec_set[32].to_s, :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 180, 90], :width => 430, :height => 30) do
+			pdf.bounding_box([ 120, 90], :width => 430, :height => 30) do
 				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
 			end
 
@@ -7407,31 +7401,31 @@ module PdfPageHelper
 	           pdf.fill_color "000000"
 	        end
 
-			pdf.bounding_box([ 230, 636], :width => 430, :height => 30) do
+			pdf.bounding_box([ 220, 638], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-			pdf.bounding_box([ 240, 610], :width => 430, :height => 30) do
+			pdf.bounding_box([ 240, 614], :width => 430, :height => 30) do
 				pdf.text rec_set[28], :color => "ff0000" 
 			end
 
 
-			pdf.bounding_box([ 16, 428], :width => 430, :height => 30) do
+			pdf.bounding_box([ 17, 429], :width => 430, :height => 30) do
 				pdf.text "X", :color => "ff0000", :size => 20 
 			end
-			pdf.bounding_box([ 152, 428], :width => 430, :height => 30) do
+			pdf.bounding_box([ 152, 429], :width => 430, :height => 30) do
 				pdf.text "X", :color => "ff0000", :size => 20 
 			end
 
-
+			
+			pdf.bounding_box([ 160, 210], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
 			pdf.bounding_box([ 80, 160], :width => 430, :height => 30) do
 				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
 			end
-			pdf.bounding_box([ 160, 212], :width => 430, :height => 30) do
-				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
-			end
+		
 
-
-			pdf.bounding_box([ 260, 64], :width => 430, :height => 30) do
+			pdf.bounding_box([ 200, 64], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
 			pdf.bounding_box([ 80, 14], :width => 430, :height => 30) do
@@ -7944,26 +7938,25 @@ module PdfPageHelper
 			end
 
 			# HEADER FORM 
-			pdf.bounding_box([ 420, 714], :width => 430, :height => 30) do
+			pdf.bounding_box([ 410, 714], :width => 430, :height => 30) do
 				pdf.text rec_set[24].to_s , :color => "ff0000", :size => 10 
 			end
-			pdf.bounding_box([ 490, 714], :width => 430, :height => 30) do
+			pdf.bounding_box([ 500, 714], :width => 430, :height => 30) do
 				pdf.text rec_set[25].to_s , :color => "ff0000", :size => 10 
 			end
 
 
 			# TOP FORM 
-			pdf.bounding_box([ 180, 652], :width => 430, :height => 30) do
+			pdf.bounding_box([ 40, 650], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-			pdf.bounding_box([ 94, 622], :width => 430, :height => 30) do
+			pdf.bounding_box([ 74, 622], :width => 430, :height => 30) do
 				pdf.text rec_set[28] , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 250, 604], :width => 430, :height => 30) do
+			pdf.bounding_box([ 220, 604], :width => 430, :height => 30) do
 				pdf.text  "$ " + rec_set[26].to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 210, 582], :width => 430, :height => 30) do
+			pdf.bounding_box([ 180, 582], :width => 430, :height => 30) do
 				pdf.text "$ " + rec_set[8].to_s , :color => "ff0000" 
 			end
 			pdf.bounding_box([ 70, 34], :width => 430, :height => 30) do
@@ -8003,10 +7996,10 @@ module PdfPageHelper
 			pdf.bounding_box([ 390, 660], :width => 430, :height => 30) do
 				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
 			end
-			pdf.bounding_box([ 250, 640], :width => 430, :height => 30) do
+			pdf.bounding_box([ 100, 640], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-			pdf.bounding_box([ 200, 620], :width => 430, :height => 30) do
+			pdf.bounding_box([ 100, 620], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
 			pdf.bounding_box([ 410, 520], :width => 430, :height => 30) do
@@ -8063,61 +8056,55 @@ module PdfPageHelper
 			         pdf.fill_color "000000"
 			end
 
-
-
-			pdf.bounding_box([ 130, 256], :width => 430, :height => 30) do
+			pdf.bounding_box([ 40, 254], :width => 430, :height => 30) do
+				pdf.text "Lender Name", :color => "ff0000" 
+			end
+			pdf.bounding_box([ 330, 254], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 100, 220], :width => 430, :height => 30) do
+			pdf.bounding_box([ 40, 220], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 320, 220], :width => 430, :height => 30) do
+			pdf.bounding_box([ 300, 220], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 420, 220], :width => 430, :height => 30) do
+			pdf.bounding_box([ 400, 220], :width => 430, :height => 30) do
 				pdf.text records_array.address_state.to_s , :color => "ff0000" 
 			end
-
 			pdf.bounding_box([ 470, 220], :width => 430, :height => 30) do
 				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 140, 186], :width => 430, :height => 30) do
+			pdf.bounding_box([ 50, 186], :width => 430, :height => 30) do
 				pdf.text rec_set[29].to_s , :color => "ff0000" 
 			end
-
 			pdf.bounding_box([340, 186], :width => 430, :height => 30) do
 				pdf.text rec_set[30].to_s , :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 130, 132], :width => 430, :height => 30) do
-				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
-			end
 
-			pdf.bounding_box([ 100, 96], :width => 430, :height => 30) do
+
+			# Agent form 
+			pdf.bounding_box([ 40, 128], :width => 430, :height => 30) do
+				pdf.text "Agency Name", :color => "ff0000" 
+			end
+			pdf.bounding_box([ 330, 128], :width => 430, :height => 30) do
+				pdf.text "Agent Name", :color => "ff0000" 
+			end
+			pdf.bounding_box([ 40, 93], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 320, 96], :width => 430, :height => 30) do
+			pdf.bounding_box([ 300, 93], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 420, 96], :width => 430, :height => 30) do
+			pdf.bounding_box([ 400, 93], :width => 430, :height => 30) do
 				pdf.text records_array.address_state.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 470, 96], :width => 430, :height => 30) do
+			pdf.bounding_box([ 470, 93], :width => 430, :height => 30) do
 				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
 			end
-
-
-			pdf.bounding_box([ 140, 60], :width => 430, :height => 30) do
+			pdf.bounding_box([ 50, 60], :width => 430, :height => 30) do
 				pdf.text rec_set[29].to_s , :color => "ff0000" 
 			end
-
 			pdf.bounding_box([340, 60], :width => 430, :height => 30) do
 				pdf.text rec_set[30].to_s , :color => "ff0000" 
 			end
@@ -8139,43 +8126,43 @@ module PdfPageHelper
 
 
 	  		#       # TOP FORM 
-			pdf.bounding_box([ 130, 550], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 550], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-			pdf.bounding_box([ 120, 520], :width => 430, :height => 30) do
+			pdf.bounding_box([ 90, 520], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 110, 488], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 486], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 176, 488], :width => 430, :height => 30) do
+			pdf.bounding_box([ 186, 486], :width => 430, :height => 30) do
 				pdf.text records_array.address_state.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 240, 488], :width => 430, :height => 30) do
+			pdf.bounding_box([ 260, 486], :width => 430, :height => 30) do
 				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 280, 444], :width => 430, :height => 30) do
+			pdf.bounding_box([ 300, 442], :width => 430, :height => 30) do
 				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
 			end
 
 
 			# Lender FORM
-			pdf.bounding_box([ 130, 378], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 378], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-			pdf.bounding_box([ 120, 350], :width => 430, :height => 30) do
+			pdf.bounding_box([ 90, 348], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 110, 320], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 318], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 176, 320], :width => 430, :height => 30) do
+			pdf.bounding_box([ 186, 318], :width => 430, :height => 30) do
 				pdf.text records_array.address_state.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 240, 320], :width => 430, :height => 30) do
+			pdf.bounding_box([ 260, 318], :width => 430, :height => 30) do
 				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
 			end
-			pdf.bounding_box([ 280, 262], :width => 430, :height => 30) do
+			pdf.bounding_box([ 300, 260], :width => 430, :height => 30) do
 				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
 			end
 
@@ -8187,14 +8174,13 @@ module PdfPageHelper
 			# 	pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
 			# end
 
-
-			pdf.bounding_box([140, 154], :width => 430, :height => 30) do
+			pdf.bounding_box([100, 182], :width => 430, :height => 30) do
+				pdf.text "Title" , :color => "ff0000" 
+			end
+			pdf.bounding_box([120, 154], :width => 430, :height => 30) do
 				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000"
 			end
 
-			pdf.bounding_box([140, 182], :width => 430, :height => 30) do
-				pdf.text "Title" , :color => "ff0000" 
-			end
 
 
 
@@ -8211,36 +8197,29 @@ module PdfPageHelper
 			         pdf.fill_color "000000"
 			end
 
-	  		#       # TOP FORM 
+	  		#      Agency FORM 
 			pdf.bounding_box([ 420, 646], :width => 430, :height => 30) do
 				pdf.text rec_set[28].to_s, :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 130, 624], :width => 430, :height => 30) do
+			pdf.bounding_box([ 100, 624], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 120, 603], :width => 430, :height => 30) do
+			pdf.bounding_box([ 100, 600], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 110, 580], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 580], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 270, 580], :width => 430, :height => 30) do
+			pdf.bounding_box([ 250, 580], :width => 430, :height => 30) do
 				pdf.text records_array.address_state.to_s , :color => "ff0000" 
 			end
-
 			pdf.bounding_box([ 380, 580], :width => 430, :height => 30) do
 				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
 			end
-	
-			pdf.bounding_box([ 110, 560], :width => 430, :height => 30) do
+			pdf.bounding_box([ 60, 558], :width => 430, :height => 30) do
 				pdf.text rec_set[30].to_s, :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 360, 560], :width => 430, :height => 30) do
+			pdf.bounding_box([ 350, 558], :width => 430, :height => 30) do
 				pdf.text rec_set[29].to_s, :color => "ff0000" 
 			end
 
@@ -8259,39 +8238,34 @@ module PdfPageHelper
 
 
 			# Lender form
-			pdf.bounding_box([ 130, 486], :width => 430, :height => 30) do
+			pdf.bounding_box([ 90, 486], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 120, 464], :width => 430, :height => 30) do
+			pdf.bounding_box([ 110, 442], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 110, 420], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 420], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 270, 420], :width => 430, :height => 30) do
+			pdf.bounding_box([ 230, 420], :width => 430, :height => 30) do
 				pdf.text records_array.address_state.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 380, 420], :width => 430, :height => 30) do
+			pdf.bounding_box([ 360, 420], :width => 430, :height => 30) do
 				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 110, 400], :width => 430, :height => 30) do
+			pdf.bounding_box([ 60, 398], :width => 430, :height => 30) do
 				pdf.text rec_set[30].to_s, :color => "ff0000" 
 			end
-			pdf.bounding_box([ 360, 400], :width => 430, :height => 30) do
+			pdf.bounding_box([ 350, 398], :width => 430, :height => 30) do
 				pdf.text rec_set[29].to_s, :color => "ff0000" 
 			end
 
 
 			# Mid placement 
-			pdf.bounding_box([ 420, 344], :width => 430, :height => 30) do
+			pdf.bounding_box([ 380, 344], :width => 430, :height => 30) do
 				pdf.text "$" + rec_set[26].to_s, :color => "ff0000" 
 			end
-			pdf.bounding_box([ 100, 292], :width => 430, :height => 30) do
+			pdf.bounding_box([ 20, 292], :width => 430, :height => 30) do
 				pdf.text "$" + rec_set[7].to_s, :color => "ff0000" 
 			end
 
@@ -8299,13 +8273,17 @@ module PdfPageHelper
 
 
 			#BOTTOM FORM SIGN NAME DATE 
-			pdf.bounding_box([ 280, 72], :width => 430, :height => 30) do
+			pdf.bounding_box([ 280, 70], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-			pdf.bounding_box([ 430, 72], :width => 430, :height => 30) do
+			pdf.bounding_box([ 430, 70], :width => 430, :height => 30) do
 				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
 			end
-			pdf.bounding_box([ 430, 36], :width => 430, :height => 30) do
+
+			pdf.bounding_box([ 280, 34], :width => 430, :height => 30) do
+				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
+			end
+			pdf.bounding_box([ 430, 34], :width => 430, :height => 30) do
 				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
 			end
 
@@ -8335,10 +8313,10 @@ module PdfPageHelper
 			end
 
 
-			pdf.bounding_box([ 168, 548], :width => 430, :height => 30) do
+			pdf.bounding_box([ 168, 550], :width => 430, :height => 30) do
 				pdf.text "X", :color => "ff0000", :size => 20 
 			end
-			pdf.bounding_box([ 346, 548], :width => 430, :height => 30) do
+			pdf.bounding_box([ 346, 550], :width => 430, :height => 30) do
 				pdf.text "X", :color => "ff0000", :size => 20 
 			end
 
@@ -8347,13 +8325,13 @@ module PdfPageHelper
 			# 	pdf.text rec_set[28].to_s, :color => "ff0000" 
 			# end
 
-			pdf.bounding_box([ 204, 482], :width => 430, :height => 30) do
+			pdf.bounding_box([ 180, 482], :width => 430, :height => 30) do
 				pdf.text "Bank Name", :color => "ff0000" 
 			end
-			pdf.bounding_box([ 200, 458], :width => 430, :height => 30) do
+			pdf.bounding_box([ 190, 458], :width => 430, :height => 30) do
 				pdf.text  "Bank Routing", :color => "ff0000" 
 			end
-			pdf.bounding_box([ 110, 438], :width => 430, :height => 30) do
+			pdf.bounding_box([ 100, 436], :width => 430, :height => 30) do
 				pdf.text  "Account Number", :color => "ff0000" 
 			end
 			pdf.bounding_box([ 330, 438], :width => 430, :height => 30) do
@@ -8373,41 +8351,35 @@ module PdfPageHelper
 			pdf.bounding_box([ 230, 314], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 120, 288], :width => 430, :height => 30) do
+			pdf.bounding_box([ 120, 286], :width => 430, :height => 30) do
 				pdf.text records_array.address_street.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 110, 261], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 258], :width => 430, :height => 30) do
 				pdf.text records_array.address_city.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 290, 261], :width => 430, :height => 30) do
+			pdf.bounding_box([ 290, 258], :width => 430, :height => 30) do
 				pdf.text records_array.address_state.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 440, 261], :width => 530, :height => 30) do
+			pdf.bounding_box([ 440, 258], :width => 530, :height => 30) do
 				pdf.text records_array.address_zip.to_s , :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 110, 234], :width => 430, :height => 30) do
+			pdf.bounding_box([ 80, 234], :width => 430, :height => 30) do
 				pdf.text "Attn :", :color => "ff0000" 
 			end
-
-			pdf.bounding_box([ 360, 202], :width => 430, :height => 30) do
+			pdf.bounding_box([ 180, 202], :width => 430, :height => 30) do
 				pdf.text "Memo ", :color => "ff0000" 
 			end
 
 			# Acknowledgement
-			pdf.bounding_box([ 360, 106], :width => 430, :height => 30) do
+			pdf.bounding_box([ 360, 102], :width => 430, :height => 30) do
 				pdf.text "Lender ", :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 260, 202], :width => 430, :height => 30) do
+			pdf.bounding_box([ 140, 198], :width => 430, :height => 30) do
 				# pdf.text "Lender ", :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 210, 58], :width => 430, :height => 30) do
+			pdf.bounding_box([160, 46], :width => 430, :height => 30) do
 				pdf.text rec_set[1].strftime('%b %d, %Y'), :color => "ff0000" 
 			end
 
@@ -8464,11 +8436,11 @@ module PdfPageHelper
 			         pdf.fill_color "000000"
 			end
 
-			pdf.bounding_box([ 240, 636], :width => 430, :height => 30) do
+			pdf.bounding_box([ 240, 632], :width => 430, :height => 30) do
 				pdf.text "Attn :", :color => "ff0000" 
 			end
 
-			pdf.bounding_box([ 240, 614], :width => 430, :height => 30) do
+			pdf.bounding_box([ 240, 610], :width => 430, :height => 30) do
 				pdf.text "Attn :", :color => "ff0000" 
 			end
 
@@ -8498,7 +8470,7 @@ module PdfPageHelper
 
 
 
-			pdf.bounding_box([ 230, 211], :width => 430, :height => 30) do
+			pdf.bounding_box([ 230, 206], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
 			pdf.bounding_box([ 250, 162], :width => 430, :height => 30) do
@@ -8508,7 +8480,7 @@ module PdfPageHelper
 
 
 
-			pdf.bounding_box([ 230, 66], :width => 430, :height => 30) do
+			pdf.bounding_box([ 230, 64], :width => 430, :height => 30) do
 				pdf.text rec_set[2] + " " + rec_set[3], :color => "ff0000" 
 			end
 			pdf.bounding_box([ 250, 16], :width => 430, :height => 30) do
