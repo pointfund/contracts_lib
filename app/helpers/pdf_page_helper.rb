@@ -718,7 +718,7 @@ module PdfPageHelper
 							#  # name : Area 2
 							pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 530, :height => 40}) do
 								
-							 	pdf.text full_name , {:color => "000000"}, :inline_format => true
+							 	pdf.text full_name ,:color => "000000", :inline_format => true
 								# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 							# # 	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 							end
