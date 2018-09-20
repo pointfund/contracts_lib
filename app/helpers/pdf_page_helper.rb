@@ -586,7 +586,7 @@ module PdfPageHelper
 							# sect_02 = sect_02.sub('#{repay_term1}', records_array.repay_term1 )
 							sect_02 = sect_02.sub('#{start_date}', rec_set[6].strftime('%b %d, %Y').to_s )
 							sect_02 = sect_02.sub('#{repay_penalty}', number_to_currency(rec_set[33] ) )
-							sect_02 = sect_02.sub('#{repay_start}',	rec_set[12].strftime('%b %d, %Y').to_s  )
+							sect_02 = sect_02.sub('#{repay_start}',	rec_set[12].strftime('%D').to_s  )
 							sect_02 = sect_02.sub('#{stated_rate}', rec_set[17].to_s  )
 							sect_02 = sect_02.sub('#{loan_act_fee}', rec_set[16].to_s )
 							sect_02 = sect_02.sub('#{repay_term1}', rec_set[9].to_s )
@@ -845,7 +845,7 @@ module PdfPageHelper
 									end
 									step = up_one(step)
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 110) do
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
 										pdf.text promise.chomp, :inline_format => true
 									# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 									end
@@ -853,21 +853,21 @@ module PdfPageHelper
 
 								    pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 110) do
 										pdf.text item_array[step].chomp.to_s, :inline_format => true
-									# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+										get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 									end
 									step = up_one(step)
 
-								    pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 460, :height => 140) do
+								    pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 460, :height => 240) do
 										# pdf.font "arial" 
-										pdf.text sect_02, :inline_format => true #, size: 10
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+										pdf.text sect_02, :inline_format => true , :leading => 8
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 									end
 									step = up_one(step)
 									
 									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
 										# pdf.font "arial", size: 11
 										pdf.text item_array[step].to_s, :inline_format => true
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 									end
 									step = up_one(step)
 
