@@ -802,9 +802,9 @@ module PdfPageHelper
 							# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							# end
 
-							pdf.bounding_box([10, 10], :width => 490, :height => 40) do
+							pdf.bounding_box([0, 0], :width => 560, :height => 40) do
 								# pdf.font "arial"
-								pdf.text footer.chomp.to_s, :inline_format => true, :size => 10, :align => :center
+								pdf.text footer.chomp.to_s, :inline_format => true, :size => 8, :align => :center
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 						
@@ -891,9 +891,9 @@ module PdfPageHelper
 									end
 									step = up_one(step)
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 100) do
+									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 100) do
 										# pdf.font "arial"
-										pdf.text item_array[step], :inline_format => true, :size => 10, :align => :center
+										pdf.text item_array[step], :inline_format => true, :size => 8, :align => :center
 									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 									end
 									step = up_one(step)
@@ -908,50 +908,50 @@ module PdfPageHelper
 						##########################################################################################
 						pdf.start_new_page
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 100) do
-										# pdf.font "arial"
-										pdf.text sect_04, size: 12
-										# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 100) do
-										# pdf.font "arial"
-										pdf.text sect_05.to_s, :inline_format => true
-										# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 130) do
-										# pdf.font "arial"
-										pdf.text sect_06.to_s, :inline_format => true
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 150) do
-										# pdf.font "arial"
-										pdf.text sect_07.to_s, :inline_format => true
-										# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 100) do
+								# pdf.font "arial"
+								pdf.text sect_04, size: 12
+								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 100) do
+								# pdf.font "arial"
+								pdf.text sect_05.to_s, :inline_format => true
+								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 130) do
+								# pdf.font "arial"
+								pdf.text sect_06.to_s, :inline_format => true
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 150) do
+								# pdf.font "arial"
+								pdf.text sect_07.to_s, :inline_format => true
+								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 300) do
-									# pdf.font "arial"
-									pdf.text sect_08.to_s, :inline_format => true
-										# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
-									# pdf.font "arial"
-										next_line = pdf.text item_array[step].to_s, :inline_format => true
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 300) do
+							# pdf.font "arial"
+							pdf.text sect_08.to_s, :inline_format => true
+								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
+							# pdf.font "arial"
+								next_line = pdf.text item_array[step].to_s, :inline_format => true
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 30) do
-									# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-									# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+							# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
 
 						# page 04
@@ -987,13 +987,14 @@ module PdfPageHelper
 							step = up_one(step)
 
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
-								# pdf.font "arial"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+							# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
 							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 
+				
 
 						# page 05
 						##########################################################################################
@@ -1012,12 +1013,12 @@ module PdfPageHelper
 								end
 								step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
-									# pdf.font "arial"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+							# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
 						# page 06
 						##########################################################################################
@@ -1044,10 +1045,10 @@ module PdfPageHelper
 							end
 							step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 200) do
-								# pdf.font "arial"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+							# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 
@@ -1055,115 +1056,121 @@ module PdfPageHelper
 						##########################################################################################
 						pdf.start_new_page
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 40) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :align => :center
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 40) do
+								# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :align => :center
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
+								# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+							# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+
 
 						# page 08
 						##########################################################################################
 						pdf.start_new_page
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :align => :center
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
+								# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :align => :center
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
+								# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 200) do
-										# pdf.font "arial"
-										pdf.text fill_form.to_s, :inline_format => true
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 200) do
+								# pdf.font "arial"
+								pdf.text fill_form.to_s, :inline_format => true
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 200) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 200) do
+								# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 200) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
-
-
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 300) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 200) do
+								# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 300, :height => 300) do
+								# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 10
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+								# pdf.font "arial"
+								set_date = item_array[53]
+								set_date = set_date.sub('#{repay_start}', rec_set[11].strftime('%D').to_s )
+
+								# pdf.text item_array[step].to_s, :inline_format => true, :size => 10
+								pdf.text set_date, :inline_format => true, :size => 10
+								
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+								# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 10
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+								# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 10
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
 
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+								# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 10
+								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+	
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+							# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
+
 
 						# page 09
 						##########################################################################################
@@ -1214,14 +1221,13 @@ module PdfPageHelper
 								end
 								step = up_one(step)
 
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+							# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							end
+							step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 490, :height => 40) do
-									# pdf.font "arial"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-								end
-								step = up_one(step)
 
 						# page 10
 						##########################################################################################
@@ -1283,14 +1289,14 @@ module PdfPageHelper
 										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 									end
 									step = up_one(step)
-									
-									pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
-										# pdf.font "arial"
-										pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-														# , :inline_format => true, :size => 12, style: :bold, :align => :center
-										# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
-									end
-									step = up_one(step)
+
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+								# pdf.font "arial"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								end
+								step = up_one(step)
+
 									
 									# pdf.bounding_box([10, 10], :width => 490, :height => 40) do
 									# 	# pdf.font "arial"
@@ -1383,13 +1389,13 @@ module PdfPageHelper
 								end
 								step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
-									# pdf.font "arial"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+								# pdf.font "arial"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 								end
 								step = up_one(step)
+
 
 						# page 12
 						##########################################################################################
@@ -1451,13 +1457,13 @@ module PdfPageHelper
 								end
 								step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-									# pdf.font "arial"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+								# pdf.font "arial"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 								end
 								step = up_one(step)
+
 
 						# page 13
 						##########################################################################################
@@ -1543,13 +1549,13 @@ module PdfPageHelper
 								end
 								step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-									# pdf.font "arial"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-													# , :inline_format => true, :size => 12, style: :bold, :align => :center
-									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+								# pdf.font "arial"
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 								end
 								step = up_one(step)
+
 
 								# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
 								# 		# pdf.font "arial"
@@ -1611,13 +1617,13 @@ module PdfPageHelper
 							end
 							step = up_one(step)
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
-								# pdf.font "arial"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+							# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
+
 
 						# page 15
 						##########################################################################################
@@ -1684,14 +1690,13 @@ module PdfPageHelper
 							end
 							step = up_one(step)
 
-
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 250) do
-									# pdf.font "arial"
-								pdf.text item_array[step].to_s, :inline_format => true, :size => 10, :align => :center
-												# , :inline_format => true, :size => 12, style: :bold, :align => :center
-								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 560, :height => 30) do
+							# pdf.font "arial"
+								pdf.text item_array[step].to_s, :inline_format => true, :size => 8, :align => :center
+							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
+
 								# pdf.font "arial" , size => 12
 						# page 16
 						##########################################################################################
