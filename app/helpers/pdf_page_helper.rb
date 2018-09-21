@@ -1304,7 +1304,7 @@ module PdfPageHelper
 
 								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 490, :height => 40) do
 									# pdf.font "arial"
-									pdf.text item_array[step].to_s, :inline_format => true, :size => 11,:align => :right
+									pdf.text item_array[step].to_s, :inline_format => true, :size => 11, :align => :right
 									# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 								end
 								step = up_one(step)
