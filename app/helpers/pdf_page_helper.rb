@@ -831,7 +831,7 @@ module PdfPageHelper
 								total_amt = item_array[13]
 								# total_amount = total_amt.sub('#{total_loan}', number_to_currency(rec_set[7].to_s ) )
 								# total_amount = number_to_currency(rec_set[7]) 
-								pdf.text total_amount, :inline_format => true
+								pdf.text total_amount + ".00", style: :bold, :inline_format => true
 							 	# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 							end
 							step = up_one(step)
