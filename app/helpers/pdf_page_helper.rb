@@ -707,6 +707,18 @@ module PdfPageHelper
 								#, {:color => "00ff00"}
 								# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 					        end
+
+					        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
+						      	pdf.fill_color "000000"
+						  #     	pdf.rectangle [204, 720], 120, 1
+								# pdf.fill_rectangle [10, 100],0, 0
+
+								pdf.rectangle [470, 12], 60, 1
+								pdf.fill_rectangle [10, 100],0, 0
+
+								pdf.fill_color "000000"
+						    end
+
 							step = up_one(step)
 							#  # name : Area 2
 							pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 530, :height => 40}) do
@@ -1153,7 +1165,7 @@ module PdfPageHelper
 								pdf.fill_rectangle [10, 100],0, 0
 
 
-								pdf.rectangle [14, 396], 530, 1
+								pdf.rectangle [24, 398], 520, 1
 								pdf.fill_rectangle [10, 100],0, 0
 
 
