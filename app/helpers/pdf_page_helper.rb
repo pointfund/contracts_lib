@@ -2421,7 +2421,7 @@ module PdfPageHelper
 				step = up_one(step)
 
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-					pdf.font "arial", size: 8 
+					# pdf.font "arial", size: 8 
 					pdf.text form_C_3, {:color => "000000", size: 8 }
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 		        end
@@ -8133,6 +8133,7 @@ module PdfPageHelper
 
 
 			pdf.bounding_box([-50, 710], :width => 100, :height => 100, :at => [200, 550]) do
+				pdf.font "arial", size: 10 
 			          pdf.fill_color "000000"
 				# pdf.transparent(1.0, 0.2) do 
 					pdf.image open("app/assets/page_files/con_9_page_2.png"), :fit => [600, 1000], :at => [0, 160]
