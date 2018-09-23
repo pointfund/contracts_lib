@@ -149,6 +149,7 @@ module PdfPageHelper
 		# Assignment of $
 		def page_letter_1(pdf,item_array,place_array,records_array,rec_set)
 		 Prawn::Document.generate("point_funding_doc.pdf") do
+
 			pdf.bounding_box([-30, 720], :width => 100, :height => 100, :at => [200, 550]) do
 	            pdf.fill_color "000000"
 				pdf.transparent(1.0, 0.2) do 
@@ -218,6 +219,7 @@ module PdfPageHelper
 				var_y = place_array[step][1]
 					
 				pdf.indent 320, 0 do
+					pdf.font "arial", size: 10 
 					pdf.stroke_color '000000'
 					pdf.stroke_bounds
 					pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
@@ -228,8 +230,9 @@ module PdfPageHelper
 			end
     		# page layout 
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-				pdf.font "times", size: 12 
-				pdf.text say_date , {:color => "ff0000", :size => 12, :font => "arial"}
+				# pdf.font "times", size: 12 
+				pdf.font "arial", size: 12 
+				pdf.text say_date , {:color => "000000", :size => 12, :font => "arial"}
 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
@@ -323,10 +326,10 @@ module PdfPageHelper
 		        end
 		        # page sign lines
 		        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
-					pdf.rectangle [110, 190], 180, 2
+					pdf.rectangle [110, 140], 180, 2
 					pdf.fill_rectangle [10, 100],0, 0
 					# pdf.fill_color "ff0000"
-					pdf.rectangle [310, 190], 180, 2
+					pdf.rectangle [310, 140], 180, 2
 					pdf.fill_rectangle [10, 100],0, 0
 					# pdf.fill_rectangle [240, 510],0, 0
 		        end
@@ -362,9 +365,9 @@ module PdfPageHelper
 				# wash para B
 				para_B = item_array[6].to_s
 				# find vars and replace 
-				para_B = para_B.sub('#{start_month}', records_array.repay_start.to_s )
+				para_B = para_B.sub('#{start_month}', records_array.repay_start.strftime('%B').to_s )
 				para_B = para_B.sub('#{total_amount}', number_to_currency(records_array.total_amount) )
-				para_B = para_B.sub('#{percent_of}', "--unkown--" )
+				para_B = para_B.sub('#{percent_of}', rec_set[17] + "%" )
 				# st_date = records_array.repay_start.strftime("%B")
 				# para_B = para_B.sub('#{start_month}', st_date )	
 				sign_to = item_array[9].to_s 
@@ -392,8 +395,9 @@ module PdfPageHelper
 				pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
 					puts step
 
-					# pdf.font "arial", size: 10
-					pdf.font "times", size: 12
+					
+					# pdf.font "times", size: 12
+					pdf.font "arial", size: 12 
 					pdf.text say_date , {:color => "000000", :size => 12 }
 
 					# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
@@ -475,15 +479,16 @@ module PdfPageHelper
 				pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
 					# pdf.text item_array[step]
 					pdf.text sign_to
-				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+					get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 				end
 
-				# step = up_one(step)
-				# # #sign from 11
-				# pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+				step = up_one(step)
+				# #sign from 11
+				pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
 				# puts step
-				# 	pdf.text item_array[step]
-				# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+					pdf.text item_array[step]
+				# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				end
 			end
 		end
 
@@ -1950,10 +1955,11 @@ module PdfPageHelper
 	        pdf.bounding_box([0, 0],{ :width => 200, :height => 100 }) do
 				# pdf.rectangle [240, 350], 310, 2
 				# pdf.fill_rectangle [10, 510],0, 0
-				# pdf.fill_color "ff0000"
-				# pdf.rectangle [310, 190], 180, 2
-				# pdf.fill_rectangle [10, 100],0, 0
+				pdf.fill_color "000000"
+				pdf.rectangle [110, 226], 180, 2
+				pdf.fill_rectangle [10, 100],0, 0
 				# pdf.fill_rectangle [240, 510],0, 0
+				pdf.fill_color "000000"
 	        end
 	        
 	        def up_one(step)
@@ -1972,7 +1978,7 @@ module PdfPageHelper
 			groupName = Time.new
 
 
-			groupName = groupName.localtime.strftime('  %b %d, %Y')
+			groupName = groupName.localtime.strftime('%B %u, %Y')
 			say_date = my_string.gsub('#{current_date}', groupName )
 
 			comp_address =  records_array.address_street;
@@ -1992,8 +1998,10 @@ module PdfPageHelper
 			para_A = para_A.sub('#{company}',  records_array.loan_name)
 			
 
-
-
+			para_B = item_array[7].to_s
+			para_B = para_B.sub('#{start_date}', rec_set[24] + " " + rec_set[25] )
+			para_B = para_B.sub('#{commission_pay}',rec_set[24])
+			para_B = para_B.sub('#{pay_effect}',rec_set[31])
 
 			tag_height = 14
 			# step = up_one(step) 
@@ -2005,8 +2013,8 @@ module PdfPageHelper
 				var_x = place_array[step][0]
 				var_y = place_array[step][1]
 			
-					
 				pdf.indent 320, 0 do
+
 					pdf.stroke_color '000000'
 					pdf.stroke_bounds
 					pdf.text_box step.to_s + " - : " + place_array[step][0].to_s + " : w, " + place_array[step][1].to_s + " : h, ", {:size => 12, :color => "ff0000" }
@@ -2019,6 +2027,7 @@ module PdfPageHelper
 			end
 			# page layout area  : Area 1
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+				pdf.font "times", size: 12
 				pdf.text say_date, {:color => "000000"}
 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
@@ -2430,10 +2439,10 @@ module PdfPageHelper
 	        end
 	        # page sign lines
 	        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
-				pdf.rectangle [110, 190], 180, 2
+				pdf.rectangle [110, 170], 180, 2
 				pdf.fill_rectangle [10, 100],0, 0
 				# pdf.fill_color "ff0000"
-				pdf.rectangle [310, 190], 180, 2
+				pdf.rectangle [310, 270], 180, 2
 				pdf.fill_rectangle [10, 100],0, 0
 				# pdf.fill_rectangle [240, 510],0, 0
 	        end
@@ -2451,7 +2460,7 @@ module PdfPageHelper
 			current_date = records_array.client_first_name.to_s
 			my_string = item_array[0].to_s
 			groupName = Time.new
-			groupDate = groupName.localtime.strftime('%b %d, %Y')
+			groupDate = groupName.localtime.strftime('%B %u, %Y')
 			say_date = my_string.gsub('#{current_date}', groupDate )
 			full_name = records_array.client_first_name + " " + records_array.client_last_name
 			head_name = full_name
@@ -2467,9 +2476,15 @@ module PdfPageHelper
 			intro = intro.gsub('#{full_name}', full_name )
 
 			para_A = item_array[6].to_s 
-			para_A = para_A.sub('#{start_date}', records_array.repay_start.to_s  )
-			para_A = para_A.sub('#{final_date}', records_array.repay_mature.to_s  )
-			para_A = para_A.sub('#{start_date}', records_array.repay_start.to_s  )
+			para_A = para_A.sub('#{start_date}', rec_set[24] + " " + rec_set[25] )
+
+			para_A = para_A.sub('#{current_date}', records_array.repay_mature.strftime('%B %u, %Y').to_s  )
+
+			para_A = para_A.sub('#{start_date}', records_array.repay_start.strftime('%B %u, %Y').to_s  )
+			para_A = para_A.sub('#{portion_amount}', number_to_currency( rec_set[26]).to_s  )
+
+			para_A = para_A.sub('#{final_date}', records_array.repay_mature.strftime('%B %Y').to_s  )
+
 			para_A = para_A.sub('#{current_date}', say_date  )
 
 			reply = item_array[3].to_s
@@ -2482,6 +2497,14 @@ module PdfPageHelper
 			tag_height = 14
 			# step = up_one(step) 
 			step = 0
+
+			para_B = item_array[7].to_s
+			para_B = para_B.sub('#{start_date}', rec_set[24] + " " + rec_set[25] )
+			para_B = para_B.sub('#{commission_pay}', number_to_currency(  rec_set[26].to_i - ( rec_set[26].to_i / rec_set[31].to_i ) ) )
+			para_B = para_B.sub('#{pay_effect}',rec_set[31])
+			para_B = para_B.sub('#{term_month}',rec_set[31])
+
+
 
 			def get_page_loc(step, place_array, pdf, var_x, var_y)
 				var_x = place_array[step][0]
@@ -2498,8 +2521,8 @@ module PdfPageHelper
 			end
 			
     		# page layout 
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
-				pdf.font "arial", size: 10 
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => 16}) do
+				pdf.font "times", size: 12 
 				pdf.text say_date, {:color => "000000"}
 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 	        end
@@ -2507,7 +2530,7 @@ module PdfPageHelper
 			# skip client info
 			# step = up_one(step)  
 			# pdf.bounding_box( [ place_array[step][0], place_array[step][1] ] ),{ :width => 200, :height => 30}) do
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => 16}) do
 				# get_page_loc(step, place_array, pdf);
 				# pdf.text records_array.loan_name	
 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
@@ -2524,7 +2547,7 @@ module PdfPageHelper
 			# step = up_one(step)  
 
 			# info 3
-			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 400, :height => 16) do
 			# 	pdf.text full_name_show , {:color => "000000"}
 				pdf.text full_name , {:color => "000000"}
 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
@@ -2532,7 +2555,7 @@ module PdfPageHelper
 
 			step = up_one(step)			
 			# #Address 4
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				
 				pdf.text comp_address + " \n" + comp_address_state
 				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
@@ -2540,13 +2563,13 @@ module PdfPageHelper
 
 			step = up_one(step)
 			# # #intro 5
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 16) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 400, :height => 16) do
 				pdf.text reply
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# #para 01 6
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				pdf.text agent_info
 			# 	# pdf.text item_array[5]
 			# 	pdf.text para_A 
@@ -2556,7 +2579,7 @@ module PdfPageHelper
 			# # end
 			step = up_one(step)
 			# #para 02 7
-			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 40) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 400, :height => 40) do
 				# pdf.text item_array[step]
 				pdf.text intro
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
@@ -2565,35 +2588,36 @@ module PdfPageHelper
 
 			step = up_one(step)
 			# #para 02 7
-			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 40) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 400, :height => 120) do
 				# pdf.text item_array[step]
 				pdf.text para_A
-			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			
 			end
 			step = up_one(step) 
 			# #para 03 8
-			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
-				pdf.text item_array[step]
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 120) do
+				pdf.text para_B
+				# pdf.text item_array[step]
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# # #ender 9
-			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				# pdf.text item_array[step]
 				pdf.text sign_to
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# # #sign to 10
-			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				pdf.text item_array[step]
 			# 	pdf.text sign_to
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# #sign from 11
-			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				pdf.text item_array[step]
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
@@ -2610,10 +2634,10 @@ module PdfPageHelper
 	        end
 	        # page sign lines
 	        pdf.bounding_box([0, 90],{ :width => 100, :height => 100 }) do
-				pdf.rectangle [110, 290], 180, 2
+				pdf.rectangle [130, 234], 180, 2
 				pdf.fill_rectangle [10, 100],0, 0
 				# pdf.fill_color "ff0000"
-				pdf.rectangle [310, 290], 180, 2
+				pdf.rectangle [360, 234], 180, 2
 				pdf.fill_rectangle [10, 100],0, 0
 				# pdf.fill_rectangle [240, 510],0, 0
 	        end
@@ -2631,7 +2655,7 @@ module PdfPageHelper
 			current_date = records_array.client_first_name.to_s
 			my_string = item_array[0].to_s
 			groupName = Time.new
-			groupName = groupName.localtime.strftime('%b %d, %Y')
+			groupName = groupName.localtime.strftime('%B %u, %Y')
 			say_date = my_string.gsub('#{current_date}', groupName )
 			full_name = records_array.client_first_name + " " + records_array.client_last_name
 			head_name = full_name
@@ -2672,46 +2696,47 @@ module PdfPageHelper
 			end
 			
     		# page layout date
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => 16}) do
+				# pdf.font "times", size: 12 
 				pdf.font "arial", size: 10 	
 				pdf.text say_date, {:color => "000000"}
 			end
 			
 			# name
 			step = up_one(step)  
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 430, :height => 16}) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => 16}) do
 				pdf.text full_name	
 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 			end
 			step = up_one(step)
 
 			# Address 
-			pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 430, :height => 24) do
+			pdf.bounding_box([  place_array[step][0], place_array[step][1] ], :width => 400, :height => 24) do
 				# 	pdf.text records_array.loan_name , {:color => "000000"}
 				pdf.text comp_address + " \n" + comp_address_state
 				end
 			step = up_one(step)  
 
 			# Re :
-			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 16) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 400, :height => 16) do
 			# 	pdf.text full_name_show , {:color => "000000"}
 				pdf.text  item_array[step]
 			end
 
 			step = up_one(step)			
 			# intro 
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				pdf.text intro
 			end
 
 			step = up_one(step)
 			# para 1
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 16) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 420, :height => 16) do
 				pdf.text para_A
 			end
 			step = up_one(step)
 			# #para 01 6
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 430, :height => 40) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 420, :height => 40) do
 				pdf.text item_array[step]
 			# 	# pdf.text item_array[5]
 			# 	pdf.text para_A 
@@ -2721,24 +2746,24 @@ module PdfPageHelper
 			# # end
 			step = up_one(step)
 			# #para 02 7
-			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 430, :height => 40) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 420, :height => 40) do
 				pdf.text para_C
 			end
 			step = up_one(step) 
 			# #para 03 8
-			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				pdf.text sign_to
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# # #ender 9
-			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				pdf.text item_array[step]
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# # #sign to 10
-			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 430, :height => 30) do
+			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				pdf.text item_array[step]
 			# 	pdf.text sign_to
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
