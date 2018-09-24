@@ -75,12 +75,12 @@
                     <div class="field"> -->
                     <%= form.label :fin_fee %>
                     <%= form.text_field :fin_fee, class: "form-control"  %>
-                    <%= form.label :repay_term1 %>
+                    <%= form.label "Term in months" %>
                     <%= form.text_field :repay_term1,  class: "  form-control " %>
                     <%= #form.text_field :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select" 
                     %>
                     <% if(@record.repay_term2.to_s != "0") %>
-                        <%= form.label :repay_term2.to_s + ":nth" %>
+                        <%= form.label :repay_term2.to_s + " :nth" %>
                         <%= form.text_field :repay_term2,  class: "form-control"%>
                     <% end %>
                     <%= form.label :repay_mature %>
@@ -186,7 +186,7 @@
                         <%= form.label "Assignment in months" %>
                         <%= form.text_field :term_assignment_mths, class: "form-control" %>
                         <h4>
-                            <%= form.label :position %><br />
+                            <%= form.label "Payment Method" %><br />
                         </h4>
                         <%= #form.text_field :position 
                         %>
@@ -209,11 +209,16 @@
                             <!-- <input type="text" class="form-control" aria-label="Text input with checkbox"> -->
                         <!-- </div> -->
                         <div class="cap-form">
-                            <%= form.check_box(:position, {:multiple => true}, "sit", nil)          %>   Sit        <br />
-                            <%= form.check_box(:position, {:multiple => true}, "fetch", nil)        %>   Fetch      <br />
-                            <%= form.check_box(:position, {:multiple => true}, "roll_over", nil)    %>   Roll over  <br />
-                            <%= form.check_box(:position, {:multiple => true}, "play_dead", nil)    %>   Play Dead  <br />
-                            <%= form.check_box(:position, {:multiple => true}, "paw", nil)          %>   Gimmie Paw <br />
+                            <%= form.check_box(:position, {:multiple => true}, "paper", nil)          %>   Paper Check        <br />
+                            <%= form.check_box(:position, {:multiple => true}, "Commission Deduction", nil)        %>   Deduction      <br />
+                            <h4>
+                                <%= form.label "Business Entity" %><br />
+                            </h4>
+                            <%= form.check_box(:position, {:multiple => true}, "Checking Account", nil)    %>   Checking  <br />
+                            <%= form.check_box(:position, {:multiple => true}, "Savings Account", nil)    %>   Savings  <br />
+                            <%= #form.check_box(:position, {:multiple => true}, "paw", nil)         
+                             %>   
+                             <!-- Gimmie Paw <br /> -->
                         </div>
                     </div>
                 </div>
