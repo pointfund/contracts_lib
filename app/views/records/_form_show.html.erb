@@ -13,32 +13,28 @@
                 </ul>
             </div>
             <% end %>
-
-
-        <div class="actions pull-right">
-            <%= form.submit %>
-        </div>
-        <div class="btn-group">
-            <div class=" panel-button-name btn btn-primary pull-left">
-                Client Info 
+            <div class="actions pull-right">
+                <%= form.submit %>
             </div>
-            <div class=" panel-button-client btn btn-primary pull-left">
-                Loan Info 
+            <div class="btn-group">
+                <div class=" panel-button-name btn btn-primary pull-left">
+                    Client Info 
+                </div>
+                <div class=" panel-button-client btn btn-primary pull-left">
+                    Loan Info 
+                </div>
+                <div class=" panel-button-agent btn btn-primary pull-left">
+                    Agent
+                </div>
+                
             </div>
-            <div class=" panel-button-agent btn btn-primary pull-left">
-                Agent
-            </div>
-            
-        </div>
-
-
-
-        <div class="col-lg-5">
-  <!--      <div class=" panel-button-client btn btn-primary pull-left">
+            <div class="col-lg-5">
+            <!--      <div class=" panel-button-client btn btn-primary pull-left">
             Client Info 
             </div> -->
 
-            <div class="panel-body panel-name" style="">            <h4 >Client Info :</h4> 
+            <div class="panel-body panel-name" style="">
+                <h4 >Client Info :</h4> 
                 <div class="field form_imput">
                     <%= form.label :loan_name %>
                     <%= form.text_field :loan_name, class: "form-control"  %>
@@ -51,8 +47,8 @@
 
                     <%= form.label :client_nick %>
                     <%= form.text_field :client_nick, class: "form-control"  %>
-         <!--        </div>
-                <div class="field"> -->
+                    <!--        </div>
+                    <div class="field"> -->
                     <%= form.label :address_street %>
                     <%= form.text_field :address_street, class: "form-control"  %>
 
@@ -64,9 +60,8 @@
 
                     <%= form.label :address_zip %>
                     <%= form.text_field :address_zip, class: "form-control"  %>
-           <!--      </div>
-
-                <div class="field"> -->
+                    <!--      </div>
+                    <div class="field"> -->
                     <%= form.label :guarantee01 %>
                     <%= form.text_field :guarantee01, class: "form-control"  %>
                     <% if(@record.guarantee02 != "none") %>
@@ -76,15 +71,17 @@
                         <%= form.label :guarantee03 %>
                         <%= form.text_field :guarantee03, class: "form-control"  %>
                     <% end %>
-                <!--    </div>
-                <div class="field"> -->
+                    <!--    </div>
+                    <div class="field"> -->
                     <%= form.label :fin_fee %>
                     <%= form.text_field :fin_fee, class: "form-control"  %>
                     <%= form.label :repay_term1 %>
-                    <%= form.select :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select"%>
+                    <%= form.text_field :repay_term1,  class: "  form-control " %>
+                    <%= #form.text_field :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select" 
+                    %>
                     <% if(@record.repay_term2.to_s != "0") %>
-                        <%= form.label :repay_term2 %>
-                        <%= form.select :repay_term2, ['seventh', 'eighth', 'tenth', 'twelfth', 'eighteenth', 'twentyfourth'], class: "custom-select"%>
+                        <%= form.label :repay_term2.to_s + ":nth" %>
+                        <%= form.text_field :repay_term2,  class: "form-control"%>
                     <% end %>
                     <%= form.label :repay_mature %>
                      <div class="cap-form" style="width:190px;">    
@@ -93,30 +90,25 @@
                 </div>
             </div>
         </div>
-
-        
-
             <div class="col-lg-5">
-<!--                 <div class=" panel-button-name btn btn-primary  pull-left">
-                    Loan Info 
-                </div> -->
-
+            <!--    <div class=" panel-button-name btn btn-primary  pull-left">
+                   Loan Info 
+            </div> -->
                 <div class="panel-body panel-client"  style="">                <h4 >Loan Info :</h4> 
                     <div class="field form_imput">
                     <%= form.label :current_date %>
                     <div class="cap-form">
-                        <%= form.date_select :current_date, class: "custom-control" %>
+                        <%= form.date_select :current_date, class: "custom-control  form-control " %>
                     </div>
                     <%= form.label :note_date %>
                     
-                    <%= form.text_field :note_date %>
-               <!--  </div>
-                <div class="field"> -->
+                    <%= form.text_field :note_date, class: "form-control"  %>
+                    <!--  </div>
+                    <div class="field"> -->
                     <%= form.label :loan_amount %>
                     <%= form.text_field :loan_amount, class: "form-control"  %>
-              
-                <!-- </div>
-                <div class="field"> -->
+                        <!-- </div>
+                        <div class="field"> -->
                     <%= form.label :total_amount %>
                     <%= form.text_field :total_amount, class: "form-control"  %>
 
@@ -147,25 +139,23 @@
 
                     <%= form.label :total_default %>
                     <%= form.text_field :total_default, class: "form-control"  %>
-              <!--   </div>
-                <div class="field"> -->
+                    <!--   </div>
+                    <div class="field"> -->
                     <%= form.label :repay_start %>
                     <%= #form.date_select :current_date 
                     %>
                     <div class="cap-form">
-                        <%= form.date_select :repay_start, class: "custom-control" %>
+                        <%= form.date_select :repay_start, class: "custom-control form-control " %>
                     </div>
 
                     <%= form.label :repay_1st %>
                     <div class="cap-form">    
-                        <%= form.date_select :repay_1st, class: "custom-control"  %>
+                        <%= form.date_select :repay_1st, class: "custom-control form-control "  %>
                     </div>
 
                     </div>
                 </div>
             </div>
-            
-
 
             <div class="col-lg-5">
                 <div class=" panel-body  panel-agent pull-left" >
@@ -202,11 +192,9 @@
                         %>
                         <%= #form.checkbox(:position, [:id, :name]) 
                         %>
-                           <%= #form.check_box :position, ['seventh', 'eighth', 'tenth'], class: "custom-select" 
-                           %>
-                        
-
-<!--                         <div class="input-group mb-3 cap-form">
+                        <%= #form.check_box :position, ['seventh', 'eighth', 'tenth'], class: "custom-select" 
+                        %>
+                        <!--  <div class="input-group mb-3 cap-form">
                             <div class="input-group-prepend">
                                 <div class="input-group-text form_imput check_box_form "> -->
                                     <!-- <input type="checkbox" aria-label="Checkbox for following text input">
@@ -227,26 +215,6 @@
                             <%= form.check_box(:position, {:multiple => true}, "play_dead", nil)    %>   Play Dead  <br />
                             <%= form.check_box(:position, {:multiple => true}, "paw", nil)          %>   Gimmie Paw <br />
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </div>
                 </div>
             </div>

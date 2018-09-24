@@ -21,7 +21,7 @@
             <div class="field form_imput input-group input-group-sm form-part">
             <h3> <%= form.label "Loan Information:" %></h3>
             
-                <%= form.label "Loan in Company Name" %>
+                <%= form.label "Loan in Company Name" + " #{record.id} " %>
                 <%= form.text_field :loan_name,                                     class: "form-control"  %>
 
                 <%= form.label :client_first_name %>
@@ -63,9 +63,12 @@
                         <%= form.label :repay_term1 %>
                         <%= # form.select( :repay_term1, [seven, eight, ten]) 
                         %>
-                        <%= form.select :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select" %>
-                        <%= form.label :repay_term2 %>
-                        <%= form.select :repay_term2, ['seventh', 'eighth', 'tenth', 'twelfth', 'eighteenth', 'twentyfourth'],               class: "custom-select" %>
+                        <%= form.text_field "Term in Months", class: "custom-select" 
+                        %>
+                        <%= #form.select :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select" 
+                        %>
+                        <%= form.label "Term :nth" %>
+                        <%= form.text_field :repay_term2,               class: "custom-select" %>
                    
                         <%= form.label :stated_rate.to_s + " %"%>
                         <%= form.text_field :stated_rate, size: 4 ,                 class: "form-control" %>
