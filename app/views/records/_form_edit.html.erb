@@ -63,12 +63,12 @@
                         <%= form.label :repay_term1 %>
                         <%= # form.select( :repay_term1, [seven, eight, ten]) 
                         %>
-                        <%= form.text_field "Term in Months", class: "custom-select" 
+                        <%= form.text_field "Term in Months",                       class: "custom-select" 
                         %>
                         <%= #form.select :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select" 
                         %>
                         <%= form.label "Term :nth" %>
-                        <%= form.text_field :repay_term2,               class: "custom-select" %>
+                        <%= form.text_field :repay_term2,                           class: "custom-select" %>
                    
                         <%= form.label :stated_rate.to_s + " %"%>
                         <%= form.text_field :stated_rate, size: 4 ,                 class: "form-control" %>
@@ -246,9 +246,74 @@
         <div class="field  form_imput outline " > 
             <div class="actions pull-right col-lg-2 style="margin-top: 20px;"">
                 <%= form.submit class: "btn btn-success" %>
-            </div>  
+            </div> 
+
+
+
+
+
+
+
         </div>
+
+
+
+
+
+<div class="col-lg-2  outline" style="background:#eee9cd;   padding: 10px; height:100%; ">
+    <div class="panel">
+        <!-- <div class="field  form_imput outline"> -->
+
+            <div class="cap-form">
+                <%= form.check_box(:position, {:multiple => true}, "paper", nil)          %>   Paper Check        <br />
+                <%= form.check_box(:position, {:multiple => true}, "Commission Deduction", nil)        %>   Deduction      <br />
+                <h4>
+                    <%= form.label "Business Entity" %><br />
+                </h4>
+                <%= form.check_box(:position, {:multiple => true}, "Checking Account", nil)    %>   Checking  <br />
+                <%= form.check_box(:position, {:multiple => true}, "Savings Account", nil)    %>   Savings  <br />
+                <%= #form.check_box(:position, {:multiple => true}, "paw", nil)         
+                 %>   
+
+
+                <h4>
+                    <%= form.label "Payment Owed" %><br />
+                </h4>
+                <%= form.check_box(:position, {:multiple => true}, "New 1 - 120", nil)    %>   New 1 - 120  <br />
+                <%= form.check_box(:position, {:multiple => true}, "New 121 - 180", nil)    %>  New 121 - 180 <br />
+                <%= form.check_box(:position, {:multiple => true}, "Refi", nil)    %>  Refinance  <br />
+                <%= #form.check_box(:position, {:multiple => true}, "paw", nil)         
+                 %>   
+                 <!-- Gimmie Paw <br /> -->
+            </div>
+
+
+                <!-- </div> -->
+            </div>
+        </div>
+
+
         <% end %>
         <!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 <!-- </div> -->
