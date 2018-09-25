@@ -4641,7 +4641,7 @@ module PdfPageHelper
 				# pdf.bounding_box([ place_array[step][0], place_array[step][1] ] ), { :width => 200, :height => 300}) do
 				# pdf.font "/app/assets/fonts/times-Regular.ttf"
 				# pdf.text item_array[step], {:color => "00ff00"}
-				pdf.font "arial", size: 10
+				pdf.font "arial", size: 9
 				# pdf.text say_date, {:color => "000000"}
 				# pdf.text place_array[step][0].to_s
 				# pdf.text place_array[step][1].to_s
@@ -4712,7 +4712,10 @@ module PdfPageHelper
 			 				["#{ rec_set[32] }" , "32", "Position ", "agent_position"],
 			 				["#{ rec_set[33] }" , "33", "Monthly Penality ", "pay_pen"],
 			 				["#{ rec_set[34] }" , "34", "Pre pay Penality ", "prepay_pen"],
-			 			],  :cell_style => { :size => 9, :background_color => "828fbb" }
+			 				["#{ rec_set[35] }" , "35", "Payment type ", "payment_type"],
+			 				["#{ rec_set[36] }" , "36", "Account Type ", "account_type"],
+			 				["#{ rec_set[37] }" , "37", "Assignment Type ", "assignment_type"],
+			 			],  :cell_style => { :size => 8, :background_color => "D3D3D3" }
 
 			 			) 
 
