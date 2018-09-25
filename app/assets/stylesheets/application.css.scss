@@ -16,7 +16,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 body{
-    background-color: #d9edf7;
+      background-color: #1468a9;
+    /*background-color: #d9edf7;*/
+    background-image:url(asset_path('main_backdrop.png') );
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 .turbolinks-progress-bar {
   height: 5px;
@@ -270,6 +274,8 @@ td{
   width: 86%;
   background-color: #da5738;
   background-color: #eda290;
+  background: none;
+  /*opacity: 0.2;*/
   overflow: hidden;	
 }
 full-page.table {
