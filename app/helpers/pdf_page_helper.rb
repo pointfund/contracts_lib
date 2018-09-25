@@ -83,14 +83,19 @@ module PdfPageHelper
 					agt_phone = records_array.agent_phone.to_s
 				rec_set.push(agt_phone)																#	30
 					agt_term = records_array.term_assignment_mths.to_s
-				rec_set.push(agt_term)																#	31
+				rec_set.push(agt_term)																#	31			
 					agt_pos = records_array.position.to_s
 				rec_set.push(agt_pos)																#	32
 					pay_pen = records_array.pay_pen.to_s
 				rec_set.push(pay_pen)																#	33
 					prepay_pen = records_array.prepay_pen.to_s
 				rec_set.push(prepay_pen)															#	33
-
+					payment_type = records_array.payment_type.to_s
+				rec_set.push(payment_type)															# 	34
+					account_type = records_array.account_type.to_s									
+				rec_set.push(account_type)															# 	35
+					assignment_type = records_array.assignment_type.to_s							
+				rec_set.push(assignment_type)														# 	36
 				zvar = pick.to_i
 				case zvar
 					when 1
