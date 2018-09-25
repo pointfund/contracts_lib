@@ -204,7 +204,11 @@ class RecordsController < ApplicationController
                                       :term_assignment_mths,
                                       :position,
                                       :pay_pen,
-                                      :prepay_pen
+                                      :prepay_pen, 
+                                      :payment_type,
+                                      :account_type,
+                                      :assignment_type,
+                                      :check_type
                                      )
     end
 end

@@ -209,13 +209,27 @@
                             <!-- <input type="text" class="form-control" aria-label="Text input with checkbox"> -->
                         <!-- </div> -->
                         <div class="cap-form">
-                            <%= form.check_box(:position, {:multiple => true}, "paper", nil)          %>   Paper Check        <br />
-                            <%= form.check_box(:position, {:multiple => true}, "Commission Deduction", nil)        %>   Deduction      <br />
+                            <% if  :payment_type == 0%>
+                                <% %>
+                                <% payment_type = true %>
+                                <%= form.check_box(:payment_type, {}, 0, nil)        %>     Paper Check (Lender)         <br />
+                            <% else %>
+                                <%= form.check_box(:payment_type, {}, 0, nil)        %>     Paper Check (Agency)      <br />
+                            <% end %>
+
+
+                            <%= #form.check_box(:payment_type, {:multiple => true}, 0, nil)        
+                            %>   Paper Check        <br />
+                            
+
+
+
+                            <%= form.check_box(:payment_type, {}, 1, nil)        %>   Deduction (Agency)       <br />
                             <h4>
-                                <%= form.label "Business Entity" %><br />
+                                <%= form.label  "Banking Account" %><br />
                             </h4>
-                            <%= form.check_box(:position, {:multiple => true}, "Checking Account", nil)    %>   Checking  <br />
-                            <%= form.check_box(:position, {:multiple => true}, "Savings Account", nil)    %>   Savings  <br />
+                            <%= form.check_box(:account_type, {}, 0, nil)    %>   Checking  <br />
+                            <%= form.check_box(:account_type, {}, 1, nil)    %>   Savings  <br />
                             <%= #form.check_box(:position, {:multiple => true}, "paw", nil)         
                              %>   
 
@@ -223,9 +237,9 @@
                             <h4>
                                 <%= form.label "Payment Owed" %><br />
                             </h4>
-                            <%= form.check_box(:position, {:multiple => true}, "New 1 - 120", nil)    %>   New 1 - 120  <br />
-                            <%= form.check_box(:position, {:multiple => true}, "New 121 - 180", nil)    %>  New 121 - 180 <br />
-                            <%= form.check_box(:position, {:multiple => true}, "Refi", nil)    %>  Refinance  <br />
+                            <%= form.check_box(:assignment_type, {}, 0, nil)    %>  New 1 - 120  <br />
+                            <%= form.check_box(:assignment_type, {}, 1, nil)    %>  New 121 - 180 <br />
+                            <%= form.check_box(:assignment_type, {}, 2, nil)    %>  Refinance  <br />
                             <%= #form.check_box(:position, {:multiple => true}, "paw", nil)         
                              %>   
                              <!-- Gimmie Paw <br /> -->

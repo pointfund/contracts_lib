@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_31_175436) do
+ActiveRecord::Schema.define(version: 2018_09_25_084242) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -104,6 +104,10 @@ ActiveRecord::Schema.define(version: 2018_08_31_175436) do
     t.datetime "updated_at", null: false
     t.string "pay_pen"
     t.string "prepay_pen"
+    t.integer "payment_type"
+    t.integer "account_type"
+    t.integer "assignment_type"
+    t.integer "check_type"
   end
 
   create_table "users", force: :cascade do |t|
