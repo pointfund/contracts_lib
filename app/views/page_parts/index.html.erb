@@ -28,7 +28,7 @@
             <tr>
                 <td><%= page_part.id %></td>
                 <td><%= page_part.name %></td>
-                <td><%= page_part.content[0, 50] %></td>
+                <td><%= page_part.content.to_s[0, 50] %></td>
                 <td><%= page_part.contract_id %></td>
                 <td><%= page_part.page_area %></td>
                 <td><div class="btn btn-default"><%= link_to 'Show', page_part %></div></td>
