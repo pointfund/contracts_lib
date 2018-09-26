@@ -205,10 +205,11 @@ module PdfPageHelper
 			# wash para B
 			para_B = item_array[6].to_s
 			# find vars and replace 
-			para_B = para_B.sub('#{loan_rate}', records_array.stated_rate.to_s )
-			para_B = para_B.sub('#{total_loan}', number_to_currency(records_array.total_amount) )
-			st_date = records_array.repay_start.strftime("%B")
-			para_B = para_B.sub('#{start_month}', st_date )	
+			para_B = para_B.sub('#{ded_amt}', number_to_currency(rec_set[26]) .to_s )
+			# para_B = para_B.sub('#{new_ded}', number_to_currency(rec_id[]) )
+			para_B = para_B.sub('#{new_ded}', "unknown" )
+			# st_date = records_array.repay_start.strftime("%B")
+			para_B = para_B.sub('#{agent_month}', rec_set[24] )	
 			sign_to = item_array[9].to_s 
 			sign_to = sign_to.sub('#{full_name}', full_name )
 			
@@ -616,6 +617,8 @@ module PdfPageHelper
 							# sect_03 = sect_03.sub('#{repay_penalty}', number_to_currency(records_array.repay_penalty ) )
 							sect_03 = sect_03.sub('#{loan_act_fee}',  number_to_currency(rec_set[16].to_s )  + ".00")
 
+							sect_monthly = item_array[23]
+							sect_monthly = sect_monthly.sub('#{payment_mth_day}', rec_set[15].to_s  )
 
 							sect_04 = item_array[25]
 							sect_04 = sect_04.sub('#{payment_mth_day}', rec_set[15]  )
@@ -907,7 +910,7 @@ module PdfPageHelper
 
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 100) do
-								pdf.text item_array[step].to_s, :inline_format => true
+								pdf.text sect_monthly.to_s, :inline_format => true
 							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
@@ -1264,7 +1267,7 @@ module PdfPageHelper
 							step = up_one(step)
 
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 120) do
 								# pdf.font "arial"
 								pdf.text records_array.current_date.strftime('%B %d, %Y').to_s, :align => :right
 								pdf.text item_array[step].to_s, :inline_format => true, :size => 10
@@ -1276,8 +1279,9 @@ module PdfPageHelper
 							step = up_one(step)
 
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 120) do
 								# pdf.font "arial"
+								# pdf.text " "
 								pdf.text records_array.current_date.strftime('%B %d, %Y').to_s, :align => :right
 								pdf.text item_array[step].to_s, :inline_format => true, :size => 10
 								# pdf.move_down(10)		
