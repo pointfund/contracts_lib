@@ -5,7 +5,7 @@ contract_id,page_area,name,content
 1,3,address,#{address}
 1,4,intro,"Dear #{nick_name},"
 1,5,para 01,We are refinancing #{full_name} (A1234) Assignment of Commission.
-1,6,para 02,"We previously had #{loan_rate}% of their commissions assigned to Point Funding LLC. We are changing the assignment of commission to deduct the dollar amount of $ #{total_loan} , to begin in #{start_month}."
+1,6,para 02,We previously had the dollar amount #{ded_amt} deducting from their commissions. We are changing the assignment of commission to deduct the dollar amount of #{new_ded} to begin in #{agent_month} .
 1,7,para 03,Please see the attached documents. Thank you.
 1,8,footer,"Sincerely,"
 1,9,sign_to,#{full_name}
@@ -36,11 +36,11 @@ Attn: Danita Ward"
 4,8,Footer,"Sincerely,"
 4,9,Sign From,Court Carrere
 5,0,title,Agent Summary
-5,1,form A line 1,Agency Name :        #{full_name}                        Agent #: #{agent_code}
+5,1,form A line 1,Agency Name :                #{full_name}            Agent #:                 #{agent_code}
 5,2,form A line 2,Agent Name    :        #{full_name}
-5,3,form A line 3,Agency Address    :        #{address_street}
-5,4,form A line 4,"City, St, Zip    :        #{address_city}, #{address_state} #{address_zip}"
-5,5,form A line 5,Phone: #{agent_phone}      Email    : #{agent_email}
+5,3,form A line 3,Agency Address    :                #{address_street}
+5,4,form A line 4,"City, St, Zip    :                         #{address_city}, #{address_state} #{address_zip}"
+5,5,form A line 5,Phone: #{agent_phone}            Email    : #{agent_email}
 5,6,form A line 6,Lender Name    : Point Funding LLC
 5,7,form A line 7,Lender Contact    : William Carrere
 5,8,form A line 8,"Address    : 701 Poydras Street, Suite 4740"
@@ -48,7 +48,7 @@ Attn: Danita Ward"
 5,10,form A line 10,Phone    : 504-208-4406                     Email    : courtcarrere@pointfunding.com
 5,11,para 01,"<b>Acknowledgment by Agent    :</b>
 I acknowledge that the information provided above is correct.  I further acknowledge I am pledging my Progressive Life Insurance Commissions as collateral for the Point Funding loan dated."
-5,12,form B line 1,Print Agent Name    : #{agent_name}
+5,12,form B line 1,Print Agent Name    :               #{agent_name}
 5,13,form B line 2,Agent Signature    :
 5,14,form B line 3,Date    : #{current_date}
 5,15,Para 02,"<b>Acknowledgment by Lender    :</b>
@@ -62,9 +62,9 @@ I acknowledge that the information provided above is correct."
 6,3,Reply,RE: Assignment of Commission Replacement
 6,4,agent,Allstate Agent Number – #{agent_code} #{full_name}
 6,5,Intro,Dear Lending Connection:
-6,6,Para 01,We are asking that the current Allstate Assignment of Commission with the Commencement Month of #{start_date} and date stamped by Allstate Lending Connection on #{current_date} in the amount of #{total_amount} be released on #{final_date}.
-6,7,Para 02,Please let us know if there is anything else needed. Thank you.
-6,8,Sign from,#{agent_code} #{full_name} 
+6,6,Para 01,We are asking that the current Allstate Assignment of Commission with the Commencement Month of #{start_date} and date stamped by Allstate Lending Connection on #{current_date} in the amount of #{portion_amount} be released on #{final_date}.
+6,7,Para 02,Attached are the updated Assignment of Commission forms that will replace the previous commission assignment and take effect #{start_date}. The new assignment of commission amount is #{commission_pay} and will stay in effect for #{term_month} months.
+6,8,Sign from,#{agent_code} #{full_name}
 6,9,Footer,Sincerely;
 6,10,Sign_to,Court Carrere
 7,0,date,#{current_date}
@@ -84,3 +84,900 @@ New Orleans, LA 70130
 504-569-3418"
 7,12,account,"ABA: 265070532
 Account #:8009957583"
+3,0,Date,#{date}
+3,1,point address,"Point Funding LLC
+701 Poydras Street Suite 4740
+New Orleans, Louisiana 70139"
+3,2,name,#{full_name}
+3,3,address,#{full_address}
+3,4,intro,Dear #{first_name}:
+3,5,Para 01,Attached is the Point Funding Promissory Note. Any omission will delay funding. It is important that the items listed below are completed in their entirety:
+3,6,Para 01 list,"o The bottom right of each page indicates if initials are required.
+o Sign where indicated.
+o Return a Voided Check
+o Complete the Electronic Funds Authorization form in its entirety."
+3,7,para 02,"The completed document must be mailed or overnighted to our office prior to funding.
+Please mail or overnight to:"
+3,8,close address,"Point Funding LLC
+701 Poydras Street Suite 4740
+New Orleans, Louisiana 70139"
+3,9,closing,"#{first_name} , if you have any questions please do not hesitate to contact us. Our telephone number is 504-208-4406. We are looking forward to a long-term relationship."
+3,10,Footer,Sincerely;
+3,11,sign to,The Point Funding Team
+3,12,-,-
+3,13,Loan Amount,<b>  #{total_loan}.00</b>
+3,14,start date,<b>#{start_date} </b>
+3,15,location,"<b>New Orleans, Louisiana </b>"
+3,16,section 1,<b>Section 1</b>
+3,17,Para 01,"<u>Promise to Pay .</u> FOR VALUE RECEIVED, #{full_name} (“ Maker ”) hereby promises to pay
+to the order of Point Funding, LLC, a Louisiana limited liability company (“ Holder ”) the
+principal sum of <b> #{total_loan}.00 </b> (the “ Principal Amount ”) in lawful money of the United States of
+America which shall be legal tender for the payment of debts from time to time, together with
+Monthly Financing Fees (as defined below) which become due, any applicable Prepayment
+Penalty (as defined below) and any interest becoming due at the Stated Rate (defined below)
+payable as stipulated herein.
+
+
+
+
+<u>Defined Terms</u> . As used herein, the following terms shall have the meanings given to such terms in this Section 2:
+"
+3,18,Section 2,"<b>Section 2 </b>
+"
+3,19,Para 02,"
+                     <i>“Monthly Financing Fees”</i> shall equal  <b>#{repay_monthly}.00 </b> per month.
+                     <i>“Maturity Date”</i> means the date #{repay_term1} months after the Start Date, or <b> #{start_date} </b>.
+                     <i>“Prepayment Penalty”</i> shall equal  <b> #{repay_penalty}.00 </b>.
+                     <i>“Start Date”</i> means date of funding, or <b> #{repay_start} </b>.
+                     <i>“Stated Rate”</i> means a fixed interest rate of <b> #{stated_rate}%</b> per annum.
+                     <i>“Loan Activation Fee”</i> shall equal <b>$ #{loan_act_fee}.00 </b>."
+3,20,Section 3,<b>Section 3</b>
+3,21,Para 03,"<u>Payment Terms.</u> <b> #{total_default} </b> representing the sum of the Monthly Financing Fee for the previous
+month of the loan and one- #{repay_term1} of the Principal Amount, shall be due and payable on the <b> #{payment_mth_day} </b>
+day of each calendar month (the “ Monthly Payment Date ”) beginning <b> #{repay_start} </b> and ending
+on the Maturity Date <b> #{repay_mature}</b>. Should the repayment date occur on either a weekend or
+bank holiday, the funds will be debited on the preceding business day. All payments hereunder
+shall be made by Maker to Holder by electronic funds transfer in accordance with the
+instructions set forth on Exhibit A hereto. Interest shall accrue on any past due amount
+hereunder at the Stated Rate. The loan activation fee of <b> #{loan_act_fee}</b> shall be due concurrently with the
+first loan repayment."
+3,22,Para 04,"<u>Computation of Interest .</u> Interest shall be computed for the actual number of days elapsed and
+on the basis of a year consisting of 365 days."
+3,23,Para 05,"<u>Monthly Financing Fees.</u> For and in consideration for Holder loaning Maker the Principal Amount set forth in Section 1, Maker agrees to pay to Holder Monthly Financing Fees during the term of the loan in accordance with Section 2 and the Payment Terms above. The Monthly Financing Fee for the first month of the Promissory Note shall be due on the initial Monthly Payment Date with subsequent Monthly Financing Fees due on the  #{payment_mth_day} day of each successive
+"
+3,24,Footer,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,25,Para 06,
+3,26,Para 07,"Monthly Payment Date until all balances due under this note have been repaid. If at any time during the life of the loan Maker wishes to change the Monthly Payment Date and Holder’s consent to such change is granted, a fee of <b> $#{repay_penalty} </b> shall be assessed. Any failure on the part of Maker to timely pay a Monthly Financing Fee in full on or before the applicable Monthly Payment Date shall result in an additional fee of <b>$#{repay_penalty}</b> assessed against Maker. Any additional applicable Financing Fees will be assessed on a prorated basis and shall be due on the revised monthly payment date."
+3,27,Para 08,<u>Rejected Payment Fee .</u> Should a payment be returned or rejected for any reason a fee of <b> #{repay_penalty}</b> shall apply in addition to a <b>$ #{daily_late_fee} </b> daily late payment surcharge. The fee shall be imposed and collected immediately.
+3,28,Para 09,"<u>Prepayment </u>. This Promissory Note may be prepaid in whole only. Any such prepayment shall be applied first to pay accrued interest (if any), and the balance shall be applied to the outstanding Principal Amount, any unpaid Monthly Financing Fees which have become due on this Promissory Note and the Prepayment Penalty of <b>$ #{daily_late_fee}.00 </b>. In the event of such prepayment, the Monthly Financing Fee for the then-current month shall be due in full, regardless of the day in such month when prepayment is made. Any partial prepayment shall not be permitted under the terms of this Note."
+3,29,Para 10,"<u>Default .</u> In the event of (i) Maker’s failure to timely pay any amount due hereunder within thirty (30) days of becoming due or (ii) any insolvency, act of bankruptcy, or any bankruptcy proceedings by or against, or application for a respite or receiver by or against, Maker (each an “ Event of Default ”), this Promissory Note shall be immediately due and payable, at the option of Holder, without notice or demand, any agreement of extension notwithstanding. In an Event of Default, the amount of Monthly Financing Fees which shall become due and payable and subject to the Stated Rate shall be calculated according to the following formula: <b> #{total_default}.00 </b>, less the aggregate amount of Monthly Financing Fees paid by Maker, up to and including the date of such Event of Default. In such event, Holder may seek collection of all amounts owed by Maker under this Promissory Note, whether by wire transfer in accordance with the procedures set forth on Exhibit A or otherwise. If this Promissory Note is placed in the hands of an attorney at law to institute legal proceedings to recover any portion of the Principal Amount, Monthly Financing Fees, Prepayment Penalty, interest or other fees, or to protect the interests of Holder, or in the case that this Promissory Note is placed in the hands of an attorney for collection, compromise or other action, or if this Promissory Note is collected or sought to be collected through any bankruptcy, probate or other judicial or quasi-judicial proceeding, Maker hereby agrees to pay the reasonable fees of the attorney who may be employed for that purpose, plus court costs and all other costs of collection incurred by Holder. In the event of a default by Maker of any of its obligations under this Promissory Note, Maker expressly agrees and acknowledges that Holder may report such default to any governmental or regulatory authority to which Maker or Maker’s business is subject. "
+3,30,Para 11,
+3,31,footer B,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,32,Para 12,"<u>Security .</u> As security for the full, prompt and  complete performance by Maker of its obligations under this Promissory Note and the repayment of any indebtedness hereunder, Maker does hereby pledge, assign, and grant a continuing security interest in favor of Holder in all of Maker’s right, title, and interest in and to any accounts, inventory,  equipment, investment property, chattel paper, contract rights, goods and general intangibles (as each of the foregoing terms is refined and/or used in Chapter 9 of Title 10 of the Louisiana revised statutes), whether now or hereafter acquired, and all proceeds, substitutions or replacements thereof, thereto, and therefor, including, without limitation, all accounts, accounts receivables and rights to commissions or proceeds under the contracts listed in Exhibit B hereto (collectively, the “ Collateral ”).  Maker authorizes Holder to file one or more financing or continuation statements (including statements of assignment,  continuation and renewals thereof) or other instruments or amendments thereto relating to Holder’s security interest in the Collateral, without the signature of, and in the name of Maker."
+3,33,Para 13,"<u>Maker’s Waivers </u>. Maker hereby waives presentment for payment, protest, notice of protest and
+notice of nonpayment, and all pleas of division and discussion. Maker agrees that Holder’s
+acceptance of payment other than in accordance with the terms of this Note or Holder’s
+subsequent agreement to extend or modify such repayment terms, or Holder’s failure or delay in
+exercising any rights or remedies granted to Holder, shall not have the effect of releasing Maker
+from Maker’s obligations to Holder. In addition, any failure or delay on the part of Holder to
+exercise any of the rights and remedies granted to Holder shall not have the effect of waiving any
+of Holder’s rights and remedies. Any partial exercise of any rights and/or remedies granted to
+Holder shall furthermore not be construed as a waiver of any other rights and remedies; it being
+Maker’s intent and agreement that Holder’s rights and remedies shall be cumulative in nature.
+Maker further agrees that, should any default occur or exist under this Note, any waiver or
+forbearance on the part of Holder to pursue the rights and remedies available to Holder shall be
+binding upon Holder only to the extent that Holder specifically agrees to any such waiver or
+forbearance in writing. A waiver or forbearance on the part of Holder as to one default shall not
+be construed as a waiver or forbearance as to any other default."
+3,34,Para 14,"<u>Representations and Warranties .</u> Maker represents and warrants to Holder that the Principal Amount loaned to Maker by Holder shall be used exclusively for commercial purposes in furtherance of Maker’s business as an insurance agent. Maker represents and warrants to Holder that the insurance contracts set forth on Exhibit B hereto (the “ Contracts ”) are valid and effective as of the date hereof and that for as long as each Contract remains effective, Maker is entitled to receive a monthly commission relating to such Contract as set forth on Exhibit B hereto (the “ <u>Commissions </u>”). Maker represents and warrants to Holder that all Commissions are payable by wire transfer to the account of Maker set forth on Exhibit A hereto. Maker further agrees to immediately notify Holder to the extent any Contract is terminated for any reason whatsoever."
+3,35,Para 15,"<u>Indemnity .</u> Maker agrees to indemnify Holder against and to hold Holder harmless from any and all losses, liabilities, expenses, claims, or damages of whatever kind or nature, including Holder’s reasonable attorneys’ fees and costs (to be reimbursed as and when incurred) resulting from Holder’s loan to Maker or the exercise of its remedies under this Note, even if such losses, liabilities, expenses, claims, or damages resulted, in whole or in part, from the Holder’s negligence."
+3,36,footer C,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,37,Para 16,"<u>Amendment; Assignment .</u> None of the terms or provisions of this Promissory Note may be excluded, modified or amended except by a written instrument duly executed on behalf of the Holder expressly referring to this Promissory Note and setting forth the provision so excluded, modified or amended. Maker may not assign its obligations hereunder without the Holder’s prior written consent."
+3,38,Para 17,"<u>Governing Law . </u> This Promissory Note shall be governed by and construed in accordance with the laws of the State of Louisiana. Maker hereby irrevocably submits and consents to the exclusive personal jurisdiction and venue of any state or federal court in Orleans Parish, Louisiana, and agrees that all actions or proceedings arising directly, indirectly or otherwise in connection with, out of, related to or from this Promissory Note shall be litigated only in one of the foregoing described courts."
+3,39,footer D,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,40,Header,"IN WITNESS WHEREOF, this Promissory Note is executed by the Maker as of the date
+first above written."
+3,41,Sign_from,"By: _______________________________________
+-         #{full_name}"
+3,42,Intro B,"AGREED AND ACKNOWLEDGED:
+
+POINT FUNDING, LLC
+
+
+
+
+_______________________________________
+William Carrere"
+3,43,footer E,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,44,Intro C,"EXHIBIT A
+ELECTRONIC FUNDS TRANSFER AUTHORIZATION"
+3,45,addendum,See attached EFT Authorization and Voided Check
+3,46,footer F,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,47,Intro D,ELECTRONIC FUNDS TRANSFER (EFT) AUTHORIZATION
+3,48,Header B,<b><u>ACCOUNT INFORMATION</u></b>
+3,49,Account form A,"#{full_name}
+_______________________________________
+<b>Account owner name </b>
+
+#{address_street}
+_______________________________________
+<b>Account owner street address </b>
+
+#{address_city}, #{address_state} #{address_zip}
+_______________________________________
+<b>Account owner City, State, ZIP </b>
+
+"
+3,50,Account form B,"_______________________________________
+<b>Financial institution name </b>
+ 
+
+_______________________________________
+<b>Bank routing number </b>
+
+
+_______________________________________
+<b> Checking account number </b>
+"
+3,51,Author,<b><u>AUTHORIZATION</u></b>
+3,52,sign info,"<b>By signing below,
+I (the bank account owner)
+understand and
+accept these terms
+and conditions: </b>"
+3,53,sign notes,"● Point Funding, LLC is authorized to withdraw
+funds periodically from your account to pay
+your obligations under that certain Promissory
+Note dated <b> #{repay_start} </b>.
+
+● If your financial institution does not honor a
+withdrawal request, you will be in default under
+the terms of the Promissory Note and agree to
+immediately remit the required payment to
+Point Funding, LLC by check or in accordance
+with wire instructions provided in writing by
+Point Funding, LLC
+
+● Point Funding, LLC has the right to end
+withdrawals at any time and bill you directly
+for outstanding amounts due.
+
+● Point Funding, LLC will no longer withdraw
+funds following satisfaction in full of all of
+your obligations under the Promissory Note
+"
+3,54,sign form,<b><u>SIGNATURES</u></b>
+3,55,bank owner,"Signature of bank account owner                                                                                Date
+
+X"
+3,56,maker,"Signature of Maker (if different from bank account owner)                                       Date
+
+
+X"
+3,57,footer G,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,58,Intro E,"EXHIBIT B
+LIST OF CONTRACTS AND COMMISSIONS"
+3,59,Headers,Policy/Contract No.                                Parties and Date of Contract                                Monthly Commission due to Maker
+3,60,statement,Commission statements on file at the Point Funding Office
+3,61,sign form A,"Maker:                                                                      Point Funding, LLC:"
+3,62,sign form A,By:                                                                                                   By:
+3,63,sign form A,#{full_name}                                                                                                 William Carrere
+3,64,footer H,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,65,head payment,GUARANTEE OF PAYMENT OBLIGATIONS
+3,66,Para 18,"In consideration of Point Funding, L.L.C. (“Lender”) extending credit to #{full_name} (“Borrower”), the undersigned (“Guarantor”, which term means individually, collectively and interchangeable any, each and/or all of them if more than one) jointly, severally and solidarily, if more than one Guarantor, unconditionally guarantees to Lender, the prompt payment in full when due, whether by acceleration or otherwise, of any and all indebtedness, obligations and liabilities of any kind of Borrower including, without limitation, principal, interest, fees, or costs payable pursuant to that certain Promissory Note, issued by Borrower to Lender on #{start_date} (as may be amended, modified, supplemented or restated from time to time, the “ Note ”)."
+3,67,Para 19,"The obligations of the Guarantor hereunder are primary, joint and several, in solido and independent of the obligation of Borrower, whether or not action is brought against Borrower and whether or not Borrower be joined in such action or actions."
+3,68,Para 20,"As security for this Guaranty, Guarantor does hereby pledge, assign, and grant a continuing security interest in favor of Lender in all of Guarantor’s right, title, and interest in and to any accounts, inventory, equipment, investment property, chattel paper, contract rights, goods and general intangibles (as each of the foregoing terms is defined and/or used in Chapter 9 of Title 10 of the Louisiana revised statutes), whether now or hereafter acquired, and all proceeds, substitutions or replacements thereof, thereto, and therefor (collectively, the “Collateral”).Guarantor authorizes Lender to file one or more financing or continuation statements (including statements of assignment, continuation and renewals thereof) or other instruments or amendments thereto relating to Lender’s security interest in the Collateral, without the signature of, and in the name of, Guarantor."
+3,69,Para 21,"The Guarantor’s obligations hereunder will expire upon the payment in full of all obligations of Borrower guaranteed hereunder; provided, however, that if at any time any payment to Lender under the Note is rescinded or must be otherwise restored or returned upon the insolvency, bankruptcy, liquidation, reorganization or other similar proceeding of Borrower, the Guarantor’s obligations hereunder with respect to such payment will be continued or reinstated and will expire upon payment thereof in full by the Guarantor. Guarantor’s liability under this instrument is absolute and unconditional. In the event of default by Borrower of its obligations under the Note, when such obligations become due, whether by its terms, by acceleration or otherwise, Guarantor shall promptly pay the amount due thereon to Lender without notice of demand. "
+3,70,Para 22,"The Guarantor hereby waives the benefit of any defense against the enforcement of this Guarantee against the Guarantor or any defense which Borrower might have against Lender (except defenses of payment or performance or such defenses as by law, cannot be expressly waived), including without limitation: (a) any right to require Lender to (i) proceed against Borrower, (ii) proceed against or exhaust any security, (iii) proceed against any other guarantor, or (iv) pursue any other remedy in Lender’ power whatsoever; (b) any defense arising by reason of any disability or by reason of the cessation from any cause whatsoever (other than payment in full) of the ability of Borrower; and (c) all rights and/or privileges the Guarantor might otherwise have to require Lender to pursue any other remedy available to Lender in any particular manner or order under the legal or equitable doctrine or principle of marshaling and/or suretyship and the Guarantor further agrees that Lender may proceed against any or all security in such order and manner as Lender in its sole discretion may determine."
+3,71,Para 23,"The Guarantor hereby waives all presentments, demands for performance, notices of nonperformance, protests, notices of protest, notices of dishonor, notice of acceptance of this Guarantee and all other notices whatsoever."
+3,72,footer I,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,73,Para 24,"It is not necessary for Lender to inquire into the powers of Borrower or its officers, directors, members or managers acting or purporting to act on its behalf, and the Guarantor shall be liable for the obligations of Borrower guaranteed hereunder in accordance with their terms notwithstanding any lack of authorization of defect in execution or delivery by Borrower."
+3,74,Para 25,"The Guarantor shall not assign or transfer the Guarantor’s obligations under this Guarantee without Lender’ written consent. The Guarantor’s obligations and agreements under this Guarantee shall be binding upon the Guarantor’s successors and assigns; provided, however, the Guarantor shall not be released of its obligations hereunder unless the Guarantor obtains Lender’ written consent prior to any voluntary transfer. The rights and remedies granted to Lender under this Guarantee shall inure to the benefit of Lender’ successors and assigns, as well as to any subsequent holder or holders of the Note. "
+3,75,Para 26,"This Guarantee shall be governed and controlled as to validity, endorsement, interpretation, construction, effect and in all other respects by the internal laws of the State of Louisiana without giving effect to conflicts of law principles. Guarantor hereby irrevocably submits and consents to the exclusive personal jurisdiction and venue of any state or federal court in Orleans Parish, Louisiana, and agrees that all actions or proceedings arising directly, indirectly or otherwise in connection with, out of, related to or from this Guaranty shall be litigated only in one of the foregoing described courts. "
+3,76,Para 27,"Lender shall not by any act, delay, omission or otherwise be deemed to have waived any of its rights or remedies, and no waiver of any kind shall be valid against Lender unless in writing and signed by Lender. All rights and remedies hereunder and under any statute or rule of law shall be cumulative and may be exercised successively or concurrently. "
+3,77,Para 28,"If any provision of this Guarantee is held to be invalid, illegal or unenforceable by any court, that provision shall be reformed to the extent possible and otherwise such provision shall be deleted from this Guarantee and the balance of this Guarantee shall be interpreted as if the deleted provisions never existed. "
+3,78,Para 29,"IN WITNESS WHEREOF, the undersigned Guarantor has executed this Guarantee #{current_date}"
+3,79,Backer,GUARANTOR:
+3,80,SIgn From,"
+___________________________________
+#{guarantee01}"
+3,81,header,GUARANTEE OF PAYMENT OBLIGATIONS
+3,82,Para 30,"In consideration of Point Funding, L.L.C. (“Lender”) extending credit to #{full_name} (“Borrower”), the undersigned (“Guarantor”, which term means individually, collectively and interchangeable any, each and/or all of them if more than one) jointly, severally and solidarily, if more than one Guarantor, unconditionally guarantees to Lender, the prompt payment in full when due, whether by acceleration or otherwise, of any and all indebtedness, obligations and liabilities of any kind of Borrower including, without limitation, principal, interest, fees, or costs payable pursuant to that certain Promissory Note, issued by Borrower to Lender on #{start_date} (as may be amended, modified, supplemented or restated from time to time, the “ Note ”). "
+3,83,footer J,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,84,Para 31,"The obligations of the Guarantor hereunder are primary, joint and several, in solido and independent of the obligation of Borrower, whether or not action is brought against Borrower and whether or not Borrower be joined in such action or actions. "
+3,85,Para 32,"As security for this Guaranty, Guarantor does hereby pledge, assign, and grant a continuing security interest in favor of Lender in all of Guarantor’s right, title, and interest in and to any accounts, inventory, equipment, investment property, chattel paper, contract rights, goods and general intangibles (as each of the foregoing terms is defined and/or used in Chapter 9 of Title 10 of the Louisiana revised statutes), whether now or hereafter acquired, and all proceeds, substitutions or replacements thereof, thereto, and therefor (collectively, the “Collateral”). Guarantor authorizes Lender to file one or more financing or continuation statements (including statements of assignment, continuation and renewals thereof) or other instruments or amendments thereto relating to Lender’s security interest in the Collateral, without the signature of, and in the name of, Guarantor."
+3,86,Para 33,"The Guarantor’s obligations hereunder will expire upon the payment in full of all obligations of Borrower guaranteed hereunder; provided, however, that if at any time any payment to Lender under the Note is rescinded or must be otherwise restored or returned upon the insolvency, bankruptcy, liquidation, reorganization or other similar proceeding of Borrower, the Guarantor’s obligations hereunder with respect to such payment will be continued or reinstated and will expire upon payment thereof in full by the Guarantor. Guarantor’s liability under this instrument is absolute and unconditional. In the event of default by Borrower of its obligations under the Note, when such obligations become due, whether by its terms, by acceleration or otherwise, Guarantor shall promptly pay the amount due thereon to Lender without notice of demand."
+3,87,Para 34,"The Guarantor hereby waives the benefit of any defense against the enforcement of this Guarantee against the Guarantor or any defense which Borrower might have against Lender (except defenses of payment or performance or such defenses as by law, cannot be expressly waived), including without limitation: (a) any right to require Lender to (i) proceed against Borrower, (ii) proceed against or exhaust any security, (iii) proceed against any other guarantor, or (iv) pursue any other remedy in Lender’ power whatsoever; (b) any defense arising by reason of any disability or by reason of the cessation from any cause whatsoever (other than payment in full) of the ability of Borrower; and (c) all rights and/or privileges the Guarantor might otherwise have to require Lender to pursue any other remedy available to Lender in any particular manner or order under the legal or equitable doctrine or principle of marshaling and/or suretyship and the Guarantor further agrees that Lender may proceed against any or all security in such order and manner as Lender in its sole discretion may determine. "
+3,88,Para 35,"The Guarantor hereby waives all presentments, demands for performance, notices of nonperformance, protests, notices of protest, notices of dishonor, notice of acceptance of this Guarantee and all other notices whatsoever. "
+3,89,Para 36,"It is not necessary for Lender to inquire into the powers of Borrower or its officers, directors, members or managers acting or purporting to act on its behalf, and the Guarantor shall be liable for the obligations of Borrower guaranteed hereunder in accordance with their terms notwithstanding any lack of authorization of defect in execution or delivery by Borrower. "
+3,90,Para 37,"The Guarantor shall not assign or transfer the Guarantor’s obligations under this Guarantee without Lender’ written consent. The Guarantor’s obligations and agreements under this Guarantee shall be binding upon the Guarantor’s successors and assigns; provided, however, the Guarantor shall not be released of its obligations hereunder unless the Guarantor obtains Lender’ written consent prior to any voluntary transfer. The rights and remedies granted to Lender under this Guarantee shall inure to the benefit of Lender’ successors and assigns, as well as to any subsequent holder or holders of the Note. "
+3,91,footer J,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,92,Para 38,"This Guarantee shall be governed and controlled as to validity, endorsement, interpretation, construction, effect and in all other respects by the internal laws of the State of Louisiana without giving effect to conflicts of law principles. Guarantor hereby irrevocably submits and consents to the exclusive personal jurisdiction and venue of any state or federal court in Orleans Parish, Louisiana, and agrees that all actions or proceedings arising directly, indirectly or otherwise in connection with, out of, related to or from this Guaranty shall be litigated only in one of the foregoing described courts. "
+3,93,Para 39,"Lender shall not by any act, delay, omission or otherwise be deemed to have waived any of its rights or remedies, and no waiver of any kind shall be valid against Lender unless in writing and signed by Lender. All rights and remedies hereunder and under any statute or rule of law shall be cumulative and may be exercised successively or concurrently. "
+3,94,Para 40,"If any provision of this Guarantee is held to be invalid, illegal or unenforceable by any court, that provision shall be reformed to the extent possible and otherwise such provision shall be deleted from this Guarantee and the balance of this Guarantee shall be interpreted as if the deleted provisions never existed. "
+3,95,Para 41,"IN WITNESS WHEREOF, the undersigned Guarantor has executed this Guarantee
+#{current_date}."
+3,96,backer B,GUARANTOR:
+3,97,sign line,__________________________________________________
+3,98,Guarn,#{guarantee02}
+3,99,Header,GUARANTEE OF PAYMENT OBLIGATIONS
+3,100,Para 42,"In consideration of Point Funding, L.L.C. (“Lender”) extending credit to #{full_name} (“Borrower”), the undersigned (“Guarantor”, which term means individually, collectively and interchangeable any, each and/or all of them if more than one) jointly, severally and solidarily, if more than one Guarantor, unconditionally guarantees to Lender, the prompt payment in full when due, whether by acceleration or otherwise, of any and all indebtedness, obligations and liabilities of any kind of Borrower including, without limitation, principal, interest, fees, or costs payable pursuant to that certain Promissory Note, issued by Borrower to Lender on #{start_date} (as may be amended, modified, supplemented or restated from time to time, the “ Note ”). "
+3,101,Para 43,"The obligations of the Guarantor hereunder are primary, joint and several, in solido and independent of the obligation of Borrower, whether or not action is brought against Borrower and whether or not Borrower be joined in such action or actions. "
+3,102,footer J,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,103,Para 44,"As security for this Guaranty, Guarantor does hereby pledge, assign, and grant a continuing security interest in favor of Lender in all of Guarantor’s right, title, and interest in and to any accounts, inventory, equipment, investment property, chattel paper, contract rights, goods and general intangibles (as each of the foregoing terms is defined and/or used in Chapter 9 of Title 10 of the Louisiana revised statutes), whether now or hereafter acquired, and all proceeds, substitutions or replacements thereof, thereto, and therefor (collectively, the “Collateral”). Guarantor authorizes Lender to file one or more financing or continuation statements (including statements of assignment, continuation and renewals thereof) or other instruments or amendments thereto relating to Lender’s security interest in the Collateral, without the signature of, and in the name of, Guarantor. "
+3,104,Para 45,"The Guarantor’s obligations hereunder will expire upon the payment in full of all obligations of Borrower guaranteed hereunder; provided, however, that if at any time any payment to Lender under the Note is rescinded or must be otherwise restored or returned upon the insolvency, bankruptcy, liquidation, reorganization or other similar proceeding of Borrower, the Guarantor’s obligations hereunder with respect to such payment will be continued or reinstated and will expire upon payment thereof in full by the Guarantor. Guarantor’s liability under this instrument is absolute and unconditional. In the event of default by Borrower of its obligations under the Note, when such obligations become due, whether by its terms, by acceleration or otherwise, Guarantor shall promptly pay the amount due thereon to Lender without notice of demand."
+3,105,Para 46,"The Guarantor hereby waives the benefit of any defense against the enforcement of this Guarantee against the Guarantor or any defense which Borrower might have against Lender (except defenses of payment or performance or such defenses as by law, cannot be expressly waived), including without limitation: (a) any right to require Lender to (i) proceed against Borrower, (ii) proceed against or exhaust any security, (iii) proceed against any other guarantor, or (iv) pursue any other remedy in Lender’ power whatsoever; (b) any defense arising by reason of any disability or by reason of the cessation from any cause whatsoever (other than payment in full) of the ability of Borrower; and (c) all rights and/or privileges the Guarantor might otherwise have to require Lender to pursue any other remedy available to Lender in any particular manner or order under the legal or equitable doctrine or principle of marshaling and/or suretyship and the Guarantor further agrees that Lender may proceed against any or all security in such order and manner as Lender in its sole discretion may determine. "
+3,106,Para 47,"The Guarantor hereby waives all presentments, demands for performance, notices of nonperformance, protests, notices of protest, notices of dishonor, notice of acceptance of this Guarantee and all other notices whatsoever. "
+3,107,Para 48,"It is not necessary for Lender to inquire into the powers of Borrower or its officers, directors, members or managers acting or purporting to act on its behalf, and the Guarantor shall be liable for the obligations of Borrower guaranteed hereunder in accordance with their terms notwithstanding any lack of authorization of defect in execution or delivery by Borrower. "
+3,108,Para 49,"The Guarantor shall not assign or transfer the Guarantor’s obligations under this Guarantee without Lender’ written consent. The Guarantor’s obligations and agreements under this Guarantee shall be binding upon the Guarantor’s successors and assigns; provided, however, the Guarantor shall not be released of its obligations hereunder unless the Guarantor obtains Lender’ written consent prior to any voluntary transfer. The rights and remedies granted to Lender under this Guarantee shall inure to the benefit of Lender’ successors and assigns, as well as to any subsequent holder or holders of the Note."
+3,109,footer J,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+3,110,Para 50,"This Guarantee shall be governed and controlled as to validity, endorsement, interpretation, construction, effect and in all other respects by the internal laws of the State of Louisiana without giving effect to conflicts of law principles. Guarantor hereby irrevocably submits and consents to the exclusive personal jurisdiction and venue of any state or federal court in Orleans Parish, Louisiana, and agrees that all actions or proceedings arising directly, indirectly or otherwise in connection with, out of, related to or from this Guaranty shall be litigated only in one of the foregoing described courts. "
+3,111,Para 51,"Lender shall not by any act, delay, omission or otherwise be deemed to have waived any of its rights or remedies, and no waiver of any kind shall be valid against Lender unless in writing and signed by Lender. All rights and remedies hereunder and under any statute or rule of law shall be cumulative and may be exercised successively or concurrently."
+3,112,Para 52,"If any provision of this Guarantee is held to be invalid, illegal or unenforceable by any court, that provision shall be reformed to the extent possible and otherwise such provision shall be deleted from this Guarantee and the balance of this Guarantee shall be interpreted as if the deleted provisions never existed. "
+3,113,Para 53,"IN WITNESS WHEREOF, the undersigned Guarantor has executed this Guarantee
+#{current_date}."
+3,114,backer B,GUARANTOR:
+3,115,sign line,__________________________________________________
+3,116,g - 3,#{guarantee03}
+3,117,footer J,{N3195955.1}                                                                                             ___________                                                                                  Maker Initials
+9,0,title,<b>ASSIGNMENT OF COMMISSION CHECKLIST</b>
+9,1,point address,"An Assignment of Commission is a contract that an Agency and Lender (Seller and/or third party providing financing) may choose to enter into that allows the Lender to obtain a fixed payment from the commissions paid monthly to an Agency.
+
+It is important that both the Agency Owner and the Lender review the following checklist before completing the attached Assignment of Commission documents. Missing a step in the process will delay receipt of the first payment to Lender.
+Please note that:
+“Agent” – means the individual (whether Agency Owner or Key Person) who has signed the R3001 contract with Allstate “Agency” – means the entity (whether sole proprietorship or corporation) who has an R3001 contract with Allstate “Agency Name” – means the entity named on the R3001 contract, not the DBA. Agency and Agency Name are the same. “Commencement Month” – means the month in which payments commence"
+9,2,name,"<b>Assignment of Commission Package</b> – The package is comprised of the following documents:
+Assignment of Commission Checklist
+Assignment of Commission Notice to Lender (page 1)
+Commission Payment Agreement (begins on pages 2 – 6)
+Deduction/Payment Authorization Form (Exhibit A, page 7)
+Payment Election Form, to be completed by Lender (Exhibit B, page 8)
+Assignment Processing Fee Declaration (Exhibit C, page 9)
+Information about how to release and replace Assignments and Security Interests
+Information about the Notice of Termination website"
+9,3,address,"<b>Assignment of Commission Notice to Lender, Commission Payment Agreement, and Exhibits A & C </b> –
+Both the Agent and Lender will need to read, complete and sign these documents. The Lender will need to read, complete, and sign Exhibit B."
+9,4,Fee note,<b> Fees </b> – A processing fee is required to enter into the Assignment of Commission (specified by Agent and Lender on Exhibit C)
+9,5,Fees,"1 month-120 months (maximum 10 years)
+121 months-180 months (maximum 15 years)
+Refinance (same Lender, new amount)
+Entity change*
+Payment needs to be submitted before the 15th of the month prior to the requested Commencement Month"
+9,6,Fee list,"$810
+$1080
+$270
+$270"
+9,7,para 02,*The processing fee will be waived if the Agency Owner changes his/her business relationship with Allstate before seven deductions have been taken and paid to the Lender.
+9,8,close address,<b>Submission of the completed Assignment of Commission documents to the Allstate Lending Connection®</b>
+9,9,closing,"The Allstate Lending Connection® will accept assignment documents no earlier than 90 days prior to the requested Commencement Month and no later than the 15th of the month prior to the requested Commencement Month.If the completed Assignment  of Commission documents are received later than the 15th of the month prior to the requested Commencement Month, the assignment will be held and processed the following month. Both parties should expect to receive an approved copy of the assignment on or before the first week of the Commencement Month. Please contact the Allstate Lending Connection® if either party has not received the approved copy. Submit the completed documents via email, fax, or US mail. The fee must be mailed to the address below. If any incomplete or illegible documents are submitted, or <u>if the fee is not received within the time limit, approval of the Assignment of Commission will be delayed, as will payment to the Lender.</u>
+Contact information for submissions of assignment documents and questions:
+
+<b>Allstate Insurance Company</b>
+<b>2775 Sanders Rd.</b>
+<b>Northbrook, IL 60062 </b>
+
+<b>Phone: </b>(847) 402-2191 
+<b>Fax: </b> (877) 347-6175
+<b>Email: </b><a href=""Allstatelendingconnection@allstate.com"" > Allstatelendingconnection@allstate.com <a/>
+"
+9,10,payment notes,"<b>Payments </b>- Our payment vendor is IBM. They are the first point of contact for payment related questions. IBM’s contact information: (800)340-0475, option 6 or <a href=""garnishments@allstate.com"" >garnishments@allstate.com. </a> Inquiries may also be faxed to Garnishments at (847)402-1635."
+9,11,Footer,© 2015 Allstate Insurance Company                                                 AOC                                                  071/2017
+9,12,----,-----
+9,13,header B,<b>Completing the Assignment of Commission forms and exhibits</b>
+9,14,info B,"<b>It is strongly recommended that the Agent and Lender complete all forms and exhibits by entering the required information into this interactive pdf form. However, a blank copy of all forms and instructions may be printed by clicking the button below. Allstate will only accept Assignments completed by using the interactive form or by printing the form and manually completing each field. Retyping the form will not be accepted.</b>"
+9,15,list label A,<b>Tips for completing the interactive pdf Assignment of Commission:</b>
+9,16,list A,"o <b>Adobe Reader 7.0 </b> or higher is required.
+o <b>Interactive Fields </b>-- All interactive fields are highlighted in blue. Required fields are outlined in red. Signature
+fields (required) and their corresponding date fields (required) are grey and are not interactive.
+o <b>Tooltips</b>-- Hovering over any field will display more information (tooltips) about what information should be
+entered
+o <b>Navigation</b>-- The tab key will guide the cursor from field to field. The first time a field is completed, any form field that asks for that same information is also populated. So the tab key navigates to fields that still
+need to be completed.
+o <b>Resetting the form</b>-- To clear all fields and start over, use the RESET FORM button. Depending on your operating system and what version of Adobe Reader you are using, you may not be able to save a completed form,
+so be sure to print the completed form before closing.
+o <b>Validation</b>-- To validate whether all required fields have been entered before printing the forms for signature,
+click the VALIDATE button (bookmarked on the left). Missing required fields will be listed.
+o <b>Submitting an Assignment</b>-- Sign and date the Assignment of Commission contract after printing and submit to the Allstate Lending Connection® as explained on page 1. "
+9,17,list label B,"<b>If completing the Assignment of Commission manually (not recommended), the tooltips for some fields are listed below. Please note that submitting illegible assignments will delay processing.</b>"
+9,18,list B,"o <b>Agency Name</b>-- The entity (whether sole proprietorship or corporation/LLC) who has an R3001
+contract with Allstate, not the DBA
+o <b>Agent Number</b> – The 5 character Agent Number associated with the location from which the Monthly Deduction
+should be taken.
+o <b>Monthly Deduction Amount </b>-- The amount to be deducted from Agency commissions each month
+and paid to the Lender
+o <b>Total Deduction Amount </b>-- The total amount that will be deducted from Agency commissions and
+paid to the Lender over the life of the assignment
+o <b>Agent </b>-- The Agent is the individual (whether Agency Owner or Key Person) who has signed the
+R3001 contract
+o <b>Lender </b>-- Name of the individual, bank or lending entity who is being assigned commission payments from
+an Allstate Agency.
+o <b>Lender Authorized Representative </b>-- Name of individual Lender or institutional Lender's authorized representative <b>Lender Contact</b>— Individual to contact with questions regarding the Assignment or a payment issue; may
+o be the same as the individual Lender or institutional Lender's Authorized Representative
+o <b>R3001 Contract Date </b>—The date of the Agency's R3001 contract with Allstate, which may or may not be the same as the date the Agent affiliated with Allstate
+o <b>Business Entity</b>-- The type of business entity (either sole proprietorship or corporation/LLC) that has an R3001 contract with Allstate"
+9,19,footer,© 2015 Allstate Insurance Company                                            AOC                                             07/1/2017
+9,20,comm form,"<b>Commencement Month</b> 
+(month Agent and Lender request the assignment to begin)"
+9,21,form input,(month) (year)
+9,22,header C,<b>ASSIGNMENT OF COMMISSION NOTICE TO LENDER</b>
+9,23,Agent form B name,"_____________________________________________________________________________________________________________
+Name of borrower (Name on R3001 Agreement) (This is not DBA Name of Agency)"
+9,24,form agent B agent num,"Allstate Agent # _{agent-code} , has asked Allstate Insurance Company (the “Company”) to approve a (Agent Number) monthly commission deduction amount of (the “Monthly Deduction Amount”) until the total deduction amount of (the “Total Deduction Amount”) has been reached. Allstate’s approval of this request is conditioned on receipt of your acknowledgement that you have received and reviewed the following information regarding this assignment: 
+"
+9,25,form agent C,"- Agent and Lender acknowledge that they have read and understood the Commission Payment Agreement.
+- All five completed and signed Assignment of Commission documents must be received by the Allstate Lending Connection® no later than the fifteenth of the month prior to the requested Commencement Month. If the document share received later than the twentieth of the month, they will be held and processed in the following month.
+- Unless otherwise indicated above by the Agent and Lender, all Assignment of Commission documents received by the twentieth of the month will be reviewed with the following month’s assignments. Incomplete or incorrect documents will cause a delay in the first payment made to the Lender.
+- The processing fee must also be submitted by the twentieth of the month prior to the Commencement Month. If the payment is not received or authorized on Ex C, the documents will be placed on hold until the processing fee or Ex C is submitted, which will delay the first payment to the Lender. If the check for the Assignment of Commission fee is returned for any reason, the Allstate Lending Connection® reserves the right to terminate the Assignment of Commission.
+- If the Agent and Lender wish to refinance (change the Monthly Deduction or Total Deduction Amount), the existing assignment must be terminated and a new Assignment of Commission must be executed. The refinance processing fee must accompany the new Assignment of Commission. <b> If the fee is not received, there will be no change in the Monthly Deduction Amount or Total Deduction Amount.</b>
+- The Commission Amount is the amount remaining after all amounts that the Company is authorized or required by law to deduct. If the Commission Amount is then insufficient to pay the full Monthly Deduction Amount to the Lender, the Company shall pay that Commission Amount to the Lender and the difference between the Commission Amount paid to the Lender and the Monthly Deduction Amount is a “Shortfall”.
+- For any month in which a Shortfall occurs, the Agency Commission Amounts from all Agency locations will be used to offset that month’s Shortfall. Any Shortfalls will be reflected in the loan balance.
+- Payment to the Lender will be made within twenty business days of when the Agency is due to be paid monthly commissions. Allstate pays commissions on the {pay-nth}  <b>business </b> day of each month. For any payment-related questions, please contact IBM. 
+- Agency shall provide notice to Lender promptly upon termination of the R3001 Agreement with the Company. Agency shall also notify any potential buyer of the economic interest of any outstanding loans incurred in connection with the book of business. 
+- A minimum of 45 days notice must be given to the Allstate Lending Connection® prior to the early termination of the Commission Payment Agreement. The request to terminate must be accompanied by a letter signed by both parties acknowledging the early termination.
+- If the Lender assigns its rights under the agreement, no change to the payment destination will be made without a new Payment Election Form which must be submitted 45 days prior to the effective date.
+- The Commission Payment Agreement will terminate upon termination of the Agency’s R3001 Agreement.
+- The maximum term of a Commission Payment Agreement is 180 months (15 years)."
+9,26,form agent C agency,"<b>Agency </b> 
+By: _________________________________"
+9,27,form agent C Lending,"<b>Lender </b> 
+By: _________________________________"
+9,28,form C Date A,Date : ______________________________________
+9,29,form C Date B,Date : ______________________________________
+9,30,footer,"© 2015 Allstate Insurance Company                                            1 of 9, AOC                                             07/1/2017"
+9,31,Header D,<b>COMMISSION PAYMENT AGREEMENT </b>
+9,32,form D intro,"COMMISSION PAYMENT AGREEMENT (the “Agreement”), dated as of
+,"
+9,33,form D sign A,"by and among
+(the “Lender”),"
+9,34,form D sign B,"(the “Agency”) and
+Allstate Insurance Company, an Illinois corporation, (the “Company”)."
+9,35,form D label A,<b>RECITALS</b>
+9,36,form D list A,"A. Agency has an R3001 Agreement with the Company that became effective on ________________
+
+B. Agent/Agency desires to secure financing to purchase the economic interest in a book of business, or for some other business purpose related to the operation of the Allstate agency.
+
+C. Lender and Agent/Agency desire to enter into this Agreement to direct the payment, pursuant to the terms of this Agreement, of certain of Agency’s commissions due from the Company.
+
+D. The Company, Lender and Agent/Agency have entered into this Agreement in order to promote their mutual interests."
+9,37,form D label B,"In consideration of the mutual covenants herein contained and other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the parties hereto agree as follows:"
+9,38,form D list B,-
+9,39,for D list B item,1. The Recitals set forth above are specifically included herein and deemed
+9,40,for D list B item,"2. <b>Payment of Commissions: </b> Subject to and in accordance with the terms and conditions of this Agreement, Agent hereby directs the payment of certain amounts of Agency’s commission due from the Company to be paid to Lender in accordance with a completed Deduction/Payment Authorization and Payment Election in the forms set forth in Exhibits A and B. The terms, conditions, and authorizations set forth in Exhibits A and B shall continue to apply to any third party, including but not limited to IBM or its successor retained by the Company to perform services under this Agreement."
+9,41,for D list B item,"3. <b>Appointment: </b> Lender and Agent hereby appoint the Company to act on their behalf to pay to Lender certain amounts of commissions, in accordance with the completed Deduction/Payment Authorization form, due Agency from the Company. However, such appointment does not obligate the Company to act as a guarantor of any monies owed by Agency to Lender, and, by entering into this Agreement, Company does not guarantee any monies owed to Lender pursuant to any contract or for any other debt."
+9,42,for D list B item,"4. <b>Commencement of Deductions and Payments:</b> Pursuant to the terms of this Agreement, the Company shall commence the payment of Agency’s commission to the Lender following receipt of all required documents and fees. If the Company receives such correctly completed and legible documents by the fifteenth day of the month, the Company shall commence such payments during the following month or in the Commencement Month indicated on page 1; otherwise payments shall begin in the second month following receipt of such documents. The month in which payments commence will be referred to, hereinafter, as the “Commencement Month.”"
+9,43,for D list B item,"© 2015 Allstate Insurance Company                                            2 of 9, AOC                                             07/1/2017"
+9,44,for D list B item,"5. <b>Monthly Payment </b>
+a. During the term of this Agreement, the Company shall deduct the amounts set forth on the Deduction/Payment
+Authorization form. Notwithstanding anything to the contrary, the Monthly Payment to the Lender may be
+reduced or withheld in full pursuant to the terms of Section 5(c).
+b. The Company shall pay such Monthly Payments to the Lender either by electronic means or by check sent via
+first class mail within twenty (20) days of when said Monthly Payment was due to be paid to Agency but for this Agreement and the choice of which method used will be determined at the sole discretion of the
+Company.
+c. Each month, prior to deducting the Monthly Payment for the Lender, the Company shall deduct from
+Agency’s commission all other amounts that the Company is authorized to deduct or required by law to deduct. This includes any deductions made based on any prior Commission Payment Agreement(s) entered into between Agency and any other Lender. If, after any deductions, in any given month, insufficient commissions remain to pay the full amount of Monthly Payment to Lender, the Company shall deduct the amount of commission that is then available and pay that lesser amount to Lender. In such event, the Shortfall will not be added to the subsequent month’s deduction; instead, such Shortfall shall be added to the Final Payment as scheduled and, if by so doing, the Final Payment would be more than the Monthly Commission Payment, additional payment(s) will be made in an amount no greater than the Monthly Commission Payment until such time as the aggregate payment listed on Exhibit A has been made in full."
+9,45,for D list B item,"6. <b>Termination of Agreement:</b> This Agreement shall terminate without notice at the option of the Company, upon the occurrence of any of the following events:
+a. If and when the Total Deduction Amount listed on Exhibit A has been paid to Lender;
+b. Termination of Agency’s R3001 Agreement (both primary and satellite agreement(s)), (if applicable)
+for any reason;
+c. Agency or Lender fails to perform or observe any of the covenants, conditions or agreements as required pursuant to this Agreement (in such case, such determination of such failure shall be by the Company in its sole
+discretion);
+d. Agency institutes proceedings to be adjudicated a voluntary bankruptcy, or consents to the institution of a bankruptcy proceeding against it, or files a petition or answer or consent seeking reorganization under the federal bankruptcy laws, or consents to the filing of any such petition, or consents to the appointment of a receiver or trustee or assignee in bankruptcy or insolvency of it or its property, or makes an assignment for the benefit of creditors, or admits in writing its inability to pay its debts generally as they become due. In such a case, payments will continue to be deducted by the Company, but will not be disbursed to the lender, pending an order of the bankruptcy court judge or appointed bankruptcy trustee ruling as to whom the withheld funds should be paid. In the alternative, at the Company's sole discretion, it can avail itself of provision 10(d) of this agreement and interplead any contested funds into the bankruptcy court, with any incurred outside legal fees the Company incurs in so moving being first deducted from the interpleaded fees, as allowed under paragraphs 10(d) and 13(c).
+e. A court shall have entered a decree or order adjudicating Agency bankrupt or insolvent, or a decree or order approving as properly filed a petition seeking reorganization of Agency under the federal bankruptcy laws, and such decree or order is not discharged or stayed within forty-five (45) days; or a decree or order for the appointment of a receiver or trustee or assignee in bankruptcy or insolvency of Agency or of the property of Agency, or for the sequestration of the property of Agency, or for the winding up or liquidation of Agency’s affairs, and such decree or order is not discharged or stayed within forty-five (45) days;
+f. If Agency or Lender is a corporation or other business entity and transfers substantially all of its assets, whether such transfer is voluntary or involuntary."
+9,46,for D list B item,7. <b>Termination by Agent and Lender:</b> This Agreement may only be terminated by mutual agreement of Agent and Lender upon 45 days notice from both Agent and Lender to the Company.
+9,47,for D list B item,"8. <b>Amendment by Agent, Lender and the Company:</b> This Agreement may only be amended by mutual agreement of Agent, Lender and the Company."
+9,48,for D list B item,9. <b>Taxes: </b> All funds paid to Lender pursuant to this Agreement will be reported as income to the Agency on an IRS Form 1099. This Agreement shall not be deemed or construed to impose any obligation on the Lender with respect to the payment of taxes on the funds paid pursuant to the Agreement
+9,49,for D list B item,"10. <b>Exculpation and Indemnification </b>
+a. The Company shall not be liable to any party, person or entity if the Monthly Commission Payment is not made in full each month, nor shall the Company be liable to any party if the Aggregate Payment Amount listed on
+Exhibit A is not made in full."
+9,50,footer,"© 2015 Allstate Insurance Company                                           3 of 9, AOC                                            07/1/2017"
+9,51,for D list B item,"b. The obligations and duties of the Company are confined to those specifically set forth in this Agreement. In the event that any of the terms and provisions of any other agreement between any of the parties hereto conflict or are inconsistent with any of the terms and provisions of this Agreement, the terms and provisions of this Agreement shall govern and control in all respects. The Company shall not be subject to, nor be under any obligation to ascertain or construe the terms and conditions of any other instrument, whether or not now or hereafter deposited with or delivered to the Company or referred to in this Agreement, nor shall the Company be obligated to inquire as to the form, execution, sufficiency or validity of any such instrument nor to inquire as to the identity, authority or rights of the person or persons executing or delivering the same. This shall not be construed to amend or modify any obligation of the Agency to the Lender under the terms of any note, or any other document executed by the Agency in favor of the Lender with respect to the financing.
+c. The Company shall not be liable for any act that it may do or omit to do hereunder in good faith and in the exercise of its own reasonable best judgment. Any act done or omitted to be done by the Company pursuant to the advice of its attorneys shall be deemed conclusively to have been performed or omitted in good faith by the Company.
+d. In the event the Company is notified of any dispute, disagreement or legal action or sales contract between Lender and Agency, and/or Lender and/or Agency and any third party, relating to or arising in connection with this Agreement or the performance of the Company’s duties under this Agreement, the Company will not be required to determine the controversy or to take any action regarding it. The Company may hold all documents and funds and may wait for settlement of any such controversy by final appropriate legal proceedings, arbitration or other means as, in the Company’s sole discretion, it may require. In such event, the Company will not be liable for interest or damages. Furthermore, the Company may file an action of interpleader requiring the parties to answer and litigate any claims and rights among themselves. The Company is authorized, at its option, to deposit with the Clerk of the Court or Arbitrator, as applicable, all documents and funds held by it, except all costs, expenses, charges and reasonable attorneys’ fees incurred by the Company due to the interpleader action, which shall be paid in accordance with the provisions of Section 13(c). Upon initiating such action, the Company shall be fully released and discharged of and from all obligations and liability imposed by the terms of this Agreement.
+e. Agency hereby agrees to indemnify and hold the Company harmless from and against all costs, including but not limited to fines, interest payments, late charges, penalties, damages, judgments, attorneys’ fees (whether such attorneys shall be regularly retained or specifically employed), expenses, obligations and liabilities of every kind and nature which the Company may incur, sustain or be required to pay in connection with or arising out of this Agreement, unless the aforementioned results from the Company’s gross negligence or willful misconduct, and to pay the Company on demand the amount of all such costs. The foregoing indemnities in this Section 10 shall survive the resignation or substitution of the Company or the termination of this Agreement."
+9,52,for D list B item,"11. <b>Assignment of Duties by Company:</b> The Company may, in its sole discretion, assign any of its duties under this Agreement to a third party, including, but not limited to IBM or its successor. Any such third party shall be subject to the terms and conditions of this Agreement and shall be covered by the exculpation and indemnification provisions of Section 10."
+9,53,for D list B item,"12. <b>Assignability of Rights of Lender: </b> The rights of Lender and Agency pursuant to this Agreement are reserved solely for benefit of Lender and Agency, respectively, and may not be assigned or transferred by either Lender or Agency to any person or entity. Notwithstanding Section 13(b) of the Agreement, the Lender may assign its rights under the Agreement in connection with a sale, assignment, pledge or encumbrance of its loan to the Agent/Agency. Lender will make reasonable effort to provide Company with written notice (30) days prior to the effective dates of any such assignment. Company will continue to make payments to the Lender in accordance with the Agreement until such time as a payee change request is made by the Lender and processed by the Company."
+9,54,for D list B item,"13. <b>Miscellaneous </b>
+a. <b>Waivers; Entire Agreement.</b> This Agreement may not be modified except by a written agreement between the Company, Lender and Agency that expressly states that it modifies this Agreement. No other written statements, representations or agreements and no oral statements, representations or agreements shall be effective to modify this Agreement. No representative of the Company will have authority to modify this Agreement, except as provided in this Section 13(a). Any right or obligation hereunder may be waived only by a written instrument signed by the Company, Lender and Agency. Any such waiver shall be limited to its express terms, and no waiver of any default in any such term, covenant, agreement or condition shall be deemed a waiver of any later default thereof or of any other term, covenant, agreement or condition. Any delay on the part of any party in exercising any right, power or privilege hereunder shall not operate as a waiver"
+9,55,footer,"© 2015 Allstate Insurance Company                                            4 of 9, AOC                                             07/1/2017"
+9,56,for D list B item,"b. <b>Benefits of Agreement; No Third Party Beneficiaries.</b> This Agreement shall bind and inure solely to the benefit of the parties hereto. The Lender may assign its rights under the agreement in connection with a sale, assignment, pledge or encumbrance of its loan to the Agency. Lender will make reasonable effort to provide Company and Agency with written notice thirty (30) days prior to the effective
+dates of any such assignment.
+c. <b>Attorneys’ Fees.</b> If any action at law or in equity is necessary to enforce or interpret the terms of this
+Agreement, the prevailing party (and the Company, in the case of any actions brought in accordance with the provisions of Sections 10(d) and 10(e)) shall be entitled to reasonable attorneys’ fees, costs and disbursements in
+addition to any other relief to which such party may be entitled.
+d. <b>Execution.</b> The parties hereto agree to execute any additional documents or instruments necessary to carry out the purposes of this Agreement.
+e. <b>Governing Law. </b> The validity, meaning and effect of this Agreement shall be determined in accordance with the laws of the State of Illinois, without giving effect to any choice of law or conflict of law provision or rule (whether the State of Illinois or any other jurisdiction) that would cause the application of the law of any jurisdiction other than the State of Illinois.
+f.<b>Headings. </b> The headings herein are solely for the convenience of the parties and shall not serve to modify or
+interpret the text of the Sections at the beginning of which they appear.
+g. <b>Severability. </b> In the event that any court or any governmental authority or agency declares all or any part of any Section of this Agreement to be unlawful or invalid, such unlawfulness or invalidity shall not serve to invalidate any other Section of this Agreement, and in the event that only a portion of any Section is so declared to be unlawful or invalid, such unlawfulness or invalidity shall not serve to invalidate the balance of such Section.
+h. <b>Counterparts. </b> This Agreement may be executed in two or more counterparts, each of which shall be an original but all of which shall together constitute one and the same document. 
+<b>Notices. </b> All notices, requests, payments, instructions, or other documents to be given hereunder shall be in writing or by written telecommunication, and shall be deemed to have been received (a) immediately if sent by facsimile transmission (with a confirming copy sent the same Business Day by registered or certified mail), or by hand delivery (with signed return receipt), or (b) the next Business Day if sent by nationally recognized overnight courier, in any case to the respective addresses as follows:"
+9,57,Company to,"<b><u>If to Company: </u></b>
+Allstate Insurance Company:"
+9,58,Lending fax,"Allstate Lending Connection®:
+Fax:"
+9,59,Lend address,"2775 Sanders Rd, Northbrook, Illinois 60062
+Attention: Allstate Lending Connection®, Suite B2S
+<a href=""Allstatelendingconnection@allstate.com "" >Allstatelendingconnection@allstate.com </a> (847)402-2191
+(877) 347-6175"
+9,60,to lender form,<b><u> If to Lender: </b></u>
+9,61,to lender form,"_______________________________________________
+                                    (Lender Name)"
+9,62,to lender form,"_______________________________________________ 
+                        (Authorized Representative)"
+9,63,to lender form,"_______________________________________________
+                        (Address)"
+9,64,to lender form,"_______________________________________________ 
+                        (City) (State) (Zip)"
+9,65,to lender form,"_______________________________________________
+                       (Lender email)"
+9,66,to lender form,"_______________________________________________
+                      (additional Lender email, optional)"
+9,67,to agent,<b>If to Agency:</b>
+9,68,from agent form,"_______________________________________________
+                      (Agency Name)"
+9,69,from agent form,"_______________________________________________
+                     (Agent Name)"
+9,70,from agent form,"_______________________________________________
+                     (Address)"
+9,71,from agent form,"_______________________________________________
+                     (City) (State) (Zip)"
+9,72,from agent form,"_______________________________________________
+                     (Agency email)"
+9,73,from agent form,"_______________________________________________
+                    (additional Agency email, optional)"
+9,74,copies,Copies of the approved assignment will be sent to the above email addresses
+9,75,footer,"© 2015 Allstate Insurance Company                                                5 of 9, AOC                                                                    07/1/2017"
+9,76,sub_area,"j. <b>Pronoun.</b> All pronouns and any variations thereof herein shall be deemed to refer to the masculine, feminine, singular or plural, as the identity of the Person or Persons may require.
+k. <b>Instruction.</b> The language used in this Agreement is the language chosen by the parties to express their mutual intent, and no rule of strict construction shall be applied against any party.
+l. <b>Acknowledgement. </b> The parties acknowledge that they have read this Commission Payment Agreement, understand it, and agree to be bound by its terms."
+9,77,sub_area,"IN WITNESS WHEREOF, each of the parties has executed and delivered this Agreement to the others as of the date first above written."
+9,78,sub_area,"<b>Agency
+Accepted: </b>"
+9,79,from agent form B,"_______________________________________________
+(Print Agent Name)"
+9,80,from agent form B,"_______________________________________________
+(Address)
+
+
+_______________________________________________
+(City) (State) (Zip)
+"
+9,81,from agent form B,"_______________________________________________
+(Agent Signature)                                 (Agent Date)"
+9,82,from lender from B,"<b>Lender
+Accepted: </b>"
+9,83,from lender from B,"_______________________________________________
+(Print Authorized Representative Name)"
+9,84,from lender from B,"_______________________________________________
+(Address)"
+9,85,from lender from B,"_______________________________________________
+                     (City) (State) (Zip)"
+9,86,from lender from B,"_______________________________________________
+(Lender Signature)                                (Lender Date)"
+9,87,Lender Title,<b>Allstate: </b>
+9,88,Rep Sig,"_______________________________________________
+(Authorized Representative Signature)"
+9,89,sign title,"_______________________________________________
+(Title)"
+9,90,sign date,Date:_______________________________________________
+9,91,All state address,"<b>Allstate Insurance Company 
+2775 Sanders Rd
+Northbrook, IL 60062 </b>"
+9,92,Attn:,"Attn: Allstate Lending Connection®, Suite B2S"
+9,93,footer,"© 2015 Allstate Insurance Company                                             6 of 9, AOC                                              07/1/2017"
+9,94,Header AUTH,"<b>DEDUCTION/PAYMENT AUTHORIZATION FORM– Exhibit A 
+(To be completed by Agent and Lender)  </b>"
+9,95,agency name,Agency Name: _______________________________________________
+9,96,agent,Agent #: _______________________________________________
+9,97,agent name,Agent Name: _______________________________________________________________________
+9,98,mail address,Mailing Address: ___________________________________________________________________________
+9,99,mail zip,"City, St, Zip : ______________________________________________________________________________"
+9,100,agent phone,Phone: _______________________________________________
+9,101,agent email,Email: _______________________________________________
+9,102,Business Ent,"Business Entity (check one):        Sole Proprietor (R3001 or R3001S)               Corporation or LLC (R3001A, R3001B, or R3001C)"
+9,103,Lender Name,Lender Name: ________________________________________________________________________
+9,104,Lender Contact,Lender Contact : ________________________________________________________________________
+9,105,rep note,(Contact for questions about the Assignment or payments; may be same as individual Lender or Lender's authorized rep)
+9,106,Address,"Address : _____________________________________________________________________________________
+
+City, St, Zip : _____________________________________________________________________________________"
+,107,city,"_______________________________________________
+ City, St, Zip:"
+9,108,phone,Phone: _______________________________________________
+9,109,email,Email: _______________________________________________
+9,110,per month,"Per the terms and conditions set forth in the Commission Payment Agreement, I authorize IBM or its successor, through its business relationship with Allstate, to deduct up to the sum of ______________ per month (the Monthly Deduction Amount) from the Agent’s/Agency’s commissions due from the Company, whether I am doing business as a sole proprietorship, corporation, or LLC as recognized by the IRS, until the total amount of ______________ (the Total Deduction Amount) is paid in full to the Lender, or until otherwise directed by Allstate Insurance Company."
+9,111,lender agree,<b>Agent/Agency and Lender further agree to: </b>
+9,112,Notify,"A. Notify IBM or its successor in writing of any changes to the following:
+          1) Any home, work, or payment addresses or phone numbers
+          2) Any changes in banking affiliation, or to the account that funds are to be paid
+      Please refer to the Assignment of Commission Checklist for IBM contact information
+B. We further understand that any changes to the commission payment agreement or to the amount to be deducted from Agent/Agency’s commissions or other types of pay and paid to the Lender must be accompanied by a new Commission Payment Agreement that reflects such changes."
+9,113,item 01,"<u>Acknowledgement. </u>I acknowledge that I have read this Payment Authorization Form, understand it, and agree to be bound by its terms. I further acknowledge that I am authorized to accept and sign this form on behalf of the company that I represent (if applicable)."
+9,114,item 02,"_______________________________________________
+(Agent Signature)"
+9,115,item 03,"_______________________________________________
+(Print Name)"
+9,116,item 04,"_______________________________________________
+(Date)"
+9,117,item 05,"_______________________________________________
+(Lender Authorized Representative Signature)"
+9,118,item 06,"_______________________________________________
+(Print Name)"
+9,119,item 07,"_______________________________________________
+(Date)"
+9,120,footer,"© 2015 Allstate Insurance Company                                                7 of 9, AOC                                                                    07/1/2017"
+9,121,item 08,"<b>PAYMENT ELECTION FORM– Exhibit B 
+(To be completed by the Lender/Assignee) </b>"
+9,122,item 09,Agency Name (Assignor):_______________________________________________
+9,123,item 10,Agent (Assignor) Number:_______________________________________________
+9,124,item 11,Please select payment method:                    Electronic Payment (ACH)                                                  Paper check
+9,125,item 12,"If electing electronic payment, please complete this section"
+9,126,item 13,Lender/Assignee Bank Name : _______________________________________________
+9,127,item 14,Lender/Assignee Bank Routing Number : _______________________________________________
+9,128,item 15,Account Number : _________________________
+9,129,item 16,Loan Account Number : ___________________
+9,130,item 17,"Account Type : BOX Checking Account (for verification, please attach copy of voided check)        BOX Savings Account"
+9,131,item 18,<u>Please note: </u> Deposits can only be made to a checking or savings account
+9,132,item 19,"If electing paper check, please complete this section"
+9,133,item 20,Payee Name for Lender/Assignee Check : ___________________
+9,134,item 21,Street Address : _______________________________________________________________________________________________
+9,135,item 22,City : ________________________________ State : ________________________________  Zip : ________________
+9,136,item 23,Attn : ________________________________________________________________________________________________________
+9,137,item 24,"(Optional, max 35 characters, appears in check window. A dept or bldg number may be specified, not an individual’s name)"
+9,138,item 25,Memo/ Loan Account Number : ____________________________
+9,139,item 26,"(Optional, max 25 characters, appears on check stub)"
+9,140,item 27,Acknowledgement:
+9,141,item 28,I acknowledge that the information provided on this Payment Election Form is correct and I authorize Allstate to remit the funds as indicated above.
+9,142,item 29,Lender/Assignee Name : ___________________________________________________
+9,143,item 30,Lender Authorized Rep Signature : ________________________________________________
+9,144,item 31,Date _______________________________
+9,145,footer,"© 2015 Allstate Insurance Company                                                8 of 9, AOC                                                                   07/1/2017"
+9,146,item 31,<b>ASSIGNMENT PROCESSING FEE DECLARATION—Exhibit C (To be completed by Agent and Lender)</b>
+9,147,item 32,Monthly Deduction Amount (specified on p. 1) : ______________________________________________________________
+9,148,item 33,Total Deduction Amount (specified on p. 1) : ______________________________________________________________
+9,149,item 34,Term of Assignment in Months (Total Deduction Amount ÷ Monthly Deduction Amount) : _______
+9,150,item 35,Payment Amount Owed:
+9,151,item 36,Box
+9,152,item 37,New assignment of 1 - 120 months (max. 10 yrs)
+9,153,item 38,Box
+9,154,item 39,New assignment of 121 - 180 months (max. 15 yrs)
+9,155,item 40,Box
+9,156,item 41,Refinance (Replacing an existing assignment with the same lender)
+9,157,item 42,Please select payment method:
+9,158,item 43,space ----------
+9,159,item 44,Box -- Paper check (from Lender)
+9,160,item 45,Box -- Paper check (from Agency)
+9,161,item 46,Box -- Commission Deduction (from Agency)
+9,162,item 47,"If electing paper check, please make check payable to Allstate Insurance Company, and mail to:
+Allstate Insurance Company, 2775 Sanders Rd., Northbrook, Il 60062 Attn: Allstate Lending Connection®, Suite B2S"
+9,163,item 48,"<b><u>Acknowledgement by Agent:</u></b>
+I acknowledge that the information provided on this Assignment Processing Fee Declaration is correct. I further understand that if a paper check for the Assignment of Commission Processing Fee is returned for any reason, the Assignment of Commission may be terminated.
+
+
+If automatic deduction is selected above, I authorize Allstate to deduct the funds from my monthly commissions in the Commencement Month (the month that assignment of commission payments to my lender begins under my R3001 entity). I understand that if there are insufficient commissions to cover the entire amount of the processing fee in the Commencement Month the balance will be taken from subsequent months until the full balance of the processing fee is reached."
+9,164,item 49,"Print Agent Name:_______________________________________________
+
+
+Agent Signature:________________________________________________"
+9,165,item 50,Date:_______________________________________________
+9,166,item 51,"<b>Acknowledgement by Lender: </b>
+I acknowledge that the information provided on this Assignment Processing Fee Declaration is correct. I further understand that if a paper check for the Assignment of Commission Processing Fee is returned for any reason, the Assignment of Commission may be terminated."
+9,167,item 52,Print Lender Authorized Rep Name: _______________________________________________
+9,168,item 53,Lender Authorized Rep Signature: _______________________________________________
+9,169,item 54,Date: _______________________________________________
+9,170,footer,"© 2015 Allstate Insurance Company                                                9 of 9, AOC                                                                  07/1/2017"
+9,171,item 55,"<b>In order to terminate or replace an Assignment of TPP, Security Interest, or Assignment of Commission, Allstate requires written notification. The Allstate Lending Connection® does not provide a release form. Please see the guidelines below. </b>"
+9,172,item 56,Dia box
+9,173,item 57,"<b>CONTACT INFORMATION
+
+Allstate Lending Connection® Email: Allstatelendingconnection@allstate.com Phone:</b> (847)402-2191 Fax: (877) 347-6175
+
+Mailing Address: Allstate Insurance Company, 2775 Sanders Rd., Northbrook, IL 60062 Attn: Allstate Lending Connection®, Suite B2S"
+9,174,footer,© 2015 Allstate Insurance Company                                                                                                      07/1/2017
+9,175,item 58,NOTICE OF TERMINATION WEBSITE
+9,176,item 59,"The Granting of Security Interest and assignment contracts require an Agency to provide prompt notice to Lender(s) if its relationship with Allstate is terminating. However, as a service to lenders, Allstate publishes a list of Agencies who have active Grantings of Security Interest or Assignments with the Allstate Lending Connection® and who have provided or received a 90 day* notice of termination (or such greater number of days as is required by law). This list is called the Estimated Termination Report. Lenders may find the Estimated Termination Report, which lists Agencies who may be terminating their relationship with Allstate at this url: <a href=""http://www.allstate.com/careers/termagents.aspx"" >http://www.allstate.com/careers/termagents.aspx </a>"
+9,177,item 60,"Once an Agency terminates an affiliation with Allstate, their entry will be removed from the list. The information that is provided includes:"
+9,178,item 61,"State
+Agency name
+Agency Address
+Lender name
+Estimated date of termination
+Estimated termination type (Sale of Agency or Termination Payments)"
+9,179,item 62,Allstate does not guarantee that the Estimated Termination Report is all inclusive. This is for informational purposes only and does not relieve the Lender from performing any necessary due diligence to protect their interest.
+9,180,item 63,"If you have questions regarding the Estimated Termination Report, please contact the Allstate Lending Connection®."
+9,181,item 64,<b>Allstate Lending Connection®:</b> Allstatelendingconnection@allstate.com (847) 402-2191
+9,182,item 65,* Or such greater number of days as is required by law
+9,183,footer,© 2015 Allstate Insurance Company                                                                                                                                                         07/1/2017
+8,0,title,"Request for Consent to the Granting of Security Interest 
+in the Economic Interest in an R3001 Contract 
+CHECKLIST"
+8,1,point address,"A Security Agreement is an agreement that an Agency and Lender (Seller and/or third party providing financing) may choose to enter into that allows the Lender to obtain a security interest in the Agency’s economic interest in a book of business. The R3001 contract prohibits an agency from granting a security interest in the economic interest in a book of business without Allstate’s express consent. Completion of this form constitutes Allstate’s consent to the granting of a security interest in the economic interest in the book of business. Please note that it is the lender’s responsibility to properly file appropriate financing statements or other documents in order to secure their interest.
+
+It is important that both the Agent and the Lender review the following checklist before completing the attached Request for Consent to the Granting of Security Interest documents. Failure to properly complete the Request for Consent documents will delay consent by Allstate to the granting of a security interest to the Lender. Please note that:
+<b>“Agent” –.</b> means the individual (whether Agency Owner or Key Person) who has signed the R3001 contract with Allstate 
+<b>“Agency” – </b> means the entity (whether sole proprietorship or corporation/LLC)) who has an R3001 contract with Allstate 
+<b>“Agency Name” – </b> means the entity named on the R3001 contract, not the DBA. Agency and Agency Name are the same"
+8,2,name,"<b>The Request for Consent to the Granting of Security Interest package</b> is comprised of:
+               - Request for Consent to the Granting of Security Interest Checklist
+               - Granting of Security Interest in the Economic Interest in an R3001 Contract Notice to Lender (pages 1 & 2)
+               - Security Agreement in Economic Interest (pages 3 – 5)
+               - Information about how to release and replace Assignments and Security Interests
+               - Information on the Notice of Termination website
+<b>Fees </b> –  A processing fee is required to enter into the Granting of Security Interest."
+8,3,proc fee,Processing Fee $25
+8,4,Granting,"<b>Granting of Security</b> Interest in the Economic Interest in an R3001 Contract and Security Agreement in Economic Interest – Both the Agent and Lender will need to read, complete, and sign these documents."
+8,5,para 01,"<b>Each Agency </b> location has its own R3001 contract and distinct Agent Number -- In order to obtain consent for a security interest in the economic interest in an R3001 contract on more than one location of an Agency, a separate Granting of Security Interest/Security Agreement must be submitted for each Agency location. 
+
+<b>Business Entity </b> -- The business entity shown on the Request for Consent documents must be the same business entity shown on the R3001 contract in order for Allstate to consent to the granting of a security interest.
+
+<b>Multiple Security Interests </b> -- If the Agency has an existing Granting of Security Interest/Security Agreement and/or Assignment of TPP on file with Allstate, the Lender(s) in subordinate position(s) must provide written acknowledgement of their position in order for Allstate to consent to the granting of an additional security interest. A Lender may choose to acknowledge subordinate position in the top right corner of the Notice to Lender (green box).
+
+<b>Notice of Termination of Security Interest </b> – Proper notice must be presented to Allstate before a security interest in the economic interest in an active R3001 contract can be terminated. Such notice will at a minimum contain a release letter signed by the Lender or a court order terminating the security interest. Such notice is not effective until received by Allstate.
+
+<b>Sale of Economic Interest </b>-- Per the Exclusive Agency Independent Contractor Manual, an Agent selling the economic interest in an Agency’s book of business shall notify Allstate and the Lender of their intent to sell. The Seller shall also notify the Buyer of the existence of any existing security interests.
+
+<b>Election of Termination Payments </b>-- Upon notification of the termination of the R3001 Agreement and the election of the termination payment option by the Agent, Allstate will contact the Lender to obtain the payoff amount. Allstate will make termination payments to the Lender until one of the following occurs: the specified payoff amount is reached; the Total Termination Payment Value for the location has been reached; or the Lender has provided a release letter. Any remaining termination payments will be paid by Allstate directly to the Agency."
+8,6,Submission,"<b>Submission of the completed Security Interest documents to the Allstate Lending Connection® </b>
+- Submit the completed documents via email, fax, or US mail.
+- If any incomplete or illegible documents are submitted, consent to the Granting of Security Interest will be delayed. If Allstate is unable to consent to the Granting of Security Interest within 90 days for any reason, a new set of Consent to Granting of Security Interest documents will need to be submitted.
+- Both parties should expect to receive an approved copy of the Consent to the Granting of Security Interest/Security Agreement in Economic Interest via email within 15 - 20 business days from the date the Request was submitted to Allstate.
+- Contact information for submission of the Consent to the Granting of Security Interest/Security Agreement documents
+and questions"
+8,7,para 02,"<b>Allstate Lending Connection®</b>,: <u><link>Allstatelendingconnection@allstate.com </link></u>, (847) 402-2191
+Allstate Insurance Company, 2775 Sanders Rd., Northbrook, IL 60062, Attn: Allstate Lending Connection®, Suite B2S Fax: (877) 347-6175"
+8,8,Footer,© 2015 Allstate Insurance Company                                                  SAG                                                  071/2017
+8,9,Conf,"Confirmation -- If Agent or Lender has not received an approved copy within 30 days of submission, please contact the Allstate Lending Connection® to make certain that the Request for Consent to the Granting of Security Interest has been received and approved."
+8,10,para 01,<b>Completing the Request for Consent forms and exhibits</b>
+8,11,info B,"It is strongly recommended that the Agent and Lender complete all forms and exhibits by entering the required information into this interactive pdf form. However, a blank copy of all forms and instructions may be printed by clicking the button below. Allstate will only accept Requests for Consent completed by using the interactive form or by printing the form and manually completing each field. Retyping the form will not be accepted. "
+8,12,list label A,<b>Tips for completing the interactive pdf Assignment of Commission:</b>
+8,13,list A,"++ <b>Adobe Reader 7.0 </b> or higher is required.
+++ <b>Interactive Fields </b>-- All interactive fields are highlighted in blue. Required fields are outlined in red. Signature fields (required) and their corresponding date fields (required) are grey and are not interactive.
+++ <b>Tooltips</b>-- Hovering over any field will display more information (tooltips) about what information should be entered
+++ <b>Navigation</b>-- The tab key will guide the cursor from field to field. The first time a field is completed, any form field that asks for that same information is also populated. So the tab key navigates to fields that still need to be completed.
+++ <b>Resetting the form</b>-- To clear all fields and start over, use the RESET FORM button. Depending on your operating system and what version of Adobe Reader you are using, you may not be able to save a completed form, so be sure to print the completed form before closing.
+++ <b>Validation</b>-- To validate whether all required fields have been entered before printing the forms for signature, click the VALIDATE button (bookmarked on the left). Missing required fields will be listed.
+++ <b>Submitting an Assignment</b>-- Sign and date the Assignment of Commission contract after printing and submit to the Allstate Lending Connection® as explained on page 1."
+8,14,list label B,"<b>If completing the Assignment of Commission manually (not recommended), the tooltips for some fields are listed below. Please note that submitting illegible assignments will delay processing.</b>"
+8,15,list B,"++ <b>Agency Name</b>-- The entity (whether sole proprietorship or corporation/LLC) who has an R3001 contract with Allstate, not the DBA
+++ <b>Agent Number</b> – The 5 character Agent Number associated with the location from which the Monthly Deduction should be taken.
+++ <b>Monthly Deduction Amount </b>-- The amount to be deducted from Agency commissions each month and paid to the Lender
+++ <b>Total Deduction Amount </b>-- The total amount that will be deducted from Agency commissions and paid to the Lender over the life of the assignment
+++ <b>Agent </b>-- The Agent is the individual (whether Agency Owner or Key Person) who has signed the R3001 contract
+++ <b>Lender </b>-- Name of the individual, bank or lending entity who is being assigned commission payments from an Allstate Agency.
+++ <b>Lender Authorized Representative </b>-- Name of individual Lender or institutional Lender's authorized representative <b>Lender Contact</b>— Individual to contact with questions regarding the Assignment or a payment issue; may
+++ be the same as the individual Lender or institutional Lender's Authorized Representative
+++ <b>R3001 Contract Date </b>—The date of the Agency's R3001 contract with Allstate, which may or may not be the the same as the date the Agent affiliated with Allstate
+++ <b>Business Entity</b>-- The type of business entity (either sole proprietorship or corporation/LLC) that has an R3001 contract with Allstate"
+8,16,footer,© 2015 Allstate Insurance Company                                            AOC                                             07/1/2017
+8,17,comm form,"I acknowledge position
+"
+8,18,form input,(Lender initials)
+8,19,header C,"<b>Granting of Security Interest in the Economic Interest in an R3001 Contract
+NOTICE TO LENDER</b>"
+8,20,Agent form B name,"_____________________________________________________________________________________________________________
+Name of borrower (Name on R3001 Agreement) (This is not DBA Name of Agency)"
+8,21,form agent B agent num,"Agent # , has asked Allstate Insurance Company (the “Company”) to consent to the assignment (Agent Number) of a security interest in the economic interest in their Allstate R3001 Exclusive Agency Agreement with the Company to (the “Lender”). (Lender Name) Allstate's consent to this request is conditioned on receipt of your acknowledgement that you have received and reviewed the following important information: "
+8,22,form agent C,"++  Start-up Agency tiered incentive compensation-eligible Agents, with affiliation dates of January 1, 2012 and subsequent, will be required to vest for five years before being eligible to receive a termination payment on all secured new business.
+
+++  Allstate retains ownership of the Agency’s book of business upon termination of the R3001 Agreement (excluding any Assigned Risk, JUA, Flood and FAIR Plan business).
+
+++  Subject to the terms and conditions set forth in the R3001 Agreement, the Agency acquires an economic interest in the Allstate business written by the Agency which can be sold only to a Company-approved buyer or the Agent can elect to receive a termination payment from Allstate.
+
+++  The R3001 Agreement may be terminated at any time by mutual agreement of the parties in writing; by either party with or without cause upon providing 90 days prior written notice to the other (or such greater number of days as is required by law); or by the Company with cause, immediately upon written notice being provided to the Agency.Agent is obligated to promptly provide notice to Lender of Agency termination.
+
+++  The Agent has up to 3 full calendar months (or such greater number of days as is required by law) from the date of the written notice of termination to either sell the economic interest in the book of business to a Company approved buyer or
+to elect the termination payment.
+
+++  Agent shall also notify any potential buyer of the economic interest of any outstanding loans secured by or incurred in connection with the book of business.
+
+++  If the Agent sells the economic interest in an Agency’s book of business to a Company-approved buyer, the Company is not obligated to notify the Lender or make a termination payment.
+
+++  The terms of the sale of the economic interest in the book of business, including the sale price, are determined by the Agent and the approved buyer. Other than approval of the buyer, Allstate is not a party to the transaction and the proceeds from the sale are received by the Agent/Agency directly from the buyer.
+
+++  The termination payment currently available to Agencies under an R3001 Agreement executed on or after January 1, 2000 is subject to change at the discretion of the Company, including discontinuance of the termination payment option.
+
+++  Allstate has made no representations, warranties, or guarantees to the Lender regarding the value of a termination payment as it relates to the amount of any loan the Agent or Agency is requesting.
+
+++  Collateral pledged by the Agency shall be consistent with the R3001 Agreement.
+
+++  For an Agency operating under an R3001, R3001A or R3001B Agreement, the termination payment is payable in 12 monthly installments, less any money owed to the Company by the Agency. For an Agency operating under any other agreement, the termination payment is payable in 24 monthly installments, less any money owed to the Company by the Agency."
+8,23,footer,"© 2015 Allstate Insurance Company                                            1 of 9, AOC                                             07/1/2017"
+8,24,agent header,<b>Agent</b>
+8,25,form D intro,"++  The Consent to the Granting of Security Interest is the full extent of Allstate’s agreement.
+
+++  Allstate agrees with Lender that it will make no termination payments to Agency under the R3001 Agreement but in lieu thereof will make all such payments directly to Lender unless and until the payoff amount supplied be the lender is reached. The termination  payment does not begin until all property and confidential information belonging to the Company has been returned or made available for return. 
+
+++  The total Termination Payment Value is determined after the Agency termination has occurred. Furthermore, should the Agency owe the Company any money, that money will be withheld from the termination payments.
+
+++  If the Agent does not comply with the confidentiality and non-compete obligations, which survive termination of the agreement, the Company is entitled to withhold any remaining monthly installments.
+
+++  Any payment of non-TPP fund (i.e., flood payment) to a Lender must be returned to Agency. Allstate will not be liable to the Lender or any other person or entity if the termination payment of the proceeds from the sale of the economic interest in the book of business are not sufficient to satisfy the loan, nor shall Allstate be liable to any party if Lender's loan to Agency is not paid in full.
+
+++  Agency and Lender are obligated to notify Allstate via a release letter if the Security Interest is terminated. Lender agrees to submit written release of the Security Interest if the loan transaction is never consummated.
+
+++  The Security Interest survives any change of a corporation's Key person.
+
+++  The consent to the Granting of Security Interest is the full extent of Allstate's agreement.
+
+++  The Request for Consent to the Granting of Security Interest in the Economic Interest in an R3001 Contract assignment does not substitute for a Uniform Commercial Code (UCC) filing. In addition to entering a Request for Consent to the Granting of Security Interest in the Economic Interest in an R3001 Contract, the filing of a UCC-1 financing statement is necessary to perfect a security interest"
+8,26,lender header,<b>Lender</b>
+8,27,form agent C agency,"By: _________________________________
+(Print Agent Name)"
+8,28,None,<b>Extra field !!! </b>
+8,29,Lender sign,"By: __________________________________________________________________ 
+(Print Authorized Representative Name)"
+8,30,form C Date agent,Date : ______________________________________
+8,31,form C Date lender,Date : ______________________________________
+8,32,agent Sig," _________________________________ 
+(Agent Signature)"
+8,33,lender Sig,"_________________________________ 
+(Authorized Representative Signature)"
+8,34,footer,"© 2015 Allstate Insurance Company                                                            2 of 5, SAG                                                                  07/01/2017"
+8,35,for D list B item,"<b>Security Agreement
+in Economic Interest</b>"
+8,36,for D list B item,"This SECURITY AGREEMENT IN ECONOMIC INTEREST (""this Agreement"") is entered into as of the
+
+________   day of , _____________________________________   ,   ________________
+   (Day)                               (Month)                                                              (Year)
+
+by and between (here in after “Lender”) and the ____________________________________________________
+-                                                                                               (Lender Name)
+
+undersigned Agency __________________________________________________________________________
+ -                                             Name of borrower (Name on R3001 Agreement) (This is not DBA Name of Agency)"
+8,37,for list header,<b>Preamble</b>
+8,38,for D list B item,"Whereas, Agency has entered into an Agreement entitled “Allstate R3001 Exclusive Agency Agreement” dated 
+
+_______________________________ (the “Agency Agreement”); and 
+(R3001 Contract Date)"
+8,39,for D list B item,"Whereas, Lender has agreed to make a loan provided Agent assigns to Lender all of Agent’s assignable interest under the Agency Agreement, and Agent has agreed to grant such assignment, as collateral for such loan and Note subject to the approval of Allstate and to the specific limitations set forth in the Agency Agreement. 
+
+Now, therefore, in consideration of the loan and Note made are to be made as set forth above and for other good and valuable consideration, receipt whereof is hereby acknowledged by the parties, it is agreed as follows: "
+8,40,for D list B item,"1. Agent hereby transfers, assigns, and conveys to Lender, and grants to Lender a security interest in, all rights of Agent in and to the termination payment and other economic interests (as defined in the Agency Agreement) due or which hereafter become due and payable to Agent under the Agency Agreement as amended from time to time. The assignment and security interest herein granted and conveyed to Lender specifically excludes any payments due under the Agency Agreement other than termination payments (as defined in the R3001 supplement) or proceeds arising from the sale, assignment, or other transfer of Agent’s economic interests hereunder to buyer who has been approved in writing by Allstate Insurance Company.
+
+2. The assignment and security interest herein granted is for collateral purposes only and includes only the assignable rights of Agent to termination payments and other economic interests of Agent under the Agency Agreement and does not convey to Lender or engage Lender to accept or undertake any of Agent’s duties or obligations arising under the Agency Agreement. Therefore, Lender’s receipt and acceptance of this Agreement does not and shall not be construed as conferring upon Lender any obligations or liabilities of any kind or nature under the Agency Agreement and Lender shall not be deemed a third party beneficiary of the Agency Agreement. Upon the termination of the Agency Agreement, Lender shall have all of the rights and remedies available to it under this Agreement or under law, including without limitation the right to notify Allstate thereof and to receive direct payment from Allstate of all termination payments from Allstate to Agent and all remedies available under the Uniform Commercial Code of Illinois. Agent will, at its expense, promptly execute, acknowledge and deliver all such instruments and take all such actions as Lender from time to time may request in order to ensure to Lender the benefits of the liens in and to the collateral intended to be created by this Agreement, including the filing of any necessary Uniform Commercial Code financing statements, which may be filed by Lender with or (to the extent permitted by law) without the signature of Agent, and will cooperate with Lender, at Agent’s expense, in obtaining all necessary approvals and making all necessary filings under federal, state, local or foreign law in connection with such liens or any sale or transfer of the collateral. "
+8,41,footer,"© 2015 Allstate Insurance Company 3 of 6,                                                                                                SAG                                                                            07/01/2017"
+8,42,for D list B item,"3. NOTICE: All notices required or permitted to be given hereunder shall be given in writing, by certified mail, return
+receipt requested, to each of the parties hereto, by depositing such notices in the United States Mail, postage
+properly prepaid, addresses to the parties as shown below, or such other address or addresses as the parties
+may from time to time designate and deliver to the other in writing. Pending such designation, notices shall be
+addressed as follows:"
+8,43,for D list B item,Where to Lender:
+8,44,lender name,"______________________________________________________________________
+                     (Lender Name)"
+8,45,address,"_______________________________________________________
+(Address)"
+8,46,city zip,"____________________________________________
+         (City)                     (State)                           (Zip)"
+8,47,lend email,"________________________________________________________
+(Lender email)"
+8,48,lend phone,"_____________________________________________
+(Lender phone)"
+8,49,add,"_________________________________________________________________________________________________________
+(Additional Lender contact name, phone and email, optional)"
+8,50,Agent label,Where to Agency:
+8,51,agent name,"________________________________________________________________________________
+(AgencyName)"
+8,52,agent address,"____________________________________________________
+(Address)"
+8,53,agent city zip,"_________________________________________________
+       (City)                        (State)                           (Zip)"
+8,54,agent  email,"___________________________________________________
+(Agent email)"
+8,55,agent phone,"________________________________________________
+(Agent phone)"
+8,56,Company to,Where to Allstate :
+8,57,Lending fax,"Allstate Insurance Co.
+"
+8,58,Lend address,"    2775 Sanders Rd., Northbrook, IL 60062 Attn: Allstate Lending Connection®, Suite B2S
+Allstate Lending Connection®
+    Email : <a href=""Allstatelendingconnection@allstate.com "" >Allstatelendingconnection@allstate.com </a> 
+    Phone: (847) 402-2191
+    Fax: (877) 347-6175"
+8,59,to lender form,<b><u> If to Lender: </b></u>
+8,60,from agent form,"4. SPECIFIC PERFORMANCE AND INJUNCTION: It is specifically provided and agreed that suit or claim for
+monetary damages is an inappropriate, insufficient and inadequate remedy against any person or entity who
+violates any of the covenants and agreements hereof and that such person or entity may be enjoined and
+required to specifically perform any and all acts required hereunder. Nothing herein contained nor any acts
+undertaken to compel specific performance by any person as aforesaid, nor any claims or suits for damages,
+nor any other remedy at law is intended to or shall be construed as a waiver or limitation of any person’s or
+entity’s rights to maintain any other action or remedy provided herein or at law."
+8,61,from agent form,"5. ARBITRATION: Any controversy or dispute arising out of or relating to this Agreement or to any portion
+thereof shall be settled by arbitration in accordance with the Commercial Arbitration Rules of the American
+Arbitration Association and judgment upon the award of the Arbitration shall be binding upon the parties here
+to and may be entered in any court having jurisdiction thereof, all rights to appear and review being hereby
+waived by all parties."
+8,62,from agent form,"6. SEVERABILITY: The invalidity or unenforceability of any particular provisions of this Agreement shall not
+affect the other provisions hereof and this Agreement shall be construed in all respects as if such invalid or
+unenforceable provisions were omitted."
+8,63,from agent form,"7. BINDING EFFECT AND BENEFIT: The provisions hereof shall be binding upon and insure to the benefit of
+the parties hereto, their heirs, executors, administrators, successors, and assigns."
+8,64,from agent form,"8. ASSIGNABILITY OF RIGHTS OF LENDER: The Lender may assign its rights under the Agreement in connection with a sale, assignment, pledge or encumbrance of its loan to the Agent/Agency. Lender will make reasonable effort to provide Company with written notice (30) days prior to the effective dates of any such assignment."
+8,65,footer,© 2015 Allstate Insurance Company                                                                                    4 of 6  SAG                                                               07/1/2017
+8,66,from agent form,"9. WAIVERS: No delay on the part of any party in the exercise of any right or remedy shall operate as a waiver hereof, and no single or partial exercise by any party of any right or remedy shall preclude other or further exercise thereof or exercise of any other right or remedy."
+8,67,govern,"10. GOVERNING LAW: This Agreement is being executed in the State of ________________________ and the validity, construction, and enforceability hereof shall be governed in all respects by the Law of the State ________________ ."
+8,68,entire,"11. ENTIRE AGREEMENT AND MODIFICATION: This Agreement sets forth the entire agreement between the parties hereto relating to its subject matter and supersedes any prior agreements, expressed or implied. Any modifications hereto may be made only by an instrument in writing signed by or on behalf of all parties hereto. "
+8,69,page 07 part 04,"12. MULTIPLE EXECUTION: This Agreement is executed in multiple counterparts, each copy of which shall be deemed an original hereof."
+8,70,page 07 part 05,"IN WITNESS WHEREOF, the parties hereto have hereunto set their hands and seals as of the day and year first above written."
+8,71,Agent Title,"<b>Agency
+Accepted: </b>"
+8,72,agent name,"_______________________________________________
+(Print Agent Name)"
+8,73,agent address,"_______________________________________________
+(Address)"
+8,74,agent zip,"_______________________________________________
+            (City)                  (State)                (Zip)"
+8,75,agent sig,"_______________________________________________
+(Agent Signature)                                       (Agent Date)"
+8,76,lender title,"<b>Lender
+Accepted: </b>"
+8,77,lender name,"_______________________________________________
+(Print Authorized Representative Name)"
+8,78,lender address,"_______________________________________________
+(Address)"
+8,79,lender zip,"_______________________________________________
+            (City)              (State)                  (Zip)"
+8,80,Auth sign,"____________________________________________________________________
+(Authorized Representative Signature)            (Authorized Representative Date)"
+8,81,Label,<b>Allstate</b>
+8,82,Rep Sig,"_______________________________________________
+(Authorized Representative Signature)"
+8,83,sign title,"_______________________________________________
+(Title)"
+8,84,sign date,Date:    _______________________________________
+8,85,All state address,"Allstate Insurance Company 
+2775 Sanders Rd
+Northbrook, IL 60062"
+8,86,Attn:,"Attn: Allstate Lending Connection®, Suite B2S"
+8,87,footer,"© 2015 Allstate Insurance Company                                                                   5 of 6, SAG                                                                    07/1/2017"
+8,88,header,"<b>Security Agreement in Economic Interest
+FEE DECLARATION—Exhibit A</b>"
+8,89,agency name,Agent Name: ________________________
+8,90,agent,Agent Number: ________________________
+8,91,sub header,Payment Amount Owed:
+8,92,fee list,$25 Processing Fee
+8,93,pay method,Please select payment method:
+8,94,pay options,BOX - Paper check BOX - Commission Deduction
+8,95,if check note,"If electing paper check, please make check payable to Allstate Insurance Company, and mail to:
+         Allstate Insurance Company, 2775 Sanders Rd., Northbrook, Il 60062 Attn: Allstate Lending Connection®, Suite B2S"
+8,96,greeting,"<u>Acknowledgement by Agent: </u>
+I acknowledge that the information provided on this Processing Fee Declaration is correct."
+8,97,intro,"If automatic deduction is selected above, I authorize Allstate to deduct the funds from my monthly commissions. I understand that if there are insufficient commissions to cover the entire amount of the processing fee in the Commencement Month the balance will be taken from subsequent months until the full balance of the processing fee is reached. "
+8,98,name,Agent Name: _______________________________________________
+8,99,agt sig,Agent Signature: ____________________________________________
+8,100,agt sign,Date:_______________________________________________________
+8,101,From lender,"<u>Acknowledgement by Lender: </u>
+I acknowledge that the information provided on this Granting Processing Fee Declaration is correct."
+8,102,Rep name,Lender Authorized Rep Name: _________________________________
+8,103,Rep sig,Lender Authorized Rep Signature: ______________________________
+8,104,sig date,Date : ____________________________________________________
+8,105,footer,"© 2015 Allstate Insurance Company                                                      6 of 6, SAG                                                             07/01/2017"
+8,106,terminate,"In order to terminate or replace an Assignment of TPP, Security Interest, or Assignment of Commission, Allstate requires wnorittitfeicna tion. The Allstate Lending Connection® does not provide a release form. Please see the guidelines below."
+8,107,graph,Place Png
+8,108,contact info,"CONTACT INFORMATION
+Allstate Lending Connection® 
+Phone: (847)402-2191 
+Email: Allstatelendingconnection@allstate.com 
+Fax: (877) 347-6175
+
+Mailing Address: Allstate Insurance Company, 2775 Sanders Rd., Northbrook, IL 60062 Attn: Allstate Lending Connection®, Suite B2S"
+8,109,footer,© 2015 Allstate Insurance Company                                                                                                        07/01/2017
+8,110,item 58,NOTICE OF TERMINATION WEBSITE
+8,111,item 59,"The Granting of Security Interest and assignment contracts require an Agency to provide prompt notice to Lender(s) if its relationship with Allstate is terminating. However, as a service to lenders, Allstate publishes a list of Agencies who have active Grantings of Security Interest or Assignments with the Allstate Lending Connection® and who have provided or received a 90 day* notice of termination (or such greater number of days as is required by law). This list
+is called the Estimated Termination Report.
+
+Lenders may find the Estimated Termination Report, which lists Agencies who may be terminating their relationship with Allstate at this url: http://www.allstate.com/careers/termagents.aspx"
+8,112,item 60,"Once an Agency terminates an affiliation with Allstate, their entry will be removed from the list. The information that is
+provided includes:"
+8,113,item 61,"State
+Agency name
+Agency Address
+Lender name
+Estimated date of termination
+Estimated termination type (Sale of Agency or Termination Payments)"
+8,114,item 62,Allstate does not guarantee that the Estimated Termination Report is all inclusive. This is for informational purposes only and does not relieve the Lender from performing any necessary due diligence to protect their interest.
+8,115,item 63,"If you have questions regarding the Estimated Termination Report, please contact the Allstate Lending Connection®."
+8,116,item 64,Allstate Lending Connection®: Allstatelendingconnection@allstate.com (847) 402-2191
+8,117,item 65,* Or such greater number of days as is required by law
+8,118,footer,© 2015 Allstate Insurance Company                                                                                                                                  07/1/2017
