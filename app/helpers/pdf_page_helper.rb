@@ -624,8 +624,8 @@ module PdfPageHelper
 							sect_monthly = item_array[23]
 							sect_monthly = sect_monthly.sub('#{payment_mth_day}', rec_set[15].to_s  )
 
-							sect_04 = item_array[25]
-							sect_04 = sect_04.sub('#{payment_mth_day}', rec_set[15]  )
+							# sect_04 = item_array[25]
+							# sect_04 = sect_04.sub('#{payment_mth_day}', rec_set[15]  )
 
 
 							sect_05 = item_array[26]
