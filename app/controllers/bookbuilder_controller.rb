@@ -60,10 +60,10 @@ class BookbuilderController < ApplicationController
            puts row
            PagePart.create!(row.to_hash)
         end
-        CSV.foreach(imp_page_p, :headers => true) do |row|
-           puts row
-           PagePart.create!(row.to_hash)
-        end
+        # CSV.foreach(imp_page_p, :headers => true) do |row|
+        #    puts row
+        #    # PagePart.create!(row.to_hash)
+        # end
     end
         # @page_parts = PagePart.all
         # @layouts = PageLayout.all
@@ -84,10 +84,10 @@ class BookbuilderController < ApplicationController
                 puts row
                 PageLayout.create!(row.to_hash)
             end
-            CSV.foreach(imp_page_lay, :headers => true) do |row|
-                puts row
-                PageLayout.create!(row.to_hash)
-            end
+            # CSV.foreach(imp_page_lay, :headers => true) do |row|
+            #     puts row
+            #     # PageLayout.create!(row.to_hash)
+            # end
         end
     #     @layouts = PageLayout.all
     #     @page_parts = PagePart.all
@@ -106,11 +106,11 @@ class BookbuilderController < ApplicationController
         if(@layouts.length <= 193)
             CSV.foreach(imp_page_09, :headers => true) do |row|
                 # puts row
-                PagePart.create!(row.to_hash)
+                # PagePart.create!(row.to_hash)
             end
             CSV.foreach(imp_lay_09, :headers => true) do |row|
                 # puts row
-                PageLayout.create!(row.to_hash)
+                # PageLayout.create!(row.to_hash)
             end
         end
     #     @layouts = PageLayout.all
@@ -135,7 +135,7 @@ class BookbuilderController < ApplicationController
             end
             CSV.foreach(imp_lay_08, :headers => true) do |row|
                 # puts row
-                PageLayout.create!(row.to_hash)
+                # PageLayout.create!(row.to_hash)
             end
         end
     #     @layouts = PageLayout.all
