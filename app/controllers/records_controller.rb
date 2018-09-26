@@ -208,7 +208,8 @@ class RecordsController < ApplicationController
                                       :payment_type,
                                       :account_type,
                                       :assignment_type,
-                                      :check_type
+                                      :check_type, 
+                                      :business_type
                                      )
     end
 end
