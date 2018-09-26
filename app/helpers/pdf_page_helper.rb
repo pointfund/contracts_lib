@@ -621,10 +621,10 @@ module PdfPageHelper
 							# sect_03 = sect_03.sub('#{repay_penalty}', number_to_currency(records_array.repay_penalty ) )
 							sect_03 = sect_03.sub('#{loan_act_fee}',  number_to_currency(rec_set[16].to_s )  + ".00")
 
-							# sect_monthly = item_array[23]
-							# sect_monthly = sect_monthly.sub('#{payment_mth_day}', rec_set[15].to_s  )
+							sect_monthly = item_array[23].to_s
+							sect_monthly = sect_monthly.sub('#{payment_mth_day}', rec_set[15].to_s  )
 
-							sect_04 = item_array[25]
+							sect_04 = item_array[25].to_s
 							sect_04 = sect_04.sub('#{payment_mth_day}', rec_set[15]  )
 
 
