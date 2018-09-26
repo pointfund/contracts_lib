@@ -185,55 +185,24 @@
 
                         <%= form.label "Assignment in months" %>
                         <%= form.text_field :term_assignment_mths, class: "form-control" %>
-                        <h4>
-                            <%= form.label "Payment Method" %><br />
-                        </h4>
-                        <%= #form.text_field :position 
-                        %>
-                        <%= #form.checkbox(:position, [:id, :name]) 
-                        %>
-                        <%= #form.check_box :position, ['seventh', 'eighth', 'tenth'], class: "custom-select" 
-                        %>
-                        <!--  <div class="input-group mb-3 cap-form">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text form_imput check_box_form "> -->
-                                    <!-- <input type="checkbox" aria-label="Checkbox for following text input">
-
-               
-                                </div>
-                            </div>
-                            -->
-        
-                            <%= #form.check_box :position, :class "form-control" {north: "up", south: "down"  }, "true", "false"
-                            %>
-                            <!-- <input type="text" class="form-control" aria-label="Text input with checkbox"> -->
-                        <!-- </div> -->
+                      
                         <div class="cap-form">
-                            <% if  :payment_type == 0%>
-                                <% %>
-                                <% payment_type = true %>
-                                <%= form.check_box(:payment_type, {}, 0, nil)        %>     Paper Check (Lender)         <br />
-                            <% else %>
-                                <%= form.check_box(:payment_type, {}, 0, nil)        %>     Paper Check (Agency)      <br />
-                            <% end %>
-
-
-                            <%= #form.check_box(:payment_type, {:multiple => true}, 0, nil)        
-                            %>   Paper Check        <br />
-                            
-
-
-
-                            <%= form.check_box(:payment_type, {}, 1, nil)        %>   Deduction (Agency)       <br />
+                
                             <h4>
-                                <%= form.label  "Banking Account" %><br />
+                                <%= form.label "Payment Type" %><br />
+                            </h4>
+                            <%= #record.payment_type.to_s
+                             %>
+                            <%= form.check_box(:payment_type, {}, 0, nil)        %>   Eletronic (ACH)   <br />
+
+                            <%= form.check_box(:payment_type, {}, 1, nil)        %>   Paper Check             <br />
+                            <h4>
+                                <%= form.label "Banking Account" %><br />
                             </h4>
                             <%= form.check_box(:account_type, {}, 0, nil)    %>   Checking  <br />
                             <%= form.check_box(:account_type, {}, 1, nil)    %>   Savings  <br />
                             <%= #form.check_box(:position, {:multiple => true}, "paw", nil)         
-                             %>   
-
-
+                            %>   
                             <h4>
                                 <%= form.label "Payment Owed" %><br />
                             </h4>
@@ -242,6 +211,22 @@
                             <%= form.check_box(:assignment_type, {}, 2, nil)    %>  Refinance  <br />
                             <%= #form.check_box(:position, {:multiple => true}, "paw", nil)         
                              %>   
+                             <!-- Gimmie Paw <br /> -->
+                            <h4>
+                            <%= form.label "Paper Check type" %><br />
+                            </h4>
+                            <%= form.check_box(:check_type, {}, 0, nil)        %>   Paper Check (Lender)      <br />
+                            <% # end %>
+                            <%= # form.check_box(:payment_type, {:multiple => true}, 1, nil)        
+                            %> <!--   Paper Check (Agency)      <br /> -->
+                            <%= form.check_box(:check_type, {}, 1, nil)        %>   Paper Check   (Agency)          <br />
+                            <%= form.check_box(:check_type, {}, 2, nil)        %>   Deduction     (Agency)        <br />
+                            <h4>
+                               <%= form.label "Business Type" %><br />
+                            </h4>
+                            <%= form.check_box(:business_type, {}, 0, nil)    %>  Sole  <br />
+                            <%= form.check_box(:business_type, {}, 1, nil)    %>  Corp. or LLC <br />
+                          
                              <!-- Gimmie Paw <br /> -->
                         </div>
                     </div>
