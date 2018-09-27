@@ -2764,13 +2764,13 @@ module PdfPageHelper
 			# #para 03 8
 			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				pdf.text sign_to
-			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# # #ender 9
 			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
 				pdf.text item_array[step], :leading => 2
-			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# # #sign to 10
@@ -2783,7 +2783,7 @@ module PdfPageHelper
 			# #sign from 11
 			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 200, :height => 60) do
 				pdf.text item_array[step], :leading => 2
-				get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# #sign from 11
