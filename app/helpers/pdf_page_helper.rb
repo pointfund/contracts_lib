@@ -873,48 +873,48 @@ module PdfPageHelper
 							# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
-
+							# promise
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 210) do
 								pdf.text promise.chomp, :inline_format => true
 							# # 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
-
+							# define 
 						    pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 110) do
 								pdf.text item_array[step].chomp.to_s, :inline_format => true
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
-
+							# terms 
 						    pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 460, :height => 240) do
 								# pdf.font "arial" 
-								pdf.text sect_02, :inline_format => true , :leading => 8
+								pdf.text sect_02, :inline_format => true , :leading => 12
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
-							
+							#section 3
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
 								# pdf.font "arial", size: 11
-								pdf.text item_array[step].to_s, :inline_format => true
+								pdf.text item_array[step].to_s, :inline_format => true , :leading => 1
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 200) do
-								pdf.text sect_03, :inline_format => true #, size: 12
+								pdf.text sect_03, :inline_format => true , :leading => 1
 							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end 
 							step = up_one(step)
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 100) do
-								pdf.text item_array[step].to_s, :inline_format => true
+								pdf.text item_array[step].to_s, :inline_format => true, :leading => 1
 							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 520, :height => 100) do
-								pdf.text sect_monthly.to_s, :inline_format => true
+								pdf.text sect_monthly.to_s, :inline_format => true, :leading => 2
 							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
@@ -948,38 +948,38 @@ module PdfPageHelper
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 100) do
 								# pdf.font "arial"
-								pdf.text sect_04, size: 12, :inline_format => true
+								pdf.text sect_04, size: 12, :inline_format => true, :leading => 1
 								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 100) do
 								# pdf.font "arial"
-								pdf.text sect_05.to_s, :inline_format => true
+								pdf.text sect_05.to_s, :inline_format => true, :leading => 1
 								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 130) do
 								# pdf.font "arial"
-								pdf.text sect_06.to_s, :inline_format => true
+								pdf.text sect_06.to_s, :inline_format => true, :leading => 1
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 150) do
 								# pdf.font "arial"
-								pdf.text sect_07.to_s, :inline_format => true
+								pdf.text sect_07.to_s, :inline_format => true, :leading => 1
 								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 510, :height => 300) do
 							# pdf.font "arial"
-							pdf.text sect_08.to_s, :inline_format => true
+							pdf.text sect_08.to_s, :inline_format => true, :leading => 1
 								# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 100) do
 							# pdf.font "arial"
-								next_line = pdf.text item_array[step].to_s, :inline_format => true
+								next_line = pdf.text item_array[step].to_s, :inline_format => true, :leading => 1
 							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
@@ -996,41 +996,39 @@ module PdfPageHelper
 						##########################################################################################
 						pdf.start_new_page
 
-
-
 							pdf.bounding_box([0, 90],{ :width => 90, :height => 100 }) do
 						      	pdf.fill_color "000000"
 								pdf.rectangle [474, 12], 50, 1
 								pdf.fill_rectangle [10, 100],0, 0
-
-
 								pdf.fill_color "000000"
 						    end
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 300) do
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 420, :height => 300) do
 								# pdf.font "arial"
-								next_line = pdf.text item_array[step].to_s, :inline_format => true
+								pdf.indent(20) do
+									next_line = pdf.text item_array[step].to_s, :inline_format => true, :leading => 1
+								end
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 300) do
 								# pdf.font "arial"
-								pdf.text item_array[step].to_s, :inline_format => true
+								pdf.text item_array[step].to_s, :inline_format => true, :leading => 1
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 150) do
 								# pdf.font "arial"
-								pdf.text item_array[step].to_s, :inline_format => true
+								pdf.text item_array[step].to_s, :inline_format => true, :leading => 1
 							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 100) do
 								# pdf.font "arial"
-								pdf.text item_array[step].to_s, :inline_format => true
+								pdf.text item_array[step].to_s, :inline_format => true, :leading => 1
 							# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
@@ -1206,7 +1204,7 @@ module PdfPageHelper
 
 							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 500, :height => 30) do
 								# pdf.font "arial"
-								pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :align => :center
+								pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :align => :left
 								# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 							end
 							step = up_one(step)
@@ -1388,7 +1386,7 @@ module PdfPageHelper
 								pdf.fill_color "000000"
 						    end
 
-							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 490, :height => 40) do
+							pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 40) do
 								# pdf.font "arial"
 								pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :size => 12, :align => :center
 								# , :inline_format => true, :size => 12, style: :bold
@@ -1539,7 +1537,7 @@ module PdfPageHelper
 								end
 								step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 30) do
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 30) do
 									# pdf.font "arial"
 									pdf.text item_array[step].to_s, :inline_format => true, :size => 12, style: :bold, :align => :center
 													# , :inline_format => true, :size => 12, style: :bold, :align => :center
@@ -1713,7 +1711,7 @@ module PdfPageHelper
 								end
 								step = up_one(step)
 
-								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 480, :height => 150) do
+								pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 530, :height => 150) do
 									# pdf.font "arial"
 									pdf.text item_array[step].to_s, :inline_format => true, style: :bold, :size => 12, :align => :center
 													# , :inline_format => true, :size => 12, style: :bold, :align => :center
@@ -2718,7 +2716,7 @@ module PdfPageHelper
 			# name
 			step = up_one(step)  
 			pdf.bounding_box([ place_array[step][0], place_array[step][1]],{ :width => 400, :height => 16}) do
-				pdf.text full_name	
+				pdf.text full_name , :leading => 8
 				# get_page_loc(step, place_array, pdf, place_array[step][0], place_array[step][1] )
 			end
 			step = up_one(step)
@@ -2744,13 +2742,13 @@ module PdfPageHelper
 
 			step = up_one(step)
 			# para 1
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 420, :height => 16) do
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 410, :height => 16) do
 				pdf.text para_A
 			end
 			step = up_one(step)
 			# #para 01 6
-			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 420, :height => 40) do
-				pdf.text item_array[step]
+			pdf.bounding_box([ place_array[step][0], place_array[step][1]], :width => 410, :height => 40) do
+				pdf.text item_array[step], :leading => 2
 			# 	# pdf.text item_array[5]
 			# 	pdf.text para_A 
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
@@ -2759,8 +2757,8 @@ module PdfPageHelper
 			# # end
 			step = up_one(step)
 			# #para 02 7
-			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 420, :height => 40) do
-				pdf.text para_C
+			pdf.bounding_box([ place_array[step][0], place_array[step][1] ], :width => 410, :height => 40) do
+				pdf.text para_C, :leading => 2
 			end
 			step = up_one(step) 
 			# #para 03 8
@@ -2771,21 +2769,21 @@ module PdfPageHelper
 			step = up_one(step)
 			# # #ender 9
 			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
-				pdf.text item_array[step]
+				pdf.text item_array[step], :leading => 2
 			# 	get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# # #sign to 10
 			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 400, :height => 30) do
-				pdf.text item_array[step]
+				pdf.text item_array[step], :leading => 2
 			# 	pdf.text sign_to
 			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# #sign from 11
 			pdf.bounding_box([place_array[step][0], place_array[step][1]], :width => 200, :height => 60) do
-				pdf.text item_array[step]
-			# 	# get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
+				pdf.text item_array[step], :leading => 2
+				get_page_loc(step, place_array, pdf, place_array[step][0] , place_array[step][1] )
 			end
 			step = up_one(step)
 			# #sign from 11
