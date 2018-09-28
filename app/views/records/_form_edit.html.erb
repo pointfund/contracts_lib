@@ -215,6 +215,18 @@
                     </div>
                      <!-- <div class="cap-form"> -->
 
+
+
+                    <%= form.label "Agency" %>
+                    <%= #form.collection_select :agency_id, @agencies, :id, :agt_name, :selected => :agt_id 
+                    %>
+                    <%= form.collection_select :agt_id, @agencies, :id, :agt_name, :selected => :agt_id %>
+
+
+
+                    <%= form.label "Lender" %>
+                    <%= form.collection_select :lend_id, @lenders, :id, :lend_name, :selected => :lend_id %>
+
                     <%= form.label :agent_num %>
                     <%= form.text_field :agent_num,                                 class: "form-control"  %>
                     <br >
@@ -275,8 +287,6 @@
                 <%= form.check_box(:account_type, {}, 1, nil)    %>   Savings  <br />
                 <%= #form.check_box(:position, {:multiple => true}, "paw", nil)         
                 %>   
-
-
                 <h4>
                     <%= form.label "Payment Owed" %><br />
                 </h4>
@@ -295,10 +305,6 @@
                 %> <!--   Paper Check (Agency)      <br /> -->
                 <%= form.check_box(:check_type, {}, 1, nil)        %>   Paper Check   (Agency)          <br />
                 <%= form.check_box(:check_type, {}, 2, nil)        %>   Deduction     (Agency)        <br />
-
-
-
-
                 <h4>
                    <%= form.label "Business Type" %><br />
                 </h4>
@@ -308,39 +314,26 @@
                 <%= #form.check_box(:position, {:multiple => true}, "paw", nil)         
                  %>   
                  <!-- Gimmie Paw <br /> -->
-
-
-
-
             </div>
 
 
                 <!-- </div> -->
             </div>
+
+
         </div>
+
+
+
+    <%= #render "agencies/agent_select" , agencies: @agents 
+    %>
+    <%= #render "lenders/lender_select" , lenders: @lenders 
+    %>
+
 
 
         <% end %>
         <!-- </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
 <!-- </div> -->

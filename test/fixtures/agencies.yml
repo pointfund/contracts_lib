@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  agt_busi_name: MyString
+  agt_num: MyString
+  agt_name: MyString
+
+two:
+  agt_busi_name: MyString
+  agt_num: MyString
+  agt_name: MyString

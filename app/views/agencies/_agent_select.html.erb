@@ -1,0 +1,18 @@
+<div class="btn-group dropup">
+	<div type="button" class="btn btn-default dropdown-toggle  btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Agency Check <span class="caret"></span>
+	</div>
+	<ul class="dropdown-menu">
+	<% @agencies.length.times do |var|%>
+	<!-- some_controller_name/some_get_request -->
+		<li><%= #link_to agencies_index_path(rec_id: @agencies[var].id.to_s ) do  
+		%>
+			<%= @agencies[var].id.to_s + " : "%>
+			<%= @agencies[var].agt_busi_name + " -" +  @agencies[var].agt_name %>
+		<% # end 
+		%>
+		</li>
+	<% end %>
+	<li role="separator" class="divider"></li>
+	<li><%= link_to "Add New Agency",{controller: "agencies", action: "new"}  %></li>
+</ul>

@@ -95,7 +95,13 @@
             </div> -->
                 <div class="panel-body panel-client"  style="">                <h4 >Loan Info :</h4> 
                     <div class="field form_imput">
- 
+                    <%= form.label "Lender " + Lender.find(record.lend_id).lend_name.to_s %>
+                    <%=# form.text_field :lend_id, class: "form-control"  
+                    %>
+                    
+
+
+
                     <!--  </div>
                     <div class="field"> -->
                     <%= form.label :loan_amount %>
@@ -171,6 +177,11 @@
                     <h4 >Agent Info :</h4> 
                         <div class="panel-body">
                     <div class="field form_imput">
+                        <% setbar = record.agt_id%>
+                    <%= form.label "Agent " + Agency.find(record.agt_id).agt_name.to_s %>
+                    <%= form.text_field :agt_id, class: "form-control"  %>
+                    
+
                         <%= form.label "Commencement Month" %>
                         <%= form.text_field :commencement_m, class: "form-control" %>
 

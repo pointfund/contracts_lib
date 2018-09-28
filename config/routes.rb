@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lenders
+  resources :agencies
   get 'bookbuilder/show'
   get 'bookbuilder/play'
   get 'bookbuilder/build_parts'

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Agencies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Agt busi name</th>
+      <th>Agt num</th>
+      <th>Agt name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agencies.each do |agency| %>
+      <tr>
+        <td><%= agency.agt_busi_name %></td>
+        <td><%= agency.agt_num %></td>
+        <td><%= agency.agt_name %></td>
+        <td><%= link_to 'Show', agency %></td>
+        <td><%= link_to 'Edit', edit_agency_path(agency) %></td>
+        <td><%= link_to 'Destroy', agency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agency', new_agency_path %>

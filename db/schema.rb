@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_26_143025) do
+ActiveRecord::Schema.define(version: 2018_09_28_160044) do
+
+  create_table "agencies", force: :cascade do |t|
+    t.string "agt_busi_name"
+    t.string "agt_num"
+    t.string "agt_name"
+    t.string "agt_addr"
+    t.string "agt_city"
+    t.string "agt_state"
+    t.string "agt_zip"
+    t.string "agt_email"
+    t.string "agt_phone"
+    t.string "agt_notes"
+    t.string "agt_memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -23,6 +39,21 @@ ActiveRecord::Schema.define(version: 2018_09_26_143025) do
     t.string "name"
     t.integer "sections"
     t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lenders", force: :cascade do |t|
+    t.string "lend_name"
+    t.string "lend_contact"
+    t.string "lend_addr"
+    t.string "lend_city"
+    t.string "lend_state"
+    t.string "lend_zip"
+    t.string "lend_email"
+    t.string "lend_phone"
+    t.string "lend_notes"
+    t.string "lend_memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -109,6 +140,8 @@ ActiveRecord::Schema.define(version: 2018_09_26_143025) do
     t.integer "assignment_type"
     t.integer "check_type"
     t.integer "business_type"
+    t.integer "agt_id"
+    t.integer "lend_id"
   end
 
   create_table "users", force: :cascade do |t|

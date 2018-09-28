@@ -1,0 +1,4 @@
+class Agency < ApplicationRecord
+
+	
+end

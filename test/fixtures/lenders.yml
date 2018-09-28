@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lend_name: MyString
+  lend_contact: MyString
+  lend_addr: MyString
+
+two:
+  lend_name: MyString
+  lend_contact: MyString
+  lend_addr: MyString

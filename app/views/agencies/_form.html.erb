@@ -1,0 +1,111 @@
+<div class="panel row whole-page panel-body" >
+<%= form_with(model: agency, local: true) do |form| %>
+  <% if agency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(agency.errors.count, "error") %> prohibited this agency from being saved:</h2>
+
+      <ul>
+      <% agency.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+        <div class="col-lg-2 outline" style="background:#90DFD9;  padding: 10px; height:100%; ">
+          <!-- <div class="panel"> -->
+            <div class="field form_imput input-group input-group-sm form-part">
+            <h3> <%= form.label "Agency Information:" %></h3>
+               
+            <div class="field">
+            <%= form.label "Agency Business Name" %>
+            <%= form.text_field :agt_busi_name %>
+            </div>
+
+            <div class="field">
+            <%= form.label "Agent Number" %>
+            <%= form.text_field :agt_num %>
+            </div>
+
+            <div class="field">
+            <%= form.label "Agent Name" %>
+            <%= form.text_field :agt_name %>
+            </div>
+
+            <div class="field">
+            <%= form.label "Agency Email" %>
+            <%= form.text_field :lend_email %>
+            </div>
+
+            <div class="field">
+            <%= form.label "Agency phone" %>
+            <%= form.text_field :lend_phone %>
+            </div>
+
+
+            </div></div>
+              <div class="col-lg-2 outline" style="background:#90DFD9;  padding: 10px; height:100%; ">     
+            <div class="field form_imput input-group input-group-sm form-part">
+            <h3> <%= form.label "Agency Address:" %></h3>
+                <div class="field">
+                  <%= form.label "Agency Address - Street " %>
+                  <%= form.text_field :agt_addr %>
+                </div>
+
+  
+
+                <div class="field">
+                  <%= form.label "Agency Address - City " %>
+                  <%= form.text_field :lend_city %>
+                </div>
+
+                <div class="field">
+                  <%= form.label "Agency Address - State " %>
+                  <%= form.text_field :lend_state %>
+                </div>
+
+                <div class="field">
+                  <%= form.label "Agency Address - Zip " %>
+                  <%= form.text_field :lend_zip %>
+                </div>
+
+                 </div>
+            </div>
+
+            <div class="col-lg-2 outline" style="background:#90DFD9;  padding: 10px; height:100%; ">     
+            <div class="field form_imput input-group input-group-sm form-part">
+            <h3> <%= form.label "Agency Notes:" %></h3>
+
+
+
+  <div class="field">
+    <%= form.label "Agency Notes " %>
+    <%= form.text_field :lend_notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Agency Memo " %>
+    <%= form.text_field :lend_memo %>
+  </div>
+
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+<% end %>
+  </div>

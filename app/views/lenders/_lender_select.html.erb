@@ -1,0 +1,19 @@
+<div class="btn-group dropup">
+	<div type="button" class="btn btn-default dropdown-toggle  btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Lender Check <span class="caret"></span>
+	</div>
+	<ul class="dropdown-menu">
+	<% @lenders.length.times do |var|%>
+	<!-- some_controller_name/some_get_request -->
+		<li><%= # link_to lenders_index_path(rec_id: @lenders[var].id.to_s ) do  
+		%>
+			<%= @lenders[var].id.to_s + " : " %>
+			<%= @lenders[var].lend_name %>
+		<% #end 
+		%>
+		</li>
+	<% end %>
+	<li role="separator" class="divider"></li>
+	
+	<li><%= link_to "Add New Lender",{controller: "lenders", action: "new"}  %></li>
+</ul>

@@ -31,7 +31,8 @@ class RecordsController < ApplicationController
   # GET /records/new
     def new
         @record = Record.new
-
+          @agencies = Agency.all
+          @lenders = Lender.all
            @full_name = "Full Name " 
            @daily_late_fee = 0.0 
            @total_pay = 0.0
@@ -41,6 +42,8 @@ class RecordsController < ApplicationController
   # GET /records/1/edit
   def edit
         @record = Record.find(params[:id])
+                  @agencies = Agency.all
+          @lenders = Lender.all
         # record.fin_fee * record.repay_term1
         # record.total_amount = record.fin_fee * record.repay_term1
         # @new =  record.loan_amount
@@ -209,7 +212,9 @@ class RecordsController < ApplicationController
                                       :account_type,
                                       :assignment_type,
                                       :check_type, 
-                                      :business_type
+                                      :business_type,
+                                      :agt_id,
+                                      :lend_id
                                      )
     end
 end

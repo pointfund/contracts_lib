@@ -1,0 +1,102 @@
+    <div class="panel row whole-page panel-body" >
+
+<%= form_with(model: lender, local: true) do |form| %>
+  <% if lender.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lender.errors.count, "error") %> prohibited this lender from being saved:</h2>
+
+      <ul>
+      <% lender.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+        <div class="col-lg-2 outline" style="background:#90DFD9;  padding: 10px; height:100%; ">
+          <!-- <div class="panel"> -->
+            <div class="field form_imput input-group input-group-sm form-part">
+            <h3> <%= form.label "Lender Information:" %></h3>
+                <div class="field">
+                  <%= form.label "Lender Name" %>
+                  <%= form.text_field :lend_name %>
+                </div>
+
+                <div class="field">
+                  <%= form.label "Lender Contact " %>
+                  <%= form.text_field :lend_contact %>
+                </div>
+                <div class="field">
+                  <%= form.label "Lender E-mail " %>
+                  <%= form.text_field :lend_email %>
+                </div>
+
+                <div class="field">
+                  <%= form.label "Lender Phone" %>
+                  <%= form.text_field :lend_phone %>
+                </div>
+            </div></div>
+              <div class="col-lg-2 outline" style="background:#90DFD9;  padding: 10px; height:100%; ">     
+            <div class="field form_imput input-group input-group-sm form-part">
+            <h3> <%= form.label "Lender Address:" %></h3>
+                <div class="field">
+                  <%= form.label "Lender Address - Street " %>
+                  <%= form.text_field :lend_addr %>
+                </div>
+
+                <div class="field">
+                  <%= form.label "Lender Address - City " %>
+                  <%= form.text_field :lend_city %>
+                </div>
+
+                <div class="field">
+                  <%= form.label "Lender Address - State " %>
+                  <%= form.text_field :lend_state %>
+                </div>
+
+                <div class="field">
+                  <%= form.label "Lender Address - Zip " %>
+                  <%= form.text_field :lend_zip %>
+                </div>
+                 </div>
+            </div>
+
+            <div class="col-lg-2 outline" style="background:#90DFD9;  padding: 10px; height:100%; ">     
+            <div class="field form_imput input-group input-group-sm form-part">
+            <h3> <%= form.label "Lender Notes:" %></h3>
+
+
+
+
+                <div class="field">
+                  <%= form.label "Lender Notes " %>
+                  <%= form.text_field :lend_notes %>
+                </div>
+
+                <div class="field">
+                  <%= form.label "Lender Memo " %>
+                  <%= form.text_field :lend_memo %>
+                </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% end %>
+  </div>

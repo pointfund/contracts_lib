@@ -1,0 +1,3 @@
+class Lender < ApplicationRecord
+	
+end

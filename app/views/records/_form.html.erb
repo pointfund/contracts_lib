@@ -60,13 +60,16 @@
                         <%= form.label :loan_act_fee %>
                         <%= form.text_field :loan_act_fee,                          class: "form-control"  %>
 
-                        <%= form.label :repay_term1 %>
-                        <%= # form.select( :repay_term1, [seven, eight, ten]) 
+                        <%= form.label "Term in months" %>
+                        <%= form.text_field :repay_term1
                         %>
-                        <%= form.select :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select" %>
-                        <%= form.label :repay_term2 %>
-                        <%= form.select :repay_term2, ['seventh', 'eighth', 'tenth', 'twelfth', 'eighteenth', 'twentyfourth'],               class: "custom-select" %>
-                   
+                        <%= #form.select :repay_term1, ['7', '8', '10', '12', '18', '24'], class: "custom-select" 
+                        %>
+                        <%= form.label "Term in n:th" %>
+                        <%= #form.select :repay_term2, ['seventh', 'eighth', 'tenth', 'twelfth', 'eighteenth', 'twentyfourth'],               class: "custom-select" 
+                        %>
+                       <%= form.text_field :repay_term2
+                        %>
                         <%= form.label :stated_rate.to_s + " %"%>
                         <%= form.text_field :stated_rate, size: 4 ,                 class: "form-control" %>
                     
@@ -214,15 +217,25 @@
                     </div>
                      <!-- <div class="cap-form"> -->
 
+
+
+                    <%= form.label "Agency" %>
+                    <%= form.collection_select :agency_id, @agencies, :id, :agt_name, :selected => :agt_id %>
                     <%= form.label :agent_num %>
                     <%= form.text_field :agent_num,                                 class: "form-control"  %>
                     <br >
                     <br >
-                    <%= form.label :agent_email %>
-                    <%= form.text_field :agent_email,                               class: "form-control"  %>
+                    <%= form.label "Lender" %>
+                    <%= form.collection_select :lender_id, @lenders, :id, :lend_name, :selected => :lend_id %>
+                    <%= # form.label :agent_email 
+                    %>
+                    <%= # orm.text_field :agent_email,                               class: "form-control"  
+                    %>
 
-                    <%= form.label :agent_phone %>
-                    <%= form.text_field :agent_phone,                               class: "form-control"  %>
+                    <%= # form.label :agent_phone 
+                    %>
+                    <%= # form.text_field :agent_phone,                               class: "form-control"  
+                    %>
 
                     <%= form.label :term_assignment_mths %>
                     <%= form.text_field :term_assignment_mths,                      class: "form-control"  %>
@@ -233,11 +246,9 @@
 
 
 
-
-
-
                 </div>
             </div>
+
         </div>
 
 
@@ -248,10 +259,11 @@
                 <%= form.submit class: "btn btn-success" %>
             </div>  
         </div>
-
-
-
         
+
+
+
+
 
 <div class="col-lg-2  outline" style="background:#eee9cd;   padding: 10px; height:100%; ">
     <div class="panel">
@@ -308,6 +320,12 @@
         </div>
 
 
+
+
+    <%= render "agencies/agent_select" , agencies: @agents 
+    %>
+    <%= render "lenders/lender_select" , lenders: @lenders 
+    %>
 
 
 
