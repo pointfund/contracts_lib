@@ -95,10 +95,15 @@
             </div> -->
                 <div class="panel-body panel-client"  style="">                <h4 >Loan Info :</h4> 
                     <div class="field form_imput">
-                    <%= form.label "Lender " + Lender.find(record.lend_id).lend_name.to_s %>
+                    <%= form.label "Current Lender : " + Lender.find(record.lend_id).lend_name.to_s %>
                     <%=# form.text_field :lend_id, class: "form-control"  
                     %>
                     
+                    <%= form.label "Lender" %>
+                    <%= form.collection_select :lend_id, @lenders, :id, :lend_name, :selected => :lend_id %>
+                        <%= form.label "Bank          : " + Lender.find(record.lend_id).bank_name.to_s, class: "form-control" %>
+                        <%= form.label "R: " + Lender.find(record.lend_id).bank_routing.to_s, class: "form-control" %>
+                        <%= form.label "A: " + Lender.find(record.lend_id).bank_account.to_s, class: "form-control" %>
 
 
 
@@ -108,7 +113,7 @@
                     <%= form.text_field :loan_amount, class: "form-control"  %>
                         <!-- </div>
                         <div class="field"> -->
-                    <%= form.label :total_amount %>
+                    <%= form.label "Loan Fee" %>
                     <%= form.text_field :total_amount, class: "form-control"  %>
 
                     <%= form.label :payment_mth_day %>
@@ -117,54 +122,55 @@
                     <%= form.label :loan_act_fee %>
                     <%= form.text_field :loan_act_fee, class: "form-control"  %>
 
-
                     <%= form.label :stated_rate %>
                     <div class="cap-form">
                         <%= form.text_field :stated_rate, class: "form-control" %>
                     </div>
 
-                    <%= form.label :repay_penalty %>
+                    <%= form.label :repay_penalty%>
                     <div class="cap-form">
-                        <%= form.text_field :repay_penalty, class: "form-control"  %>
+                        <%= form.text_field :repay_penalty, class: "form-control"   %>
                     </div>
 
                     <%= form.label :daily_late_fee %>
                     <div class="cap-form">
-                        <%= form.text_field :daily_late_fee, class: "form-control"  %>
+                        <%= form.text_field :daily_late_fee, class: "form-control"   %>
                     </div>
 
-                    <%= form.label :total_default %>
-                    <%= form.text_field :total_default, class: "form-control"  %>
+                    <%= #form.label :total_default 
+                    %>
+                    <%= #form.text_field :total_default, class: "form-control"  
+                    %>
                     <!--   </div>
                     <div class="field"> -->
 
 
-                    <%= form.label :current_date %>
+                    <%= form.label :current_date, class: "form-control" %>
                     <div class="cap-form">
-                        <%= form.date_select :current_date, class: "custom-control  form-control " %>
+                        <%= form.date_select :current_date, class: "custom-control " %>
                     </div>
-                    <%= form.label :note_date %>
+                    <%= form.label :note_date, class: "form-control" %>
                     <div class="cap-form">
                         <%= form.date_select :note_date, class: "form-control"  %>    
                     </div>
-                    <%= form.label :repay_start %>
+                    <%= form.label :repay_start, class: "form-control"  %>
                     <%= #form.date_select :current_date 
                     %>
                     <div class="cap-form">
-                        <%= form.date_select :repay_start, class: "custom-control form-control " %>
+                        <%= form.date_select :repay_start %>
                     </div>
 
-                    <%= form.label :repay_1st %>
+                    <%= form.label :repay_1st, class: "form-control" %>
                     <div class="cap-form">    
-                        <%= form.date_select :repay_1st, class: "custom-control form-control "  %>
+                        <%= form.date_select :repay_1st, class: "custom-control  "  %>
                     </div>
-                    <%= form.label :repay_mature %>
+                    <%= form.label :repay_mature, class: "form-control" %>
                      <div class="cap-form">    
-                        <%= form.date_select :repay_mature, class: "form-control"  %>
+                        <%= form.date_select :repay_mature  %>
                     </div>
-                    <%= form.label :final_date %>
+                    <%= form.label :final_date, class: "form-control" %>
                     <div class="cap-form" > 
-                        <%= form.date_select :final_date, class: "form-control" %>
+                        <%= form.date_select :final_date, class: "" %>
                     </div>
 
 
@@ -178,9 +184,10 @@
                         <div class="panel-body">
                     <div class="field form_imput">
                         <% setbar = record.agt_id%>
-                    <%= form.label "Agent " + Agency.find(record.agt_id).agt_name.to_s %>
-                    <%= form.text_field :agt_id, class: "form-control"  %>
-                    
+                        <%= # form.label "Agent " + Agency.find(record.agt_id).agt_name.to_s 
+                        %>
+                        <%= #form.text_field :agt_id, class: "form-control"  
+                        %>
 
                         <%= form.label "Commencement Month" %>
                         <%= form.text_field :commencement_m, class: "form-control" %>
@@ -190,10 +197,7 @@
                         <br />
                         <%= form.label "Total Deduction" %>
                         <%= form.text_field :total_ded, class: "form-control" %>
-
-                        <%= form.label :r3001_date %>
-                        <%= form.text_field :r3001_date, class: "form-control" %>
-
+  
                         <%= form.label :agent_num %>
                         <%= form.text_field :agent_num, class: "form-control" %>
 
@@ -205,9 +209,25 @@
 
                         <%= form.label "Assignment in months" %>
                         <%= form.text_field :term_assignment_mths, class: "form-control" %>
-                      
+
+                        <!-- <div style="border:1px solid red;"> -->
+                        <%= form.label "R3001 Date " , class: "form-control"
+                        %><br />
+                        <%= form.date_select :r3001_date, class: "custom-control form-control" %>
+                        <!-- </div> -->
+
+
+                        <%= form.label "Term in Months " %>
+                        <%= form.text_field :term_assignment_mths, class: "form-control" %>
+                        <!-- <div class="field form_imput"> -->
+
+
+
+
+
+
+
                         <div class="cap-form">
-                
                             <h4>
                                 <%= form.label "Payment Type" %><br />
                             </h4>

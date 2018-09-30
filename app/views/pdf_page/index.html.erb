@@ -5,7 +5,7 @@
 		<%= link_to "Generate Pdf files", pdf_page_create_path(format: 'pdf', create_pages: @record_page_set, rec_id: @my_record ), class: "btn btn-success btn-sm pull-right " %>
 				<div class="btn-group pull-right">
 				<div type="button" class="btn btn-default dropdown-toggle  btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Records <span class="caret"></span>
+				Loans <span class="caret"></span>
 				</div>
 			<ul class="dropdown-menu">
 				<% @records.length.times do |var|%>
@@ -34,14 +34,34 @@
 				<div class="panel panel-heading">
 					<div class="record_slide_lft well well-sm">
 						<div class="btn-group " role="group" aria-label="...">
-							<button type="button" class="btn btn-default btn-sm"><%= link_to "Review Books", books_path %></button>
-							<button type="button" class="btn btn-default  btn-sm"><%= link_to "Review Contracts", contracts_path %></button>
+							<button type="button" class="btn btn-default  btn-sm"><%= link_to "Books", books_path %></button>
+							<button type="button" class="btn btn-default  btn-sm"><%= link_to "Contracts", contracts_path %></button>
 							<button type="button" class="btn btn-default  btn-sm"><%= link_to "New Records", new_record_path %></button>
-							<!-- <button type="button" class="btn btn-default  btn-sm"><%= #link_to ">>", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
-							%></button>
- -->
+							<button type="button" class="btn btn-default  btn-sm"><%= link_to "New Lender", new_lender_path %></button>
+						<!-- 	<button type="button" class="btn btn-default  btn-sm"><%= #link_to ">>", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
+							%></button> -->
+ 							<ul class="dropdown-menu">
+								<li></li>
+							<% @lenders.length.times do |var| %>
+							<!-- some_controller_name/some_get_request -->
+								<li><%= link_to (@lenders[var].id.to_s) do 
+								%>
+								<%= @lenders[var].id %>
+								<%= @lenders[var].lend_name %>
+								<% end 
+								%>
+								</li>
+								<% end 
+								%>
+								<li role="separator" class="divider"></li>
+								<li type="button" class="  btn-sm">
+									<%= #link_to " New Loan", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
+							%></li>
+							</ul>	
+
 						  	<button type="button" class="btn btn-default dropdown-toggle  btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Records <span class="caret"></span></button>
+							Loans <span class="caret"></span></button>
+
 							<ul class="dropdown-menu">
 								<li></li>
 							<% @records.length.times do |var| %>
@@ -56,6 +76,11 @@
 									<%= link_to " Next >>", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
 							%></li>
 							</ul>
+
+
+
+
+
 						</div>
 						<%= render 'records/form_show', record: @record %>
 						<%= #render "pdf_pages/record_display" 

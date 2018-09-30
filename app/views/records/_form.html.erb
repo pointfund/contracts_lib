@@ -203,7 +203,13 @@
         <div class="col-lg-2  outline" style="background:#eee9cd;   padding: 10px; height:100%; ">
             <div class="panel">
                 <div class="field  form_imput outline">
-                    <h3><%= form.label "Agent Information: " %></h3><br >
+                    <h3>
+                        <%= form.label "Agent Information: " %>
+                    </h3><br >
+                    
+                    <%= form.label "Lender" %>
+                    <%= form.collection_select :lender_id, @lenders, :id, :lend_name, :selected => :lend_id %>
+
                         <%= form.label "Commencement Month" %>
                         <%= form.text_field :commencement_m,                        class: "form-control"  %>
                         <%= form.label "Commencement Year "%>
@@ -219,14 +225,15 @@
 
 
 
-                    <%= form.label "Agency" %>
-                    <%= form.collection_select :agency_id, @agencies, :id, :agt_name, :selected => :agt_id %>
+                    <%= #form.label "Agency" 
+                    %>
+                    <%= #form.collection_select :agency_id, @agencies, :id, :agt_name, :selected => :agt_id 
+                    %>
                     <%= form.label :agent_num %>
                     <%= form.text_field :agent_num,                                 class: "form-control"  %>
                     <br >
                     <br >
-                    <%= form.label "Lender" %>
-                    <%= form.collection_select :lender_id, @lenders, :id, :lend_name, :selected => :lend_id %>
+                  
                     <%= # form.label :agent_email 
                     %>
                     <%= # orm.text_field :agent_email,                               class: "form-control"  
@@ -243,6 +250,9 @@
                     <%= form.label :position %>
                     <%= form.text_field :position,                                  class: "form-control"  %>
 
+
+                    <%= form.label :loan_account_num %>
+                    <%= form.text_field :loan_account_num,                                class: "form-control"  %>
 
 
 

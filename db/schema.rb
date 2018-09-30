@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_28_160044) do
+ActiveRecord::Schema.define(version: 2018_09_30_013132) do
 
   create_table "agencies", force: :cascade do |t|
     t.string "agt_busi_name"
@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(version: 2018_09_28_160044) do
     t.string "lend_memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bank_name"
+    t.string "bank_routing"
+    t.string "bank_account"
   end
 
   create_table "page_areas", force: :cascade do |t|
@@ -142,6 +145,7 @@ ActiveRecord::Schema.define(version: 2018_09_28_160044) do
     t.integer "business_type"
     t.integer "agt_id"
     t.integer "lend_id"
+    t.string "loan_account_num"
   end
 
   create_table "users", force: :cascade do |t|

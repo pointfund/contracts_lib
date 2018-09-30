@@ -36,7 +36,9 @@
                   <%= form.text_field :lend_phone %>
                 </div>
             </div></div>
-              <div class="col-lg-2 outline" style="background:#90DFD9;  padding: 10px; height:100%; ">     
+            
+
+            <div class="col-lg-2 outline" style="background:#90DFD9;  padding: 10px; height:100%; ">     
             <div class="field form_imput input-group input-group-sm form-part">
             <h3> <%= form.label "Lender Address:" %></h3>
                 <div class="field">
@@ -61,6 +63,34 @@
                  </div>
             </div>
 
+
+
+
+
+<div class="col-lg-2 outline" style="background:#90DFD9;  padding: 10px; height:100%; ">     
+            <div class="field form_imput input-group input-group-sm form-part">
+            <h3> <%= form.label "Lender Bank Information:" %></h3>
+                <div class="field">
+                  <%= form.label "Lender Bank - Name " %>
+                  <%= form.text_field :bank_name %>
+                </div>
+
+                <div class="field">
+                  <%= form.label "Lender Bank - Routing " %>
+                  <%= form.text_field :bank_routing %>
+                </div>
+
+
+                <div class="field">
+                  <%= form.label "Lender Bank - Account # " %>
+                  <%= form.text_field :bank_account %>
+                </div>
+                 </div>
+            </div>
+
+
+
+
             <div class="col-lg-2 outline" style="background:#90DFD9;  padding: 10px; height:100%; ">     
             <div class="field form_imput input-group input-group-sm form-part">
             <h3> <%= form.label "Lender Notes:" %></h3>
@@ -74,9 +104,23 @@
                 </div>
 
                 <div class="field">
-                  <%= form.label "Lender Memo " %>
+                  <%= form.label "Lender Memo / Acct" %>
                   <%= form.text_field :lend_memo %>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="actions">
     <%= form.submit %>

@@ -26,6 +26,7 @@ class PdfPageController < ApplicationController
         total_records =  @records.length
         @last_record = total_records - 1
         record = @record
+        @lenders = Lender.all
         # @image_tag = Array.new
         # @images = Dir.glob("app/assets/images/pf_base_btn_set/*.jpg")
         # @form_pages = "<div class='page_samp'>#{@images[0]}</div>"

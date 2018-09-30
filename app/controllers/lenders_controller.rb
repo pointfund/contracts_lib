@@ -78,7 +78,10 @@ class LendersController < ApplicationController
                                       :lend_email,
                                       :lend_phone,
                                       :lend_notes,
-                                      :lend_memo
+                                      :lend_memo,
+                                      :bank_name,
+                                      :bank_routing,
+                                      :bank_account
                                       )
     end
 end

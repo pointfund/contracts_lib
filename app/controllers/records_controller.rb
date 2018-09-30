@@ -214,7 +214,8 @@ class RecordsController < ApplicationController
                                       :check_type, 
                                       :business_type,
                                       :agt_id,
-                                      :lend_id
+                                      :lend_id, 
+                                      :bank_account
                                      )
     end
 end
