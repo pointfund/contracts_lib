@@ -33,9 +33,9 @@ class PdfPageController < ApplicationController
         # @img_lib = @images.length
 
 
-        @contractA = Contract.where({book_id: 1})
-        @contractB = Contract.where({book_id: 2})
-        @contractC = Contract.where({book_id: 3})
+        @contractA = Contract.where({book_id: 1}).reorder('id ASC')
+        @contractB = Contract.where({book_id: 2}).reorder('id ASC')
+        @contractC = Contract.where({book_id: 3}).reorder('id ASC')
 
 
 
@@ -46,7 +46,7 @@ class PdfPageController < ApplicationController
 
     def show
         new_book = Chooser.new
-        @contracts = Contract.all
+        @contracts = Contract.all.reorder('id ASC')
         # @books = Book.where({id: 2})
         @books = Book.all
         # @books = Book.find(1)  
