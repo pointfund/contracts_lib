@@ -593,6 +593,9 @@ border-radius: 9px;
 }
 
 
+#headingOne{
+     background-color: #AAAEBC;
+}
 #headingTwo{
      background-color: #e99a74;
 }
@@ -602,3 +605,18 @@ border-radius: 9px;
 #headingfour{
      background-color: #bfc8df;
 }
+
+
+#accordion .collapsed :hover{
+    -webkit-box-shadow: 4px 7px 5px 1px rgba(0,0,0,0.32);
+    -moz-box-shadow: 4px 7px 5px 1px rgba(0,0,0,0.32);
+    box-shadow: 4px 7px 5px 1px rgba(0,0,0,0.32);
+    background-color: #e99a70;
+}
+#headingthree{
+     background-color: #8ca6f1;
+}
+#headingfour{
+     background-color: #bfc8df;
+}
+

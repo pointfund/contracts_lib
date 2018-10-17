@@ -33,9 +33,28 @@ class PdfPageController < ApplicationController
         # @img_lib = @images.length
 
 
-        # if(params[:create_pages] != ""){
-          @keepage = params[:create_pages]
-        # }
+        @keepage = params[:create_pages].to_s
+        # @keepage = params[:create_pages].to_s
+
+        # if(params[:page] != nil || params[:remove] != nil )
+        # if(params[:remove] != nil)
+        #     @keepage = @keepage.split(",")
+        #     if(@keepage.include?(params[:remove]))
+        #         puts "paper !!"
+        #     end
+        #     @keepage = @keepage.join(", ")
+        # end    
+        # @keepage = params[:create_pages].to_s + ", " + params[:page].to_s
+        # else
+            # @keepage = params[:create_pages].to_s
+        # end
+
+
+
+
+
+
+
 
         @contractA = Contract.where({book_id: 1}).reorder('id ASC')
         @contractB = Contract.where({book_id: 2}).reorder('id ASC')
