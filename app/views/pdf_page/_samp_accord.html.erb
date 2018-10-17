@@ -51,7 +51,7 @@
 	        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 	         Book 1 <%= @books[0].name %>
 	         	<div class="btn">VIEW</div>
-         			<%= link_to "Fill Entire Book", pdf_page_index_path(rec_id: @my_record, "create_pages" =>  "1, 3, " ), class: "btn btn-success pull-right" 
+         			<%= link_to "Fill Entire Book", pdf_page_index_path(rec_id: @my_record, "create_pages" =>  @keepage.to_s +  "1, 3, " ), class: "btn btn-success pull-right" 
 					%>
 	        </a>
 	      </h4>
@@ -100,7 +100,7 @@
 	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsethree" aria-expanded="false" aria-controls="collapseTwo">
 	Book 2 <%= @books[1].name %>
 		<div class="btn">VIEW</div>
-         			<%= link_to "Fill Entire Book", pdf_page_index_path(rec_id: @my_record, "create_pages" =>  "4, 5, 7, " ), class: "btn btn-success pull-right" 
+         			<%= link_to "Fill Entire Book", pdf_page_index_path(rec_id: @my_record, "create_pages" =>  @keepage.to_s +  "4, 5, 7, " ), class: "btn btn-success pull-right" 
 					%>
 	</a>
 	</h4>
@@ -146,7 +146,7 @@
 	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
 	Book 3 <%= @books[2].name %>
 	<div class="btn">VIEW</div>
- 			<%= link_to "Fill Entire Book", pdf_page_index_path(rec_id: @my_record, "create_pages" =>  "6, 8, 9, " ), class: "btn btn-success pull-right" 
+ 			<%= link_to "Fill Entire Book", pdf_page_index_path(rec_id: @my_record, "create_pages" =>  @keepage.to_s +  "6, 8, 9, " ), class: "btn btn-success pull-right" 
 			%>
 
 	</a>

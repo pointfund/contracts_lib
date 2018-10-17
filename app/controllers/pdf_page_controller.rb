@@ -33,6 +33,10 @@ class PdfPageController < ApplicationController
         # @img_lib = @images.length
 
 
+        # if(params[:create_pages] != ""){
+          @keepage = params[:create_pages]
+        # }
+
         @contractA = Contract.where({book_id: 1}).reorder('id ASC')
         @contractB = Contract.where({book_id: 2}).reorder('id ASC')
         @contractC = Contract.where({book_id: 3}).reorder('id ASC')
