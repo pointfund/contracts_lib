@@ -86,7 +86,7 @@ class PdfPageController < ApplicationController
         PageLayout.order('part_area ASC').reorder('id ASC')
 
         get_cont = []
-        @contracts = Contract.all
+        @contracts = Contract.all.reorder('id ASC')
         @records = Record.find(params[:rec_id])
         
         # @records = Record.find(params[:rec_id])
