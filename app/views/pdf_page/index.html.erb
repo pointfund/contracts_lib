@@ -36,29 +36,9 @@
 						<div class="btn-group " role="group" aria-label="...">
 							<button type="button" class="btn btn-default  btn-sm"><%= link_to "Books", books_path %></button>
 							<button type="button" class="btn btn-default  btn-sm"><%= link_to "Contracts", contracts_path %></button>
-							<button type="button" class="btn btn-default  btn-sm"><%= link_to "New Records", new_record_path %></button>
-							<button type="button" class="btn btn-default  btn-sm"><%= link_to "New Lender", new_lender_path %></button>
-						<!-- 	<button type="button" class="btn btn-default  btn-sm"><%= #link_to ">>", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
-							%></button> -->
- 							<ul class="dropdown-menu">
-								<li></li>
-							<% @lenders.length.times do |var| %>
-							<!-- some_controller_name/some_get_request -->
-								<li><%= link_to (@lenders[var].id.to_s) do 
-								%>
-								<%= @lenders[var].id %>
-								<%= @lenders[var].lend_name %>
-								<% end 
-								%>
-								</li>
-								<% end 
-								%>
-								<li role="separator" class="divider"></li>
-								<li type="button" class="  btn-sm">
-									<%= #link_to " New Loan", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
-							%></li>
-							</ul>	
-
+							
+							<button type="button" class="btn btn-default  btn-sm"><%= link_to "Lenders", lenders_path %></button>
+							
 						  	<button type="button" class="btn btn-default dropdown-toggle  btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Loans <span class="caret"></span></button>
 
@@ -73,8 +53,8 @@
 								<% end %>
 								<li role="separator" class="divider"></li>
 								<li type="button" class="  btn-sm">
-									<%= link_to " Next >>", "?rec_id=#{ (params[:rec_id].to_i + 1)}" 
-							%></li>
+									<button type="button" class="btn btn-default  btn-sm"><%= link_to "New Loan", new_record_path %></button>
+								</li>
 							</ul>
 
 

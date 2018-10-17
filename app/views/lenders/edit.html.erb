@@ -1,6 +1,28 @@
 <h1>Editing Lender</h1>
 
-<%= render 'form', lender: @lender %>
-
 <%= link_to 'Show', @lender %> |
-<%= link_to 'Back', lenders_path %>
+
+
+
+
+
+
+<div class="panel panel-default"> 
+    <div class="panel-heading"> 
+		<h1>Editing Lenders</h1>
+	</div>
+			
+
+	<%= render 'form', lender: @lender %>
+
+	<div class="panel-footer"> 
+		<div class=" btn btn-default">
+			<%= link_to 'Show Lender', @lender %> 
+		</div>
+		<div class=" btn btn-default">
+
+			<%= link_to 'Show All Lenders', lenders_path %>
+		</div>
+	</div>
+
+</div>		
