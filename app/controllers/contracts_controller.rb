@@ -5,7 +5,7 @@ before_action :set_contract, only: [:show, :edit, :update, :destroy]
 # GET /contracts.json
 def index
     # @contracts = Contract.all
-    @contracts = Contract.all
+    @contracts = Contract.all.reorder('id ASC')
     @layouts = PageLayout.all
 
     # @contractB = Contract.where("book_id" => "2");
